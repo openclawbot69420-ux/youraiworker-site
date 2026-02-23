@@ -10,33 +10,33 @@ export const metadata: Metadata = {
 const guides = [
   {
     icon: Target,
-    title: "Setting up your first AI agent",
-    description: "Stap-voor-stap van use case kiezen tot go-live.",
+    title: "Je eerste AI agent opzetten",
+    description: "Van use case naar productie: scope, acceptatie en go-live.",
   },
   {
     icon: Clipboard,
-    title: "Choosing the right package",
-    description: "Match je workflow en integraties aan het juiste package.",
+    title: "Het juiste package kiezen",
+    description: "Kies scope, integraties en support die passen bij je workflow.",
   },
   {
     icon: Key,
-    title: "Preparing for AI agent setup",
-    description: "Checklist zodat de implementatie soepel verloopt.",
+    title: "Voorbereiden op de implementatie",
+    description: "Checklist: toegang, data, owners, testcases en risico's.",
   },
   {
     icon: Ruler,
-    title: "Measuring AI agent ROI",
-    description: "Meet wat je bespaart en waar je winst pakt.",
+    title: "ROI meten en bijsturen",
+    description: "Meet tijdswinst, kwaliteit en impact - en optimaliseer continu.",
   },
   {
     icon: ShieldCheck,
-    title: "AI agent security checklist",
-    description: "Best practices voor permissions, logging en data.",
+    title: "Security checklist",
+    description: "Permissions, logging, secrets en governance - veilig in productie.",
   },
   {
     icon: Zap,
-    title: "Automating lead follow-up",
-    description: "Nooit meer leads verliezen door trage opvolging.",
+    title: "Lead opvolging automatiseren",
+    description: "Snelle follow-ups, kwalificatie en reminders zonder handwerk.",
   },
 ] satisfies Array<{
   icon: LucideIcon
@@ -47,11 +47,13 @@ const guides = [
 const GuidesPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Guides</h1>
-        <p className="mt-4 text-slate-600">
-          Praktische guides om AI agents goed op te zetten, te optimaliseren en op te schalen.
-        </p>
+      <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Guides</h1>
+          <p className="mt-4 text-slate-600">
+            Praktische guides om AI agents goed op te zetten, te optimaliseren en op te schalen.
+          </p>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

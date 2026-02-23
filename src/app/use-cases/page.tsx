@@ -103,11 +103,13 @@ const useCases = [
 const UseCasesPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Use Cases</h1>
-        <p className="mt-4 text-slate-600">
-          Zie wat een OpenClaw AI agent kan automatiseren in je dagelijkse workflow.
-        </p>
+      <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Use Cases</h1>
+          <p className="mt-4 text-slate-600">
+            Zie wat een OpenClaw AI agent kan automatiseren in je dagelijkse workflow.
+          </p>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

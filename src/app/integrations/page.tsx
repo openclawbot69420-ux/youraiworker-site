@@ -1,21 +1,8 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-import {
-  Building2,
-  CalendarDays,
-  ClipboardList,
-  Cloud,
-  Folder,
-  GitBranch,
-  LifeBuoy,
-  Mail,
-  MessageCircle,
-  MessageSquare,
-  Send,
-  Sparkles,
-  Table,
-  Workflow,
-} from "lucide-react"
+import { Cloud, MessageSquare } from "lucide-react"
+
+import { BrandIcon, type BrandIconName } from "../../components/BrandIcon"
 
 export const metadata: Metadata = {
   title: "AI Agent Integrations",
@@ -23,34 +10,37 @@ export const metadata: Metadata = {
 }
 
 const integrations = [
-  { name: "Gmail", badge: "GM", icon: Mail },
-  { name: "Google Calendar", badge: "GC", icon: CalendarDays },
-  { name: "Google Drive", badge: "GD", icon: Folder },
-  { name: "WhatsApp", badge: "WA", icon: MessageCircle },
-  { name: "Telegram", badge: "TG", icon: Send },
+  { name: "Gmail", badge: "GM", brand: "gmail" },
+  { name: "Google Calendar", badge: "GC", brand: "google-calendar" },
+  { name: "Google Drive", badge: "GD", brand: "google-drive" },
+  { name: "WhatsApp", badge: "WA", brand: "whatsapp" },
+  { name: "Telegram", badge: "TG", brand: "telegram" },
   { name: "Slack", badge: "SL", icon: MessageSquare },
-  { name: "HubSpot", badge: "HS", icon: Building2 },
+  { name: "HubSpot", badge: "HS", brand: "hubspot" },
   { name: "Salesforce", badge: "SF", icon: Cloud },
-  { name: "Jira", badge: "JR", icon: ClipboardList },
-  { name: "Zendesk", badge: "ZD", icon: LifeBuoy },
-  { name: "Zapier", badge: "ZP", icon: Workflow },
-  { name: "Make", badge: "MK", icon: Sparkles },
-  { name: "n8n", badge: "N8", icon: GitBranch },
-  { name: "Google Sheets", badge: "GS", icon: Table },
+  { name: "Jira", badge: "JR", brand: "jira" },
+  { name: "Zendesk", badge: "ZD", brand: "zendesk" },
+  { name: "Zapier", badge: "ZP", brand: "zapier" },
+  { name: "Make", badge: "MK", brand: "make" },
+  { name: "n8n", badge: "N8", brand: "n8n" },
+  { name: "Google Sheets", badge: "GS", brand: "google-sheets" },
 ] satisfies Array<{
   name: string
   badge: string
-  icon: LucideIcon
+  brand?: BrandIconName
+  icon?: LucideIcon
 }>
 
 const IntegrationsPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Integrations</h1>
-        <p className="mt-4 text-slate-600">
-          Je OpenClaw AI agent koppelt met de tools die je al gebruikt.
-        </p>
+      <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
+        <div className="max-w-2xl">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Integrations</h1>
+          <p className="mt-4 text-slate-600">
+            Je OpenClaw AI agent koppelt met de tools die je al gebruikt.
+          </p>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -61,7 +51,11 @@ const IntegrationsPage: React.FC = () => {
           >
             <div className="flex items-center gap-3">
               <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-gradient-to-b from-white to-slate-100 text-slate-700 shadow-sm">
-                <integration.icon className="h-5 w-5" aria-hidden="true" />
+                {integration.brand ? (
+                  <BrandIcon name={integration.brand} title={integration.name} className="h-5 w-5" />
+                ) : (
+                  integration.icon && <integration.icon className="h-5 w-5" aria-hidden="true" />
+                )}
                 <span className="absolute -bottom-1 -right-1 inline-flex min-w-5 items-center justify-center rounded-md border border-slate-200 bg-slate-900 px-1 text-[10px] font-semibold leading-4 text-white">
                   {integration.badge}
                 </span>

@@ -11,3 +11,24 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes subtleGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.subtle-mesh {
+  background-image:
+    radial-gradient(600px circle at 20% 10%, rgba(59, 130, 246, 0.10), transparent 50%),
+    radial-gradient(600px circle at 90% 30%, rgba(15, 23, 42, 0.10), transparent 55%),
+    linear-gradient(120deg, rgba(59, 130, 246, 0.06), rgba(15, 23, 42, 0.04));
+  background-size: 200% 200%;
+  animation: subtleGlow 14s ease-in-out infinite;
+}
