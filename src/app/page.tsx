@@ -176,6 +176,58 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Explore */}
+      <section className="border-y border-slate-200/70 bg-slate-50/50">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Wat we precies voor je kunnen configureren
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Van één concrete workflow tot complete multi-tool automatisering. Bekijk use cases,
+              integraties en implementatie-guides om te zien wat haalbaar is voor jouw bedrijf.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              [
+                "Use cases",
+                "Concrete automatiseringen voor sales, support, operations en finance.",
+                "/use-cases",
+                "Bekijk use cases",
+              ],
+              [
+                "Integraties",
+                "Koppelingen met de tools die je al gebruikt: CRM, mail, chat, planning en meer.",
+                "/integrations",
+                "Bekijk integraties",
+              ],
+              [
+                "Guides",
+                "Praktische handleidingen voor setup, governance, security en schaalbare uitrol.",
+                "/guides",
+                "Bekijk guides",
+              ],
+            ].map(([title, description, href, cta]) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
+              >
+                <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{description}</p>
+                <a
+                  href={href}
+                  className="mt-6 inline-block rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
+                >
+                  {cta} →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Security */}
       <section className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
