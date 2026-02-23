@@ -14,6 +14,21 @@ const PricingPage: React.FC = () => {
         kanalen en integraties voor je regelen.
       </p>
 
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="/configure"
+          className="rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
+        >
+          Configureer package + add-ons
+        </a>
+        <a
+          href="/contact"
+          className="rounded-lg border border-slate-300 px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
+        >
+          Plan intake
+        </a>
+      </div>
+
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
         {/* Starter */}
         <div className="rounded-2xl border-2 border-slate-900 p-8">

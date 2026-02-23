@@ -120,30 +120,68 @@ const HomePage: React.FC = () => {
       {/* Starter Agents */}
       <section className="border-y border-slate-200/70 bg-slate-50/50">
         <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Starter agents (kies er één om te beginnen)
-          </h2>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+                Starter agents (kies er één om te beginnen)
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm text-slate-600">
+                Dit zijn bewezen workflows die we vaak in dagen live hebben. Klik door voor details,
+                benodigde toegang en typische integraties.
+              </p>
+            </div>
+            <a
+              href="/use-cases"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
+            >
+              Alle use cases →
+            </a>
+          </div>
+
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {[
-              ["Inbox & triage agent", "Categoriseert requests, maakt concept‑antwoorden, zet taken klaar."],
-              ["Lead qualification (Telegram)", "Pre‑kwalificeert leads en logt naar Google Sheets of CRM."],
-              ["Meeting scheduling (Google Calendar)", "Intake → voorstel → bevestiging. Integratie op maat."],
-              ["Market/competitor research", "Onderzoek, samenvattingen en updates voor sales/marketing."],
-            ].map(([title, desc]) => (
-              <div
+              [
+                "Inbox & triage agent",
+                "Categoriseert requests, maakt concept‑antwoorden, zet taken klaar.",
+                "/use-cases/email-management",
+              ],
+              [
+                "Lead qualification",
+                "Pre‑kwalificeert leads en logt naar Google Sheets of CRM.",
+                "/use-cases/lead-qualification",
+              ],
+              [
+                "Meeting scheduling",
+                "Intake → voorstel → bevestiging. Integratie op maat.",
+                "/use-cases/meeting-scheduling",
+              ],
+              [
+                "Automated report generation",
+                "Updates voor sales/marketing en management op vaste momenten.",
+                "/use-cases/report-generation",
+              ],
+            ].map(([title, desc, href]) => (
+              <a
                 key={title}
-                className="rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-slate-300 transition-all"
+                href={href}
+                className="group block rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
               >
-                <h3 className="font-semibold">{title}</h3>
+                <h3 className="font-semibold text-slate-900 group-hover:underline">{title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{desc}</p>
-              </div>
+                <p className="mt-4 text-sm font-medium text-slate-900 underline">Bekijk details</p>
+              </a>
             ))}
-            <div className="rounded-xl border border-slate-200 bg-white p-6 md:col-span-2 hover:shadow-md hover:border-slate-300 transition-all">
-              <h3 className="font-semibold">Internal knowledge base Q&A</h3>
+
+            <a
+              href="/use-cases/knowledge-base-qa"
+              className="group block rounded-xl border border-slate-200 bg-white p-6 md:col-span-2 transition-all hover:border-slate-300 hover:shadow-md"
+            >
+              <h3 className="font-semibold text-slate-900 group-hover:underline">Knowledge base Q&A</h3>
               <p className="mt-2 text-sm text-slate-600">
                 Kleine scope inbegrepen (max 25 files / 200 pagina&apos;s). Groter = add‑on.
               </p>
-            </div>
+              <p className="mt-4 text-sm font-medium text-slate-900 underline">Bekijk details</p>
+            </a>
           </div>
         </div>
       </section>
