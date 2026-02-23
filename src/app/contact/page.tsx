@@ -27,9 +27,9 @@ const ContactPage: React.FC = () => {
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h2 className="text-lg font-semibold">Wat gebeurt er daarna?</h2>
             <ol className="mt-4 space-y-3 text-sm text-slate-700">
-              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">1</span><span>We nemen je aanvraag door en stellen 2 tot 5 verduidelijkende vragen.</span></li>
-              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">2</span><span>Je krijgt een voorstel met scope, planning, integraties en vaste uitgangspunten.</span></li>
-              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">3</span><span>Na akkoord bouwen we de agent, testen met echte cases en doen we een korte handover.</span></li>
+              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-semibold text-slate-900">1</span><span>We nemen je aanvraag door en stellen 2 tot 5 verduidelijkende vragen.</span></li>
+              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-semibold text-slate-900">2</span><span>Je krijgt een voorstel met scope, planning, integraties en vaste uitgangspunten.</span></li>
+              <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-semibold text-slate-900">3</span><span>Na akkoord bouwen we de agent, testen met echte cases en doen we een korte handover.</span></li>
             </ol>
           </div>
 

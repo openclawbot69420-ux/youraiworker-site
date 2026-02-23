@@ -16,7 +16,7 @@ const PricingPage: React.FC = () => {
 
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <a
-          href="/configure"
+          href="/package/configure"
           className="rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
         >
           Configureer package + add-ons

@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 
 type PackageKey = "starter" | "groei" | "maatwerk"
 
@@ -131,6 +131,8 @@ const clamp = (value: number, min: number, max: number) => {
 }
 
 export const ConfigureUI: React.FC = () => {
+  const shareLinkInputRef = useRef<HTMLInputElement | null>(null)
+
   const [selectedPackage, setSelectedPackage] = useState<PackageKey>("starter")
   const [selectedAddOns, setSelectedAddOns] = useState<AddOnKey[]>([])
   const [emailsPerDay, setEmailsPerDay] = useState<number>(40)
@@ -282,92 +284,6 @@ export const ConfigureUI: React.FC = () => {
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">Volumes (indicatie)</p>
-              <p className="mt-1 text-xs text-slate-500">
-                Dit bepaalt de efficiency-schatting. We valideren dit tijdens intake.
-              </p>
-
-              <div className="mt-5 space-y-4">
-                <div>
-                  <div className="flex items-center justify-between text-sm">
-                    <label htmlFor="emails" className="font-medium text-slate-700">E-mails per dag</label>
-                    <span className="font-semibold text-slate-900">{emailsPerDay}</span>
-                  </div>
-                  <input
-                    id="emails"
-                    type="range"
-                    min={0}
-                    max={500}
-                    value={emailsPerDay}
-                    onChange={(e) => setEmailsPerDay(Number(e.target.value))}
-                    className="mt-2 w-full"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between text-sm">
-                    <label htmlFor="leads" className="font-medium text-slate-700">Leads per week</label>
-                    <span className="font-semibold text-slate-900">{leadsPerWeek}</span>
-                  </div>
-                  <input
-                    id="leads"
-                    type="range"
-                    min={0}
-                    max={500}
-                    value={leadsPerWeek}
-                    onChange={(e) => setLeadsPerWeek(Number(e.target.value))}
-                    className="mt-2 w-full"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between text-sm">
-                    <label htmlFor="tickets" className="font-medium text-slate-700">Tickets per week</label>
-                    <span className="font-semibold text-slate-900">{ticketsPerWeek}</span>
-                  </div>
-                  <input
-                    id="tickets"
-                    type="range"
-                    min={0}
-                    max={1000}
-                    value={ticketsPerWeek}
-                    onChange={(e) => setTicketsPerWeek(Number(e.target.value))}
-                    className="mt-2 w-full"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between text-sm">
-                    <label htmlFor="rate" className="font-medium text-slate-700">Uurtarief (EUR)</label>
-                    <span className="font-semibold text-slate-900">{currency(hourlyRateEuro)}</span>
-                  </div>
-                  <input
-                    id="rate"
-                    type="range"
-                    min={20}
-                    max={200}
-                    step={5}
-                    value={hourlyRateEuro}
-                    onChange={(e) => setHourlyRateEuro(Number(e.target.value))}
-                    className="mt-2 w-full"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">Aannames</p>
-              <ul className="mt-3 space-y-2 text-xs text-slate-600">
-                <li>• Email triage/draft: 30-60 sec tijdwinst per email</li>
-                <li>• Lead qualification: 3-8 min tijdwinst per lead</li>
-                <li>• Ticket triage: 2-5 min tijdwinst per ticket</li>
-                <li>• Add-ons kunnen efficiency verhogen door meer automatisering mogelijk te maken</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
             {ADDONS.map((a) => {
               const checked = selectedAddOns.includes(a.key)
               return (
@@ -401,6 +317,76 @@ export const ConfigureUI: React.FC = () => {
           <p className="mt-6 text-xs text-slate-500">
             Impact-schattingen zijn indicatief. In de intake bepalen we scope en realistische ROI.
           </p>
+
+          <div id="calculator" className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <p className="text-sm font-semibold text-slate-900">Calculator (indicatie)</p>
+            <p className="mt-1 text-xs text-slate-600">
+              Vul je volumes in en krijg een snelle schatting van kosten en tijdwinst.
+            </p>
+
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5">
+                <p className="text-sm font-semibold text-slate-900">Volumes</p>
+                <div className="mt-4 space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <label htmlFor="emails" className="font-medium text-slate-700">E-mails per dag</label>
+                      <span className="font-semibold text-slate-900">{emailsPerDay}</span>
+                    </div>
+                    <input id="emails" type="range" min={0} max={500} value={emailsPerDay} onChange={(e) => setEmailsPerDay(Number(e.target.value))} className="mt-2 w-full" />
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <label htmlFor="leads" className="font-medium text-slate-700">Leads per week</label>
+                      <span className="font-semibold text-slate-900">{leadsPerWeek}</span>
+                    </div>
+                    <input id="leads" type="range" min={0} max={500} value={leadsPerWeek} onChange={(e) => setLeadsPerWeek(Number(e.target.value))} className="mt-2 w-full" />
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <label htmlFor="tickets" className="font-medium text-slate-700">Tickets per week</label>
+                      <span className="font-semibold text-slate-900">{ticketsPerWeek}</span>
+                    </div>
+                    <input id="tickets" type="range" min={0} max={1000} value={ticketsPerWeek} onChange={(e) => setTicketsPerWeek(Number(e.target.value))} className="mt-2 w-full" />
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <label htmlFor="rate" className="font-medium text-slate-700">Uurtarief (EUR)</label>
+                      <span className="font-semibold text-slate-900">{currency(hourlyRateEuro)}</span>
+                    </div>
+                    <input id="rate" type="range" min={20} max={200} step={5} value={hourlyRateEuro} onChange={(e) => setHourlyRateEuro(Number(e.target.value))} className="mt-2 w-full" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5">
+                <p className="text-sm font-semibold text-slate-900">Resultaat</p>
+                <p className="mt-2 text-sm text-slate-700">
+                  <span className="font-semibold">Tijdwinst:</span> {estimate.efficiencyMin.toFixed(1)} tot {estimate.efficiencyMax.toFixed(1)} uur/week
+                </p>
+                <p className="mt-2 text-sm text-slate-700">
+                  <span className="font-semibold">Kostenbesparing:</span> {currency(estimate.savingsEuroMinPerWeek)} tot {currency(estimate.savingsEuroMaxPerWeek)} per week
+                </p>
+                {estimate.paybackWeeksMin && estimate.paybackWeeksMax && (
+                  <p className="mt-2 text-xs text-slate-500">
+                    Payback indicatie: ~{estimate.paybackWeeksMin.toFixed(1)} tot {estimate.paybackWeeksMax.toFixed(1)} weken.
+                  </p>
+                )}
+                <p className="mt-4 text-xs text-slate-500">
+                  Indicatief. We valideren volumes en scope tijdens intake.
+                </p>
+
+                <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Aannames</p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate-600">
+                    <li>• Email triage/draft: 30-60 sec tijdwinst per email</li>
+                    <li>• Lead qualification: 3-8 min tijdwinst per lead</li>
+                    <li>• Ticket triage: 2-5 min tijdwinst per ticket</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -428,21 +414,13 @@ export const ConfigureUI: React.FC = () => {
           </div>
 
           <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5">
-            <p className="text-sm font-semibold text-slate-900">Efficiency (indicatie)</p>
+            <p className="text-sm font-semibold text-slate-900">Calculator (indicatie)</p>
             <p className="mt-2 text-sm text-slate-700">
-              {`${estimate.efficiencyMin.toFixed(1)} tot ${estimate.efficiencyMax.toFixed(1)} uur/week tijdwinst.`}
+              Bekijk hieronder de tijdwinst en kostenbesparing op basis van je volumes.
             </p>
-            <p className="mt-2 text-sm text-slate-700">
-              {`${currency(estimate.savingsEuroMinPerWeek)} tot ${currency(estimate.savingsEuroMaxPerWeek)} per week (op basis van uurtarief).`}
-            </p>
-            {estimate.paybackWeeksMin && estimate.paybackWeeksMax && (
-              <p className="mt-2 text-xs text-slate-500">
-                Payback indicatie: ~{estimate.paybackWeeksMin.toFixed(1)} tot {estimate.paybackWeeksMax.toFixed(1)} weken.
-              </p>
-            )}
-            <p className="mt-2 text-xs text-slate-500">
-              Indicatief. We valideren volumes en scope tijdens intake.
-            </p>
+            <a href="#calculator" className="mt-3 inline-block text-sm font-medium text-slate-900 underline">
+              Naar calculator
+            </a>
           </div>
 
           <div className="mt-6 grid gap-3">
@@ -451,22 +429,45 @@ export const ConfigureUI: React.FC = () => {
               onClick={persistConfig}
               className="block rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
             >
-              Plan intake met deze configuratie
+              Plan intake
             </a>
-            <button
-              type="button"
-              onClick={async () => {
-                persistConfig()
-                try {
-                  await navigator.clipboard.writeText(`${window.location.origin}${shareLink}`)
-                } catch {
-                  // ignore
-                }
-              }}
-              className="rounded-lg border border-slate-300 px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
-            >
-              Kopieer link
-            </button>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Deel link</p>
+              <div className="mt-2 flex gap-2">
+                <input
+                  ref={shareLinkInputRef}
+                  readOnly
+                  value={`${typeof window !== "undefined" ? window.location.origin : ""}${shareLink}`}
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-900"
+                />
+                <button
+                  type="button"
+                  onClick={async () => {
+                    persistConfig()
+                    const value = shareLinkInputRef.current?.value ?? ""
+                    if (value) {
+                      shareLinkInputRef.current?.select()
+                    }
+                    try {
+                      await navigator.clipboard.writeText(value)
+                      return
+                    } catch {
+                      // fallback
+                    }
+                    try {
+                      document.execCommand("copy")
+                    } catch {
+                      // ignore
+                    }
+                  }}
+                  className="shrink-0 rounded-lg border border-slate-300 px-4 py-2 text-xs font-medium text-slate-900 hover:bg-slate-50 transition-colors"
+                >
+                  Kopieer
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">Als kopieren niet werkt: selecteer en kopieer handmatig.</p>
+            </div>
           </div>
         </div>
 

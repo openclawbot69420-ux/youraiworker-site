@@ -89,12 +89,20 @@ const HomePage: React.FC = () => {
               <span className="font-semibold text-slate-900">Pakket vanaf €1.000 (incl. 1 agent):</span>{" "}
               één duidelijke workflow, gebouwd, getest, gedocumenteerd en uitgerold.
             </p>
-            <a
-              href="/pricing"
-              className="mt-6 inline-block rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 transition-colors"
-            >
-              Bekijk pricing →
-            </a>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/pricing"
+                className="inline-block rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 transition-colors"
+              >
+                Bekijk pricing →
+              </a>
+              <a
+                href="/package/configure"
+                className="inline-block rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
+              >
+                Configureer package →
+              </a>
+            </div>
           </div>
           <div className="lg:col-span-7">
             <div className="grid gap-4 md:grid-cols-2">
