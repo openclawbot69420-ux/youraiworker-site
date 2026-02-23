@@ -3,7 +3,7 @@ import "@/styles/globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "Your AI Worker — AI-agents voor je organisatie",
+    default: "Your AI Worker - AI-agents voor je organisatie",
     template: "%s · Your AI Worker",
   },
   description:

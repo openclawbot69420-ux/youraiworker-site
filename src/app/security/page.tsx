@@ -10,7 +10,7 @@ const SecurityPage: React.FC = () => {
     <section className="mx-auto max-w-4xl px-4 py-20">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Beveiliging</h1>
       <p className="mt-4 text-slate-600">
-        Security is geen add-on — het zit in elk onderdeel van hoe we werken.
+        Security is geen add-on - het zit in elk onderdeel van hoe we werken.
       </p>
 
       <div className="mt-12 space-y-8">
@@ -21,7 +21,7 @@ const SecurityPage: React.FC = () => {
           ],
           [
             "Versleutelde verbindingen",
-            "Remote access via Tailscale — een identity-based mesh netwerk zonder open poorten op je systemen.",
+            "Remote access via Tailscale - een identity-based mesh netwerk zonder open poorten op je systemen.",
           ],
           [
             "Secrets management",

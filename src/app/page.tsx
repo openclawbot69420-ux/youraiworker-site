@@ -185,7 +185,7 @@ const HomePage: React.FC = () => {
                 Security by default
               </h2>
               <p className="mt-4 text-sm text-slate-600">
-                Remote access via <span className="font-semibold text-slate-900">Tailscale</span> —
+                Remote access via <span className="font-semibold text-slate-900">Tailscale</span> -
                 versleuteld, identity‑based netwerk zonder open poorten.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-slate-600">
