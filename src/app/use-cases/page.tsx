@@ -21,80 +21,17 @@ export const metadata: Metadata = {
     "Zie wat een OpenClaw AI agent kan automatiseren in je dagelijkse workflow.",
 }
 
-const useCases = [
-  {
-    icon: Inbox,
-    title: "Email management",
-    description:
-      "Triage van je inbox, concept-antwoorden, opvolging en prioritering - zodat je team alleen nog hoeft te reviewen.",
-  },
-  {
-    icon: MessageSquare,
-    title: "WhatsApp support",
-    description:
-      "24/7 eerste lijn support: vragen beantwoorden, status updates geven en complexe cases doorzetten naar een medewerker.",
-  },
-  {
-    icon: UserCheck,
-    title: "Lead qualification",
-    description:
-      "Kwalificeer leads automatisch via chat of e-mail, verzamel context en zet alleen de juiste prospects door naar sales.",
-  },
-  {
-    icon: CalendarDays,
-    title: "Meeting scheduling",
-    description:
-      "Stop met heen-en-weer mailen. Plan afspraken op basis van beschikbaarheid, agenda regels en bevestigingen.",
-  },
-  {
-    icon: Receipt,
-    title: "Invoice tracking en payment reminders",
-    description:
-      "Track facturen, detecteer achterstanden en verstuur professionele herinneringen met oplopende toon - volledig automatisch.",
-  },
-  {
-    icon: Wrench,
-    title: "Internal helpdesk (IT/HR)",
-    description:
-      "Routeer interne requests, verzamel ontbrekende info en zet tickets klaar met de juiste prioriteit en categorie.",
-  },
-  {
-    icon: Handshake,
-    title: "Customer onboarding",
-    description:
-      "Nieuwe klanten sneller live: intake, documentatie, checklists en activatie-stappen geautomatiseerd en traceerbaar.",
-  },
-  {
-    icon: BookOpen,
-    title: "Knowledge base Q&A",
-    description:
-      "Een agent die vragen beantwoordt door je interne documenten te doorzoeken - met bronverwijzingen en rollen/rechten.",
-  },
-  {
-    icon: BarChart3,
-    title: "Automated report generation",
-    description:
-      "Genereer wekelijkse management updates, dashboards en stakeholder reports op basis van data uit je tools.",
-  },
-  {
-    icon: RefreshCw,
-    title: "CRM data sync",
-    description:
-      "Log e-mails, meetings en deal updates automatisch in je CRM - zonder handmatige data entry.",
-  },
-  {
-    icon: FileText,
-    title: "Document drafting",
-    description:
-      "Concepten voor voorstellen, rapporten en e-mails op basis van templates en input uit je systemen - altijd met review.",
-  },
-  {
-    icon: CheckCheck,
-    title: "Approval workflow automation",
-    description:
-      "Laat aanvragen automatisch langs de juiste beslissers gaan, met context, deadlines en audit trail.",
-  },
-] satisfies Array<{
+import { USE_CASES } from "../../lib/catalog"
+
+const useCases = USE_CASES.map((useCase) => {
+  return {
+    slug: useCase.slug,
+    icon: useCase.icon,
+    title: useCase.title,
+    description: useCase.shortDescription,
+  }
+}) satisfies Array<{
+  slug: string
   icon: LucideIcon
   title: string
   description: string
@@ -125,6 +62,12 @@ const UseCasesPage: React.FC = () => {
               <h2 className="font-semibold">{useCase.title}</h2>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">{useCase.description}</p>
+            <a
+              href={`/use-cases/${useCase.slug}`}
+              className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
+            >
+              Bekijk details
+            </a>
           </div>
         ))}
       </div>

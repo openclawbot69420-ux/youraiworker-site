@@ -7,38 +7,17 @@ export const metadata: Metadata = {
   description: "Praktische guides om AI agents goed op te zetten en op te schalen.",
 }
 
-const guides = [
-  {
-    icon: Target,
-    title: "Je eerste AI agent opzetten",
-    description: "Van use case naar productie: scope, acceptatie en go-live.",
-  },
-  {
-    icon: Clipboard,
-    title: "Het juiste package kiezen",
-    description: "Kies scope, integraties en support die passen bij je workflow.",
-  },
-  {
-    icon: Key,
-    title: "Voorbereiden op de implementatie",
-    description: "Checklist: toegang, data, owners, testcases en risico's.",
-  },
-  {
-    icon: Ruler,
-    title: "ROI meten en bijsturen",
-    description: "Meet tijdswinst, kwaliteit en impact - en optimaliseer continu.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Security checklist",
-    description: "Permissions, logging, secrets en governance - veilig in productie.",
-  },
-  {
-    icon: Zap,
-    title: "Lead opvolging automatiseren",
-    description: "Snelle follow-ups, kwalificatie en reminders zonder handwerk.",
-  },
-] satisfies Array<{
+import { GUIDES } from "../../lib/catalog"
+
+const guides = GUIDES.map((guide) => {
+  return {
+    slug: guide.slug,
+    icon: guide.icon,
+    title: guide.title,
+    description: guide.shortDescription,
+  }
+}) satisfies Array<{
+  slug: string
   icon: LucideIcon
   title: string
   description: string
@@ -69,6 +48,12 @@ const GuidesPage: React.FC = () => {
               <h2 className="font-semibold">{guide.title}</h2>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">{guide.description}</p>
+            <a
+              href={`/guides/${guide.slug}`}
+              className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
+            >
+              Bekijk details
+            </a>
           </div>
         ))}
       </div>

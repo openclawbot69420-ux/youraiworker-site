@@ -9,24 +9,28 @@ export const metadata: Metadata = {
   description: "Je OpenClaw AI agent koppelt met de tools die je al gebruikt.",
 }
 
-const integrations = [
-  { name: "Gmail", badge: "GM", brand: "gmail" },
-  { name: "Google Calendar", badge: "GC", brand: "google-calendar" },
-  { name: "Google Drive", badge: "GD", brand: "google-drive" },
-  { name: "WhatsApp", badge: "WA", brand: "whatsapp" },
-  { name: "Telegram", badge: "TG", brand: "telegram" },
-  { name: "Slack", badge: "SL", icon: MessageSquare },
-  { name: "HubSpot", badge: "HS", brand: "hubspot" },
-  { name: "Salesforce", badge: "SF", icon: Cloud },
-  { name: "Jira", badge: "JR", brand: "jira" },
-  { name: "Zendesk", badge: "ZD", brand: "zendesk" },
-  { name: "Zapier", badge: "ZP", brand: "zapier" },
-  { name: "Make", badge: "MK", brand: "make" },
-  { name: "n8n", badge: "N8", brand: "n8n" },
-  { name: "Google Sheets", badge: "GS", brand: "google-sheets" },
-] satisfies Array<{
+import { INTEGRATIONS } from "../../lib/catalog"
+
+const integrations = INTEGRATIONS.map((integration) => {
+  return {
+    slug: integration.slug,
+    name: integration.name,
+    badge: integration.name
+      .split(" ")
+      .map((part) => part.trim()[0])
+      .filter(Boolean)
+      .join("")
+      .slice(0, 2)
+      .toUpperCase(),
+    brand: integration.brand,
+    icon: integration.icon,
+    shortDescription: integration.shortDescription,
+  }
+}) satisfies Array<{
+  slug: string
   name: string
   badge: string
+  shortDescription: string
   brand?: BrandIconName
   icon?: LucideIcon
 }>
@@ -62,9 +66,13 @@ const IntegrationsPage: React.FC = () => {
               </div>
               <h2 className="font-semibold">{integration.name}</h2>
             </div>
-            <p className="mt-3 text-sm text-slate-600">
-              Koppeling beschikbaar of in te richten afhankelijk van jouw workflow.
-            </p>
+            <p className="mt-3 text-sm text-slate-600">{integration.shortDescription}</p>
+            <a
+              href={`/integrations/${integration.slug}`}
+              className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
+            >
+              Bekijk details
+            </a>
           </div>
         ))}
       </div>

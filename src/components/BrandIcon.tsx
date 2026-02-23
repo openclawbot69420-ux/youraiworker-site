@@ -61,6 +61,7 @@ export const BrandIcon: React.FC<BrandIconProps> = (props) => {
       aria-label={title}
       viewBox="0 0 24 24"
       className={className}
+      style={{ color: `#${icon.hex}` }}
       fill="currentColor"
     >
       <path d={icon.path} />
