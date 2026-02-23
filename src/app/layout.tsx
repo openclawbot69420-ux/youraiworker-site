@@ -44,6 +44,15 @@ const Header: React.FC = () => {
           Your AI Worker
         </a>
         <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
+          <a className="hover:text-slate-900 transition-colors" href="/">
+            Home
+          </a>
+          <a className="hover:text-slate-900 transition-colors" href="/use-cases">
+            Use cases
+          </a>
+          <a className="hover:text-slate-900 transition-colors" href="/integrations">
+            Integraties
+          </a>
           <a className="hover:text-slate-900 transition-colors" href="/pricing">
             Prijzen
           </a>
@@ -74,7 +83,9 @@ const Footer: React.FC = () => {
             <p className="font-semibold text-slate-900">Your AI Worker</p>
             <p className="mt-1">Production-ready AI-agents voor Nederlandse bedrijven.</p>
           </div>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <a className="hover:text-slate-900 transition-colors" href="/use-cases">Use cases</a>
+            <a className="hover:text-slate-900 transition-colors" href="/integrations">Integraties</a>
             <a className="hover:text-slate-900 transition-colors" href="/pricing">Prijzen</a>
             <a className="hover:text-slate-900 transition-colors" href="/security">Beveiliging</a>
             <a className="hover:text-slate-900 transition-colors" href="/privacy">Privacy</a>
