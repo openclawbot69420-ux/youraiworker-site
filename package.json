@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "lucide-react": "^0.511.0",
     "next": "latest",
     "nodemailer": "^8.0.1",
     "react": "latest",

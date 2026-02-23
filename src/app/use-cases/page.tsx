@@ -1,4 +1,19 @@
 import type { Metadata } from "next"
+import type { LucideIcon } from "lucide-react"
+import {
+  BarChart3,
+  BookOpen,
+  CalendarDays,
+  CheckCheck,
+  FileText,
+  Handshake,
+  Inbox,
+  MessageSquare,
+  Receipt,
+  RefreshCw,
+  UserCheck,
+  Wrench,
+} from "lucide-react"
 
 export const metadata: Metadata = {
   title: "AI Agent Use Cases",
@@ -8,78 +23,82 @@ export const metadata: Metadata = {
 
 const useCases = [
   {
-    icon: "📥",
+    icon: Inbox,
     title: "Email management",
     description:
       "Triage van je inbox, concept-antwoorden, opvolging en prioritering - zodat je team alleen nog hoeft te reviewen.",
   },
   {
-    icon: "💬",
+    icon: MessageSquare,
     title: "WhatsApp support",
     description:
       "24/7 eerste lijn support: vragen beantwoorden, status updates geven en complexe cases doorzetten naar een medewerker.",
   },
   {
-    icon: "👤",
+    icon: UserCheck,
     title: "Lead qualification",
     description:
       "Kwalificeer leads automatisch via chat of e-mail, verzamel context en zet alleen de juiste prospects door naar sales.",
   },
   {
-    icon: "📅",
+    icon: CalendarDays,
     title: "Meeting scheduling",
     description:
       "Stop met heen-en-weer mailen. Plan afspraken op basis van beschikbaarheid, agenda regels en bevestigingen.",
   },
   {
-    icon: "🧾",
+    icon: Receipt,
     title: "Invoice tracking en payment reminders",
     description:
       "Track facturen, detecteer achterstanden en verstuur professionele herinneringen met oplopende toon - volledig automatisch.",
   },
   {
-    icon: "🔧",
+    icon: Wrench,
     title: "Internal helpdesk (IT/HR)",
     description:
       "Routeer interne requests, verzamel ontbrekende info en zet tickets klaar met de juiste prioriteit en categorie.",
   },
   {
-    icon: "👋",
+    icon: Handshake,
     title: "Customer onboarding",
     description:
       "Nieuwe klanten sneller live: intake, documentatie, checklists en activatie-stappen geautomatiseerd en traceerbaar.",
   },
   {
-    icon: "📚",
+    icon: BookOpen,
     title: "Knowledge base Q&A",
     description:
       "Een agent die vragen beantwoordt door je interne documenten te doorzoeken - met bronverwijzingen en rollen/rechten.",
   },
   {
-    icon: "📊",
+    icon: BarChart3,
     title: "Automated report generation",
     description:
       "Genereer wekelijkse management updates, dashboards en stakeholder reports op basis van data uit je tools.",
   },
   {
-    icon: "🔄",
+    icon: RefreshCw,
     title: "CRM data sync",
     description:
       "Log e-mails, meetings en deal updates automatisch in je CRM - zonder handmatige data entry.",
   },
   {
-    icon: "📝",
+    icon: FileText,
     title: "Document drafting",
     description:
       "Concepten voor voorstellen, rapporten en e-mails op basis van templates en input uit je systemen - altijd met review.",
   },
   {
-    icon: "✅",
+    icon: CheckCheck,
     title: "Approval workflow automation",
     description:
       "Laat aanvragen automatisch langs de juiste beslissers gaan, met context, deadlines en audit trail.",
   },
-]
+] satisfies Array<{
+  icon: LucideIcon
+  title: string
+  description: string
+}>
 
 const UseCasesPage: React.FC = () => {
   return (
@@ -95,11 +114,11 @@ const UseCasesPage: React.FC = () => {
         {useCases.map((useCase) => (
           <div
             key={useCase.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-slate-300 transition-all"
+            className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
           >
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-xl">
-                {useCase.icon}
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
+                <useCase.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h2 className="font-semibold">{useCase.title}</h2>
             </div>

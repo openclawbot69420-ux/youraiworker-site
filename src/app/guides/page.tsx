@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import type { LucideIcon } from "lucide-react"
+import { Clipboard, Key, Ruler, ShieldCheck, Target, Zap } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "AI Agent Guides",
@@ -7,36 +9,40 @@ export const metadata: Metadata = {
 
 const guides = [
   {
-    icon: "🎯",
+    icon: Target,
     title: "Setting up your first AI agent",
     description: "Stap-voor-stap van use case kiezen tot go-live.",
   },
   {
-    icon: "📋",
+    icon: Clipboard,
     title: "Choosing the right package",
     description: "Match je workflow en integraties aan het juiste package.",
   },
   {
-    icon: "🔑",
+    icon: Key,
     title: "Preparing for AI agent setup",
     description: "Checklist zodat de implementatie soepel verloopt.",
   },
   {
-    icon: "📏",
+    icon: Ruler,
     title: "Measuring AI agent ROI",
     description: "Meet wat je bespaart en waar je winst pakt.",
   },
   {
-    icon: "🔐",
+    icon: ShieldCheck,
     title: "AI agent security checklist",
     description: "Best practices voor permissions, logging en data.",
   },
   {
-    icon: "⚡",
+    icon: Zap,
     title: "Automating lead follow-up",
     description: "Nooit meer leads verliezen door trage opvolging.",
   },
-]
+] satisfies Array<{
+  icon: LucideIcon
+  title: string
+  description: string
+}>
 
 const GuidesPage: React.FC = () => {
   return (
@@ -52,11 +58,11 @@ const GuidesPage: React.FC = () => {
         {guides.map((guide) => (
           <div
             key={guide.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-slate-300 transition-all"
+            className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
           >
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-xl">
-                {guide.icon}
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
+                <guide.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h2 className="font-semibold">{guide.title}</h2>
             </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Github, Linkedin } from "lucide-react"
 import "../styles/globals.css"
 
 export const metadata: Metadata = {
@@ -76,25 +77,78 @@ const Header: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-slate-200/70 bg-slate-50">
-      <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-600">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-slate-200/70 bg-slate-50/80">
+      <div className="mx-auto max-w-6xl px-4 py-12 text-sm text-slate-600">
+        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <p className="font-semibold text-slate-900">Your AI Worker</p>
-            <p className="mt-1">Production-ready AI-agents voor Nederlandse bedrijven.</p>
+            <p className="text-base font-semibold text-slate-900">Your AI Worker</p>
+            <p className="mt-2 max-w-sm leading-relaxed">
+              Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering,
+              veilig ingericht en snel live.
+            </p>
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+              >
+                <Linkedin className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#"
+                aria-label="GitHub"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+              >
+                <Github className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <a className="hover:text-slate-900 transition-colors" href="/use-cases">Use cases</a>
-            <a className="hover:text-slate-900 transition-colors" href="/integrations">Integraties</a>
-            <a className="hover:text-slate-900 transition-colors" href="/pricing">Prijzen</a>
-            <a className="hover:text-slate-900 transition-colors" href="/security">Beveiliging</a>
-            <a className="hover:text-slate-900 transition-colors" href="/privacy">Privacy</a>
-            <a className="hover:text-slate-900 transition-colors" href="/contact">Contact</a>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+              Navigatie
+            </p>
+            <div className="mt-4 flex flex-col gap-3">
+              <a className="transition-colors hover:text-slate-900" href="/use-cases">
+                Use cases
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/integrations">
+                Integraties
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/pricing">
+                Prijzen
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/contact">
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+              Bedrijf
+            </p>
+            <div className="mt-4 flex flex-col gap-3">
+              <a className="transition-colors hover:text-slate-900" href="/security">
+                Beveiliging
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/privacy">
+                Privacy
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/guides">
+                Guides
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/contact">
+                Plan intake
+              </a>
+            </div>
           </div>
         </div>
-        <p className="mt-6 text-xs text-slate-400">
-          © {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.
-        </p>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
+          <p>Klaar voor productie - binnen dagen live.</p>
+        </div>
       </div>
     </footer>
   )

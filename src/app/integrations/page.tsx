@@ -1,4 +1,21 @@
 import type { Metadata } from "next"
+import type { LucideIcon } from "lucide-react"
+import {
+  Building2,
+  CalendarDays,
+  ClipboardList,
+  Cloud,
+  Folder,
+  GitBranch,
+  LifeBuoy,
+  Mail,
+  MessageCircle,
+  MessageSquare,
+  Send,
+  Sparkles,
+  Table,
+  Workflow,
+} from "lucide-react"
 
 export const metadata: Metadata = {
   title: "AI Agent Integrations",
@@ -6,21 +23,25 @@ export const metadata: Metadata = {
 }
 
 const integrations = [
-  { name: "Gmail", badge: "GM" },
-  { name: "Google Calendar", badge: "GC" },
-  { name: "Google Drive", badge: "GD" },
-  { name: "WhatsApp", badge: "WA" },
-  { name: "Telegram", badge: "TG" },
-  { name: "Slack", badge: "SL" },
-  { name: "HubSpot", badge: "HS" },
-  { name: "Salesforce", badge: "SF" },
-  { name: "Jira", badge: "JR" },
-  { name: "Zendesk", badge: "ZD" },
-  { name: "Zapier", badge: "ZP" },
-  { name: "Make", badge: "MK" },
-  { name: "n8n", badge: "N8" },
-  { name: "Google Sheets", badge: "GS" },
-]
+  { name: "Gmail", badge: "GM", icon: Mail },
+  { name: "Google Calendar", badge: "GC", icon: CalendarDays },
+  { name: "Google Drive", badge: "GD", icon: Folder },
+  { name: "WhatsApp", badge: "WA", icon: MessageCircle },
+  { name: "Telegram", badge: "TG", icon: Send },
+  { name: "Slack", badge: "SL", icon: MessageSquare },
+  { name: "HubSpot", badge: "HS", icon: Building2 },
+  { name: "Salesforce", badge: "SF", icon: Cloud },
+  { name: "Jira", badge: "JR", icon: ClipboardList },
+  { name: "Zendesk", badge: "ZD", icon: LifeBuoy },
+  { name: "Zapier", badge: "ZP", icon: Workflow },
+  { name: "Make", badge: "MK", icon: Sparkles },
+  { name: "n8n", badge: "N8", icon: GitBranch },
+  { name: "Google Sheets", badge: "GS", icon: Table },
+] satisfies Array<{
+  name: string
+  badge: string
+  icon: LucideIcon
+}>
 
 const IntegrationsPage: React.FC = () => {
   return (
@@ -36,12 +57,15 @@ const IntegrationsPage: React.FC = () => {
         {integrations.map((integration) => (
           <div
             key={integration.name}
-            className="rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-slate-300 transition-all"
+            className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
           >
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-xs font-semibold text-white">
-                {integration.badge}
-              </span>
+              <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-gradient-to-b from-white to-slate-100 text-slate-700 shadow-sm">
+                <integration.icon className="h-5 w-5" aria-hidden="true" />
+                <span className="absolute -bottom-1 -right-1 inline-flex min-w-5 items-center justify-center rounded-md border border-slate-200 bg-slate-900 px-1 text-[10px] font-semibold leading-4 text-white">
+                  {integration.badge}
+                </span>
+              </div>
               <h2 className="font-semibold">{integration.name}</h2>
             </div>
             <p className="mt-3 text-sm text-slate-600">
