@@ -1,13 +1,49 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import { z } from "zod"
+
+import { rateLimit } from "./rateLimit"
+
+const ContactSchema = z
+  .object({
+    name: z.string().trim().min(2).max(80),
+    email: z.string().trim().email().max(254),
+    company: z.string().trim().max(120).optional().or(z.literal("")),
+    message: z.string().trim().min(10).max(4000),
+    // Honeypot: should stay empty
+    website: z.string().optional().or(z.literal("")),
+  })
+  .strict()
+
+const getClientKey = (request: Request) => {
+  const forwarded = request.headers.get("x-forwarded-for")
+  const ip = forwarded ? forwarded.split(",")[0]?.trim() : "unknown"
+  return ip || "unknown"
+}
 
 export const POST = async (request: Request) => {
   try {
-    const body = await request.json()
-    const { name, email, company, message } = body
+    // Basic abuse protection (best-effort; serverless instances may not share memory)
+    const rl = rateLimit(getClientKey(request), { limit: 5, windowMs: 10 * 60 * 1000 })
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: "Te veel aanvragen. Probeer het later opnieuw." },
+        { status: 429 },
+      )
+    }
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "Vul alle verplichte velden in." }, { status: 400 })
+    const body = await request.json().catch(() => null)
+    const parsed = ContactSchema.safeParse(body)
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Vul alle velden correct in." }, { status: 400 })
+    }
+
+    const { name, email, company, message, website } = parsed.data
+
+    if (website && website.trim().length > 0) {
+      // Silent accept to avoid giving spammers signal
+      return NextResponse.json({ success: true })
     }
 
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {

@@ -15,6 +15,7 @@ export const ContactForm: React.FC = () => {
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      website: (form.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "",
     }
 
     try {
@@ -109,6 +110,12 @@ export const ContactForm: React.FC = () => {
           Er ging iets mis bij het versturen. Probeer het later opnieuw.
         </p>
       )}
+
+      {/* Honeypot */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
 
       <button
         type="submit"
