@@ -1,11 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
+
+import {
+  formatConfigForEmail,
+  summarizeConfig,
+  type ConfigPayload,
+} from "./configSummary"
 
 const CONFIG_STORAGE_KEY = "yaiw_config_v1"
 
 export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [config, setConfig] = useState<ConfigPayload | null>(null)
   const [prefillMessage, setPrefillMessage] = useState<string>("")
 
   useEffect(() => {
@@ -20,10 +27,9 @@ export const ContactForm: React.FC = () => {
         return
       }
 
-      const parsed = JSON.parse(raw) as unknown
-      const json = JSON.stringify(parsed, null, 2)
-
-      setPrefillMessage(`\n\n---\nConfiguratie (van configurator):\n${json}\n---\n`)
+      const parsed = JSON.parse(raw) as ConfigPayload
+      setConfig(parsed)
+      setPrefillMessage(`\n\n${formatConfigForEmail(parsed)}`)
     } catch {
       // ignore
     }
@@ -75,8 +81,40 @@ export const ContactForm: React.FC = () => {
     )
   }
 
+  const configSummary = useMemo(() => {
+    if (!config) {
+      return null
+    }
+    return summarizeConfig(config)
+  }, [config])
+
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+      {configSummary && (
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm font-semibold text-slate-900">Jouw configuratie</p>
+          <p className="mt-2 text-sm text-slate-700">
+            <span className="font-semibold">Package:</span> {configSummary.packageLabel}
+          </p>
+          <p className="mt-1 text-sm text-slate-700">
+            <span className="font-semibold">Add-ons:</span>{" "}
+            {configSummary.addOns.length > 0 ? configSummary.addOns.join(", ") : "Geen"}
+          </p>
+          <p className="mt-1 text-sm text-slate-700">
+            <span className="font-semibold">Volumes:</span>{" "}
+            {configSummary.volumes.emailsPerDay} emails/dag, {configSummary.volumes.leadsPerWeek} leads/week, {configSummary.volumes.ticketsPerWeek} tickets/week
+          </p>
+          <p className="mt-1 text-sm text-slate-700">
+            <span className="font-semibold">Uurtarief:</span> €{configSummary.hourlyRateEuro}/uur
+          </p>
+          <a
+            href="/configure"
+            className="mt-3 inline-block text-sm font-medium text-slate-900 underline"
+          >
+            Wijzig configuratie
+          </a>
+        </div>
+      )}
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-slate-700">
