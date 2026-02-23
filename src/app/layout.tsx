@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/youraiworker"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
                 <Linkedin className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/openclawbot69420-ux/youraiworker-site"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -151,7 +151,7 @@ const Footer: React.FC = () => {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
-          <p>AI agents die werk uit handen nemen - netjes in productie.</p>
+          <p>AI-agents die werk uit handen nemen - netjes in productie.</p>
         </div>
       </div>
     </footer>
