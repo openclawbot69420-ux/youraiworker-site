@@ -24,6 +24,10 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
   return {
     title: `${useCase.title}`,
     description: useCase.shortDescription,
+    alternates: {
+      canonical: `https://www.youraiworker.nl/use-cases/${useCase.slug}`,
+    },
+    keywords: ["AI agent", "automatisering", "OpenClaw", "workflows", useCase.title],
   }
 }
 
@@ -46,6 +50,7 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
+        {/* SEO helper text */}
         <div className="lg:col-span-2">
           <div className="rounded-2xl border border-slate-200 bg-white p-8">
             <h2 className="text-lg font-semibold">Wat je krijgt</h2>
@@ -69,6 +74,13 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-slate-900">Typische doorlooptijd</p>
+              <p className="mt-2 text-sm text-slate-700">
+                Vaak enkele dagen tot 2 weken, afhankelijk van integraties en toegang tot systemen.
+              </p>
+            </div>
           </div>
         </div>
 

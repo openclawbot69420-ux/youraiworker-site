@@ -14,7 +14,7 @@ const ContactPage: React.FC = () => {
         Plan een intake, stel een vraag, of vraag een voorstel aan. Je krijgt binnen 24 uur reactie.
       </p>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="mt-10">
         <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-lg font-semibold">Stuur je aanvraag</h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -23,7 +23,7 @@ const ContactPage: React.FC = () => {
           <ContactForm />
         </div>
 
-        <aside className="space-y-6">
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h2 className="text-lg font-semibold">Wat gebeurt er daarna?</h2>
             <ol className="mt-4 space-y-3 text-sm text-slate-700">
@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
               Bekijk packages
             </a>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   )
