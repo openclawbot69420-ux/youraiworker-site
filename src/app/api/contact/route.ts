@@ -11,11 +11,8 @@ export const POST = async (request: Request) => {
     }
 
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error("Missing env vars:", {
-        hasUser: !!process.env.GMAIL_USER,
-        hasPass: !!process.env.GMAIL_APP_PASSWORD,
-      })
-      return NextResponse.json({ error: "Server configuratie fout.", debug: "missing_env" }, { status: 500 })
+      console.error("Missing GMAIL_USER or GMAIL_APP_PASSWORD")
+      return NextResponse.json({ error: "Server configuratie fout." }, { status: 500 })
     }
 
     const transporter = nodemailer.createTransport({
@@ -50,6 +47,6 @@ export const POST = async (request: Request) => {
   } catch (error) {
     const msg = error instanceof Error ? error.message : "Unknown error"
     console.error("Contact form error:", msg)
-    return NextResponse.json({ error: "Er ging iets mis bij het versturen.", debug: msg }, { status: 500 })
+    return NextResponse.json({ error: "Er ging iets mis bij het versturen." }, { status: 500 })
   }
 }
