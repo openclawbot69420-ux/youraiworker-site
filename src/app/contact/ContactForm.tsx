@@ -106,7 +106,7 @@ export const ContactForm: React.FC = () => {
 
       {status === "error" && (
         <p className="text-sm text-red-600">
-          Er ging iets mis. Probeer het opnieuw of mail direct naar Openclawbot69420@gmail.com.
+          Er ging iets mis bij het versturen. Probeer het later opnieuw.
         </p>
       )}
 

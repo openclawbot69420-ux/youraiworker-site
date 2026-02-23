@@ -10,19 +10,27 @@ export const POST = async (request: Request) => {
       return NextResponse.json({ error: "Vul alle verplichte velden in." }, { status: 400 })
     }
 
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error("Missing env vars:", {
+        hasUser: !!process.env.GMAIL_USER,
+        hasPass: !!process.env.GMAIL_APP_PASSWORD,
+      })
+      return NextResponse.json({ error: "Server configuratie fout.", debug: "missing_env" }, { status: 500 })
+    }
+
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
       auth: {
-        user: process.env.GMAIL_USER!,
-        pass: process.env.GMAIL_APP_PASSWORD!,
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     })
 
     await transporter.sendMail({
       from: `"Your AI Worker" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER!,
+      to: process.env.GMAIL_USER,
       replyTo: email,
       subject: `Nieuwe aanvraag van ${name}${company ? ` (${company})` : ""}`,
       text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "–"}\n\nBericht:\n${message}`,
@@ -40,7 +48,8 @@ export const POST = async (request: Request) => {
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Contact form error:", error)
-    return NextResponse.json({ error: "Er ging iets mis. Probeer het opnieuw." }, { status: 500 })
+    const msg = error instanceof Error ? error.message : "Unknown error"
+    console.error("Contact form error:", msg)
+    return NextResponse.json({ error: "Er ging iets mis bij het versturen.", debug: msg }, { status: 500 })
   }
 }
