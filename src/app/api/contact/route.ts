@@ -1,14 +1,6 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
-})
-
 export const POST = async (request: Request) => {
   try {
     const body = await request.json()
@@ -18,9 +10,19 @@ export const POST = async (request: Request) => {
       return NextResponse.json({ error: "Vul alle verplichte velden in." }, { status: 400 })
     }
 
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.GMAIL_USER!,
+        pass: process.env.GMAIL_APP_PASSWORD!,
+      },
+    })
+
     await transporter.sendMail({
       from: `"Your AI Worker" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER!,
       replyTo: email,
       subject: `Nieuwe aanvraag van ${name}${company ? ` (${company})` : ""}`,
       text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "–"}\n\nBericht:\n${message}`,
