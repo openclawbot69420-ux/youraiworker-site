@@ -112,9 +112,31 @@ const currency = (value: number) => {
   }).format(value)
 }
 
+const CONFIG_STORAGE_KEY = "yaiw_config_v1"
+
+type ConfigPayload = {
+  selectedPackage: PackageKey
+  selectedAddOns: AddOnKey[]
+  volumes: {
+    emailsPerDay: number
+    leadsPerWeek: number
+    ticketsPerWeek: number
+  }
+  hourlyRateEuro: number
+  savedAtIso: string
+}
+
+const clamp = (value: number, min: number, max: number) => {
+  return Math.max(min, Math.min(max, value))
+}
+
 export const ConfigureUI: React.FC = () => {
   const [selectedPackage, setSelectedPackage] = useState<PackageKey>("starter")
   const [selectedAddOns, setSelectedAddOns] = useState<AddOnKey[]>([])
+  const [emailsPerDay, setEmailsPerDay] = useState<number>(40)
+  const [leadsPerWeek, setLeadsPerWeek] = useState<number>(20)
+  const [ticketsPerWeek, setTicketsPerWeek] = useState<number>(30)
+  const [hourlyRateEuro, setHourlyRateEuro] = useState<number>(50)
 
   const activePackage = useMemo(() => {
     return PACKAGES.find((p) => p.key === selectedPackage)!
@@ -130,16 +152,60 @@ export const ConfigureUI: React.FC = () => {
 
     const totalFrom = selectedPackage === "maatwerk" ? null : baseCost + addOnsCost
 
-    const minHours = activeAddOns.reduce((sum, a) => sum + a.efficiencyMinHoursPerWeek, 0)
-    const maxHours = activeAddOns.reduce((sum, a) => sum + a.efficiencyMaxHoursPerWeek, 0)
+    // Conservative baseline assumptions (transparent):
+    // - Email triage: 30-60 sec saved per email (for the portion that is triage/draft)
+    // - Lead qual: 3-8 min saved per lead
+    // - Ticket triage: 2-5 min saved per ticket
+    const emailMinHours = (emailsPerDay * 5 * 0.5) / 60
+    const emailMaxHours = (emailsPerDay * 5 * 1.0) / 60
+
+    const leadMinHours = (leadsPerWeek * 3) / 60
+    const leadMaxHours = (leadsPerWeek * 8) / 60
+
+    const ticketMinHours = (ticketsPerWeek * 2) / 60
+    const ticketMaxHours = (ticketsPerWeek * 5) / 60
+
+    // Add-ons can unlock more automation; we use them as multipliers only when relevant.
+    const hasTelegramOrWhatsApp = activeAddOns.some((a) => a.key === "telegram" || a.key === "whatsapp")
+    const hasCrmOrTicketing = activeAddOns.some((a) => a.key === "crm" || a.key === "ticketing")
+
+    const multiplier = 1 + (hasTelegramOrWhatsApp ? 0.15 : 0) + (hasCrmOrTicketing ? 0.15 : 0)
+
+    const baseMin = (emailMinHours + leadMinHours + ticketMinHours) * multiplier
+    const baseMax = (emailMaxHours + leadMaxHours + ticketMaxHours) * multiplier
+
+    // Keep the previously used "add-ons impact" as a smaller, additive indicator
+    const addOnsMinHours = activeAddOns.reduce((sum, a) => sum + a.efficiencyMinHoursPerWeek, 0)
+    const addOnsMaxHours = activeAddOns.reduce((sum, a) => sum + a.efficiencyMaxHoursPerWeek, 0)
+
+    const efficiencyMin = Math.max(0, baseMin + addOnsMinHours)
+    const efficiencyMax = Math.max(efficiencyMin, baseMax + addOnsMaxHours)
+
+    const savingsEuroMinPerWeek = efficiencyMin * hourlyRateEuro
+    const savingsEuroMaxPerWeek = efficiencyMax * hourlyRateEuro
+
+    const paybackWeeksMin = totalFrom ? totalFrom / Math.max(1, savingsEuroMaxPerWeek) : null
+    const paybackWeeksMax = totalFrom ? totalFrom / Math.max(1, savingsEuroMinPerWeek) : null
 
     return {
       totalFrom,
       addOnsCost,
-      efficiencyMin: minHours,
-      efficiencyMax: maxHours,
+      efficiencyMin,
+      efficiencyMax,
+      savingsEuroMinPerWeek,
+      savingsEuroMaxPerWeek,
+      paybackWeeksMin,
+      paybackWeeksMax,
     }
-  }, [activeAddOns, activePackage.priceEuro, selectedPackage])
+  }, [
+    activeAddOns,
+    activePackage.priceEuro,
+    emailsPerDay,
+    hourlyRateEuro,
+    leadsPerWeek,
+    selectedPackage,
+    ticketsPerWeek,
+  ])
 
   const toggleAddOn = (key: AddOnKey) => {
     setSelectedAddOns((prev) => {
@@ -149,6 +215,31 @@ export const ConfigureUI: React.FC = () => {
       return [...prev, key]
     })
   }
+
+  const configPayload: ConfigPayload = {
+    selectedPackage,
+    selectedAddOns,
+    volumes: {
+      emailsPerDay,
+      leadsPerWeek,
+      ticketsPerWeek,
+    },
+    hourlyRateEuro,
+    savedAtIso: new Date().toISOString(),
+  }
+
+  const persistConfig = () => {
+    try {
+      localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(configPayload))
+    } catch {
+      // ignore
+    }
+  }
+
+  const shareLink = useMemo(() => {
+    const encoded = encodeURIComponent(JSON.stringify(configPayload))
+    return `/contact?config=${encoded}`
+  }, [configPayload])
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
@@ -189,6 +280,92 @@ export const ConfigureUI: React.FC = () => {
           <p className="mt-2 text-sm text-slate-600">
             Je kunt credentials/toegang zelf aanleveren. Wil je dat wij het regelen? Kies dan add-ons.
           </p>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-slate-900">Volumes (indicatie)</p>
+              <p className="mt-1 text-xs text-slate-500">
+                Dit bepaalt de efficiency-schatting. We valideren dit tijdens intake.
+              </p>
+
+              <div className="mt-5 space-y-4">
+                <div>
+                  <div className="flex items-center justify-between text-sm">
+                    <label htmlFor="emails" className="font-medium text-slate-700">E-mails per dag</label>
+                    <span className="font-semibold text-slate-900">{emailsPerDay}</span>
+                  </div>
+                  <input
+                    id="emails"
+                    type="range"
+                    min={0}
+                    max={500}
+                    value={emailsPerDay}
+                    onChange={(e) => setEmailsPerDay(Number(e.target.value))}
+                    className="mt-2 w-full"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between text-sm">
+                    <label htmlFor="leads" className="font-medium text-slate-700">Leads per week</label>
+                    <span className="font-semibold text-slate-900">{leadsPerWeek}</span>
+                  </div>
+                  <input
+                    id="leads"
+                    type="range"
+                    min={0}
+                    max={500}
+                    value={leadsPerWeek}
+                    onChange={(e) => setLeadsPerWeek(Number(e.target.value))}
+                    className="mt-2 w-full"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between text-sm">
+                    <label htmlFor="tickets" className="font-medium text-slate-700">Tickets per week</label>
+                    <span className="font-semibold text-slate-900">{ticketsPerWeek}</span>
+                  </div>
+                  <input
+                    id="tickets"
+                    type="range"
+                    min={0}
+                    max={1000}
+                    value={ticketsPerWeek}
+                    onChange={(e) => setTicketsPerWeek(Number(e.target.value))}
+                    className="mt-2 w-full"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between text-sm">
+                    <label htmlFor="rate" className="font-medium text-slate-700">Uurtarief (EUR)</label>
+                    <span className="font-semibold text-slate-900">{currency(hourlyRateEuro)}</span>
+                  </div>
+                  <input
+                    id="rate"
+                    type="range"
+                    min={20}
+                    max={200}
+                    step={5}
+                    value={hourlyRateEuro}
+                    onChange={(e) => setHourlyRateEuro(Number(e.target.value))}
+                    className="mt-2 w-full"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-slate-900">Aannames</p>
+              <ul className="mt-3 space-y-2 text-xs text-slate-600">
+                <li>• Email triage/draft: 30-60 sec tijdwinst per email</li>
+                <li>• Lead qualification: 3-8 min tijdwinst per lead</li>
+                <li>• Ticket triage: 2-5 min tijdwinst per ticket</li>
+                <li>• Add-ons kunnen efficiency verhogen door meer automatisering mogelijk te maken</li>
+              </ul>
+            </div>
+          </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {ADDONS.map((a) => {
@@ -253,22 +430,44 @@ export const ConfigureUI: React.FC = () => {
           <div className="mt-6 rounded-xl border border-slate-200 bg-white p-5">
             <p className="text-sm font-semibold text-slate-900">Efficiency (indicatie)</p>
             <p className="mt-2 text-sm text-slate-700">
-              {estimate.efficiencyMax === 0
-                ? "Selecteer add-ons om een impact-indicatie te zien."
-                : `${estimate.efficiencyMin} tot ${estimate.efficiencyMax} uur/week tijdwinst.`}
+              {`${estimate.efficiencyMin.toFixed(1)} tot ${estimate.efficiencyMax.toFixed(1)} uur/week tijdwinst.`}
             </p>
+            <p className="mt-2 text-sm text-slate-700">
+              {`${currency(estimate.savingsEuroMinPerWeek)} tot ${currency(estimate.savingsEuroMaxPerWeek)} per week (op basis van uurtarief).`}
+            </p>
+            {estimate.paybackWeeksMin && estimate.paybackWeeksMax && (
+              <p className="mt-2 text-xs text-slate-500">
+                Payback indicatie: ~{estimate.paybackWeeksMin.toFixed(1)} tot {estimate.paybackWeeksMax.toFixed(1)} weken.
+              </p>
+            )}
             <p className="mt-2 text-xs text-slate-500">
-              Dit is een grove schatting op basis van het type integratie. Werkelijke impact hangt af
-              van volume en workflow.
+              Indicatief. We valideren volumes en scope tijdens intake.
             </p>
           </div>
 
-          <a
-            href="/contact"
-            className="mt-6 block rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
-          >
-            Plan intake
-          </a>
+          <div className="mt-6 grid gap-3">
+            <a
+              href={shareLink}
+              onClick={persistConfig}
+              className="block rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
+            >
+              Plan intake met deze configuratie
+            </a>
+            <button
+              type="button"
+              onClick={async () => {
+                persistConfig()
+                try {
+                  await navigator.clipboard.writeText(`${window.location.origin}${shareLink}`)
+                } catch {
+                  // ignore
+                }
+              }}
+              className="rounded-lg border border-slate-300 px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
+            >
+              Kopieer link
+            </button>
+          </div>
         </div>
 
         <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white">

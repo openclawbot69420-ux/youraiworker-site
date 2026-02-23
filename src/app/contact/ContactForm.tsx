@@ -1,9 +1,33 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+const CONFIG_STORAGE_KEY = "yaiw_config_v1"
 
 export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+  const [prefillMessage, setPrefillMessage] = useState<string>("")
+
+  useEffect(() => {
+    try {
+      const url = new URL(window.location.href)
+      const configParam = url.searchParams.get("config")
+
+      const stored = localStorage.getItem(CONFIG_STORAGE_KEY)
+      const raw = configParam ? decodeURIComponent(configParam) : stored
+
+      if (!raw) {
+        return
+      }
+
+      const parsed = JSON.parse(raw) as unknown
+      const json = JSON.stringify(parsed, null, 2)
+
+      setPrefillMessage(`\n\n---\nConfiguratie (van configurator):\n${json}\n---\n`)
+    } catch {
+      // ignore
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -14,7 +38,7 @@ export const ContactForm: React.FC = () => {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      message: `${(form.elements.namedItem("message") as HTMLTextAreaElement).value}${prefillMessage}`,
       website: (form.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "",
     }
 
