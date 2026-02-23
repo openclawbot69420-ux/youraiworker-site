@@ -10,7 +10,8 @@ const PricingPage: React.FC = () => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Prijzen</h1>
       <p className="mt-4 max-w-2xl text-slate-600">
-        Transparant en voorspelbaar. Eén vast startpakket, modulair uitbreidbaar.
+        Transparant en voorspelbaar. Kies een package en voeg add-ons toe als je wil dat wij accounts,
+        kanalen en integraties voor je regelen.
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -103,26 +104,89 @@ const PricingPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Add-ons */}
+      <div className="mt-16">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+          <h2 className="text-2xl font-semibold tracking-tight">Add-ons (vanaf prijzen)</h2>
+          <p className="mt-3 max-w-3xl text-sm text-slate-600">
+            Sommige onderdelen vereisen accounts, billing, verificaties of extra security. Je kunt dit
+            zelf aanleveren (credentials/toegang), of wij regelen het als add-on.
+          </p>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {[
+              [
+                "AI model + billing setup",
+                "vanaf €250",
+                "We zetten OpenAI/Anthropic keys, budget limits en basis guardrails netjes op.",
+              ],
+              [
+                "Telegram setup (bot + routing)",
+                "vanaf €250",
+                "Bot, kanalen, notificaties en basis flows voor intake/support.",
+              ],
+              [
+                "WhatsApp Business setup",
+                "vanaf €750",
+                "Provider setup, nummer/verificatie, templates en koppeling met je workflow.",
+              ],
+              [
+                "CRM integratie (HubSpot/Salesforce)",
+                "vanaf €750",
+                "Field mapping, logging, dedup en workflow triggers.",
+              ],
+              [
+                "Ticketing integratie (Jira/Zendesk)",
+                "vanaf €500",
+                "Triage, routing, tags, SLA/priority regels en status updates.",
+              ],
+              [
+                "Security hardening (Tailscale + secrets)",
+                "vanaf €500",
+                "Toegang zonder open poorten, secrets management en basis audit logging.",
+              ],
+            ].map(([title, price, desc]) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
+              >
+                <p className="text-sm font-semibold text-slate-900">{title}</p>
+                <p className="mt-2 text-2xl font-bold text-slate-900">{price}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-6 text-xs text-slate-500">
+            Vanaf prijzen zijn indicaties. Definitieve prijs hangt af van scope, toegang en complexiteit.
+          </p>
+        </div>
+      </div>
+
       {/* FAQ */}
       <div className="mt-20">
         <h2 className="text-2xl font-semibold tracking-tight">Veelgestelde vragen</h2>
         <div className="mt-8 space-y-6">
           {[
             [
-              "Wat zit er precies in het basispakket?",
-              "Eén AI-agent die één specifieke workflow automatiseert. Inclusief intake, implementatie, integraties, documentatie, handover en 2 weken support.",
+              "Wat zit er precies in Starter?",
+              "Eén AI-agent die één specifieke workflow automatiseert. Inclusief intake, implementatie, basis integraties, documentatie, handover en 2 weken support.",
             ],
             [
               "Hoe lang duurt de oplevering?",
-              "Typisch enkele dagen tot 2 weken, afhankelijk van integraties en de beschikbaarheid van systemen.",
+              "Vaak binnen dagen live. Exacte doorlooptijd hangt af van integraties, toegang en hoe snel we testcases kunnen valideren.",
+            ],
+            [
+              "Moet ik zelf accounts of API keys hebben?",
+              "Je kunt credentials en toegang zelf aanleveren. Als je wil dat wij AI billing, WhatsApp/Telegram of CRM setup regelen, kies dan een add-on.",
             ],
             [
               "Wat als er iets misgaat na livegang?",
-              "Je hebt 48 uur volledige warranty en daarna 2 weken break-fix support tijdens kantooruren.",
+              "Je hebt 48 uur volledige warranty en daarna break-fix support tijdens kantooruren (Starter: 2 weken, Groei: 4 weken).",
             ],
             [
               "Kan ik later meer agents toevoegen?",
-              "Ja, het systeem is modulair. Elke extra agent wordt apart gescoped en geprijsd.",
+              "Ja. Je kunt opschalen via Groei, of we scopen per extra workflow een add-on.",
             ],
           ].map(([q, a]) => (
             <div key={q} className="border-b border-slate-200 pb-6">
