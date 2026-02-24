@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { ClipboardCheck, ShieldCheck, Sparkles } from "lucide-react"
+import { ClipboardCheck, LifeBuoy, Lock, ShieldCheck, Sparkles } from "lucide-react"
 
 import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
@@ -495,67 +495,95 @@ const HomePage: React.FC = () => {
       <section className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support, standaard</h2>
-            <p className="mt-4 text-sm text-slate-600">
-              We richten agents veilig en praktisch in zodat je snel live kunt zonder controle te verliezen.
-              Remote access loopt via <span className="font-semibold text-slate-900">Tailscale</span> -
-              versleuteld, identity-based netwerk zonder open poorten.
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support</h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
+              Veilige defaults, duidelijke support en heldere requirements zodat je snel live kunt
+              zonder controle te verliezen.
             </p>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
+              <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+              <span>
+                Remote access via <span className="text-slate-900">Tailscale</span> - versleuteld,
+                identity-based, geen open poorten.
+              </span>
+            </div>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-              <h3 className="text-lg font-semibold text-slate-900">Security baseline</h3>
-              <div className="mt-5 grid gap-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
+                  <ShieldCheck className="h-5 w-5 text-slate-700" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-semibold text-slate-900">Security baseline</h3>
+              </div>
+              <div className="mt-5 space-y-2.5">
                 {[
-                  ["Least privilege per integratie", "Alleen de minimaal benodigde scopes en rechten."],
-                  ["Secrets management", "Geen API keys in code en rotatie waar nodig."],
-                  ["Logging en traceability", "Audit trail voor acties, beslissingen en uitzonderingen."],
-                  ["Omgevingsscheiding", "Test en productie gescheiden waar nodig."],
-                ].map(([title, desc]) => (
-                  <div key={title} className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
-                    <p className="text-sm font-semibold text-slate-900">{title}</p>
-                    <p className="mt-1 text-sm text-slate-600">{desc}</p>
+                  "Least privilege per integratie",
+                  "Secrets management",
+                  "Logging en traceability",
+                  "Omgevingsscheiding waar nodig",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3.5 py-3 text-sm text-slate-700"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-                <h3 className="text-lg font-semibold text-slate-900">Support en warranty</h3>
-                <div className="mt-5 space-y-3 text-sm text-slate-600">
-                  <div className="rounded-xl border border-slate-200 bg-white p-4">
-                    <p>
-                      <span className="font-semibold text-slate-900">48 uur warranty</span> voor bugs en regressies
-                      binnen scope.
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-slate-200 bg-white p-4">
-                    <p>
-                      <span className="font-semibold text-slate-900">2 weken break-fix</span> tijdens business hours.
-                    </p>
-                  </div>
-                  <p>24/7, SLA&apos;s of incident response zijn beschikbaar op aanvraag.</p>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm shadow-slate-900/5">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl border border-slate-200 bg-white p-2.5">
+                  <LifeBuoy className="h-5 w-5 text-slate-700" aria-hidden="true" />
                 </div>
+                <h3 className="text-lg font-semibold text-slate-900">Support</h3>
               </div>
+              <div className="mt-5 space-y-2.5">
+                {[
+                  ["48 uur warranty", "bugs en regressies binnen scope"],
+                  ["2 weken break-fix", "tijdens business hours"],
+                ].map(([title, desc]) => (
+                  <div key={title} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
+                    <p className="text-sm font-semibold text-slate-900">{title}</p>
+                    <p className="mt-0.5 text-xs text-slate-600">{desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-xl border border-dashed border-slate-300 bg-white/70 px-4 py-3 text-sm text-slate-600">
+                <span className="font-medium text-slate-900">SLA op aanvraag</span> - 24/7 en
+                incident response mogelijk.
+              </div>
+            </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-                <h3 className="text-lg font-semibold text-slate-900">Wat we nodig hebben van jou</h3>
-                <ul className="mt-5 space-y-3 text-sm text-slate-700">
-                  {[
-                    "Accounts en toegang via least-privilege rechten en scopes.",
-                    "Realistische testcases om gedrag en uitzonderingen te valideren.",
-                    "Een owner die approvals kan geven tijdens build, review en go-live.",
-                    "Optioneel: managed provisioning add-on als je geen credentials wilt delen.",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50/70 p-4">
-                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5">
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5">
+                  <ClipboardCheck className="h-5 w-5 text-slate-700" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-semibold text-slate-900">Wat we nodig hebben</h3>
               </div>
+              <ul className="mt-5 space-y-2.5 text-sm text-slate-700">
+                {[
+                  "Accounts en toegang met least-privilege rechten en scopes",
+                  "Realistische testcases voor gedrag en uitzonderingen",
+                  "Een owner voor approvals tijdens build, review en go-live",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3.5 py-3"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-xs leading-relaxed text-slate-500">
+                Optioneel: managed provisioning add-on als je geen credentials wilt delen.
+              </p>
             </div>
           </div>
         </div>
