@@ -255,6 +255,66 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Trust Indicators */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Waarom bedrijven ons kiezen
+            </h2>
+            <p className="mt-3 text-sm text-slate-600">
+              Snel live, duidelijke scope en lokale support. Geen losse experimenten, maar een
+              production-ready agent met een voorspelbaar traject.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["< 2 weken", "Gemiddelde time-to-live"],
+              ["100%", "Nederlandse setup & support"],
+              ["€1.000", "Vaste startprijs, geen verrassingen"],
+              ["48 uur", "Warranty response time"],
+            ].map(([value, label]) => (
+              <div key={value} className="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
+                <p className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                  {value}
+                </p>
+                <p className="mt-2 text-sm text-slate-600">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div className="flex flex-col gap-1">
+              <h3 className="text-sm font-semibold tracking-wide text-slate-900">Onze aanpak</h3>
+              <p className="text-sm text-slate-600">
+                Praktisch ingericht voor teams die snelheid en controle tegelijk willen.
+              </p>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {[
+                [
+                  "🔒",
+                  "Security-first",
+                  "Tailscale, least-privilege, audit logging standaard",
+                ],
+                ["🇳🇱", "Nederlands team", "Lokale support, geen offshore, korte lijnen"],
+                ["📋", "Vaste prijs, duidelijke scope", "Geen verrassingen achteraf"],
+              ].map(([icon, title, desc]) => (
+                <div key={title} className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
+                  <p className="text-lg" aria-hidden="true">
+                    {icon}
+                  </p>
+                  <p className="mt-2 font-semibold text-slate-900">{title}</p>
+                  <p className="mt-2 text-sm text-slate-600">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
