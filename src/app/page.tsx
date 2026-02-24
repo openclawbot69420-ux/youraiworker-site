@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { OpenClawTerminalDemo } from "../components/OpenClawTerminalDemo"
 
 const MARQUEE_ITEMS = [
   "E-mail triage",
@@ -371,6 +372,19 @@ const HomePage: React.FC = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Terminal Demo */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Zie het in actie</h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
+              Van setup tot eerste resultaten in minuten, niet maanden.
+            </p>
+          </div>
+          <OpenClawTerminalDemo />
         </div>
       </section>
 
