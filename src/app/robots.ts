@@ -1,13 +1,16 @@
 import type { MetadataRoute } from "next"
 
-const robots = (): MetadataRoute.Robots => {
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = "https://youraiworker.nl"
+
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://youraiworker.nl/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   }
 }
-
-export default robots

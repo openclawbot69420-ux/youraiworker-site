@@ -1,18 +1,22 @@
 import type { MetadataRoute } from "next"
 
-const sitemap = (): MetadataRoute.Sitemap => {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://youraiworker.nl"
+  const now = new Date()
 
-  const routes = ["/", "/use-cases", "/integrations", "/guides", "/pricing", "/contact", "/security", "/privacy"]
+  const routes = [
+    "",
+    "/use-cases",
+    "/integrations",
+    "/pricing",
+    "/contact",
+    "/security",
+    "/privacy",
+    "/guides",
+  ]
 
-  return routes.map((route) => {
-    return {
-      url: `${baseUrl}${route}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: route === "/" ? 1 : 0.7,
-    }
-  })
+  return routes.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: now,
+  }))
 }
-
-export default sitemap
