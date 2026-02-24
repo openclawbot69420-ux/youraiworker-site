@@ -1,19 +1,79 @@
 import type { Metadata } from "next"
-import { ClipboardCheck, LifeBuoy, Lock, ShieldCheck, Sparkles } from "lucide-react"
+import {
+  Calendar,
+  ClipboardCheck,
+  Database,
+  LifeBuoy,
+  Lock,
+  Mail,
+  MessageCircle,
+  MessagesSquare,
+  Plus,
+  ShieldCheck,
+  Sparkles,
+  Workflow,
+} from "lucide-react"
 
 import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
-const MARQUEE_ITEMS = [
-  "E-mail triage",
-  "Lead kwalificatie",
-  "Meeting planning",
-  "Rapportages",
-  "CRM updates",
-  "Support tickets",
-  "Data-analyse",
-  "Facturatie",
-]
+const INTEGRATION_ITEMS = [
+  { label: "Gmail", Icon: Mail },
+  { label: "Google Calendar", Icon: Calendar },
+  { label: "WhatsApp", Icon: MessageCircle },
+  { label: "Slack", Icon: MessagesSquare },
+  { label: "HubSpot / Salesforce", Icon: Database },
+  { label: "Zapier", Icon: Workflow },
+  { label: "en meer", Icon: Plus },
+] as const
+
+const PROBLEM_CARDS = [
+  {
+    title: "Inbox + follow-ups",
+    description:
+      "Sales en operations verliezen tijd aan triage, statuschecks en opvolging die tussen mailboxen blijft hangen.",
+    snippet: "Nieuwe lead -> antwoordconcept -> reminder +2 dagen -> owner toegewezen",
+  },
+  {
+    title: "Chat leads/support",
+    description:
+      "WhatsApp en webchat vragen snelle reacties, maar context en prioriteit worden handmatig bepaald.",
+    snippet: "Vraag binnen -> intentie herkend -> ticket of leadroute -> antwoord klaarzetten",
+  },
+  {
+    title: "CRM updates + reporting",
+    description:
+      "Activiteiten worden laat of onvolledig bijgewerkt, waardoor forecast en rapportages achterlopen.",
+    snippet: "Call samenvatting -> CRM veldupdate -> weekrapport automatisch bijgewerkt",
+  },
+  {
+    title: "Planning chaos",
+    description:
+      "Afstemming via e-mail en chat zorgt voor dubbele afspraken, losse notities en onduidelijke opvolging.",
+    snippet: "Beschikbaarheid ophalen -> voorstel sturen -> bevestiging -> agenda + CRM sync",
+  },
+] as const
+
+const SOLUTION_BLOCKS = [
+  {
+    title: "Verzoek intake en classificatie",
+    request: "Een e-mail, chatbericht of formulier komt binnen.",
+    action: "De agent herkent type verzoek, prioriteit en volgende stap op basis van jouw regels.",
+    result: "Snellere eerste reactie en minder handmatige triage in het team.",
+  },
+  {
+    title: "Uitvoering in je bestaande tools",
+    request: "Het team wil niet in nog een nieuw systeem werken.",
+    action: "De agent leest en schrijft in mail, agenda, chat en CRM via bestaande koppelingen.",
+    result: "Procesverbetering zonder extra operationele overhead.",
+  },
+  {
+    title: "Controleerbare output",
+    request: "Management wil inzicht in wat is verwerkt en wat nog wacht.",
+    action: "Acties, statussen en uitzonderingen worden zichtbaar in een dashboard en logs.",
+    result: "Meetbare doorlooptijd, betere opvolging en duidelijk eigenaarschap.",
+  },
+] as const
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -76,12 +136,12 @@ const HomePage: React.FC = () => {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <h1 className="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-              AI‑agents die je organisatie echt werk uit handen nemen.
+              AI-agents die operationeel werk verlagen en opvolging versnellen.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-              Wij ontwerpen en implementeren maatwerk AI‑agents voor teams die snelheid, veiligheid
-              en betrouwbaarheid eisen. Start met één production‑ready agent vanaf{" "}
-              <span className="font-semibold text-slate-900">€1.000</span>.
+              Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
+              Je start met één afgebakende workflow, meet resultaat in de praktijk en schaalt daarna
+              gecontroleerd door.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -137,6 +197,108 @@ const HomePage: React.FC = () => {
 
       </section>
 
+      {/* Integrations strip */}
+      <section className="border-y border-slate-200/70 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+            <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              Werkt met
+            </p>
+            <div className="flex flex-wrap gap-2.5">
+              {INTEGRATION_ITEMS.map(({ label, Icon }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-medium text-slate-700 sm:text-sm"
+                >
+                  <Icon className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+                  <span>{label}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem */}
+      <section className="border-b border-slate-200/70 bg-slate-50/50">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              De realiteit
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              De meeste teams hebben de juiste tools al in huis. De vertraging zit in handmatige
+              triage, opvolging en overdracht tussen inbox, chat, agenda en CRM.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {PROBLEM_CARDS.map(({ title, description, snippet }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5"
+              >
+                <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
+                    Voorbeeld
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
+                    {snippet}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solution */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            De oplossing
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+            We bouwen per workflow een agent die verzoeken verwerkt, acties uitvoert in je systemen
+            en resultaten terugschrijft. De dashboarddemo hieronder laat dit patroon zien met echte
+            input en agent-output.
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          {SOLUTION_BLOCKS.map(({ title, request, action, result }) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5"
+            >
+              <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+              <div className="mt-4 space-y-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    Verzoek
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    Actie
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
+                </div>
+                <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    Resultaat
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-900">{result}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Demo */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <div className="rounded-3xl border border-slate-200 bg-slate-900 p-6 shadow-2xl shadow-slate-900/10 sm:p-10">
@@ -167,52 +329,6 @@ const HomePage: React.FC = () => {
             >
               Bekijk use cases
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <section className="border-y border-slate-200/70 bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-4">
-          <div className="marquee-shell overflow-hidden">
-            <div className="marquee-track">
-              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, index) => (
-                <span
-                  key={`${item}-${index}`}
-                  className="inline-flex items-center gap-3 text-xs font-medium tracking-wide text-slate-500 sm:text-sm"
-                >
-                  <span>{item}</span>
-                  <span aria-hidden="true" className="text-slate-300">
-                    •
-                  </span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pain Points */}
-      <section className="border-y border-slate-200/70 bg-slate-50/50">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Waar teams op vastlopen met &ldquo;AI in de praktijk&rdquo;
-          </h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {[
-              ["Te veel pilots, te weinig productie", "Losse prompts zonder ownership, monitoring of ROI."],
-              ["Handmatig werk stapelt op", "Triage, follow‑ups, rapportages, tickets en samenvattingen."],
-              ["Integraties zijn de bottleneck", "AI zonder toegang tot systemen levert weinig op."],
-              ["Security & compliance zorgen", "Wie kan erbij, waar gaat data heen, wat wordt gelogd?"],
-            ].map(([title, desc]) => (
-              <div
-                key={title}
-                className="rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-slate-300 transition-all"
-              >
-                <h3 className="font-semibold">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
