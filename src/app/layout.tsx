@@ -79,6 +79,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/use-cases", label: "Use cases" },
   { href: "/integrations", label: "Integraties" },
+  { href: "/implementatie", label: "Implementatie" },
   { href: "/pricing", label: "Prijzen" },
   { href: "/contact", label: "Contact" },
   { href: "/security", label: "Beveiliging" },
@@ -180,6 +181,9 @@ const Footer: React.FC = () => {
               </a>
               <a className="transition-colors hover:text-slate-900" href="/integrations">
                 Integraties
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/implementatie">
+                Implementatie
               </a>
               <a className="transition-colors hover:text-slate-900" href="/pricing">
                 Prijzen
