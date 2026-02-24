@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://youraiworker.nl"),
   alternates: {
     canonical: "https://youraiworker.nl/",
+    languages: {
+      nl: "https://youraiworker.nl/",
+      "x-default": "https://youraiworker.nl/",
+    },
   },
   openGraph: {
     type: "website",
@@ -36,7 +40,6 @@ export const metadata: Metadata = {
     description:
       "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
     images: ["/og.png"],
-    creator: "@youraiworker",
   },
   icons: {
     icon: [
@@ -66,6 +69,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <html lang="nl">
       <head>
+        <meta name="theme-color" content="#0f172a" />
+        <meta name="format-detection" content="telephone=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
