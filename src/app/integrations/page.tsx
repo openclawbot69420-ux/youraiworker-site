@@ -40,9 +40,9 @@ const IntegrationsPage: React.FC = () => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Integrations</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Integraties</h1>
           <p className="mt-4 text-slate-600">
-            Je OpenClaw AI agent koppelt met de tools die je al gebruikt.
+            Koppel je AI-agent aan de tools die je al gebruikt: CRM, ticketing, chat, planning en meer.
           </p>
         </div>
       </div>

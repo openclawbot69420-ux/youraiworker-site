@@ -28,9 +28,9 @@ const GuidesPage: React.FC = () => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Guides</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Guides</h1>
           <p className="mt-4 text-slate-600">
-            Praktische guides om AI agents goed op te zetten, te optimaliseren en op te schalen.
+            Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.
           </p>
         </div>
       </div>
