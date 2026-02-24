@@ -41,6 +41,12 @@ export const metadata: Metadata = {
       "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
     images: ["/og.png"],
   },
+  other: {
+    "application-name": "Your AI Worker",
+    "apple-mobile-web-app-title": "Your AI Worker",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
