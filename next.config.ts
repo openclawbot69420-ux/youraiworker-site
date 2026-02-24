@@ -4,12 +4,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.youraiworker.nl" }],
-        destination: "https://youraiworker.nl/:path*",
-        permanent: true,
-      },
-      {
         source: "/configure",
         destination: "/implementatie",
         permanent: true,
