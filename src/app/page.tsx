@@ -128,26 +128,42 @@ const HomePage: React.FC = () => {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-5 rounded-xl border border-slate-200 bg-white p-3.5">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                  Demo preview
-                </p>
-                <p className="mt-1 text-xs text-slate-600 sm:text-sm">
-                  OpenClaw-style workflow in actie
-                </p>
-
-                <div className="relative mt-3 overflow-hidden rounded-xl">
-                  <div className="h-52 overflow-hidden sm:h-56">
-                    <OpenClawTerminalDemo />
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/90 to-transparent"
-                  />
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* Demo */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="rounded-3xl border border-slate-200 bg-slate-900 p-6 shadow-2xl shadow-slate-900/10 sm:p-10">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              Zie OpenClaw in actie
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-200 sm:text-base">
+              Korte demo’s van inbox triage, lead kwalificatie en support — inclusief user input en
+              agent output.
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <OpenClawTerminalDemo />
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
+            >
+              Plan een intake
+            </a>
+            <a
+              href="/use-cases"
+              className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+            >
+              Bekijk use cases
+            </a>
           </div>
         </div>
       </section>
