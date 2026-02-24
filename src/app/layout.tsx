@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Github, Linkedin } from "lucide-react"
+import { MobileNav } from "../components/MobileNav"
 import "../styles/globals.css"
 
 export const metadata: Metadata = {
@@ -69,6 +70,22 @@ export const metadata: Metadata = {
   },
 }
 
+type NavItem = {
+  href: string
+  label: string
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/use-cases", label: "Use cases" },
+  { href: "/integrations", label: "Integraties" },
+  { href: "/pricing", label: "Prijzen" },
+  { href: "/contact", label: "Contact" },
+  { href: "/security", label: "Beveiliging" },
+]
+
+const HEADER_CTA: NavItem = { href: "/contact", label: "Plan intake" }
+
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
 
@@ -100,30 +117,18 @@ const Header: React.FC = () => {
         <a href="/" className="text-lg font-semibold tracking-tight text-slate-900">
           Your AI Worker
         </a>
+        <MobileNav items={NAV_ITEMS} cta={HEADER_CTA} />
         <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
-          <a className="hover:text-slate-900 transition-colors" href="/">
-            Home
-          </a>
-          <a className="hover:text-slate-900 transition-colors" href="/use-cases">
-            Use cases
-          </a>
-          <a className="hover:text-slate-900 transition-colors" href="/integrations">
-            Integraties
-          </a>
-          <a className="hover:text-slate-900 transition-colors" href="/pricing">
-            Prijzen
-          </a>
-          <a className="hover:text-slate-900 transition-colors" href="/contact">
-            Contact
-          </a>
-          <a className="hover:text-slate-900 transition-colors" href="/security">
-            Beveiliging
-          </a>
+          {NAV_ITEMS.map((item) => (
+            <a key={item.href} className="hover:text-slate-900 transition-colors" href={item.href}>
+              {item.label}
+            </a>
+          ))}
           <a
             className="rounded-lg bg-slate-900 px-4 py-2 text-white hover:bg-slate-800 transition-colors"
-            href="/contact"
+            href={HEADER_CTA.href}
           >
-            Plan intake
+            {HEADER_CTA.label}
           </a>
         </nav>
       </div>
@@ -211,8 +216,6 @@ const Footer: React.FC = () => {
             <a className="transition-colors hover:text-slate-600" href="mailto:hello@youraiworker.nl">
               hello@youraiworker.nl
             </a>
-            <span>KvK: 12345678</span>
-            <span>BTW: NL001234567B01</span>
           </p>
         </div>
       </div>
