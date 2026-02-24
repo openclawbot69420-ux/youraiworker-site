@@ -96,30 +96,55 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-7">
               <h2 className="text-lg font-semibold">Hoe het werkt</h2>
               <p className="mt-2 text-sm text-slate-600">
                 We starten klein, leveren snel, en zorgen dat je team direct met een bruikbare
                 agent werkt.
               </p>
-              <div className="mt-6 space-y-4">
-                <div className="rounded-xl bg-white p-4 border border-slate-100">
-                  <p className="text-xs font-medium text-slate-500">1. Kies één workflow</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Bijv. inbox triage, lead kwalificatie of rapportages
-                  </p>
-                </div>
-                <div className="rounded-xl bg-white p-4 border border-slate-100">
-                  <p className="text-xs font-medium text-slate-500">2. Wij bouwen &amp; testen</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Production-ready binnen dagen, niet maanden
-                  </p>
-                </div>
-                <div className="rounded-xl bg-white p-4 border border-slate-100">
-                  <p className="text-xs font-medium text-slate-500">3. Live + support</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    48 uur warranty + 2 weken break‑fix
-                  </p>
+              <div className="mt-5 space-y-2.5">
+                {[
+                  [
+                    "1. Kies één workflow",
+                    "Inbox triage, lead kwalificatie of rapportages",
+                  ],
+                  ["2. Wij bouwen & testen", "Production-ready binnen dagen, niet maanden"],
+                  ["3. Live + support", "48 uur warranty + 2 weken break‑fix"],
+                ].map(([title, desc]) => (
+                  <div
+                    key={title}
+                    className="flex gap-3 rounded-xl border border-slate-100 bg-white p-3.5"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-cyan-500"
+                    />
+                    <div>
+                      <p className="text-xs font-medium text-slate-700">{title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 rounded-xl border border-slate-200 bg-white p-3.5">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                  Demo preview
+                </p>
+                <p className="mt-1 text-xs text-slate-600 sm:text-sm">
+                  OpenClaw-style workflow in actie
+                </p>
+
+                <div className="relative mt-3 overflow-hidden rounded-xl">
+                  <div className="h-52 overflow-hidden sm:h-56">
+                    <OpenClawTerminalDemo />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white via-white/90 to-transparent"
+                  />
                 </div>
               </div>
             </div>
@@ -466,20 +491,6 @@ const HomePage: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Terminal Demo */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Zie het in actie</h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
-              Korte demo&apos;s van inbox triage, lead kwalificatie en support automation in een
-              OpenClaw-style workflow.
-            </p>
-          </div>
-          <OpenClawTerminalDemo />
         </div>
       </section>
 
