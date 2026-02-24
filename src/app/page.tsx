@@ -261,13 +261,13 @@ const HomePage: React.FC = () => {
         </h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {[
-            ["1", "Intake", "Scope, risico's, data‑bronnen, succescriteria."],
-            ["2", "Design", "Agent‑flow, permissions, outputs, testcases."],
-            ["3", "Build & integrate", "Implementatie + koppelingen + logging."],
-            ["4", "Review & UAT", "Testen met echte cases, edge cases."],
-            ["5", "Go‑live", "Gecontroleerde uitrol + korte training."],
-            ["6", "Stabilisatie", "48 uur warranty + 2 weken break‑fix."],
-          ].map(([num, title, desc]) => (
+            ["1", "Intake", "~30 min", "Scope, risico's, data‑bronnen, succescriteria."],
+            ["2", "Design", "1–2 dagen", "Agent‑flow, permissions, outputs, testcases."],
+            ["3", "Build & integrate", "3–5 dagen", "Implementatie + koppelingen + logging."],
+            ["4", "Review & UAT", "1–2 dagen", "Testen met echte cases, edge cases."],
+            ["5", "Go‑live", "1 dag", "Gecontroleerde uitrol + korte training."],
+            ["6", "Stabilisatie", "2 weken", "48 uur warranty + 2 weken break‑fix."],
+          ].map(([num, title, duration, desc]) => (
             <div
               key={num}
               className="rounded-xl border border-slate-200 p-6 hover:shadow-md hover:border-slate-300 transition-all"
@@ -276,6 +276,11 @@ const HomePage: React.FC = () => {
                 {num}
               </span>
               <p className="mt-3 font-semibold">{title}</p>
+              <p className="mt-2">
+                <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
+                  {duration}
+                </span>
+              </p>
               <p className="mt-2 text-sm text-slate-600">{desc}</p>
             </div>
           ))}
