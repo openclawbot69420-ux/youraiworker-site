@@ -8,7 +8,6 @@ import {
   Mail,
   MessageCircle,
   MessagesSquare,
-  Plus,
   ShieldCheck,
   Sparkles,
   Workflow,
@@ -202,28 +201,32 @@ const HomePage: React.FC = () => {
       {/* Integrations strip */}
       <section className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-5">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
               Werkt met
             </p>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="grid grid-cols-5 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
               {INTEGRATION_ITEMS.map(({ label, src }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-medium text-slate-700 sm:text-sm"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50/90 text-slate-700 shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 hover:bg-white sm:h-14 sm:w-14"
+                  aria-label={label}
+                  title={label}
                 >
                   {src ? (
                     <img
                       src={src}
                       alt=""
-                      className="h-4 w-4"
+                      className="h-6 w-6 sm:h-7 sm:w-7"
                       aria-hidden="true"
                       loading="lazy"
                     />
                   ) : (
-                    <Plus className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
+                      en meer
+                    </span>
                   )}
-                  <span>{label}</span>
+                  <span className="sr-only">{label}</span>
                 </span>
               ))}
             </div>
@@ -248,17 +251,34 @@ const HomePage: React.FC = () => {
             {PROBLEM_CARDS.map(({ title, description, snippet }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5"
+                tabIndex={0}
+                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-slate-300"
               >
                 <h3 className="text-base font-semibold text-slate-900">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
-                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
-                    Voorbeeld
-                  </p>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
-                    {snippet}
-                  </p>
+
+                <div className="mt-4 md:hidden">
+                  <details className="rounded-xl border border-slate-200 bg-slate-50">
+                    <summary className="cursor-pointer list-none px-4 py-2.5 text-xs font-medium text-slate-600">
+                      Voorbeeld
+                    </summary>
+                    <div className="border-t border-slate-200 px-4 py-3">
+                      <p className="text-xs leading-relaxed text-slate-700">{snippet}</p>
+                    </div>
+                  </details>
+                </div>
+
+                <div className="mt-4 hidden md:block">
+                  <div className="max-h-0 overflow-hidden rounded-xl border border-transparent bg-transparent opacity-0 transition-all duration-200 group-hover:max-h-24 group-hover:border-slate-200 group-hover:bg-slate-50 group-hover:opacity-100 group-focus-within:max-h-24 group-focus-within:border-slate-200 group-focus-within:bg-slate-50 group-focus-within:opacity-100">
+                    <div className="px-4 py-3">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
+                        Voorbeeld
+                      </p>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
+                        {snippet}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -283,27 +303,57 @@ const HomePage: React.FC = () => {
           {SOLUTION_BLOCKS.map(({ title, request, action, result }) => (
             <div
               key={title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5"
+              tabIndex={0}
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-slate-300"
             >
               <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-              <div className="mt-4 space-y-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Verzoek
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Actie
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
-                </div>
+              <div className="mt-4">
                 <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                     Resultaat
                   </p>
                   <p className="mt-1 text-sm leading-relaxed text-slate-900">{result}</p>
+                </div>
+
+                <div className="mt-3 md:hidden">
+                  <details className="rounded-xl border border-slate-200 bg-white">
+                    <summary className="cursor-pointer list-none px-4 py-2.5 text-xs font-medium text-slate-600">
+                      Details
+                    </summary>
+                    <div className="space-y-3 border-t border-slate-200 px-4 py-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Verzoek
+                        </p>
+                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Actie
+                        </p>
+                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+
+                <div className="mt-3 hidden md:block">
+                  <div className="max-h-0 overflow-hidden rounded-xl border border-transparent bg-transparent opacity-0 transition-all duration-200 group-hover:max-h-64 group-hover:border-slate-200 group-hover:bg-white group-hover:opacity-100 group-focus-within:max-h-64 group-focus-within:border-slate-200 group-focus-within:bg-white group-focus-within:opacity-100">
+                    <div className="space-y-3 px-4 py-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Verzoek
+                        </p>
+                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Actie
+                        </p>
+                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
