@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { ClipboardCheck, ShieldCheck, Sparkles } from "lucide-react"
 
-import { OpenClawTerminalDemo } from "../components/OpenClawTerminalDemo"
+import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
 
 const MARQUEE_ITEMS = [
   "E-mail triage",
@@ -150,7 +150,7 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="mt-8 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[28rem]">
-            <OpenClawTerminalDemo />
+            <OpenClawDashboardDemo />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
