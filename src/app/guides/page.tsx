@@ -3,8 +3,8 @@ import type { LucideIcon } from "lucide-react"
 import { Clipboard, Key, Ruler, ShieldCheck, Target, Zap } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "AI Agent Guides",
-  description: "Praktische guides om AI agents goed op te zetten en op te schalen.",
+  title: "Guides",
+  description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
 }
 
 import { GUIDES } from "../../lib/catalog"

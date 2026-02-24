@@ -17,7 +17,8 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
 
   if (!useCase) {
     return {
-      title: "Use case",
+      title: "Toepassing",
+      description: "Details over deze AI-agent toepassing zijn niet beschikbaar.",
     }
   }
 
@@ -25,9 +26,9 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
     title: `${useCase.title}`,
     description: useCase.shortDescription,
     alternates: {
-      canonical: `https://www.youraiworker.nl/use-cases/${useCase.slug}`,
+      canonical: `https://youraiworker.nl/use-cases/${useCase.slug}`,
     },
-    keywords: ["AI agent", "automatisering", "OpenClaw", "workflows", useCase.title],
+    keywords: ["AI-agent", "automatisering", "Your AI Worker", "workflows", useCase.title],
   }
 }
 

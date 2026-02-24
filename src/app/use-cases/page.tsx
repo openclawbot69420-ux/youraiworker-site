@@ -4,18 +4,21 @@ import type { LucideIcon } from "lucide-react"
 import { USE_CASES } from "../../lib/catalog"
 
 export const metadata: Metadata = {
-  title: "Use cases",
-  description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
+  title: "Toepassingen",
+  description:
+    "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
   openGraph: {
-    title: "Use cases - Your AI Worker",
-    description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
-    images: ["/og.svg"],
+    title: "Toepassingen - Your AI Worker",
+    description:
+      "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
+    images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Use cases - Your AI Worker",
-    description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
-    images: ["/og.svg"],
+    title: "Toepassingen - Your AI Worker",
+    description:
+      "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
+    images: ["/og.png"],
   },
 }
 

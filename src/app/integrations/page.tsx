@@ -5,8 +5,8 @@ import { Cloud, MessageSquare } from "lucide-react"
 import { BrandIcon, type BrandIconName } from "../../components/BrandIcon"
 
 export const metadata: Metadata = {
-  title: "AI Agent Integrations",
-  description: "Je OpenClaw AI agent koppelt met de tools die je al gebruikt.",
+  title: "Integraties",
+  description: "Koppel je AI-agent aan CRM, ticketing, chat en andere tools die je team al gebruikt.",
 }
 
 import { INTEGRATIONS } from "../../lib/catalog"

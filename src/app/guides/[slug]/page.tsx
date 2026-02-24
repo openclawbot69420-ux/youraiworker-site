@@ -16,7 +16,10 @@ export const generateMetadata = async (props: GuideDetailPageProps): Promise<Met
   const guide = GUIDES.find((item) => item.slug === slug)
 
   if (!guide) {
-    return { title: "Guide" }
+    return {
+      title: "Handleiding",
+      description: "Deze guide is niet gevonden of is niet langer beschikbaar.",
+    }
   }
 
   return {

@@ -2,17 +2,17 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Prijzen",
-  description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
+  description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
   openGraph: {
     title: "Prijzen - Your AI Worker",
-    description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
-    images: ["/og.svg"],
+    description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
+    images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prijzen - Your AI Worker",
-    description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
-    images: ["/og.svg"],
+    description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
+    images: ["/og.png"],
   },
 }
 

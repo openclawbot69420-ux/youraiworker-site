@@ -17,11 +17,14 @@ export const generateMetadata = async (props: IntegrationDetailPageProps): Promi
   const integration = INTEGRATIONS.find((item) => item.slug === slug)
 
   if (!integration) {
-    return { title: "Integratie" }
+    return {
+      title: "Integratie",
+      description: "Details over deze integratie zijn niet beschikbaar.",
+    }
   }
 
   return {
-    title: integration.name,
+    title: `${integration.name} integratie`,
     description: integration.shortDescription,
   }
 }

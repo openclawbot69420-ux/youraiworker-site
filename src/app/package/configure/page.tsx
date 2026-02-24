@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import ConfigurePage from "../../configure/page"
 
 export const metadata: Metadata = {
-  title: "Configureer package",
-  description: "Kies een package, selecteer add-ons en krijg een snelle indicatie van kosten en impact.",
+  title: "Pakket configurator",
+  description: "Configureer je AI-agent pakket en add-ons met een snelle prijs- en impactindicatie.",
 }
 
 export default ConfigurePage

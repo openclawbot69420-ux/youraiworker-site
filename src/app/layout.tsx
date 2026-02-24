@@ -5,11 +5,11 @@ import "../styles/globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "Your AI Worker - Production-ready AI agents voor je organisatie",
+    default: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     template: "%s · Your AI Worker",
   },
   description:
-    "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
+    "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
   metadataBase: new URL("https://youraiworker.nl"),
   alternates: {
     canonical: "https://youraiworker.nl/",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nl_NL",
     siteName: "Your AI Worker",
-    title: "Your AI Worker - Production-ready AI agents voor je organisatie",
+    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
+      "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
     url: "https://youraiworker.nl/",
     images: [
       {
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your AI Worker - Production-ready AI agents voor je organisatie",
+    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
+      "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
     images: ["/og.png"],
   },
   other: {

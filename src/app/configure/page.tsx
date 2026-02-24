@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 import { ConfigureUI } from "./ui"
 
 export const metadata: Metadata = {
-  title: "Configureer package",
-  description: "Kies een package, selecteer add-ons en krijg een snelle indicatie van kosten en impact.",
+  title: "AI-agent configurator",
+  description:
+    "Stel je AI-agent pakket samen en krijg direct een indicatie van kosten en verwachte impact.",
 }
 
 const ConfigurePage: React.FC = () => {
