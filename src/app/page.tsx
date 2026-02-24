@@ -249,7 +249,7 @@ const HomePage: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: toJsonLd(websiteSchema) }}
       />
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+      <section id="top" className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <h1 className="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
@@ -315,7 +315,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Integrations strip */}
-      <section className="border-y border-slate-200/70 bg-white">
+      <section id="integraties" className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -370,7 +370,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Problem */}
-      <section className="border-b border-slate-200/70 bg-slate-50/50">
+      <section id="probleem" className="border-b border-slate-200/70 bg-slate-50/50">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -422,7 +422,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Solution */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section id="oplossing" className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             De oplossing
@@ -497,7 +497,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Demo */}
-      <section className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="demo" className="mx-auto max-w-6xl px-4 pb-16">
         <div className="rounded-3xl border border-slate-200 bg-slate-900 p-6 shadow-2xl shadow-slate-900/10 sm:p-10">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
@@ -531,7 +531,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Comparison */}
-      <section className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="vergelijking" className="mx-auto max-w-6xl px-4 pb-16">
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -610,7 +610,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Results */}
-      <section className="mx-auto max-w-6xl px-4 pb-16">
+      <section id="resultaten" className="mx-auto max-w-6xl px-4 pb-16">
         <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 sm:p-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -650,7 +650,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* What We Deliver */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -827,7 +827,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
+      <section id="proces" className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Hoe we opleveren</h2>
         <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
           Je start met 1 afgebakende workflow. Binnen 3-7 werkdagen live, met controlepunten en meetbare outputs.
@@ -836,7 +836,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Explore */}
-      <section className="border-y border-slate-200/70 bg-slate-50/50">
+      <section id="verder" className="border-y border-slate-200/70 bg-slate-50/50">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -888,7 +888,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Security */}
-      <section className="border-y border-slate-200/70 bg-white">
+      <section id="security" className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support</h2>
@@ -986,7 +986,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section id="intake" className="mx-auto max-w-6xl px-4 py-16">
         <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-14 text-white sm:px-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Klaar om één proces te automatiseren?
