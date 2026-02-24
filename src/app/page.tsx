@@ -12,6 +12,32 @@ const MARQUEE_ITEMS = [
   "Facturatie",
 ]
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Your AI Worker",
+  url: "https://youraiworker.nl",
+  description:
+    "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+  logo: "https://youraiworker.nl/icon-512.png",
+}
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Your AI Worker",
+  url: "https://youraiworker.nl",
+  description:
+    "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://youraiworker.nl/search?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+}
+
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
 export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
   description:
@@ -34,6 +60,14 @@ export const metadata: Metadata = {
 const HomePage: React.FC = () => {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(websiteSchema) }}
+      />
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
