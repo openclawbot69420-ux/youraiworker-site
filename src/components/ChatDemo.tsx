@@ -307,7 +307,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
             })}
           </div>
 
-          <div className="flex min-h-0 flex-1 flex-col bg-[linear-gradient(rgba(255,255,255,0.15),rgba(255,255,255,0.15)),url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='rgba(15,23,42,0.04)' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80'/%3E%3C/g%3E%3C/svg%3E\")] bg-repeat">
+          <div className="flex min-h-0 flex-1 flex-col bg-[#e5ddd5]">
             <div className="flex items-center gap-2 border-b border-black/5 bg-white/75 px-3 py-2 text-[11px] text-slate-600 backdrop-blur sm:px-4">
               {channelIcon ? <img src={channelIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" /> : null}
               <span className="truncate font-medium text-slate-700">{scenario.channel}</span>
