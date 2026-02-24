@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { BrandIcon } from "../../../components/BrandIcon"
+import { IntegrationTerminalDemo } from "../../../components/IntegrationTerminalDemo"
 import { INTEGRATIONS } from "../../../lib/catalog"
 
 interface IntegrationDetailPageProps {
@@ -58,16 +59,54 @@ const IntegrationDetailPage: React.FC<IntegrationDetailPageProps> = async (props
 
       <div className="grid gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-8">
-            <h2 className="text-lg font-semibold">Voorbeelden van automatiseringen</h2>
-            <ul className="mt-5 space-y-3 text-sm text-slate-700">
-              {integration.exampleAutomations.map((item) => (
-                <li key={item} className="flex gap-3">
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h2 className="text-lg font-semibold">Voorbeelden van automatiseringen</h2>
+              <ul className="mt-5 space-y-3 text-sm text-slate-700">
+                {integration.exampleAutomations.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h2 className="text-lg font-semibold">Demo</h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Een korte CLI-simulatie van hoe een {integration.name} workflow eruit kan zien.
+              </p>
+              <div className="mt-5">
+                <IntegrationTerminalDemo integrationSlug={integration.slug} integrationName={integration.name} />
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h2 className="text-lg font-semibold">Wat is nodig om dit te koppelen?</h2>
+              <ul className="mt-5 space-y-3 text-sm text-slate-700">
+                <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
-                  {item}
+                  Toegang tot het juiste account of workspace (liefst een testomgeving waar mogelijk).
                 </li>
-              ))}
-            </ul>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
+                  Benodigde permissies en API scopes volgens least-privilege.
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
+                  Duidelijke workflow-afspraken: triggers, outputs, uitzonderingen en escalaties.
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
+                  5-10 realistische testcases om gedrag te valideren voor go-live.
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
+                  Monitoring/logging en een gecontroleerde go-live (bijv. pilot of beperkte uitrol).
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
