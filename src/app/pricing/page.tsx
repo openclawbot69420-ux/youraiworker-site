@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prijzen - Your AI Worker",
     description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prijzen - Your AI Worker",
     description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
 }
 

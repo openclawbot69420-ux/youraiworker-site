@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Use cases - Your AI Worker",
     description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Use cases - Your AI Worker",
     description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
 }
 
