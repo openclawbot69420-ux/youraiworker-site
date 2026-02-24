@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Github, Linkedin } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import "../styles/globals.css"
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
 export const metadata: Metadata = {
   title: {
@@ -90,6 +91,9 @@ const HEADER_CTA: NavItem = { href: "/contact", label: "Plan een intake" }
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
 
+  const orgJsonLd = buildOrganizationJsonLd()
+  const websiteJsonLd = buildWebSiteJsonLd()
+
   return (
     <html lang="nl">
       <head>
@@ -97,7 +101,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
-      
+
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -106,6 +110,15 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
