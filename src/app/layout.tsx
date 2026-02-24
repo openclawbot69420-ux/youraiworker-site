@@ -187,7 +187,11 @@ const Footer: React.FC = () => {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
-          <p>AI agents die werk uit handen nemen - netjes in productie.</p>
+          <p>
+            <a className="transition-colors hover:text-slate-600" href="mailto:hello@youraiworker.nl">
+              hello@youraiworker.nl
+            </a>
+          </p>
         </div>
       </div>
     </footer>
