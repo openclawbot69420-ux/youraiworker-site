@@ -77,7 +77,6 @@ type NavItem = {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Home" },
   { href: "/use-cases", label: "Toepassingen" },
   { href: "/integrations", label: "Integraties" },
   { href: "/implementatie", label: "Implementatie" },
