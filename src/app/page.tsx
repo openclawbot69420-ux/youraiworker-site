@@ -8,14 +8,14 @@ export const metadata: Metadata = {
     title: "Your AI Worker - AI-agents voor je organisatie",
     description:
       "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Your AI Worker - AI-agents voor je organisatie",
     description:
       "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
 }
 
