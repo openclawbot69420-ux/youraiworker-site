@@ -143,6 +143,27 @@ const COMPARISON_ROWS = [
   },
 ] as const
 
+const RESULT_PLACEHOLDERS = [
+  {
+    company: "B2B agency (NL)",
+    metric: "6 uur/week",
+    description: "minder inbox werk",
+    role: "Operations Manager",
+  },
+  {
+    company: "E-commerce startup",
+    metric: "4 uur -> 5 min",
+    description: "leadrespons bij nieuwe aanvragen",
+    role: "Sales Director",
+  },
+  {
+    company: "Consultancy bureau",
+    metric: "14 uur/week",
+    description: "terug voor strategisch werk",
+    role: "Managing Partner",
+  },
+] as const
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -579,6 +600,46 @@ const HomePage: React.FC = () => {
           <p className="mt-4 text-xs leading-relaxed text-slate-500">
             Eenmalige setup fee. Geen maandelijkse kosten vereist.
           </p>
+        </div>
+      </section>
+
+      {/* Results */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 sm:p-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+                Wat teams bereiken
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+                Indicatieve uitkomsten voor teams die starten met een afgebakende workflow en daarna
+                iteratief verbeteren.
+              </p>
+            </div>
+            <p className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600">
+              Verwachte resultaten op basis van typische implementaties
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            {RESULT_PLACEHOLDERS.map(({ company, metric, description, role }) => (
+              <div
+                key={company}
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                  {company}
+                </p>
+                <p className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                  {metric}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
+                <div className="mt-5 border-t border-slate-200 pt-4">
+                  <p className="text-sm font-medium text-slate-900">{role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
