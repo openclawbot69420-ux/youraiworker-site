@@ -25,6 +25,11 @@ type AddOnDefinition = {
   fromEuro: number
   summary: string
   detail: string
+  brandIcons?: Array<{
+    label: string
+    src: string
+    hex: string
+  }>
 }
 
 const CONFIG_STORAGE_KEY = "yaiw_config_v1"
@@ -71,6 +76,10 @@ const ADDONS: AddOnDefinition[] = [
     fromEuro: 500,
     summary: "Wij regelen een dedicated mailbox en of telefoonnummer.",
     detail: "Praktisch als je geen interne credentials wil delen tijdens implementatie.",
+    brandIcons: [
+      { label: "Gmail", src: "/brands/gmail.svg", hex: "#EA4335" },
+      { label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" },
+    ],
   },
   {
     key: "ai-billing",
@@ -85,6 +94,7 @@ const ADDONS: AddOnDefinition[] = [
     fromEuro: 250,
     summary: "Bot, routing en notificaties.",
     detail: "Geschikt voor intake of support flows via Telegram.",
+    brandIcons: [{ label: "Telegram", src: "/brands/telegram.svg", hex: "#26A5E4" }],
   },
   {
     key: "whatsapp",
@@ -92,6 +102,7 @@ const ADDONS: AddOnDefinition[] = [
     fromEuro: 750,
     summary: "Provider setup, verificatie en templates.",
     detail: "Prijs hangt af van provider, nummerstatus en template flow.",
+    brandIcons: [{ label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" }],
   },
   {
     key: "crm",
@@ -99,6 +110,10 @@ const ADDONS: AddOnDefinition[] = [
     fromEuro: 750,
     summary: "Field mapping, logging en workflow triggers.",
     detail: "Definitieve scope hangt af van objecten, regels en foutafhandeling.",
+    brandIcons: [
+      { label: "HubSpot", src: "/brands/hubspot.svg", hex: "#FF7A59" },
+      { label: "Salesforce", src: "/brands/salesforce.svg", hex: "#00A1E0" },
+    ],
   },
   {
     key: "ticketing",
@@ -376,7 +391,23 @@ export const Builder = () => {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-sm font-semibold">{addOn.title}</p>
+                        <div className="flex items-center gap-2">
+                          {addOn.brandIcons && addOn.brandIcons.length > 0 ? (
+                            <span className="flex items-center -space-x-1" aria-hidden="true">
+                              {addOn.brandIcons.map((brandIcon) => (
+                                <span
+                                  key={`${addOn.key}-${brandIcon.label}`}
+                                  className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 bg-white shadow-sm"
+                                  style={{ backgroundColor: `${brandIcon.hex}14` }}
+                                  title={brandIcon.label}
+                                >
+                                  <img src={brandIcon.src} alt="" className="h-4 w-4" loading="lazy" />
+                                </span>
+                              ))}
+                            </span>
+                          ) : null}
+                          <p className="text-sm font-semibold">{addOn.title}</p>
+                        </div>
                         <p className={`mt-2 text-sm leading-5 ${selected ? "text-white/80" : "text-slate-600"}`}>
                           {addOn.summary}
                         </p>
