@@ -434,39 +434,22 @@ export const ConfigureUI: React.FC = () => {
 
             <div className="rounded-xl border border-slate-200 bg-white p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Deel link</p>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 space-y-2">
                 <input
                   ref={shareLinkInputRef}
                   readOnly
+                  onFocus={(e) => e.currentTarget.select()}
                   value={`${typeof window !== "undefined" ? window.location.origin : ""}${shareLink}`}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-900"
                 />
-                <button
-                  type="button"
-                  onClick={async () => {
-                    persistConfig()
-                    const value = shareLinkInputRef.current?.value ?? ""
-                    if (value) {
-                      shareLinkInputRef.current?.select()
-                    }
-                    try {
-                      await navigator.clipboard.writeText(value)
-                      return
-                    } catch {
-                      // fallback
-                    }
-                    try {
-                      document.execCommand("copy")
-                    } catch {
-                      // ignore
-                    }
-                  }}
-                  className="shrink-0 rounded-lg border border-slate-300 px-4 py-2 text-xs font-medium text-slate-900 hover:bg-slate-50 transition-colors"
+                <a
+                  href={shareLink}
+                  onClick={persistConfig}
+                  className="inline-flex text-xs font-medium text-slate-900 underline"
                 >
-                  Kopieer
-                </button>
+                  Open contactpagina met deze configuratie
+                </a>
               </div>
-              <p className="mt-2 text-xs text-slate-500">Als kopieren niet werkt: selecteer en kopieer handmatig.</p>
             </div>
           </div>
         </div>
