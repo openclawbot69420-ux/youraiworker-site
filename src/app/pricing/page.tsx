@@ -144,12 +144,18 @@ const PricingPage: React.FC = () => {
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
           <h2 className="text-2xl font-semibold tracking-tight">Add-ons (vanaf prijzen)</h2>
           <p className="mt-3 max-w-3xl text-sm text-slate-600">
-            Sommige onderdelen vereisen accounts, billing, verificaties of extra security. Je kunt dit
-            zelf aanleveren (credentials/toegang), of wij regelen het als add-on.
+            Sommige onderdelen vereisen accounts, billing, verificaties of extra security. Je hebt grofweg
+            twee opties: je levert zelf toegang aan (least-privilege), of wij regelen het als add-on (managed
+            provisioning).
           </p>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {[
+              [
+                "Managed provisioning (mailbox/nummer)",
+                "vanaf €500",
+                "We regelen een dedicated mailbox en/of telefoonnummer zodat je geen interne credentials deelt.",
+              ],
               [
                 "AI model + billing setup",
                 "vanaf €250",
@@ -205,15 +211,15 @@ const PricingPage: React.FC = () => {
           {[
             [
               "Wat zit er precies in Starter?",
-              "Eén AI-agent die één specifieke workflow automatiseert. Inclusief intake, implementatie, basis integraties, documentatie, handover en 2 weken support.",
+              "Eén AI-agent die één specifieke workflow automatiseert. Inclusief intake, scope, implementatie (1-2 integraties), documentatie, handover en 2 weken break-fix support.",
             ],
             [
               "Hoe lang duurt de oplevering?",
-              "Vaak binnen dagen live. Exacte doorlooptijd hangt af van integraties, toegang en hoe snel we testcases kunnen valideren.",
+              "Vaak binnen 3-7 werkdagen live. De exacte doorlooptijd hangt af van integraties, toegang en hoe snel we testcases kunnen valideren.",
             ],
             [
-              "Moet ik zelf accounts of API keys hebben?",
-              "Je kunt credentials en toegang zelf aanleveren. Als je wil dat wij AI billing, WhatsApp/Telegram of CRM setup regelen, kies dan een add-on.",
+              "Moet ik mijn accounts of API keys delen?",
+              "Niet per se. Standaard werken we met least-privilege toegang op jouw accounts. Wil je geen interne credentials delen, dan kunnen we een managed provisioning add-on leveren (dedicated mailbox/nummer/kanalen).", 
             ],
             [
               "Wat als er iets misgaat na livegang?",
