@@ -18,13 +18,15 @@ import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
-  { label: "Gmail", Icon: Mail },
-  { label: "Google Calendar", Icon: Calendar },
-  { label: "WhatsApp", Icon: MessageCircle },
-  { label: "Slack", Icon: MessagesSquare },
-  { label: "HubSpot / Salesforce", Icon: Database },
-  { label: "Zapier", Icon: Workflow },
-  { label: "en meer", Icon: Plus },
+  { label: "Gmail", src: "/brands/gmail.svg" },
+  { label: "Google Calendar", src: "/brands/google-calendar.svg" },
+  { label: "WhatsApp", src: "/brands/whatsapp.svg" },
+  { label: "Telegram", src: "/brands/telegram.svg" },
+  { label: "Slack", src: "/brands/slack.svg" },
+  { label: "HubSpot", src: "/brands/hubspot.svg" },
+  { label: "Salesforce", src: "/brands/salesforce.svg" },
+  { label: "Zapier", src: "/brands/zapier.svg" },
+  { label: "en meer", src: null },
 ] as const
 
 const PROBLEM_CARDS = [
@@ -205,12 +207,22 @@ const HomePage: React.FC = () => {
               Werkt met
             </p>
             <div className="flex flex-wrap gap-2.5">
-              {INTEGRATION_ITEMS.map(({ label, Icon }) => (
+              {INTEGRATION_ITEMS.map(({ label, src }) => (
                 <span
                   key={label}
                   className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-medium text-slate-700 sm:text-sm"
                 >
-                  <Icon className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+                  {src ? (
+                    <img
+                      src={src}
+                      alt=""
+                      className="h-4 w-4"
+                      aria-hidden="true"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Plus className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+                  )}
                   <span>{label}</span>
                 </span>
               ))}
