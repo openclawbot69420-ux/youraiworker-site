@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 const sitemap = (): MetadataRoute.Sitemap => {
-  const baseUrl = "https://www.youraiworker.nl"
+  const baseUrl = "https://youraiworker.nl"
 
   const routes = ["/", "/use-cases", "/integrations", "/guides", "/pricing", "/contact", "/security", "/privacy"]
 

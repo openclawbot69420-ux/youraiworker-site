@@ -6,7 +6,7 @@ const robots = (): MetadataRoute.Robots => {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.youraiworker.nl/sitemap.xml",
+    sitemap: "https://youraiworker.nl/sitemap.xml",
   }
 }
 

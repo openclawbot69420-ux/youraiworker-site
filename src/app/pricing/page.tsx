@@ -3,6 +3,17 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Prijzen",
   description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
+  openGraph: {
+    title: "Prijzen - Your AI Worker",
+    description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prijzen - Your AI Worker",
+    description: "Transparante pricing voor AI-agent setup. Start vanaf €1.000.",
+    images: ["/og.png"],
+  },
 }
 
 const PricingPage: React.FC = () => {

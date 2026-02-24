@@ -1,3 +1,24 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "AI-agents voor je organisatie",
+  description:
+    "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+  openGraph: {
+    title: "Your AI Worker - AI-agents voor je organisatie",
+    description:
+      "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Your AI Worker - AI-agents voor je organisatie",
+    description:
+      "Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+    images: ["/og.png"],
+  },
+}
+
 const HomePage: React.FC = () => {
   return (
     <>

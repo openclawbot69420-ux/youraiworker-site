@@ -1,27 +1,23 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-import {
-  BarChart3,
-  BookOpen,
-  CalendarDays,
-  CheckCheck,
-  FileText,
-  Handshake,
-  Inbox,
-  MessageSquare,
-  Receipt,
-  RefreshCw,
-  UserCheck,
-  Wrench,
-} from "lucide-react"
-
-export const metadata: Metadata = {
-  title: "AI Agent Use Cases",
-  description:
-    "Zie wat een OpenClaw AI agent kan automatiseren in je dagelijkse workflow.",
-}
 
 import { USE_CASES } from "../../lib/catalog"
+
+export const metadata: Metadata = {
+  title: "Use cases",
+  description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
+  openGraph: {
+    title: "Use cases - Your AI Worker",
+    description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Use cases - Your AI Worker",
+    description: "Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.",
+    images: ["/og.png"],
+  },
+}
 
 const useCases = USE_CASES.map((useCase) => {
   return {
@@ -42,9 +38,9 @@ const UseCasesPage: React.FC = () => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">AI Agent Use Cases</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Use cases</h1>
           <p className="mt-4 text-slate-600">
-            Zie wat een OpenClaw AI agent kan automatiseren in je dagelijkse workflow.
+            Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.
           </p>
         </div>
       </div>
