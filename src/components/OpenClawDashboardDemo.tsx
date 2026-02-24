@@ -137,9 +137,25 @@ export const OpenClawDashboardDemo: React.FC<OpenClawDashboardDemoProps> = ({
       ? Math.max(0, animation.ticksLeft / FADE_TICKS)
       : 1
 
+  const channelKey = scenario.channel.toLowerCase()
+  const channelMeta = {
+    whatsapp: { icon: "/brands/whatsapp.svg", user: "bg-emerald-500 border-emerald-400/70" },
+    telegram: { icon: "/brands/telegram.svg", user: "bg-sky-500 border-sky-400/70" },
+    gmail: { icon: "/brands/gmail.svg", user: "bg-cyan-500 border-cyan-400/70" },
+    "google calendar": { icon: "/brands/google-calendar.svg", user: "bg-cyan-500 border-cyan-400/70" },
+    slack: { icon: "/brands/slack.svg", user: "bg-cyan-500 border-cyan-400/70" },
+    hubspot: { icon: "/brands/hubspot.svg", user: "bg-cyan-500 border-cyan-400/70" },
+    salesforce: { icon: "/brands/salesforce.svg", user: "bg-cyan-500 border-cyan-400/70" },
+    zapier: { icon: "/brands/zapier.svg", user: "bg-cyan-500 border-cyan-400/70" },
+  } as const
+
+  const resolvedChannel =
+    (Object.entries(channelMeta).find(([key]) => channelKey.includes(key))?.[1] ?? null)
+
   const bubbleClasses = (tone: BubbleTone) => {
     if (tone === "user") {
-      return "ml-auto max-w-[88%] bg-cyan-500 text-white border-cyan-400/70"
+      const userColors = resolvedChannel?.user ?? "bg-cyan-500 border-cyan-400/70"
+      return `ml-auto max-w-[88%] ${userColors} text-white`
     }
     if (tone === "meta") {
       return "mr-auto max-w-[92%] bg-amber-50 text-amber-950 border-amber-200"
@@ -205,7 +221,10 @@ export const OpenClawDashboardDemo: React.FC<OpenClawDashboardDemoProps> = ({
               <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               <p className="truncate text-xs font-semibold text-slate-900 sm:text-sm">{scenario.title}</p>
             </div>
-            <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-600">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] text-slate-600">
+              {resolvedChannel?.icon ? (
+                <img src={resolvedChannel.icon} alt="" aria-hidden="true" className="h-3.5 w-3.5" />
+              ) : null}
               {scenario.channel}
             </span>
             <span className="ml-auto rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700">
