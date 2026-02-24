@@ -149,7 +149,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[28rem]">
             <OpenClawTerminalDemo />
           </div>
 
@@ -403,11 +403,15 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           Proces: snel, gecontroleerd, meetbaar
         </h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="relative mt-7">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-2 left-4 top-2 w-px bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200"
+          />
           {[
             ["1", "Intake", "~30 min", "Scope, risico's, data‑bronnen, succescriteria."],
             ["2", "Design", "1–2 dagen", "Agent‑flow, permissions, outputs, testcases."],
@@ -416,20 +420,19 @@ const HomePage: React.FC = () => {
             ["5", "Go‑live", "1 dag", "Gecontroleerde uitrol + korte training."],
             ["6", "Stabilisatie", "2 weken", "48 uur warranty + 2 weken break‑fix."],
           ].map(([num, title, duration, desc]) => (
-            <div
-              key={num}
-              className="rounded-xl border border-slate-200 p-6 hover:shadow-md hover:border-slate-300 transition-all"
-            >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
+            <div key={num} className="relative pl-12">
+              <span className="absolute left-0 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-900 bg-slate-900 text-sm font-semibold text-white shadow-sm">
                 {num}
               </span>
-              <p className="mt-3 font-semibold">{title}</p>
-              <p className="mt-2">
-                <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
-                  {duration}
-                </span>
-              </p>
-              <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              <div className="mb-3 rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-slate-300 hover:shadow-sm sm:p-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="font-semibold text-slate-900">{title}</p>
+                  <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
+                    {duration}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
+              </div>
             </div>
           ))}
         </div>

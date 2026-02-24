@@ -4,7 +4,27 @@ import { Eye, KeyRound, Lock, Server, Shield, ShieldCheck } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Beveiliging",
-  description: "Hoe wij omgaan met security, toegangsbeheer en data-bescherming.",
+  description: "Lees hoe we AI-agents beveiligen met toegangsbeheer, logging en data-bescherming.",
+  alternates: {
+    canonical: "https://youraiworker.nl/security",
+  },
+  openGraph: {
+    title: "Security voor AI-agents | Your AI Worker",
+    description: "Onze aanpak voor toegangsbeheer, secrets, logging en veilige deployments van AI-agents.",
+    url: "https://youraiworker.nl/security",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker security",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Beveiliging AI-agents | Your AI Worker",
+    description: "Bekijk hoe we AI-agent workflows veilig inrichten met logging, secrets en least privilege.",
+    images: ["/og.png"],
+  },
 }
 
 const securityItems = [

@@ -6,7 +6,27 @@ import { BrandIcon, type BrandIconName } from "../../components/BrandIcon"
 
 export const metadata: Metadata = {
   title: "Integraties",
-  description: "Koppel je AI-agent aan CRM, ticketing, chat en andere tools die je team al gebruikt.",
+  description: "Koppel AI-agents aan CRM, ticketing, chat en planningstools die je team al gebruikt.",
+  alternates: {
+    canonical: "https://youraiworker.nl/integrations",
+  },
+  openGraph: {
+    title: "AI-agent integraties | Your AI Worker",
+    description: "Verbind AI-agents met CRM, support, chat en duizenden tools via slimme integraties.",
+    url: "https://youraiworker.nl/integrations",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker integraties",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Integraties voor AI-agents | Your AI Worker",
+    description: "Koppel AI-agents aan je bestaande stack: CRM, ticketing, chat, planning en meer.",
+    images: ["/og.png"],
+  },
 }
 
 import { INTEGRATIONS } from "../../lib/catalog"

@@ -2,16 +2,25 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Prijzen",
-  description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
+  description: "Transparante prijzen voor AI-agents, pakketten en add-ons. Start vanaf EUR 1.000.",
+  alternates: {
+    canonical: "https://youraiworker.nl/pricing",
+  },
   openGraph: {
-    title: "Prijzen - Your AI Worker",
-    description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
-    images: ["/og.png"],
+    title: "Prijzen voor AI-agents | Your AI Worker",
+    description: "Bekijk pakketten en add-ons voor AI-agents. Duidelijke scope, vaste prijs en snel live.",
+    url: "https://youraiworker.nl/pricing",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker prijzen",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prijzen - Your AI Worker",
-    description: "Transparante prijzen voor AI-agent implementatie. Start vanaf €1.000 per traject.",
+    title: "Prijzen AI-agents | Your AI Worker",
+    description: "Transparante pakketten en add-ons voor AI-agents. Start vanaf EUR 1.000.",
     images: ["/og.png"],
   },
 }

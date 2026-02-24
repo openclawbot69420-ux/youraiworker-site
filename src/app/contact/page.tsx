@@ -3,7 +3,27 @@ import { ContactForm } from "./ContactForm"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Neem contact op voor een vrijblijvende intake of stel je vraag.",
+  description: "Plan een intake, stel je vraag of vraag een voorstel aan voor jouw AI-agent workflow.",
+  alternates: {
+    canonical: "https://youraiworker.nl/contact",
+  },
+  openGraph: {
+    title: "Contact voor AI-agent intake | Your AI Worker",
+    description: "Bespreek je workflow, scope en planning. Binnen 24 uur een eerste reactie.",
+    url: "https://youraiworker.nl/contact",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker contact",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plan AI-agent intake | Your AI Worker",
+    description: "Vraag een intake of voorstel aan voor AI-automatisering. Snel reactie, heldere scope.",
+    images: ["/og.png"],
+  },
 }
 
 const ContactPage: React.FC = () => {

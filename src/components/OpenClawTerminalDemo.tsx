@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 type TerminalLine = {
   text: string
@@ -90,7 +90,9 @@ type AnimationState = {
 }
 
 export const OpenClawTerminalDemo: React.FC = () => {
+  const rootRef = useRef<HTMLDivElement | null>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isInView, setIsInView] = useState(true)
   const [animation, setAnimation] = useState<AnimationState>({
     scenarioIndex: 0,
     lineIndex: 0,
@@ -116,7 +118,31 @@ export const OpenClawTerminalDemo: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      return
+    }
+
+    const node = rootRef.current
+    if (!node) {
+      return
+    }
+
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry?.isIntersecting ?? true)
+      },
+      { threshold: 0.15 }
+    )
+
+    observer.observe(node)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion || !isInView) {
       return
     }
 
@@ -174,7 +200,7 @@ export const OpenClawTerminalDemo: React.FC = () => {
     return () => {
       window.clearInterval(intervalId)
     }
-  }, [prefersReducedMotion])
+  }, [isInView, prefersReducedMotion])
 
   const scenario = DEMO_SCENARIOS[animation.scenarioIndex] ?? DEMO_SCENARIOS[0]
   const scenarioLines = scenario.lines
@@ -196,7 +222,10 @@ export const OpenClawTerminalDemo: React.FC = () => {
   }
 
   return (
-    <div className="rounded-2xl border border-slate-700/80 bg-slate-900 p-4 shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 sm:p-6">
+    <div
+      ref={rootRef}
+      className="flex h-full flex-col rounded-2xl border border-slate-700/80 bg-slate-900 p-4 shadow-2xl shadow-cyan-950/20 ring-1 ring-white/5 sm:p-6"
+    >
       <div className="mb-4 flex items-center gap-2">
         <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
@@ -205,32 +234,34 @@ export const OpenClawTerminalDemo: React.FC = () => {
         <span className="ml-auto text-[11px] text-slate-500">Demo: {activeLabel}</span>
       </div>
 
-      <div
-        className="space-y-1 font-mono text-xs leading-6 transition-opacity duration-200 sm:text-sm"
-        style={{ opacity: prefersReducedMotion ? 1 : fadeOpacity }}
-      >
-        {visibleLines.map((line, index) => (
-          <p key={`${line.text}-${index}`} className={`whitespace-pre-wrap ${lineClassName(line.tone)}`}>
-            {line.text || "\u00A0"}
-          </p>
-        ))}
+      <div className="min-h-0 flex-1 overflow-hidden">
+        <div
+          className="space-y-1 font-mono text-xs leading-6 transition-opacity duration-200 sm:text-sm"
+          style={{ opacity: prefersReducedMotion ? 1 : fadeOpacity }}
+        >
+          {visibleLines.map((line, index) => (
+            <p key={`${line.text}-${index}`} className={`whitespace-pre-wrap ${lineClassName(line.tone)}`}>
+              {line.text || "\u00A0"}
+            </p>
+          ))}
 
-        {currentLine ? (
-          <p className={`whitespace-pre-wrap ${lineClassName(currentLine.tone)}`}>
-            {currentText}
-            <span
-              aria-hidden="true"
-              className="ml-0.5 inline-block h-4 w-2 animate-pulse bg-cyan-300 align-middle motion-reduce:hidden"
-            />
-          </p>
-        ) : !prefersReducedMotion ? (
-          <p className="text-slate-400">
-            <span
-              aria-hidden="true"
-              className="inline-block h-4 w-2 animate-pulse bg-cyan-300 align-middle motion-reduce:hidden"
-            />
-          </p>
-        ) : null}
+          {currentLine ? (
+            <p className={`whitespace-pre-wrap ${lineClassName(currentLine.tone)}`}>
+              {currentText}
+              <span
+                aria-hidden="true"
+                className="ml-0.5 inline-block h-4 w-2 animate-pulse bg-cyan-300 align-middle motion-reduce:hidden"
+              />
+            </p>
+          ) : !prefersReducedMotion ? (
+            <p className="text-slate-400">
+              <span
+                aria-hidden="true"
+                className="inline-block h-4 w-2 animate-pulse bg-cyan-300 align-middle motion-reduce:hidden"
+              />
+            </p>
+          ) : null}
+        </div>
       </div>
     </div>
   )

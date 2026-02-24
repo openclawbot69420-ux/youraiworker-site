@@ -6,18 +6,27 @@ import { USE_CASES } from "../../lib/catalog"
 export const metadata: Metadata = {
   title: "Toepassingen",
   description:
-    "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
+    "Use cases voor AI-agents in e-mail, support, leadkwalificatie en rapportages.",
+  alternates: {
+    canonical: "https://youraiworker.nl/use-cases",
+  },
   openGraph: {
-    title: "Toepassingen - Your AI Worker",
+    title: "Use cases voor AI-agents | Your AI Worker",
     description:
-      "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
-    images: ["/og.png"],
+      "Bekijk concrete AI-agent use cases voor support, inboxbeheer, leads en interne workflows.",
+    url: "https://youraiworker.nl/use-cases",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker use cases",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Toepassingen - Your AI Worker",
+    title: "AI-agent use cases | Your AI Worker",
     description:
-      "Voorbeelden van AI-agent toepassingen voor e-mail, support, leadkwalificatie en rapportages.",
+      "Concrete voorbeelden van AI-agents voor support, leads, e-mail en rapportages.",
     images: ["/og.png"],
   },
 }
