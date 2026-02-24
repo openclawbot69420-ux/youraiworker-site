@@ -76,6 +76,34 @@ const SOLUTION_BLOCKS = [
   },
 ] as const
 
+const STARTER_AGENT_ITEMS = [
+  {
+    title: "Inbox & triage agent",
+    description: "Categoriseert requests, maakt conceptantwoorden en zet taken klaar.",
+    href: "/use-cases/email-management",
+  },
+  {
+    title: "Lead qualification",
+    description: "Prekwalificeert leads en logt naar Google Sheets of CRM.",
+    href: "/use-cases/lead-qualification",
+  },
+  {
+    title: "Meeting scheduling",
+    description: "Intake, voorstel en bevestiging met integratie op maat.",
+    href: "/use-cases/meeting-scheduling",
+  },
+  {
+    title: "Automated report generation",
+    description: "Sales, marketing en management updates op vaste momenten.",
+    href: "/use-cases/report-generation",
+  },
+  {
+    title: "Knowledge base Q&A",
+    description: "Kleine scope inbegrepen. Groter kan als add-on worden ingericht.",
+    href: "/use-cases/knowledge-base-qa",
+  },
+] as const
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -101,6 +129,34 @@ const websiteSchema = {
 }
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
+type StarterAgentCardProps = {
+  title: string
+  description: string
+  href: string
+  compact?: boolean
+}
+
+const StarterAgentCard: React.FC<StarterAgentCardProps> = ({
+  title,
+  description,
+  href,
+  compact = false,
+}) => (
+  <a
+    href={href}
+    className={[
+      "group block rounded-xl border border-slate-200 bg-white transition-all hover:border-slate-300 hover:shadow-sm",
+      compact ? "min-w-[16.75rem] snap-start p-4" : "p-4 sm:p-5",
+    ].join(" ")}
+  >
+    <h3 className="text-sm font-semibold leading-snug text-slate-900 group-hover:underline">
+      {title}
+    </h3>
+    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">{description}</p>
+    <p className="mt-3 text-xs font-medium text-slate-900 underline">Bekijk details</p>
+  </a>
+)
 
 export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
@@ -450,9 +506,8 @@ const HomePage: React.FC = () => {
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                 Starter agents (kies er één om te beginnen)
               </h2>
-              <p className="mt-3 max-w-2xl text-sm text-slate-600">
-                Dit zijn bewezen workflows die we vaak in dagen live hebben. Klik door voor details,
-                benodigde toegang en typische integraties.
+              <p className="mt-2 max-w-2xl text-sm text-slate-600">
+                Bewezen workflows die vaak in dagen live staan.
               </p>
             </div>
             <a
@@ -463,51 +518,43 @@ const HomePage: React.FC = () => {
             </a>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              [
-                "Inbox & triage agent",
-                "Categoriseert requests, maakt concept‑antwoorden, zet taken klaar.",
-                "/use-cases/email-management",
-              ],
-              [
-                "Lead qualification",
-                "Pre‑kwalificeert leads en logt naar Google Sheets of CRM.",
-                "/use-cases/lead-qualification",
-              ],
-              [
-                "Meeting scheduling",
-                "Intake → voorstel → bevestiging. Integratie op maat.",
-                "/use-cases/meeting-scheduling",
-              ],
-              [
-                "Automated report generation",
-                "Updates voor sales/marketing en management op vaste momenten.",
-                "/use-cases/report-generation",
-              ],
-            ].map(([title, desc, href]) => (
-              <a
-                key={title}
-                href={href}
-                className="group block rounded-xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <h3 className="font-semibold text-slate-900 group-hover:underline">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{desc}</p>
-                <p className="mt-4 text-sm font-medium text-slate-900 underline">Bekijk details</p>
-              </a>
-            ))}
-
-            <a
-              href="/use-cases/knowledge-base-qa"
-              className="group block rounded-xl border border-slate-200 bg-white p-6 md:col-span-2 transition-all hover:border-slate-300 hover:shadow-md"
-            >
-              <h3 className="font-semibold text-slate-900 group-hover:underline">Knowledge base Q&A</h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Kleine scope inbegrepen (max 25 files / 200 pagina&apos;s). Groter = add‑on.
-              </p>
-              <p className="mt-4 text-sm font-medium text-slate-900 underline">Bekijk details</p>
-            </a>
+          <div className="mt-6 md:hidden">
+            <div className="-mx-4 overflow-x-auto px-4 pb-2">
+              <div className="flex gap-3 snap-x snap-mandatory">
+                {STARTER_AGENT_ITEMS.slice(0, 3).map((item) => (
+                  <StarterAgentCard key={item.title} {...item} compact />
+                ))}
+              </div>
+            </div>
           </div>
+
+          <div className="mt-6 hidden gap-3 md:grid md:grid-cols-3">
+            {STARTER_AGENT_ITEMS.slice(0, 3).map((item) => (
+              <StarterAgentCard key={item.title} {...item} />
+            ))}
+          </div>
+
+          <details className="mt-4 group">
+            <summary className="inline-flex cursor-pointer list-none items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50">
+              Toon alle workflows
+            </summary>
+
+            <div className="mt-4 md:hidden">
+              <div className="-mx-4 overflow-x-auto px-4 pb-2">
+                <div className="flex gap-3 snap-x snap-mandatory">
+                  {STARTER_AGENT_ITEMS.slice(3).map((item) => (
+                    <StarterAgentCard key={item.title} {...item} compact />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 hidden gap-3 md:grid md:grid-cols-2">
+              {STARTER_AGENT_ITEMS.slice(3).map((item) => (
+                <StarterAgentCard key={item.title} {...item} />
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 
