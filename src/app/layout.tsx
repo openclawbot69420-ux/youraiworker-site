@@ -37,6 +37,17 @@ export const metadata: Metadata = {
       "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
     images: ["/og.svg"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 }
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
@@ -45,6 +56,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <html lang="nl">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
