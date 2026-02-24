@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/configure",
-        destination: "/package/configure",
+        destination: "/implementatie",
         permanent: true,
       },
       {
