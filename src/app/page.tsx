@@ -475,7 +475,8 @@ const HomePage: React.FC = () => {
           <div>
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Zie het in actie</h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
-              Van setup tot eerste resultaten in minuten, niet maanden.
+              Korte demo&apos;s van inbox triage, lead kwalificatie en support automation in een
+              OpenClaw-style workflow.
             </p>
           </div>
           <OpenClawTerminalDemo />
