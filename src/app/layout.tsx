@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/",
     images: [
       {
-        url: "/og.svg",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "Your AI Worker",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Your AI Worker - Production-ready AI agents voor je organisatie",
     description:
       "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
-    images: ["/og.svg"],
+    images: ["/og.png"],
     creator: "@youraiworker",
   },
   icons: {
