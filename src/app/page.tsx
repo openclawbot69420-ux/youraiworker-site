@@ -17,15 +17,15 @@ import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
-  { label: "Gmail", src: "/brands/gmail.svg" },
-  { label: "Google Calendar", src: "/brands/google-calendar.svg" },
-  { label: "WhatsApp", src: "/brands/whatsapp.svg" },
-  { label: "Telegram", src: "/brands/telegram.svg" },
-  { label: "Slack", src: "/brands/slack.svg" },
-  { label: "HubSpot", src: "/brands/hubspot.svg" },
-  { label: "Salesforce", src: "/brands/salesforce.svg" },
-  { label: "Zapier", src: "/brands/zapier.svg" },
-  { label: "en meer", src: null },
+  { label: "Gmail", src: "/brands/gmail.svg", hex: "#EA4335" },
+  { label: "Google Calendar", src: "/brands/google-calendar.svg", hex: "#4285F4" },
+  { label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" },
+  { label: "Telegram", src: "/brands/telegram.svg", hex: "#26A5E4" },
+  { label: "Slack", src: "/brands/slack.svg", hex: "#4A154B" },
+  { label: "HubSpot", src: "/brands/hubspot.svg", hex: "#FF7A59" },
+  { label: "Salesforce", src: "/brands/salesforce.svg", hex: "#00A1E0" },
+  { label: "Zapier", src: "/brands/zapier.svg", hex: "#FF4A00" },
+  { label: "en meer", src: null, hex: null },
 ] as const
 
 const PROBLEM_CARDS = [
@@ -262,12 +262,19 @@ const HomePage: React.FC = () => {
               Werkt met
             </p>
             <div className="grid grid-cols-5 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-              {INTEGRATION_ITEMS.map(({ label, src }) => (
+              {INTEGRATION_ITEMS.map(({ label, src, hex }) => (
                 <span
                   key={label}
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-slate-50/90 text-slate-700 shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 hover:bg-white sm:h-14 sm:w-14"
+                  className="group relative inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 sm:h-14 sm:w-14"
                   aria-label={label}
-                  title={label}
+                  tabIndex={0}
+                  style={
+                    src && hex
+                      ? {
+                          backgroundColor: `${hex}14`,
+                        }
+                      : undefined
+                  }
                 >
                   {src ? (
                     <img
@@ -282,6 +289,12 @@ const HomePage: React.FC = () => {
                       en meer
                     </span>
                   )}
+
+                  {/* Tooltip */}
+                  <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-medium text-white shadow-lg opacity-0 transition-opacity group-hover:block group-hover:opacity-100 group-focus:block group-focus:opacity-100 sm:block sm:group-hover:opacity-100">
+                    {label}
+                  </span>
+
                   <span className="sr-only">{label}</span>
                 </span>
               ))}
