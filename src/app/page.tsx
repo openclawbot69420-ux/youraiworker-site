@@ -322,42 +322,48 @@ const HomePage: React.FC = () => {
               Werkt met
             </p>
             <div className="grid grid-cols-5 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-              {INTEGRATION_ITEMS.map(({ label, src, hex }) => (
-                <span
-                  key={label}
-                  className="group relative inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 sm:h-14 sm:w-14"
-                  aria-label={label}
-                  tabIndex={0}
-                  style={
-                    src && hex
-                      ? {
-                          backgroundColor: `${hex}14`,
-                        }
-                      : undefined
-                  }
-                >
-                  {src ? (
-                    <img
-                      src={src}
-                      alt=""
-                      className="h-6 w-6 sm:h-7 sm:w-7"
-                      aria-hidden="true"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
-                      en meer
-                    </span>
-                  )}
+              {INTEGRATION_ITEMS.map(({ label, src, hex }) => {
+                const showTooltip = Boolean(src)
 
-                  {/* Tooltip */}
-                  <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-medium text-white shadow-lg opacity-0 transition-opacity group-hover:block group-hover:opacity-100 group-focus:block group-focus:opacity-100 sm:block sm:group-hover:opacity-100">
-                    {label}
+                return (
+                  <span
+                    key={label}
+                    className="group relative inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 sm:h-14 sm:w-14"
+                    aria-label={label}
+                    tabIndex={0}
+                    style={
+                      src && hex
+                        ? {
+                            backgroundColor: `${hex}14`,
+                          }
+                        : undefined
+                    }
+                  >
+                    {src ? (
+                      <img
+                        src={src}
+                        alt=""
+                        className="h-6 w-6 sm:h-7 sm:w-7"
+                        aria-hidden="true"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
+                        en meer
+                      </span>
+                    )}
+
+                    {/* Tooltip (brands only) */}
+                    {showTooltip ? (
+                      <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-medium text-white shadow-lg opacity-0 transition-opacity group-hover:block group-hover:opacity-100 group-focus:block group-focus:opacity-100 sm:block sm:group-hover:opacity-100">
+                        {label}
+                      </span>
+                    ) : null}
+
+                    <span className="sr-only">{label}</span>
                   </span>
-
-                  <span className="sr-only">{label}</span>
-                </span>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
@@ -767,7 +773,7 @@ const HomePage: React.FC = () => {
             {[
               ["< 2 weken", "Gemiddelde doorlooptijd tot livegang"],
               ["100%", "Nederlandse setup & support"],
-              ["€1.000", "Vaste startprijs, geen verrassingen"],
+              ["Vanaf €1.000", "Start met 1 workflow en schaal daarna door"],
               ["48 uur", "Warranty reactietijd"],
             ].map(([value, label]) => (
               <div key={value} className="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
@@ -822,9 +828,10 @@ const HomePage: React.FC = () => {
 
       {/* Process */}
       <section className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Proces: snel, gecontroleerd, meetbaar
-        </h2>
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Hoe we opleveren</h2>
+        <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
+          Je start met 1 afgebakende workflow. Binnen 3-7 werkdagen live, met controlepunten en meetbare outputs.
+        </p>
         <HomeProcessRollout />
       </section>
 
