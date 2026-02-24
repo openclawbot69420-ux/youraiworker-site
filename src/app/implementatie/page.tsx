@@ -2,21 +2,21 @@ import type { Metadata } from "next"
 import { CheckCircle2, Lock, Server, ShieldCheck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Implementatie",
+  title: "OpenClaw implementatie voor bedrijven",
   description:
-    "OpenClaw implementatie voor bedrijven met client-owned hosting of managed hosting. Veilig ingericht, getest en overdraagbaar.",
+    "Managed OpenClaw setup voor businesses: hosting, integraties, security baseline, monitoring en overdracht. Production-ready workflows in 3-7 werkdagen.",
   alternates: {
     canonical: "https://youraiworker.nl/implementatie",
   },
   openGraph: {
     title: "OpenClaw implementatie voor bedrijven | Your AI Worker",
     description:
-      "Kies tussen client-owned hosting en managed hosting voor OpenClaw implementaties met duidelijke deliverables en security-aanpak.",
+      "Wij hosten en implementeren OpenClaw voor je bedrijf. Kies client-owned hosting of managed hosting. Inclusief integraties, security baseline en overdracht.",
     url: "https://youraiworker.nl/implementatie",
     images: [
       {
         url: "/og.png",
-        alt: "Your AI Worker implementatie",
+        alt: "Your AI Worker - OpenClaw implementatie",
       },
     ],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "OpenClaw implementatie | Your AI Worker",
     description:
-      "Managed OpenClaw implementatie en hostingmodellen voor bedrijven, inclusief security, overdracht en support.",
+      "Managed OpenClaw implementatie voor bedrijven met duidelijke deliverables en security aanpak.",
     images: ["/og.png"],
   },
 }
@@ -34,40 +34,40 @@ const hostingOptions = [
     title: "Client-owned hosting",
     icon: Server,
     description:
-      "Wij implementeren OpenClaw in jullie omgeving. Jullie behouden ownership over cloudaccount, data en runtime.",
+      "Wij implementeren OpenClaw in jullie eigen omgeving. Jullie behouden ownership over infrastructuur, data en runtime.",
     bullets: [
-      "Deployment in jullie tenant of infrastructuur",
+      "Deployment in jullie tenant of VPS",
       "Least-privilege toegang voor setup en support",
-      "Geschikt voor teams met eigen IT of security-eisen",
+      "Past bij teams met eigen IT of strengere compliance eisen",
     ],
   },
   {
     title: "Managed hosting",
     icon: ShieldCheck,
     description:
-      "Wij hosten en beheren de OpenClaw omgeving voor jullie. Snel live met minder interne belasting op infra en operations.",
+      "Wij hosten en beheren de OpenClaw omgeving voor jullie. Snel live, met een helder beheer- en supportmodel.",
     bullets: [
       "Wij beheren hosting, updates en monitoring",
-      "Snellere implementatie voor teams zonder eigen platformcapaciteit",
-      "Opschaalbaar met afgesproken beheer- en supportmodel",
+      "Per klant geisoleerde omgeving",
+      "Duidelijke exit: overdraagbaar naar client-owned als je later wil migreren",
     ],
   },
 ] as const
 
 const requirements = [
-  "Least privilege toegang tot relevante systemen of sandboxomgevingen",
-  "Testcases of representatieve voorbeelden van de workflow die geautomatiseerd moet worden",
-  "Een inhoudelijke owner die beslissingen neemt en feedback geeft",
-  "Optioneel: akkoord op managed provisioning als je kiest voor managed hosting",
+  "Toegang tot relevante tools via least-privilege (scopes en rollen afgesproken)",
+  "Realistische testcases zodat we gedrag en uitzonderingen kunnen valideren",
+  "Een owner die approvals kan geven tijdens build, review en go-live",
+  "Optioneel: managed provisioning add-on als je geen interne credentials wilt delen",
 ] as const
 
 const deliverables = [
-  "Werkende OpenClaw implementatie in test en productie-afspraak",
-  "Geconfigureerde integraties met jullie tools en processen",
-  "Security basisinrichting met secrets, logging en toegangsafspraken",
-  "Testresultaten en acceptatiechecklist op afgesproken scenario's",
+  "Werkende OpenClaw omgeving (hostingmodel volgens afspraak)",
+  "1 workflow live (Starter) of meerdere workflows (Groei), inclusief integraties",
+  "Security baseline: secrets, logging, audit trail en afgesproken approvals",
+  "Acceptatiechecklist met testresultaten op afgesproken scenario's",
   "Documentatie voor beheer, overdracht en wijzigingen",
-  "Go-live ondersteuning en nazorg volgens gekozen model",
+  "Go-live begeleiding en nazorg volgens package",
 ] as const
 
 const ImplementatiePage: React.FC = () => {
@@ -76,53 +76,52 @@ const ImplementatiePage: React.FC = () => {
       <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm sm:p-10">
         <div className="max-w-3xl">
           <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700">
-            OpenClaw implementatie
+            Managed OpenClaw
           </span>
           <h1 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             OpenClaw implementatie voor bedrijven
           </h1>
           <p className="mt-4 text-slate-600">
-            We implementeren OpenClaw als productieklare workflowlaag voor je team, inclusief
-            hostingmodel, security-afspraken en overdracht. Bekijk eerst onze{" "}
-            <a className="font-medium text-slate-900 underline" href="/pricing">
-              packages op de pricing pagina
-            </a>{" "}
-            of controleer welke tools we ondersteunen op de{" "}
-            <a className="font-medium text-slate-900 underline" href="/integrations">
-              integraties pagina
-            </a>
-            .
+            Wij hosten en implementeren OpenClaw als workflowlaag voor je team. Je start met 1 workflow,
+            meet het effect en schaalt gecontroleerd op. Typische doorlooptijd: 3-7 werkdagen,
+            afhankelijk van toegang en integraties.
           </p>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/pricing"
+              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800"
+            >
+              Bekijk packages
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
+            >
+              Plan een intake
+            </a>
+          </div>
         </div>
       </section>
 
       <section className="mt-12">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
-              Hostingmodellen
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              Kies het model dat past bij jullie IT-team, compliance-eisen en gewenste snelheid.
-            </p>
-          </div>
+        <div className="max-w-2xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Hostingmodellen</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Kies het model dat past bij jullie IT-team, compliance eisen en gewenste snelheid.
+          </p>
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           {hostingOptions.map((option) => (
-            <article
-              key={option.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
+            <article key={option.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex items-start gap-4">
                 <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
                   <option.icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold text-slate-900">{option.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    {option.description}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{option.description}</p>
                 </div>
               </div>
               <ul className="mt-5 space-y-3">
@@ -140,9 +139,7 @@ const ImplementatiePage: React.FC = () => {
 
       <section className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <article className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-            Wat we nodig hebben van jou
-          </h2>
+          <h2 className="text-xl font-semibold tracking-tight text-slate-900">Wat we nodig hebben</h2>
           <ul className="mt-5 space-y-4">
             {requirements.map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -172,29 +169,15 @@ const ImplementatiePage: React.FC = () => {
             <Lock className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
-            <h2 className="text-xl font-semibold tracking-tight text-slate-900">Security note</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900">Security baseline</h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
-              We werken met least privilege toegang, afgesproken logging en duidelijke
-              verantwoordelijkheden per hostingmodel. Lees meer op onze{" "}
+              We werken met least-privilege toegang, afgesproken logging en duidelijke verantwoordelijkheden.
+              Meer details vind je op onze{" "}
               <a className="font-medium text-slate-900 underline" href="/security">
                 beveiligingspagina
               </a>
               .
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800"
-              >
-                Bespreek implementatie
-              </a>
-              <a
-                href="/pricing"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
-              >
-                Bekijk pricing
-              </a>
-            </div>
           </div>
         </div>
       </section>

@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         destination: "/package/configure",
         permanent: true,
       },
+      {
+        source: "/implementation",
+        destination: "/implementatie",
+        permanent: true,
+      },
+      {
+        source: "/implmenetatie",
+        destination: "/implementatie",
+        permanent: true,
+      },
     ]
   },
   async headers() {

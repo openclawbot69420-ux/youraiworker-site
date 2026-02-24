@@ -76,8 +76,8 @@ type NavItem = {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/use-cases", label: "Use cases" },
+  { href: "/", label: "Start" },
+  { href: "/use-cases", label: "Toepassingen" },
   { href: "/integrations", label: "Integraties" },
   { href: "/implementatie", label: "Implementatie" },
   { href: "/pricing", label: "Prijzen" },
@@ -85,7 +85,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/security", label: "Beveiliging" },
 ]
 
-const HEADER_CTA: NavItem = { href: "/contact", label: "Plan intake" }
+const HEADER_CTA: NavItem = { href: "/contact", label: "Plan een intake" }
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
@@ -177,7 +177,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="mt-4 flex flex-col gap-3">
               <a className="transition-colors hover:text-slate-900" href="/use-cases">
-                Use cases
+                Toepassingen
               </a>
               <a className="transition-colors hover:text-slate-900" href="/integrations">
                 Integraties
@@ -206,10 +206,10 @@ const Footer: React.FC = () => {
                 Privacy
               </a>
               <a className="transition-colors hover:text-slate-900" href="/guides">
-                Guides
+                Handleidingen
               </a>
               <a className="transition-colors hover:text-slate-900" href="/contact">
-                Plan intake
+                Plan een intake
               </a>
             </div>
           </div>
