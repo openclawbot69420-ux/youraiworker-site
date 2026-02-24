@@ -55,7 +55,7 @@ const PricingPage: React.FC = () => {
               "30 minuten handover/training",
               "48 uur warranty na livegang",
               "2 weken break-fix support (business hours)",
-              "Dagelijkse backups",
+              "Backup setup inbegrepen",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-slate-900" />
@@ -85,7 +85,7 @@ const PricingPage: React.FC = () => {
               "Handover + korte beheertraining",
               "48 uur warranty na livegang",
               "4 weken break-fix support (business hours)",
-              "Dagelijkse backups",
+              "Backup setup inbegrepen",
             ].map((item) => (
               <li key={item} className="flex gap-3">
                 <span className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-slate-900" />

@@ -36,8 +36,8 @@ const SecurityPage: React.FC = () => {
             "Waar nodig scheiden we test- en productieomgevingen om risico's te minimaliseren.",
           ],
           [
-            "Dagelijkse backups",
-            "Automatische dagelijkse backups van configuratie en data, zodat je altijd kunt herstellen.",
+            "Backup setup inbegrepen",
+            "Wij configureren automatische backups van configuratie en data als onderdeel van de setup.",
           ],
         ].map(([title, desc]) => (
           <div key={title} className="border-b border-slate-200 pb-8">
