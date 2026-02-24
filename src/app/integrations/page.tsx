@@ -168,6 +168,33 @@ const IntegrationsPage: React.FC = () => {
           </a>
         </div>
       </div>
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+        <h2 className="text-lg font-semibold tracking-tight text-slate-900">Gerelateerd</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Bekijk toepassingen, implementatie-aanpak en prijsopties voor je koppelingen.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <a
+            href="/use-cases"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Toepassingen
+          </a>
+          <a
+            href="/implementatie"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Implementatie
+          </a>
+          <a
+            href="/pricing"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Prijzen
+          </a>
+        </div>
+      </section>
     </section>
   )
 }

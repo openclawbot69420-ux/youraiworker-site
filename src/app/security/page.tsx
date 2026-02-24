@@ -124,6 +124,33 @@ const SecurityPage: React.FC = () => {
           Plan een intake
         </a>
       </section>
+
+      <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+        <h2 className="text-lg font-semibold tracking-tight text-slate-900">Gerelateerd</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Bekijk hoe beveiliging terugkomt in implementatie, integraties en prijsopbouw.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <a
+            href="/implementatie"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
+          >
+            Implementatie
+          </a>
+          <a
+            href="/integrations"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
+          >
+            Integraties
+          </a>
+          <a
+            href="/pricing"
+            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
+          >
+            Prijzen
+          </a>
+        </div>
+      </section>
     </main>
   )
 }

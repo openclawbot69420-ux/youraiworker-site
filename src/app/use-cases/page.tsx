@@ -100,6 +100,33 @@ const UseCasesPage: React.FC = () => {
           </a>
         </div>
       </div>
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+        <h2 className="text-lg font-semibold tracking-tight text-slate-900">Ga verder</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Verken de bijbehorende integraties, implementatie-aanpak en prijsopbouw.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <a
+            href="/integrations"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Integraties
+          </a>
+          <a
+            href="/implementatie"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Implementatie
+          </a>
+          <a
+            href="/pricing"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+          >
+            Prijzen
+          </a>
+        </div>
+      </section>
     </section>
   )
 }
