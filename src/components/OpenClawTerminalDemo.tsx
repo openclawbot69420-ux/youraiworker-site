@@ -28,6 +28,8 @@ const DEMO_SCENARIOS: DemoScenario[] = [
       { text: "✓ Geclassificeerd: Sales lead (prio P1)", tone: "success" },
       { text: "→ Velden: seats=40, timing=volgende maand, vraag=pricing+beschikbaarheid", tone: "result" },
       { text: "✓ Concept antwoord opgesteld (klaar voor review)", tone: "success" },
+      { text: "✓ CRM bijgewerkt + reminder voor follow-up (24u)", tone: "success" },
+      { text: "Resultaat: minder inbox-ruis, sneller opvolgen, niks valt tussen wal en schip.", tone: "result" },
     ],
   },
   {
@@ -36,10 +38,13 @@ const DEMO_SCENARIOS: DemoScenario[] = [
       { text: 'User> "Nieuwe lead via Telegram — kun je kwalificeren?"', tone: "user" },
       { text: "event:telegram -> Inbound lead: @jasonfounder", tone: "event" },
       { text: "$ openclaw agent run lead-qualifier --channel telegram", tone: "command" },
-      { text: "→ Vraag 1: Teamgrootte?", tone: "result" },
-      { text: "→ Vraag 2: Gewenste go-live datum?", tone: "result" },
+      { text: "Agent> 1/2: Wat is je teamgrootte?", tone: "result" },
+      { text: "User> 12", tone: "user" },
+      { text: "Agent> 2/2: Wat is je gewenste go-live datum?", tone: "result" },
+      { text: "User> Maart", tone: "user" },
       { text: "✓ Antwoorden verwerkt: team=12, go-live=maart", tone: "success" },
-      { text: "✓ Gelogd naar Google Sheets: status=Qualified", tone: "success" },
+      { text: "✓ Gelogd naar Google Sheets/CRM: status=Qualified", tone: "success" },
+      { text: "Resultaat: sales krijgt alleen gekwalificeerde leads + context in één overzicht.", tone: "result" },
     ],
   },
   {
@@ -52,15 +57,28 @@ const DEMO_SCENARIOS: DemoScenario[] = [
       { text: "✓ Antwoord verstuurd met reset-stappen", tone: "success" },
       { text: "→ Billing issue gedetecteerd → ticket aanmaken", tone: "result" },
       { text: "✓ Ticket aangemaakt: Zendesk #5821 (Billing)", tone: "success" },
+      { text: "Resultaat: 1e lijn opgelost, rest automatisch geëscaleerd met audit trail.", tone: "result" },
+    ],
+  },
+  {
+    label: "CRM logging (Slack)",
+    lines: [
+      { text: 'User> "Log klantupdates uit Slack direct in CRM"', tone: "user" },
+      { text: "event:slack -> #sales: 'Call gehad met ACME — volgende stap: voorstel'", tone: "event" },
+      { text: "$ openclaw workflow run crm-log --source slack --target crm", tone: "command" },
+      { text: "✓ Samenvatting gemaakt + next-step vastgelegd", tone: "success" },
+      { text: "✓ CRM bijgewerkt (deal stage + activity log)", tone: "success" },
+      { text: "Resultaat: pipeline blijft schoon zonder handmatig copy/paste.", tone: "result" },
     ],
   },
 ]
 
 const TICK_MS = 18
-const LINE_PAUSE_TICKS = 7
-const SHORT_PAUSE_TICKS = 3
-const SCENARIO_HOLD_TICKS = 40
-const FADE_TICKS = 14
+const LINE_PAUSE_TICKS = 9
+const SHORT_PAUSE_TICKS = 4
+// Hold long enough to actually read the outcome before switching scenarios.
+const SCENARIO_HOLD_TICKS = 140
+const FADE_TICKS = 18
 
 type AnimationState = {
   scenarioIndex: number

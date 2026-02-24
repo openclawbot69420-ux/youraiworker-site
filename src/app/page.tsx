@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { ClipboardCheck, ShieldCheck, Sparkles } from "lucide-react"
+
 import { OpenClawTerminalDemo } from "../components/OpenClawTerminalDemo"
 
 const MARQUEE_ITEMS = [
@@ -219,11 +221,11 @@ const HomePage: React.FC = () => {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Wat we leveren (production‑ready, niet demo‑ready)
+              Wat je krijgt (end-to-end implementatie)
             </h2>
             <p className="mt-4 text-sm text-slate-600">
               <span className="font-semibold text-slate-900">Pakket vanaf €1.000 (incl. 1 agent):</span>{" "}
-              één duidelijke workflow, gebouwd, getest, gedocumenteerd en uitgerold.
+              één workflow die echt draait: gebouwd, getest met echte cases, gedocumenteerd en gecontroleerd uitgerold.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
@@ -368,20 +370,30 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {[
+              {(
                 [
-                  "🔒",
-                  "Security-first",
-                  "Tailscale, least-privilege, audit logging standaard",
-                ],
-                ["🇳🇱", "Nederlands team", "Lokale support, geen offshore, korte lijnen"],
-                ["📋", "Vaste prijs, duidelijke scope", "Geen verrassingen achteraf"],
-              ].map(([icon, title, desc]) => (
+                  {
+                    Icon: ShieldCheck,
+                    title: "Security-first",
+                    desc: "Tailscale, least-privilege, audit logging standaard",
+                  },
+                  {
+                    Icon: Sparkles,
+                    title: "Nederlands team",
+                    desc: "Lokale support, geen offshore, korte lijnen",
+                  },
+                  {
+                    Icon: ClipboardCheck,
+                    title: "Vaste prijs, duidelijke scope",
+                    desc: "Geen verrassingen achteraf",
+                  },
+                ] as const
+              ).map(({ Icon, title, desc }) => (
                 <div key={title} className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
-                  <p className="text-lg" aria-hidden="true">
-                    {icon}
-                  </p>
-                  <p className="mt-2 font-semibold text-slate-900">{title}</p>
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <p className="mt-3 font-semibold text-slate-900">{title}</p>
                   <p className="mt-2 text-sm text-slate-600">{desc}</p>
                 </div>
               ))}
