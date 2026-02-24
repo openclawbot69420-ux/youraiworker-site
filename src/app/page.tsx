@@ -337,7 +337,7 @@ const HomePage: React.FC = () => {
             Klaar om één proces te automatiseren?
           </h2>
           <p className="mt-4 max-w-2xl text-white/70">
-            Plan een korte intake. Je krijgt binnen 24–48 uur een concreet voorstel met scope,
+            Plan een korte intake. Je krijgt binnen 24-48 uur een concreet voorstel met scope,
             planning en vaste uitgangspunten.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

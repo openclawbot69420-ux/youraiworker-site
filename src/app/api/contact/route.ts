@@ -66,13 +66,13 @@ export const POST = async (request: Request) => {
       to: process.env.GMAIL_USER,
       replyTo: email,
       subject: `Nieuwe aanvraag van ${name}${company ? ` (${company})` : ""}`,
-      text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "–"}\n\nBericht:\n${message}`,
+      text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "-"}\n\nBericht:\n${message}`,
       html: `
         <h2>Nieuwe aanvraag via youraiworker.nl</h2>
         <table style="border-collapse:collapse;">
           <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Naam</td><td>${name}</td></tr>
           <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">E-mail</td><td><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Bedrijf</td><td>${company || "–"}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Bedrijf</td><td>${company || "-"}</td></tr>
         </table>
         <h3>Bericht</h3>
         <p>${message.replace(/\n/g, "<br>")}</p>
