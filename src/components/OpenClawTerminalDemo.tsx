@@ -21,7 +21,7 @@ const DEMO_SCENARIOS: DemoScenario[] = [
         tone: "user",
       },
       {
-        text: 'event:gmail -> Nieuwe mail: "Offerte aanvraag — 40 seats volgende maand"',
+        text: 'event:gmail -> Nieuwe mail: "Offerte aanvraag - 40 seats volgende maand"',
         tone: "event",
       },
       { text: "$ openclaw agent run inbox-triage --source gmail", tone: "command" },
@@ -35,7 +35,7 @@ const DEMO_SCENARIOS: DemoScenario[] = [
   {
     label: "Lead kwalificatie (Telegram)",
     lines: [
-      { text: 'User> "Nieuwe lead via Telegram — kun je kwalificeren?"', tone: "user" },
+      { text: 'User> "Nieuwe lead via Telegram - kun je kwalificeren?"', tone: "user" },
       { text: "event:telegram -> Inbound lead: @jasonfounder", tone: "event" },
       { text: "$ openclaw agent run lead-qualifier --channel telegram", tone: "command" },
       { text: "Agent> 1/2: Wat is je teamgrootte?", tone: "result" },
@@ -64,7 +64,7 @@ const DEMO_SCENARIOS: DemoScenario[] = [
     label: "CRM logging (Slack)",
     lines: [
       { text: 'User> "Log klantupdates uit Slack direct in CRM"', tone: "user" },
-      { text: "event:slack -> #sales: 'Call gehad met ACME — volgende stap: voorstel'", tone: "event" },
+      { text: "event:slack -> #sales: 'Call gehad met ACME - volgende stap: voorstel'", tone: "event" },
       { text: "$ openclaw workflow run crm-log --source slack --target crm", tone: "command" },
       { text: "✓ Samenvatting gemaakt + next-step vastgelegd", tone: "success" },
       { text: "✓ CRM bijgewerkt (deal stage + activity log)", tone: "success" },

@@ -144,7 +144,7 @@ const HomePage: React.FC = () => {
               Zie OpenClaw in actie
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-200 sm:text-base">
-              Korte demo’s van inbox triage, lead kwalificatie en support — inclusief user input en
+              Korte demo’s van inbox triage, lead kwalificatie en support - inclusief user input en
               agent output.
             </p>
           </div>
@@ -495,18 +495,26 @@ const HomePage: React.FC = () => {
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                Security by default
-              </h2>
+              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security, standaard</h2>
               <p className="mt-4 text-sm text-slate-600">
                 Remote access via <span className="font-semibold text-slate-900">Tailscale</span> -
-                versleuteld, identity‑based netwerk zonder open poorten.
+                versleuteld, identity-based netwerk zonder open poorten.
               </p>
-              <ul className="mt-6 space-y-2 text-sm text-slate-600">
-                <li>• Least‑privilege per integratie</li>
-                <li>• Secrets management (geen keys in code)</li>
-                <li>• Logging/traceability</li>
-                <li>• Omgevingsscheiding waar nodig</li>
+              <ul className="mt-6 space-y-3 text-sm text-slate-600">
+                {[
+                  ["Least privilege per integratie", "Alleen de minimaal benodigde scopes."],
+                  ["Secrets management", "Geen API keys in code. Rotatie waar nodig."],
+                  ["Logging + traceability", "Audit trail voor acties en beslissingen."],
+                  ["Omgevingsscheiding", "Test en productie gescheiden waar nodig."],
+                ].map(([title, desc]) => (
+                  <li key={title} className="flex gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
+                    <span>
+                      <span className="font-medium text-slate-900">{title}:</span>{" "}
+                      {desc}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
@@ -514,7 +522,7 @@ const HomePage: React.FC = () => {
               <p className="mt-3 text-sm text-slate-600">
                 <span className="font-semibold text-slate-900">48 uur warranty</span> (bugs/regressies
                 binnen scope) +{" "}
-                <span className="font-semibold text-slate-900">2 weken break‑fix</span> (business
+                <span className="font-semibold text-slate-900">2 weken break-fix</span> (business
                 hours).
               </p>
               <p className="mt-4 text-sm text-slate-600">
