@@ -28,12 +28,27 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
       {
         tone: "agent",
         label: "Agent",
-        text: "Classificatie: Sales lead (P1) • intentie = offerteaanvraag • seats = 40",
+        text: "Classificatie: Sales lead (P1). Intentie: offerteaanvraag. Herkend: 40 seats en gewenste start in maart.",
+      },
+      {
+        tone: "user",
+        label: "User",
+        text: "Ja. Gebruik een zakelijke toon en vraag of ze al een CRM gebruiken.",
+      },
+      {
+        tone: "agent",
+        label: "Agent",
+        text: "Conceptantwoord klaar. Vraag toegevoegd over huidige CRM en gewenste doorlooptijd voor onboarding.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "CRM bijgewerkt, draft reply opgesteld, follow-up reminder ingepland (24u).",
+        text: "CRM-lead aangemaakt, conceptreply opgeslagen in Gmail draft en follow-up reminder ingepland over 24 uur.",
+      },
+      {
+        tone: "agent",
+        label: "Agent",
+        text: "Wil je deze lead direct aan Sales toewijzen of eerst in review houden?",
       },
     ],
     resultaat: "Inbox opgeschoond en lead staat direct klaar voor opvolging.",
@@ -51,12 +66,27 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
       {
         tone: "agent",
         label: "Agent",
-        text: "Classificatie: MQL • teamgrootte = 12 • gewenste livegang = maart",
+        text: "Ja. Om goed te richten: hoeveel agents werken in support en in welke tools werken jullie nu?",
+      },
+      {
+        tone: "user",
+        label: "Lead",
+        text: "12 mensen. Support via Gmail + WhatsApp, sales in HubSpot. We willen in maart live.",
+      },
+      {
+        tone: "agent",
+        label: "Agent",
+        text: "Gekwalificeerd als MQL. Fit-score 82/100. Kansrijk voor intake: support-triage + lead routing als eerste workflow.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Kwalificatievragen afgerond, CRM-status = Qualified, intake-slot voorgesteld.",
+        text: "CRM-status gezet op Qualified, samenvatting gelogd en twee intake-slots voorgesteld in Telegram.",
+      },
+      {
+        tone: "user",
+        label: "Lead",
+        text: "Donderdag 10:30 is goed. Kunnen jullie vooraf een indicatie sturen?",
       },
     ],
     resultaat: "Sales ziet alleen gekwalificeerde leads met context en volgende stap.",
@@ -74,12 +104,27 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
       {
         tone: "agent",
         label: "Agent",
-        text: "Classificatie: auth + billing • reset-instructies verstuurd • confidence FAQ 0.97",
+        text: "Ja. Ik zie een combinatie van login en factuurvraag. Eerst reset-instructies gestuurd en verificatie gevraagd op klantnummer.",
+      },
+      {
+        tone: "user",
+        label: "Klant",
+        text: "Klantnummer is AC-2041. Reset lukt nu, maar factuur blijft ontbreken.",
+      },
+      {
+        tone: "agent",
+        label: "Agent",
+        text: "Login-probleem opgelost. Billing-item kan ik niet direct afhandelen. Ik maak nu een finance-escalatie met context en transcript.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Billing issue geëscaleerd: Zendesk-ticket #5821 aangemaakt met samenvatting.",
+        text: "Zendesk-ticket #5821 aangemaakt met samenvatting, klantnummer, factuurnummer en status 'urgent billing'.",
+      },
+      {
+        tone: "agent",
+        label: "Agent",
+        text: "Je ontvangt een update zodra finance heeft bevestigd. Verwachte reactietijd: vandaag binnen kantooruren.",
       },
     ],
     resultaat: "1e lijn direct opgelost, billing automatisch doorgestuurd met audit trail.",

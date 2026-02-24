@@ -25,10 +25,10 @@ type ChatLine = {
   emailPreview?: string
 }
 
-const TICK_MS = 100
-const REVEAL_GAP_TICKS = 10
-const HOLD_TICKS = 70
-const FADE_TICKS = 10
+const TICK_MS = 120
+const REVEAL_GAP_TICKS = 13
+const HOLD_TICKS = 92
+const FADE_TICKS = 12
 
 interface ChatDemoProps {
   scenarios?: DashboardDemoScenario[]
@@ -258,13 +258,15 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
     !prefersReducedMotion && animation.phase === "fade"
       ? Math.max(0, animation.ticksLeft / FADE_TICKS)
       : 1
+  const showTypingIndicator =
+    !prefersReducedMotion && animation.phase === "reveal" && revealCount <= chatLines.length
 
   const channelIcon = getChannelIcon(scenario.channel)
 
   return (
     <div
       ref={rootRef}
-      className="h-full min-h-[24rem] rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:min-h-[26rem] sm:p-3"
+      className="h-[24rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
     >
       <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%),linear-gradient(180deg,#17212b,#0f172a)] p-2 sm:p-3">
         <div
@@ -281,13 +283,14 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                 <p className="truncate text-sm font-semibold">{demoTitle}</p>
                 <p className="truncate text-[11px] text-white/70">{skin.appName} flow demo</p>
               </div>
-              <span className="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/90 ring-1 ring-white/10">
-                online
+              <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/90 ring-1 ring-white/10">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true" />
+                Online
               </span>
             </div>
           </div>
 
-          <div className="flex min-h-[2.5rem] items-center gap-1.5 border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
+          <div className="flex h-10 shrink-0 items-center gap-1.5 border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
             {activeScenarios.map((item, index) => {
               const active = item.title === scenario.title
               return (
@@ -308,7 +311,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
           </div>
 
           <div className="flex min-h-0 flex-1 flex-col bg-[#e5ddd5]">
-            <div className="flex items-center gap-2 border-b border-black/5 bg-white/75 px-3 py-2 text-[11px] text-slate-600 backdrop-blur sm:px-4">
+            <div className="flex h-9 shrink-0 items-center gap-2 border-b border-black/5 bg-white/75 px-3 py-2 text-[11px] text-slate-600 backdrop-blur sm:px-4">
               {channelIcon ? <img src={channelIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" /> : null}
               <span className="truncate font-medium text-slate-700">{scenario.channel}</span>
               <span className="text-slate-400">•</span>
@@ -317,71 +320,76 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
             <div className="min-h-0 flex-1 overflow-hidden px-3 py-3 sm:px-4">
               <div className="flex h-full flex-col">
-                <div className="min-h-0 flex-1 space-y-2 overflow-hidden">
-                  {visibleLines.map((line, index) => {
-                    const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
+                <div className="min-h-0 flex-1 overflow-hidden">
+                  <div className="flex h-full flex-col justify-end gap-2">
+                    {visibleLines.map((line, index) => {
+                      const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
 
-                    if (line.kind === "forwarded-email") {
+                      if (line.kind === "forwarded-email") {
+                        return (
+                          <div
+                            key={line.id}
+                            className={`ml-auto max-w-[92%] rounded-2xl border p-2 shadow-sm ${skin.userBubble}`}
+                          >
+                            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/80">
+                              {line.label}
+                            </p>
+                            <div className="mt-1.5 rounded-xl border border-white/20 bg-white/15 p-2">
+                              <div className="flex items-center gap-2 text-[10px] text-white/90">
+                                <img
+                                  src="/brands/gmail.svg"
+                                  alt=""
+                                  aria-hidden="true"
+                                  className="h-3.5 w-3.5 shrink-0"
+                                />
+                                <span className="truncate font-medium">{line.emailSubject}</span>
+                              </div>
+                              <p className="mt-1 text-[11px] leading-relaxed text-white/95">
+                                {line.emailPreview}
+                              </p>
+                            </div>
+                            <p className="mt-1 text-right text-[10px] text-white/70">{timeLabel}</p>
+                          </div>
+                        )
+                      }
+
                       return (
                         <div
                           key={line.id}
-                          className={`ml-auto max-w-[92%] rounded-2xl border p-2 shadow-sm ${skin.userBubble}`}
+                          className={`max-w-[92%] rounded-2xl border px-3 py-2 shadow-sm ${bubbleClassForTone(
+                            line.tone,
+                            skin,
+                          )}`}
                         >
-                          <p className="text-[10px] font-semibold uppercase tracking-wide text-white/80">
-                            {line.label}
-                          </p>
-                          <div className="mt-1.5 rounded-xl border border-white/20 bg-white/15 p-2">
-                            <div className="flex items-center gap-2 text-[10px] text-white/90">
-                              <img
-                                src="/brands/gmail.svg"
-                                alt=""
-                                aria-hidden="true"
-                                className="h-3.5 w-3.5 shrink-0"
-                              />
-                              <span className="truncate font-medium">{line.emailSubject}</span>
-                            </div>
-                            <p className="mt-1 text-[11px] leading-relaxed text-white/95">
-                              {line.emailPreview}
+                          {line.label ? (
+                            <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide opacity-70">
+                              {line.label}
                             </p>
-                          </div>
-                          <p className="mt-1 text-right text-[10px] text-white/70">{timeLabel}</p>
+                          ) : null}
+                          <p className="text-xs leading-relaxed sm:text-sm">{line.text}</p>
+                          <p
+                            className={`mt-1 text-right text-[10px] ${
+                              line.tone === "user" ? "text-white/75" : "text-slate-400"
+                            }`}
+                          >
+                            {timeLabel}
+                          </p>
                         </div>
                       )
-                    }
+                    })}
 
-                    return (
-                      <div
-                        key={line.id}
-                        className={`max-w-[92%] rounded-2xl border px-3 py-2 shadow-sm ${bubbleClassForTone(
-                          line.tone,
-                          skin,
-                        )}`}
-                      >
-                        {line.label ? (
-                          <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide opacity-70">
-                            {line.label}
-                          </p>
-                        ) : null}
-                        <p className="text-xs leading-relaxed sm:text-sm">{line.text}</p>
-                        <p
-                          className={`mt-1 text-right text-[10px] ${
-                            line.tone === "user" ? "text-white/75" : "text-slate-400"
-                          }`}
-                        >
-                          {timeLabel}
-                        </p>
-                      </div>
-                    )
-                  })}
-
-                  {!prefersReducedMotion && animation.phase === "reveal" && revealCount <= chatLines.length ? (
-                    <div className="inline-flex w-fit items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] text-slate-500 shadow-sm">
+                    <div
+                      className={`inline-flex w-fit items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] text-slate-500 shadow-sm transition-opacity ${
+                        showTypingIndicator ? "opacity-100" : "opacity-0"
+                      }`}
+                      aria-hidden={!showTypingIndicator}
+                    >
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400 motion-reduce:hidden" />
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-300 [animation-delay:120ms] motion-reduce:hidden" />
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-200 [animation-delay:240ms] motion-reduce:hidden" />
                       Agent typt...
                     </div>
-                  ) : null}
+                  </div>
                 </div>
 
                 <div className="mt-3 shrink-0 rounded-2xl border border-slate-200 bg-white/90 p-2.5 shadow-sm backdrop-blur">
@@ -389,7 +397,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                     Resultaat
                   </p>
                   <p
-                    className={`mt-1 min-h-[2.75rem] text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
+                    className={`mt-1 min-h-[3.75rem] text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
                       showResult ? "opacity-100" : "opacity-0"
                     }`}
                   >
@@ -399,9 +407,17 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
               </div>
             </div>
 
-            <div className="flex min-h-[3rem] items-center gap-2 border-t border-black/5 bg-white/85 px-3 py-2 text-xs text-slate-500 backdrop-blur sm:px-4">
-              <div className="min-w-0 flex-1 rounded-full border border-slate-200 bg-white px-3 py-2 text-slate-400">
-                Bericht sturen...
+            <div className="flex h-14 shrink-0 items-center gap-2 border-t border-black/5 bg-white/85 px-3 py-2 text-xs text-slate-500 backdrop-blur sm:px-4">
+              <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-slate-500">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[10px] text-slate-500">
+                  +
+                </span>
+                <span className="truncate">Typ instructie of laat agent verwerken...</span>
+                <span
+                  className="h-4 w-px bg-slate-300 motion-reduce:hidden"
+                  aria-hidden="true"
+                  style={{ opacity: showTypingIndicator ? 1 : 0.45 }}
+                />
               </div>
               <button
                 type="button"
@@ -409,7 +425,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                 aria-label="Send disabled demo button"
                 disabled
               >
-                <span className={`text-sm font-semibold ${skin.accent}`}>+</span>
+                <span className={`text-sm font-semibold ${skin.accent}`}>{">"}</span>
               </button>
             </div>
           </div>
@@ -418,4 +434,3 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
     </div>
   )
 }
-
