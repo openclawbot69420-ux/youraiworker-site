@@ -129,23 +129,32 @@ export const Builder = () => {
   const [selectedPackage, setSelectedPackage] = useState<PackageKey>("starter")
   const [selectedAddOns, setSelectedAddOns] = useState<AddOnKey[]>([])
   const [intakeOpen, setIntakeOpen] = useState(false)
+  const [roiOpen, setRoiOpen] = useState(false)
   const [workEmail, setWorkEmail] = useState("")
   const [note, setNote] = useState("")
+  const [emailsPerDay, setEmailsPerDay] = useState(40)
+  const [leadsPerWeek, setLeadsPerWeek] = useState(15)
+  const [ticketsPerWeek, setTicketsPerWeek] = useState(25)
+  const [hourlyRateEuro, setHourlyRateEuro] = useState(65)
 
   useEffect(() => {
-    if (!intakeOpen) {
+    if (!intakeOpen && !roiOpen) {
       return
     }
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        if (roiOpen) {
+          setRoiOpen(false)
+          return
+        }
         setIntakeOpen(false)
       }
     }
 
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [intakeOpen])
+  }, [intakeOpen, roiOpen])
 
   const activePackage = useMemo(() => {
     return PACKAGES.find((pkg) => pkg.key === selectedPackage) ?? PACKAGES[0]
@@ -159,6 +168,27 @@ export const Builder = () => {
     return activePackage.priceEuro + activeAddOns.reduce((sum, item) => sum + item.fromEuro, 0)
   }, [activeAddOns, activePackage.priceEuro])
 
+  const roiEstimate = useMemo(() => {
+    const workDaysPerMonth = 22
+    const weeksPerMonth = 4.33
+
+    const emailMinutesSaved = emailsPerDay * workDaysPerMonth * 2
+    const leadMinutesSaved = leadsPerWeek * weeksPerMonth * 10
+    const ticketMinutesSaved = ticketsPerWeek * weeksPerMonth * 8
+
+    const rawHoursSaved = (emailMinutesSaved + leadMinutesSaved + ticketMinutesSaved) / 60
+    const realizedHoursSaved = rawHoursSaved * 0.35
+    const grossSavingsPerMonth = realizedHoursSaved * hourlyRateEuro
+    const netSavingsPerMonth = grossSavingsPerMonth * 0.9
+    const paybackMonths = netSavingsPerMonth > 0 ? totalFrom / netSavingsPerMonth : null
+
+    return {
+      hoursSavedMonth: realizedHoursSaved,
+      netSavingsMonth: netSavingsPerMonth,
+      paybackMonths,
+    }
+  }, [emailsPerDay, hourlyRateEuro, leadsPerWeek, ticketsPerWeek, totalFrom])
+
   const toggleAddOn = (key: AddOnKey) => {
     setSelectedAddOns((prev) =>
       prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],
@@ -167,6 +197,10 @@ export const Builder = () => {
 
   const openIntake = () => {
     setIntakeOpen(true)
+  }
+
+  const openRoi = () => {
+    setRoiOpen(true)
   }
 
   const handleIntakeSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -225,12 +259,13 @@ export const Builder = () => {
             >
               Start intake
             </button>
-            <a
-              href="/configure"
+            <button
+              type="button"
+              onClick={openRoi}
               className="rounded-xl border border-slate-300 px-5 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-white"
             >
-              Open configurator
-            </a>
+              ROI indicatie
+            </button>
           </div>
         </div>
       </div>
@@ -378,14 +413,14 @@ export const Builder = () => {
             </div>
 
             <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">Waarom geen ROI calculator hier?</p>
+              <p className="text-sm font-semibold text-slate-900">Snel ROI richting bepalen</p>
               <p className="mt-2 text-sm text-slate-600">
-                Deze pagina is bedoeld voor snelle pakketkeuze en intake. Voor volume-indicaties en ruwe impact
-                kun je de volledige configurator gebruiken.
+                Gebruik de ROI indicatie voor een snelle zakelijke inschatting op basis van volumes en uurtarief.
+                We rekenen bewust conservatief zodat de uitkomst bruikbaar blijft voor een eerste gesprek.
               </p>
-              <a href="/configure" className="mt-3 inline-block text-sm font-medium text-slate-900 underline">
-                Ga naar /configure
-              </a>
+              <button type="button" onClick={openRoi} className="mt-3 text-sm font-medium text-slate-900 underline">
+                Open ROI indicatie
+              </button>
             </div>
           </div>
         </div>
@@ -528,6 +563,171 @@ export const Builder = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {roiOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 px-4 py-8"
+          onClick={() => setRoiOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pricing-roi-title"
+            className="w-full max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:p-8"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">ROI indicatie</p>
+                <h2 id="pricing-roi-title" className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
+                  Richting voor impact en terugverdientijd
+                </h2>
+                <p className="mt-3 text-sm text-slate-600">
+                  Pas volumes en uurtarief aan voor een snelle indicatie. We gebruiken conservatieve aannames om
+                  overschatting te voorkomen.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setRoiOpen(false)}
+                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                aria-label="Sluiten"
+              >
+                Sluit
+              </button>
+            </div>
+
+            <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-4">
+                <label className="block rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-medium text-slate-900">Emails per dag</span>
+                    <span className="text-sm font-semibold text-slate-900">{emailsPerDay}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={500}
+                    step={5}
+                    value={emailsPerDay}
+                    onChange={(event) => setEmailsPerDay(Number(event.target.value))}
+                    className="mt-3 w-full accent-slate-900"
+                  />
+                </label>
+
+                <label className="block rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-medium text-slate-900">Leads per week</span>
+                    <span className="text-sm font-semibold text-slate-900">{leadsPerWeek}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={300}
+                    step={5}
+                    value={leadsPerWeek}
+                    onChange={(event) => setLeadsPerWeek(Number(event.target.value))}
+                    className="mt-3 w-full accent-slate-900"
+                  />
+                </label>
+
+                <label className="block rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-medium text-slate-900">Tickets per week</span>
+                    <span className="text-sm font-semibold text-slate-900">{ticketsPerWeek}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={0}
+                    max={500}
+                    step={5}
+                    value={ticketsPerWeek}
+                    onChange={(event) => setTicketsPerWeek(Number(event.target.value))}
+                    className="mt-3 w-full accent-slate-900"
+                  />
+                </label>
+
+                <label className="block rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-medium text-slate-900">Hourly rate</span>
+                    <span className="text-sm font-semibold text-slate-900">{currency(hourlyRateEuro)}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={25}
+                    max={250}
+                    step={5}
+                    value={hourlyRateEuro}
+                    onChange={(event) => setHourlyRateEuro(Number(event.target.value))}
+                    className="mt-3 w-full accent-slate-900"
+                  />
+                </label>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="text-sm font-semibold text-slate-900">Directionele uitkomst</p>
+                <p className="mt-2 text-xs leading-5 text-slate-500">
+                  Conservatieve aannames: beperkte adoptie en alleen direct meetbare tijdswinst.
+                </p>
+
+                <div className="mt-5 space-y-3">
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+                      Hours saved / month
+                    </p>
+                    <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
+                      {roiEstimate.hoursSavedMonth.toFixed(1)} uur
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+                      Net savings / month
+                    </p>
+                    <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
+                      {currency(Math.round(roiEstimate.netSavingsMonth))}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
+                      Payback period
+                    </p>
+                    <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
+                      {roiEstimate.paybackMonths ? `${roiEstimate.paybackMonths.toFixed(1)} maanden` : "n.v.t."}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">Gebaseerd op totaal vanaf {currency(totalFrom)}</p>
+                  </div>
+                </div>
+
+                <p className="mt-5 text-xs leading-5 text-slate-500">
+                  Indicatie - resultaten hangen af van workflow en gebruik
+                </p>
+
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setRoiOpen(false)}
+                    className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  >
+                    Sluit
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setRoiOpen(false)
+                      openIntake()
+                    }}
+                    className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
+                  >
+                    Gebruik dit als intake-startpunt
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
