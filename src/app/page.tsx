@@ -4,9 +4,6 @@ import {
   Database,
   LifeBuoy,
   Lock,
-  Mail,
-  MessageCircle,
-  MessagesSquare,
   ShieldCheck,
   Sparkles,
   Workflow,
@@ -52,27 +49,6 @@ const PROBLEM_CARDS = [
     description:
       "Afstemming via e-mail en chat zorgt voor dubbele afspraken, losse notities en onduidelijke opvolging.",
     snippet: "Beschikbaarheid ophalen -> voorstel sturen -> bevestiging -> agenda + CRM sync",
-  },
-] as const
-
-const SOLUTION_BLOCKS = [
-  {
-    title: "Verzoek intake en classificatie",
-    request: "Een e-mail, chatbericht of formulier komt binnen.",
-    action: "De agent herkent type verzoek, prioriteit en volgende stap op basis van jouw regels.",
-    result: "Snellere eerste reactie en minder handmatige triage in het team.",
-  },
-  {
-    title: "Uitvoering in je bestaande tools",
-    request: "Het team wil niet in nog een nieuw systeem werken.",
-    action: "De agent leest en schrijft in mail, agenda, chat en CRM via bestaande koppelingen.",
-    result: "Procesverbetering zonder extra operationele overhead.",
-  },
-  {
-    title: "Controleerbare output",
-    request: "Management wil inzicht in wat is verwerkt en wat nog wacht.",
-    action: "Acties, statussen en uitzonderingen worden zichtbaar in een dashboard en logs.",
-    result: "Meetbare doorlooptijd, betere opvolging en duidelijk eigenaarschap.",
   },
 ] as const
 
@@ -141,26 +117,80 @@ const COMPARISON_ROWS = [
     va: "△ Handmatig en persoonsafhankelijk",
     diy: "△ Volledig zelf ontwerpen en beheren",
   },
+  {
+    label: "Governance en audit",
+    ours: "✓ Logging, approvals en audit trail per workflow",
+    va: "△ Procesafspraken mogelijk, beperkt technisch auditspoor",
+    diy: "△ Mogelijk, maar ontwerp en beheer liggen volledig intern",
+  },
+  {
+    label: "Security baseline",
+    ours: "✓ Least privilege, secrets management en traceability",
+    va: "△ Afhankelijk van werkwijze en tooling van de VA",
+    diy: "△ Sterk afhankelijk van interne security-ervaring",
+  },
 ] as const
 
-const RESULT_PLACEHOLDERS = [
+const STRANDT_WITHOUT_LINES = [
+  "$ git clone openclaw && npm run dev",
+  "✓ Demo werkt lokaal",
+  "",
+  "# Productievragen komen daarna:",
+  "ENV? webhooks? rate limits? retries?",
+  "Wie beheert secrets en rotatie?",
+  "Waar loggen we acties en approvals?",
+  "Wat gebeurt er bij exceptions of timeouts?",
+  "Wie monitort na livegang?",
+  "",
+  "Resultaat: proof-of-concept blijft hangen",
+  "tussen experiment en operatie.",
+] as const
+
+const STRANDT_WITH_MANAGED = [
+  "Scope en acceptatiecriteria per workflow",
+  "Dedicated omgeving met zakelijke security-baseline",
+  "Integraties, permissies en secrets correct ingericht",
+  "Logging, audit trail en approval gates waar nodig",
+  "Go-live met testcases, fallback en eigenaarschap",
+  "Updates en onderhoud na livegang",
+] as const
+
+const DELIVERABLE_CARDS = [
   {
-    company: "B2B agency (NL)",
-    metric: "6 uur/week",
-    description: "minder inbox werk",
-    role: "Operations Manager",
+    Icon: Database,
+    title: "Dedicated omgeving",
+    description:
+      "Een gescheiden omgeving voor je workflow, met duidelijke eigenaarschap en configuratie die niet door elkaar loopt met experimenten.",
   },
   {
-    company: "E-commerce startup",
-    metric: "4 uur -> 5 min",
-    description: "leadrespons bij nieuwe aanvragen",
-    role: "Sales Director",
+    Icon: Workflow,
+    title: "Integraties op maat",
+    description:
+      "Koppelingen met de tools die je al gebruikt, inclusief scopes, mappings en foutafhandeling die passen bij je proces.",
   },
   {
-    company: "Consultancy bureau",
-    metric: "14 uur/week",
-    description: "terug voor strategisch werk",
-    role: "Managing Partner",
+    Icon: ClipboardCheck,
+    title: "Logging + audit",
+    description:
+      "Acties, statussen en uitzonderingen worden gelogd zodat je kunt controleren wat de agent heeft gedaan en waarom.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Approval gates",
+    description:
+      "Menselijke goedkeuring op kritieke stappen zoals verzending, updates naar CRM of escalaties naar klanten en leveranciers.",
+  },
+  {
+    Icon: Sparkles,
+    title: "Updates + onderhoud",
+    description:
+      "Doorlopende aanpassingen op prompts, regels en integraties binnen afgesproken scope zodat de workflow blijft werken.",
+  },
+  {
+    Icon: LifeBuoy,
+    title: "Backup setup",
+    description:
+      "Fallbacks en herstelafspraken zodat je team door kan werken als een integratie wijzigt of tijdelijk niet beschikbaar is.",
   },
 ] as const
 
@@ -421,81 +451,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Solution */}
-      <section id="oplossing" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            De oplossing
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-            We bouwen per workflow een agent die verzoeken verwerkt, acties uitvoert in je systemen
-            en resultaten terugschrijft. De chatdemo hieronder laat dit patroon zien met echte
-            input en agent-output.
-          </p>
-        </div>
-
-        <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {SOLUTION_BLOCKS.map(({ title, request, action, result }) => (
-            <div
-              key={title}
-              tabIndex={0}
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-slate-300"
-            >
-              <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-              <div className="mt-4">
-                <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Resultaat
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-900">{result}</p>
-                </div>
-
-                <div className="mt-3 md:hidden">
-                  <details className="rounded-xl border border-slate-200 bg-white">
-                    <summary className="cursor-pointer list-none px-4 py-2.5 text-xs font-medium text-slate-600">
-                      Details
-                    </summary>
-                    <div className="space-y-3 border-t border-slate-200 px-4 py-3">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                          Verzoek
-                        </p>
-                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                          Actie
-                        </p>
-                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
-                      </div>
-                    </div>
-                  </details>
-                </div>
-
-                <div className="mt-3 hidden md:block">
-                  <div className="max-h-0 overflow-hidden rounded-xl border border-transparent bg-transparent opacity-0 transition-all duration-200 group-hover:max-h-64 group-hover:border-slate-200 group-hover:bg-white group-hover:opacity-100 group-focus-within:max-h-64 group-focus-within:border-slate-200 group-focus-within:bg-white group-focus-within:opacity-100">
-                    <div className="space-y-3 px-4 py-3">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                          Verzoek
-                        </p>
-                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{request}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                          Actie
-                        </p>
-                        <p className="mt-1 text-sm leading-relaxed text-slate-700">{action}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Demo */}
       <section id="demo" className="mx-auto max-w-6xl px-4 pb-16">
         <div className="rounded-3xl border border-slate-200 bg-slate-900 p-6 shadow-2xl shadow-slate-900/10 sm:p-10">
@@ -509,7 +464,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-8 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[28rem]">
+          <div className="mt-8 overflow-hidden rounded-2xl">
             <ChatDemo scenarios={HOMEPAGE_SCENARIOS} />
           </div>
 
@@ -526,6 +481,64 @@ const HomePage: React.FC = () => {
             >
               Bekijk use cases
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Strandt */}
+      <section id="strandt" className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Waarom OpenClaw vaak strandt
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              OpenClaw kan een sterke basis zijn. In de praktijk strandt het meestal niet op het model,
+              maar op implementatie, eigenaarschap en operationele inrichting. Daarom leveren wij een
+              managed implementatie die daadwerkelijk draait in jullie proces.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-sm">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                  Zonder managed implementatie
+                </p>
+                <span className="rounded-full border border-rose-300/25 bg-rose-400/10 px-2.5 py-1 text-[11px] font-medium text-rose-200">
+                  Vaak strandt dit
+                </span>
+              </div>
+              <pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-black/20 p-4 text-xs leading-6 text-slate-200">
+                <code>{STRANDT_WITHOUT_LINES.join("\n")}</code>
+              </pre>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-base font-semibold text-slate-900">OpenClaw draait</h3>
+                <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
+                  Managed implementatie
+                </span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Wij nemen de vertaalslag naar productie op ons, inclusief inrichting, controles en
+                overdracht. Je team krijgt een werkende workflow in plaats van een los experiment.
+              </p>
+              <div className="mt-4 space-y-2.5">
+                {STRANDT_WITH_MANAGED.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-700"
+                  >
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-[11px] font-semibold text-emerald-700">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -609,95 +622,38 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Results */}
-      <section id="resultaten" className="mx-auto max-w-6xl px-4 pb-16">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50/60 p-6 sm:p-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                Wat teams bereiken
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-                Indicatieve uitkomsten voor teams die starten met een afgebakende workflow en daarna
-                iteratief verbeteren.
-              </p>
-            </div>
-            <p className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600">
-              Verwachte resultaten op basis van typische implementaties
+      {/* What We Deliver */}
+      <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              Wat je krijgt (end-to-end implementatie)
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              Geen losse setup, maar een managed implementatie voor één afgebakende workflow. Je krijgt
+              een werkende basis die gecontroleerd live kan en uitbreidbaar blijft.
             </p>
           </div>
 
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            {RESULT_PLACEHOLDERS.map(({ company, metric, description, role }) => (
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {DELIVERABLE_CARDS.map(({ Icon, title, description }) => (
               <div
-                key={company}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-900/5"
+                key={title}
+                className="rounded-xl border border-slate-200 bg-slate-50/50 p-5 transition-all hover:border-slate-300 hover:bg-white hover:shadow-sm"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                  {company}
-                </p>
-                <p className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                  {metric}
-                </p>
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <p className="mt-3 font-semibold text-slate-900">{title}</p>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
-                <div className="mt-5 border-t border-slate-200 pt-4">
-                  <p className="text-sm font-medium text-slate-900">{role}</p>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What We Deliver */}
-      <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Wat je krijgt (end-to-end implementatie)
-            </h2>
-            <p className="mt-4 text-sm text-slate-600">
-              <span className="font-semibold text-slate-900">Pakket vanaf €1.000 (incl. 1 agent):</span>{" "}
-              één workflow die echt draait: gebouwd, getest met echte cases, gedocumenteerd en gecontroleerd uitgerold.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/pricing"
-                className="inline-block rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 transition-colors"
-              >
-                Prijzen →
-              </a>
-              <a
-                href="/package/configure"
-                className="inline-block rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
-              >
-                Configureer pakket →
-              </a>
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <div className="grid gap-4 md:grid-cols-2">
-              {[
-                ["1 AI‑agent met duidelijke scope", "Eén proces / één teamflow, met acceptatiecriteria."],
-                ["Integraties waar het telt", "API's/webhooks waar mogelijk; altijd expliciet gescoped."],
-                ["Rollen, rechten & logging", "Zakelijke baseline: least privilege en traceability."],
-                ["Handover + training", "Korte docs + beheerinstructies + 30-min handover."],
-              ].map(([title, desc]) => (
-                <div
-                  key={title}
-                  className="rounded-xl border border-slate-200 p-5 hover:shadow-md hover:border-slate-300 transition-all"
-                >
-                  <p className="font-semibold">{title}</p>
-                  <p className="mt-2 text-sm text-slate-600">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Starter Agents */}
-      <section className="border-y border-slate-200/70 bg-slate-50/50">
+      <section id="starter-agents" className="border-y border-slate-200/70 bg-slate-50/50">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -756,76 +712,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Waarom bedrijven ons kiezen
-            </h2>
-            <p className="mt-3 text-sm text-slate-600">
-              Snel live, duidelijke scope en lokale support. Geen losse experimenten, maar een
-              production-ready agent met een voorspelbaar traject.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              ["< 2 weken", "Gemiddelde doorlooptijd tot livegang"],
-              ["100%", "Nederlandse setup & support"],
-              ["Vanaf €1.000", "Start met 1 workflow en schaal daarna door"],
-              ["48 uur", "Warranty reactietijd"],
-            ].map(([value, label]) => (
-              <div key={value} className="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
-                <p className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-                  {value}
-                </p>
-                <p className="mt-2 text-sm text-slate-600">{label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-xl border border-slate-200 bg-white p-5 sm:p-6">
-            <div className="flex flex-col gap-1">
-              <h3 className="text-sm font-semibold tracking-wide text-slate-900">Onze aanpak</h3>
-              <p className="text-sm text-slate-600">
-                Praktisch ingericht voor teams die snelheid en controle tegelijk willen.
-              </p>
-            </div>
-
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {(
-                [
-                  {
-                    Icon: ShieldCheck,
-                    title: "Beveiliging eerst",
-                    desc: "Tailscale, least-privilege, audit logging standaard",
-                  },
-                  {
-                    Icon: Sparkles,
-                    title: "Nederlands team",
-                    desc: "Lokale support, geen offshore, korte lijnen",
-                  },
-                  {
-                    Icon: ClipboardCheck,
-                    title: "Vaste prijs, duidelijke scope",
-                    desc: "Geen verrassingen achteraf",
-                  },
-                ] as const
-              ).map(({ Icon, title, desc }) => (
-                <div key={title} className="rounded-xl border border-slate-200 bg-slate-50/50 p-4">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <p className="mt-3 font-semibold text-slate-900">{title}</p>
-                  <p className="mt-2 text-sm text-slate-600">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
       <section id="proces" className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Hoe we opleveren</h2>
@@ -833,58 +719,6 @@ const HomePage: React.FC = () => {
           Je start met 1 afgebakende workflow. Binnen 3-7 werkdagen live, met controlepunten en meetbare outputs.
         </p>
         <HomeProcessRollout />
-      </section>
-
-      {/* Explore */}
-      <section id="verder" className="border-y border-slate-200/70 bg-slate-50/50">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Wat we precies voor je kunnen configureren
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Van één concrete workflow tot complete multi-tool automatisering. Bekijk toepassingen,
-              integraties en handleidingen om te zien wat haalbaar is voor jouw bedrijf.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              [
-                "Toepassingen",
-                "Concrete automatiseringen voor sales, support, operations en finance.",
-                "/use-cases",
-                "Bekijk toepassingen",
-              ],
-              [
-                "Integraties",
-                "Koppelingen met de tools die je al gebruikt: CRM, mail, chat, planning en meer.",
-                "/integrations",
-                "Bekijk integraties",
-              ],
-              [
-                "Handleidingen",
-                "Praktische handleidingen voor setup, governance, security en schaalbare uitrol.",
-                "/guides",
-                "Bekijk handleidingen",
-              ],
-            ].map(([title, description, href, cta]) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
-              >
-                <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{description}</p>
-                <a
-                  href={href}
-                  className="mt-6 inline-block rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
-                >
-                  {cta} →
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Security */}
