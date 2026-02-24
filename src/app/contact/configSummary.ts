@@ -1,5 +1,6 @@
 export type PackageKey = "starter" | "groei" | "maatwerk"
 export type AddOnKey =
+  | "managed-provisioning"
   | "ai-billing"
   | "telegram"
   | "whatsapp"
@@ -26,6 +27,7 @@ const PACKAGE_LABELS: Record<PackageKey, string> = {
 }
 
 const ADDON_LABELS: Record<AddOnKey, string> = {
+  "managed-provisioning": "Managed provisioning (mailbox/nummer)",
   "ai-billing": "AI model + billing setup",
   telegram: "Telegram setup",
   whatsapp: "WhatsApp Business setup",

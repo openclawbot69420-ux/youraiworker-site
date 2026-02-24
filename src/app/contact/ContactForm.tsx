@@ -14,11 +14,23 @@ export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
   const [config, setConfig] = useState<ConfigPayload | null>(null)
   const [prefillMessage, setPrefillMessage] = useState<string>("")
+  const [prefillEmailInput, setPrefillEmailInput] = useState<string>("")
+  const [prefillMessageInput, setPrefillMessageInput] = useState<string>("")
 
   useEffect(() => {
     try {
       const url = new URL(window.location.href)
       const configParam = url.searchParams.get("config")
+      const intakeEmailParam = url.searchParams.get("intakeEmail") ?? url.searchParams.get("email")
+      const intakeNoteParam = url.searchParams.get("intakeNote") ?? url.searchParams.get("note")
+
+      if (intakeEmailParam) {
+        setPrefillEmailInput(intakeEmailParam)
+      }
+
+      if (intakeNoteParam) {
+        setPrefillMessageInput(intakeNoteParam)
+      }
 
       const stored = localStorage.getItem(CONFIG_STORAGE_KEY)
       const raw = configParam ? decodeURIComponent(configParam) : stored
@@ -137,6 +149,7 @@ export const ContactForm: React.FC = () => {
             id="email"
             name="email"
             required
+            defaultValue={prefillEmailInput}
             className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
           />
         </div>
@@ -163,6 +176,7 @@ export const ContactForm: React.FC = () => {
           name="message"
           rows={5}
           required
+          defaultValue={prefillMessageInput}
           className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors resize-none"
         />
       </div>
