@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
   metadataBase: new URL("https://youraiworker.nl"),
   alternates: {
-    canonical: "/",
+    canonical: "https://youraiworker.nl/",
   },
   openGraph: {
     type: "website",
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     description:
       "Maatwerk AI agents die je organisatie echt werk uit handen nemen. Production-ready, binnen dagen live.",
     images: ["/og.svg"],
+    creator: "@youraiworker",
   },
   robots: {
     index: true,
