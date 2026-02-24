@@ -47,7 +47,7 @@ const ROLLOUT_STEPS: RolloutStep[] = [
     panelSubtitle: "Workflowbriefing voor implementatie",
     panelTag: "Stap 1",
     lines: [
-      { label: "Use case", value: "Inbox triage + opvolging" },
+      { label: "Toepassing", value: "Inbox triage + opvolging" },
       { label: "Bronnen", value: "Gmail, HubSpot" },
       { label: "KPI", value: "Reactietijd < 15 min", tone: "success" },
     ],

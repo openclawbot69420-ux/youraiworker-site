@@ -396,7 +396,7 @@ export const ConfigureUI: React.FC = () => {
 
           <div className="mt-4 space-y-3 text-sm text-slate-700">
             <div className="flex items-center justify-between">
-              <span>Package</span>
+              <span>Pakket</span>
               <span className="font-semibold">{activePackage.title}</span>
             </div>
             <div className="flex items-center justify-between">
@@ -429,7 +429,7 @@ export const ConfigureUI: React.FC = () => {
               onClick={persistConfig}
               className="block rounded-lg bg-slate-900 px-6 py-3 text-center text-sm font-medium text-white hover:bg-slate-800 transition-colors"
             >
-              Plan intake
+              Plan een intake
             </a>
 
             <div className="rounded-xl border border-slate-200 bg-white p-4">

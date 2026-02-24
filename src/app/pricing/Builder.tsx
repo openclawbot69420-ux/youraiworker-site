@@ -255,7 +255,7 @@ export const Builder = () => {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Pricing Builder
+              Prijsconfigurator
             </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Stel je package samen en start intake met een duidelijke uitgangspositie
@@ -272,7 +272,7 @@ export const Builder = () => {
               onClick={openIntake}
               className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
             >
-              Start intake
+              Plan een intake
             </button>
             <button
               type="button"
@@ -291,7 +291,7 @@ export const Builder = () => {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-                  1) Kies package
+                  1) Kies pakket
                 </h2>
                 <p className="mt-2 text-sm text-slate-600">
                   Twee duidelijke opties voor snelle start of bredere uitrol. Maatwerk scopen we apart in
@@ -303,7 +303,7 @@ export const Builder = () => {
             <div
               className="mt-6 grid gap-4 rounded-2xl bg-slate-100 p-2 sm:grid-cols-2"
               role="tablist"
-              aria-label="Packages"
+              aria-label="Pakketten"
             >
               {PACKAGES.map((pkg) => {
                 const isActive = pkg.key === selectedPackage
@@ -345,7 +345,7 @@ export const Builder = () => {
             <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">{activePackage.title} details</p>
+                  <p className="text-sm font-semibold text-slate-900">Details van {activePackage.title}</p>
                   <p className="mt-1 text-sm text-slate-600">{activePackage.leadTime}</p>
                 </div>
                 <p className="text-sm font-medium text-slate-700">{activePackage.support}</p>
@@ -498,7 +498,7 @@ export const Builder = () => {
               onClick={openIntake}
               className="mt-6 w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
             >
-              Start intake
+              Plan een intake
             </button>
             <p className="mt-3 text-xs leading-5 text-white/70">
               We gebruiken je selectie als intake-startpunt. Definitieve prijs volgt na scope, toegang en
@@ -522,7 +522,7 @@ export const Builder = () => {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Start intake</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Plan een intake</p>
                 <h2 id="pricing-intake-title" className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
                   Stuur je selectie door naar contact
                 </h2>
@@ -683,7 +683,7 @@ export const Builder = () => {
 
                 <label className="block rounded-2xl border border-slate-200 bg-slate-50 p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-sm font-medium text-slate-900">Hourly rate</span>
+                    <span className="text-sm font-medium text-slate-900">Uurtarief</span>
                     <span className="text-sm font-semibold text-slate-900">{currency(hourlyRateEuro)}</span>
                   </div>
                   <input
@@ -707,7 +707,7 @@ export const Builder = () => {
                 <div className="mt-5 space-y-3">
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
-                      Hours saved / month
+                      Uren bespaard / maand
                     </p>
                     <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
                       {roiEstimate.hoursSavedMonth.toFixed(1)} uur
@@ -716,7 +716,7 @@ export const Builder = () => {
 
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
-                      Net savings / month
+                      Netto besparing / maand
                     </p>
                     <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
                       {currency(Math.round(roiEstimate.netSavingsMonth))}
@@ -725,7 +725,7 @@ export const Builder = () => {
 
                   <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-xs font-medium uppercase tracking-[0.12em] text-slate-500">
-                      Payback period
+                      Terugverdientijd
                     </p>
                     <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
                       {roiEstimate.paybackMonths ? `${roiEstimate.paybackMonths.toFixed(1)} maanden` : "n.v.t."}

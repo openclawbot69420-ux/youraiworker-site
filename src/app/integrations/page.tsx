@@ -164,7 +164,7 @@ const IntegrationsPage: React.FC = () => {
             href="/contact"
             className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
           >
-            Plan intake
+            Plan een intake
           </a>
         </div>
       </div>

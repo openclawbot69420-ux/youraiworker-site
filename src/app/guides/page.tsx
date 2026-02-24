@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react"
 import { Clipboard, Key, Ruler, ShieldCheck, Target, Zap } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Guides",
+  title: "Handleidingen",
   description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
 }
 
@@ -28,9 +28,9 @@ const GuidesPage: React.FC = () => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Guides</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Handleidingen</h1>
           <p className="mt-4 text-slate-600">
-            Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.
+            Praktische handleidingen voor AI-agents: opzetten, testen, beveiligen en opschalen.
           </p>
         </div>
       </div>
@@ -74,7 +74,7 @@ const GuidesPage: React.FC = () => {
             href="/contact"
             className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
           >
-            Plan intake
+              Plan een intake
           </a>
         </div>
       </div>

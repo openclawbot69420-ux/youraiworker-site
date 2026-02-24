@@ -30,19 +30,19 @@ const INTEGRATION_ITEMS = [
 
 const PROBLEM_CARDS = [
   {
-    title: "Inbox + follow-ups",
+    title: "Inbox + opvolging",
     description:
       "Sales en operations verliezen tijd aan triage, statuschecks en opvolging die tussen mailboxen blijft hangen.",
     snippet: "Nieuwe lead -> antwoordconcept -> reminder +2 dagen -> owner toegewezen",
   },
   {
-    title: "Chat leads/support",
+    title: "Chat leads en support",
     description:
       "WhatsApp en webchat vragen snelle reacties, maar context en prioriteit worden handmatig bepaald.",
     snippet: "Vraag binnen -> intentie herkend -> ticket of leadroute -> antwoord klaarzetten",
   },
   {
-    title: "CRM updates + reporting",
+    title: "CRM-updates + rapportage",
     description:
       "Activiteiten worden laat of onvolledig bijgewerkt, waardoor forecast en rapportages achterlopen.",
     snippet: "Call samenvatting -> CRM veldupdate -> weekrapport automatisch bijgewerkt",
@@ -78,27 +78,27 @@ const SOLUTION_BLOCKS = [
 
 const STARTER_AGENT_ITEMS = [
   {
-    title: "Inbox & triage agent",
+    title: "Inbox- en triage-agent",
     description: "Categoriseert requests, maakt conceptantwoorden en zet taken klaar.",
     href: "/use-cases/email-management",
   },
   {
-    title: "Lead qualification",
+    title: "Leadkwalificatie",
     description: "Prekwalificeert leads en logt naar Google Sheets of CRM.",
     href: "/use-cases/lead-qualification",
   },
   {
-    title: "Meeting scheduling",
+    title: "Afspraken plannen",
     description: "Intake, voorstel en bevestiging met integratie op maat.",
     href: "/use-cases/meeting-scheduling",
   },
   {
-    title: "Automated report generation",
+    title: "Geautomatiseerde rapportage",
     description: "Sales, marketing en management updates op vaste momenten.",
     href: "/use-cases/report-generation",
   },
   {
-    title: "Knowledge base Q&A",
+    title: "Kennisbank Q&A",
     description: "Kleine scope inbegrepen. Groter kan als add-on worden ingericht.",
     href: "/use-cases/knowledge-base-qa",
   },
@@ -659,13 +659,13 @@ const HomePage: React.FC = () => {
                 href="/pricing"
                 className="inline-block rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium hover:bg-slate-50 transition-colors"
               >
-                Bekijk pricing →
+                Prijzen →
               </a>
               <a
                 href="/package/configure"
                 className="inline-block rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
               >
-                Configureer package →
+                Configureer pakket →
               </a>
             </div>
           </div>
@@ -696,7 +696,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                Starter agents (kies er één om te beginnen)
+                Starter-agents (kies er één om te beginnen)
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-600">
                 Bewezen workflows die vaak in dagen live staan.
@@ -706,7 +706,7 @@ const HomePage: React.FC = () => {
               href="/use-cases"
               className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
             >
-              Alle use cases →
+              Alle toepassingen →
             </a>
           </div>
 
@@ -765,10 +765,10 @@ const HomePage: React.FC = () => {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["< 2 weken", "Gemiddelde time-to-live"],
+              ["< 2 weken", "Gemiddelde doorlooptijd tot livegang"],
               ["100%", "Nederlandse setup & support"],
               ["€1.000", "Vaste startprijs, geen verrassingen"],
-              ["48 uur", "Warranty response time"],
+              ["48 uur", "Warranty reactietijd"],
             ].map(([value, label]) => (
               <div key={value} className="rounded-xl border border-slate-200 bg-slate-50/60 p-5">
                 <p className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -792,7 +792,7 @@ const HomePage: React.FC = () => {
                 [
                   {
                     Icon: ShieldCheck,
-                    title: "Security-first",
+                    title: "Beveiliging eerst",
                     desc: "Tailscale, least-privilege, audit logging standaard",
                   },
                   {
@@ -836,18 +836,18 @@ const HomePage: React.FC = () => {
               Wat we precies voor je kunnen configureren
             </h2>
             <p className="mt-4 text-slate-600">
-              Van één concrete workflow tot complete multi-tool automatisering. Bekijk use cases,
-              integraties en implementatie-guides om te zien wat haalbaar is voor jouw bedrijf.
+              Van één concrete workflow tot complete multi-tool automatisering. Bekijk toepassingen,
+              integraties en handleidingen om te zien wat haalbaar is voor jouw bedrijf.
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
               [
-                "Use cases",
+                "Toepassingen",
                 "Concrete automatiseringen voor sales, support, operations en finance.",
                 "/use-cases",
-                "Bekijk use cases",
+                "Bekijk toepassingen",
               ],
               [
                 "Integraties",
@@ -856,10 +856,10 @@ const HomePage: React.FC = () => {
                 "Bekijk integraties",
               ],
               [
-                "Guides",
+                "Handleidingen",
                 "Praktische handleidingen voor setup, governance, security en schaalbare uitrol.",
                 "/guides",
-                "Bekijk guides",
+                "Bekijk handleidingen",
               ],
             ].map(([title, description, href, cta]) => (
               <div
@@ -993,13 +993,13 @@ const HomePage: React.FC = () => {
               href="/contact"
               className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
             >
-              Plan intake
+              Plan een intake
             </a>
             <a
               href="/pricing"
               className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
             >
-              Bekijk pricing
+              Prijzen
             </a>
           </div>
         </div>

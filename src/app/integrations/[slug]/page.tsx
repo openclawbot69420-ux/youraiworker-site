@@ -128,7 +128,7 @@ const IntegrationDetailPage: React.FC<IntegrationDetailPageProps> = async (props
                 href="/contact"
                 className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
               >
-                Plan intake
+                Plan een intake
               </a>
               <a
                 href="/pricing"

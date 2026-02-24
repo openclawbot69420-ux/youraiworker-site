@@ -18,7 +18,7 @@ export const generateMetadata = async (props: GuideDetailPageProps): Promise<Met
   if (!guide) {
     return {
       title: "Handleiding",
-      description: "Deze guide is niet gevonden of is niet langer beschikbaar.",
+      description: "Deze handleiding is niet gevonden of is niet langer beschikbaar.",
     }
   }
 
@@ -40,7 +40,7 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Guide</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Handleiding</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{guide.title}</h1>
           <p className="mt-4 text-slate-600">{guide.overview}</p>
         </div>
@@ -89,7 +89,7 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
                 href="/contact"
                 className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
               >
-                Plan intake
+                Plan een intake
               </a>
             </div>
           </div>
@@ -98,7 +98,7 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
 
       <div className="mt-12">
         <a href="/guides" className="text-sm font-medium text-slate-900 underline">
-          Terug naar guides
+          Terug naar handleidingen
         </a>
       </div>
     </section>

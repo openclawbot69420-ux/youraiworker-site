@@ -3,7 +3,7 @@ export const dynamic = "force-static"
 export const metadata = {
   title: "Pagina niet gevonden",
   description:
-    "Deze pagina bestaat niet (meer). Ga terug naar de homepage of bekijk onze use cases.",
+    "Deze pagina bestaat niet (meer). Ga terug naar de homepage of bekijk onze toepassingen.",
 }
 
 export default function NotFound() {
@@ -31,7 +31,7 @@ export default function NotFound() {
               href="/contact"
               className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
             >
-              Neem contact op
+              Plan een intake
             </a>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function NotFound() {
               className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-white"
               href="/use-cases"
             >
-              Use cases
+              Toepassingen
             </a>
             <a
               className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-white"
@@ -55,7 +55,7 @@ export default function NotFound() {
               className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-white"
               href="/guides"
             >
-              Guides
+              Handleidingen
             </a>
             <a
               className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-white"

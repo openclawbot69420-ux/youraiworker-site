@@ -44,7 +44,7 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Use case</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Toepassing</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{useCase.title}</h1>
           <p className="mt-4 text-slate-600">{useCase.longDescription}</p>
         </div>
@@ -105,7 +105,7 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
                 href="/contact"
                 className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
               >
-                Plan intake
+                Plan een intake
               </a>
               <a
                 href="/pricing"
@@ -120,7 +120,7 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
 
       <div className="mt-12">
         <a href="/use-cases" className="text-sm font-medium text-slate-900 underline">
-          Terug naar use cases
+          Terug naar toepassingen
         </a>
       </div>
     </section>

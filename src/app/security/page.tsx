@@ -121,7 +121,7 @@ const SecurityPage: React.FC = () => {
           href="/contact"
           className="mt-6 inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800"
         >
-          Neem contact op
+          Plan een intake
         </a>
       </section>
     </main>

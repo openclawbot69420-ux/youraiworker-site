@@ -35,7 +35,7 @@ export interface UseCase {
 export const USE_CASES: UseCase[] = [
   {
     slug: "email-management",
-    title: "Email management",
+    title: "E-mailbeheer",
     icon: Inbox,
     shortDescription:
       "Triage van je inbox, concept-antwoorden, opvolging en prioritering - zodat je team alleen nog hoeft te reviewen.",
@@ -56,7 +56,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "whatsapp-support",
-    title: "WhatsApp support",
+    title: "WhatsApp-support",
     icon: MessageSquare,
     shortDescription:
       "24/7 eerste lijn support: vragen beantwoorden, status updates geven en complexe cases doorzetten naar een medewerker.",
@@ -77,7 +77,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "lead-qualification",
-    title: "Lead qualification",
+    title: "Leadkwalificatie",
     icon: UserCheck,
     shortDescription:
       "Kwalificeer leads automatisch via chat of e-mail, verzamel context en zet alleen de juiste prospects door naar sales.",
@@ -98,7 +98,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "meeting-scheduling",
-    title: "Meeting scheduling",
+    title: "Afspraken plannen",
     icon: CalendarDays,
     shortDescription:
       "Stop met heen-en-weer mailen. Plan afspraken op basis van beschikbaarheid, agenda regels en bevestigingen.",
@@ -119,7 +119,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "invoice-tracking",
-    title: "Invoice tracking en payment reminders",
+    title: "Factuuroverzicht en betalingsherinneringen",
     icon: Receipt,
     shortDescription:
       "Track facturen, detecteer achterstanden en verstuur professionele herinneringen met oplopende toon - volledig automatisch.",
@@ -139,7 +139,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "internal-helpdesk",
-    title: "Internal helpdesk (IT/HR)",
+    title: "Interne helpdesk (IT/HR)",
     icon: Wrench,
     shortDescription:
       "Routeer interne requests, verzamel ontbrekende info en zet tickets klaar met de juiste prioriteit en categorie.",
@@ -160,7 +160,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "customer-onboarding",
-    title: "Customer onboarding",
+    title: "Klantonboarding",
     icon: Handshake,
     shortDescription:
       "Nieuwe klanten sneller live: intake, documentatie, checklists en activatie-stappen geautomatiseerd en traceerbaar.",
@@ -181,7 +181,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "knowledge-base-qa",
-    title: "Knowledge base Q&A",
+    title: "Kennisbank Q&A",
     icon: BookOpen,
     shortDescription:
       "Een agent die vragen beantwoordt door je interne documenten te doorzoeken - met bronverwijzingen en rollen/rechten.",
@@ -202,7 +202,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "report-generation",
-    title: "Automated report generation",
+    title: "Geautomatiseerde rapportage",
     icon: BarChart3,
     shortDescription:
       "Genereer wekelijkse management updates, dashboards en stakeholder reports op basis van data uit je tools.",
@@ -223,7 +223,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "crm-data-sync",
-    title: "CRM data sync",
+    title: "CRM-datasynchronisatie",
     icon: RefreshCw,
     shortDescription:
       "Log e-mails, meetings en deal updates automatisch in je CRM - zonder handmatige data entry.",
@@ -244,7 +244,7 @@ export const USE_CASES: UseCase[] = [
   },
   {
     slug: "document-drafting",
-    title: "Document drafting",
+    title: "Documentconcepten opstellen",
     icon: FileText,
     shortDescription:
       "Concepten voor voorstellen, rapporten en e-mails op basis van templates en input uit je systemen - altijd met review.",
@@ -415,7 +415,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "security",
-    title: "Security checklist",
+    title: "Beveiligingschecklist",
     icon: ShieldCheck,
     shortDescription: "Permissions, logging, secrets en governance - veilig in productie.",
     overview:
