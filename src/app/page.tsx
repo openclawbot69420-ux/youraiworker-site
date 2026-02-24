@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { ClipboardCheck, ShieldCheck, Sparkles } from "lucide-react"
 
 import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
+import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const MARQUEE_ITEMS = [
   "E-mail triage",
@@ -150,7 +151,7 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="mt-8 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[28rem]">
-            <OpenClawDashboardDemo />
+            <OpenClawDashboardDemo scenarios={HOMEPAGE_SCENARIOS} />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -493,41 +494,68 @@ const HomePage: React.FC = () => {
       {/* Security */}
       <section className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security, standaard</h2>
-              <p className="mt-4 text-sm text-slate-600">
-                Remote access via <span className="font-semibold text-slate-900">Tailscale</span> -
-                versleuteld, identity-based netwerk zonder open poorten.
-              </p>
-              <ul className="mt-6 space-y-3 text-sm text-slate-600">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support, standaard</h2>
+            <p className="mt-4 text-sm text-slate-600">
+              We richten agents veilig en praktisch in zodat je snel live kunt zonder controle te verliezen.
+              Remote access loopt via <span className="font-semibold text-slate-900">Tailscale</span> -
+              versleuteld, identity-based netwerk zonder open poorten.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+              <h3 className="text-lg font-semibold text-slate-900">Security baseline</h3>
+              <div className="mt-5 grid gap-3">
                 {[
-                  ["Least privilege per integratie", "Alleen de minimaal benodigde scopes."],
-                  ["Secrets management", "Geen API keys in code. Rotatie waar nodig."],
-                  ["Logging + traceability", "Audit trail voor acties en beslissingen."],
+                  ["Least privilege per integratie", "Alleen de minimaal benodigde scopes en rechten."],
+                  ["Secrets management", "Geen API keys in code en rotatie waar nodig."],
+                  ["Logging en traceability", "Audit trail voor acties, beslissingen en uitzonderingen."],
                   ["Omgevingsscheiding", "Test en productie gescheiden waar nodig."],
                 ].map(([title, desc]) => (
-                  <li key={title} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
-                    <span>
-                      <span className="font-medium text-slate-900">{title}:</span>{" "}
-                      {desc}
-                    </span>
-                  </li>
+                  <div key={title} className="rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                    <p className="text-sm font-semibold text-slate-900">{title}</p>
+                    <p className="mt-1 text-sm text-slate-600">{desc}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-              <h3 className="font-semibold text-lg">Support & warranty</h3>
-              <p className="mt-3 text-sm text-slate-600">
-                <span className="font-semibold text-slate-900">48 uur warranty</span> (bugs/regressies
-                binnen scope) +{" "}
-                <span className="font-semibold text-slate-900">2 weken break-fix</span> (business
-                hours).
-              </p>
-              <p className="mt-4 text-sm text-slate-600">
-                24/7, SLA&apos;s of incident response: op aanvraag.
-              </p>
+
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+                <h3 className="text-lg font-semibold text-slate-900">Support en warranty</h3>
+                <div className="mt-5 space-y-3 text-sm text-slate-600">
+                  <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <p>
+                      <span className="font-semibold text-slate-900">48 uur warranty</span> voor bugs en regressies
+                      binnen scope.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <p>
+                      <span className="font-semibold text-slate-900">2 weken break-fix</span> tijdens business hours.
+                    </p>
+                  </div>
+                  <p>24/7, SLA&apos;s of incident response zijn beschikbaar op aanvraag.</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                <h3 className="text-lg font-semibold text-slate-900">Wat we nodig hebben van jou</h3>
+                <ul className="mt-5 space-y-3 text-sm text-slate-700">
+                  {[
+                    "Accounts en toegang via least-privilege rechten en scopes.",
+                    "Realistische testcases om gedrag en uitzonderingen te valideren.",
+                    "Een owner die approvals kan geven tijdens build, review en go-live.",
+                    "Optioneel: managed provisioning add-on als je geen credentials wilt delen.",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50/70 p-4">
+                      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-slate-900" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

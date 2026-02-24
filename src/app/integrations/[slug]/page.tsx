@@ -2,7 +2,11 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { BrandIcon } from "../../../components/BrandIcon"
-import { IntegrationTerminalDemo } from "../../../components/IntegrationTerminalDemo"
+import { OpenClawDashboardDemo } from "../../../components/OpenClawDashboardDemo"
+import {
+  INTEGRATION_DEMO_SCENARIOS,
+  createFallbackIntegrationScenarios,
+} from "../../../components/demoScenarios"
 import { INTEGRATIONS } from "../../../lib/catalog"
 
 interface IntegrationDetailPageProps {
@@ -37,6 +41,9 @@ const IntegrationDetailPage: React.FC<IntegrationDetailPageProps> = async (props
   if (!integration) {
     notFound()
   }
+
+  const demoScenarios =
+    INTEGRATION_DEMO_SCENARIOS[integration.slug] ?? createFallbackIntegrationScenarios(integration.name)
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
@@ -75,10 +82,13 @@ const IntegrationDetailPage: React.FC<IntegrationDetailPageProps> = async (props
             <div className="rounded-2xl border border-slate-200 bg-white p-8">
               <h2 className="text-lg font-semibold">Demo</h2>
               <p className="mt-2 text-sm text-slate-600">
-                Een korte CLI-simulatie van hoe een {integration.name} workflow eruit kan zien.
+                Een korte dashboard-simulatie van hoe een {integration.name} workflow eruit kan zien.
               </p>
-              <div className="mt-5">
-                <IntegrationTerminalDemo integrationSlug={integration.slug} integrationName={integration.name} />
+              <div className="mt-5 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem]">
+                <OpenClawDashboardDemo
+                  scenarios={demoScenarios}
+                  demoTitle={`${integration.name} demo`}
+                />
               </div>
             </div>
 
