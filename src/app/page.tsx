@@ -62,21 +62,28 @@ const HomePage: React.FC = () => {
           </div>
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
-              <h2 className="text-lg font-semibold">Startpunt: 1 workflow</h2>
+              <h2 className="text-lg font-semibold">Hoe het werkt</h2>
               <p className="mt-2 text-sm text-slate-600">
-                We starten met één cruciale workflow, maken &apos;m production‑ready, en breiden
-                daarna modulair uit.
+                We starten klein, leveren snel, en zorgen dat je team direct met een bruikbare
+                agent werkt.
               </p>
               <div className="mt-6 space-y-4">
                 <div className="rounded-xl bg-white p-4 border border-slate-100">
-                  <p className="text-xs font-medium text-slate-500">Typische go-live</p>
-                  <p className="mt-1 text-2xl font-semibold">Enkele dagen → 2 weken</p>
+                  <p className="text-xs font-medium text-slate-500">1. Kies één workflow</p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Bijv. inbox triage, lead kwalificatie of rapportages
+                  </p>
                 </div>
                 <div className="rounded-xl bg-white p-4 border border-slate-100">
-                  <p className="text-xs font-medium text-slate-500">Na livegang</p>
+                  <p className="text-xs font-medium text-slate-500">2. Wij bouwen &amp; testen</p>
                   <p className="mt-1 text-sm text-slate-600">
-                    <span className="font-semibold text-slate-900">48 uur warranty</span> +{" "}
-                    <span className="font-semibold text-slate-900">2 weken break‑fix</span>
+                    Production-ready binnen dagen, niet maanden
+                  </p>
+                </div>
+                <div className="rounded-xl bg-white p-4 border border-slate-100">
+                  <p className="text-xs font-medium text-slate-500">3. Live + support</p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    48 uur warranty + 2 weken break‑fix
                   </p>
                 </div>
               </div>
