@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { BrandIcon } from "../../../components/BrandIcon"
-import { OpenClawDashboardDemo } from "../../../components/OpenClawDashboardDemo"
+import { ChatDemo } from "../../../components/ChatDemo"
 import {
   INTEGRATION_DEMO_SCENARIOS,
   createFallbackIntegrationScenarios,
@@ -82,13 +82,10 @@ const IntegrationDetailPage: React.FC<IntegrationDetailPageProps> = async (props
             <div className="rounded-2xl border border-slate-200 bg-white p-8">
               <h2 className="text-lg font-semibold">Demo</h2>
               <p className="mt-2 text-sm text-slate-600">
-                Een korte dashboard-simulatie van hoe een {integration.name} workflow eruit kan zien.
+                Een korte chat-simulatie van hoe een {integration.name} workflow eruit kan zien.
               </p>
               <div className="mt-5 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem]">
-                <OpenClawDashboardDemo
-                  scenarios={demoScenarios}
-                  demoTitle={`${integration.name} demo`}
-                />
+                <ChatDemo scenarios={demoScenarios} demoTitle={`${integration.name} demo`} />
               </div>
             </div>
 

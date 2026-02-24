@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import {
-  Calendar,
   ClipboardCheck,
   Database,
   LifeBuoy,
@@ -13,7 +12,8 @@ import {
   Workflow,
 } from "lucide-react"
 
-import { OpenClawDashboardDemo } from "../components/OpenClawDashboardDemo"
+import { ChatDemo } from "../components/ChatDemo"
+import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
@@ -294,7 +294,7 @@ const HomePage: React.FC = () => {
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
             We bouwen per workflow een agent die verzoeken verwerkt, acties uitvoert in je systemen
-            en resultaten terugschrijft. De dashboarddemo hieronder laat dit patroon zien met echte
+            en resultaten terugschrijft. De chatdemo hieronder laat dit patroon zien met echte
             input en agent-output.
           </p>
         </div>
@@ -366,16 +366,16 @@ const HomePage: React.FC = () => {
         <div className="rounded-3xl border border-slate-200 bg-slate-900 p-6 shadow-2xl shadow-slate-900/10 sm:p-10">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              Zie OpenClaw in actie
+              Zie de chat-agent in actie
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-200 sm:text-base">
-              Korte demo’s van inbox triage, lead kwalificatie en support - inclusief user input en
-              agent output.
+              Korte chatdemo’s van inbox triage, lead kwalificatie en support, inclusief
+              doorgestuurde e-mail, kwalificatievragen en support-escalatie.
             </p>
           </div>
 
           <div className="mt-8 h-[24rem] overflow-hidden rounded-2xl sm:h-[26rem] lg:h-[28rem]">
-            <OpenClawDashboardDemo scenarios={HOMEPAGE_SCENARIOS} />
+            <ChatDemo scenarios={HOMEPAGE_SCENARIOS} />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -586,35 +586,7 @@ const HomePage: React.FC = () => {
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           Proces: snel, gecontroleerd, meetbaar
         </h2>
-        <div className="relative mt-7">
-          <div
-            aria-hidden="true"
-            className="absolute bottom-2 left-4 top-2 w-px bg-gradient-to-b from-slate-200 via-slate-300 to-slate-200"
-          />
-          {[
-            ["1", "Intake", "~30 min", "Scope, risico's, data‑bronnen, succescriteria."],
-            ["2", "Design", "1–2 dagen", "Agent‑flow, permissions, outputs, testcases."],
-            ["3", "Build & integrate", "3–5 dagen", "Implementatie + koppelingen + logging."],
-            ["4", "Review & UAT", "1–2 dagen", "Testen met echte cases, edge cases."],
-            ["5", "Go‑live", "1 dag", "Gecontroleerde uitrol + korte training."],
-            ["6", "Stabilisatie", "2 weken", "48 uur warranty + 2 weken break‑fix."],
-          ].map(([num, title, duration, desc]) => (
-            <div key={num} className="relative pl-12">
-              <span className="absolute left-0 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-900 bg-slate-900 text-sm font-semibold text-white shadow-sm">
-                {num}
-              </span>
-              <div className="mb-3 rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-slate-300 hover:shadow-sm sm:p-5">
-                <div className="flex flex-wrap items-center gap-2">
-                  <p className="font-semibold text-slate-900">{title}</p>
-                  <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
-                    {duration}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <HomeProcessRollout />
       </section>
 
       {/* Explore */}
