@@ -104,6 +104,45 @@ const STARTER_AGENT_ITEMS = [
   },
 ] as const
 
+const COMPARISON_ROWS = [
+  {
+    label: "Maandelijkse kosten",
+    ours: "✕ Niet vereist",
+    va: "✓ Salaris of retainer",
+    diy: "✕ Geen leverancier, wel interne capaciteit",
+  },
+  {
+    label: "Setup tijd",
+    ours: "✓ Dagen",
+    va: "△ 1 tot 2 weken onboarding",
+    diy: "✕ Weken tot maanden",
+  },
+  {
+    label: "Beschikbaar",
+    ours: "✓ Consistent",
+    va: "✕ Beperkt tot capaciteit en werktijden",
+    diy: "△ Afhankelijk van teambezetting",
+  },
+  {
+    label: "Schaalbaarheid",
+    ours: "✓ Extra workflow per scope",
+    va: "✕ Lineair met extra mensen",
+    diy: "△ Mogelijk, maar ontwikkeltijd nodig",
+  },
+  {
+    label: "Leert je context",
+    ours: "✓ Via regels, voorbeelden en iteraties",
+    va: "✓ Via overdracht en ervaring",
+    diy: "△ Alleen als je het expliciet bouwt",
+  },
+  {
+    label: "Foutafhandeling",
+    ours: "✓ Routes, logging en escalaties",
+    va: "△ Handmatig en persoonsafhankelijk",
+    diy: "△ Volledig zelf ontwerpen en beheren",
+  },
+] as const
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -461,6 +500,85 @@ const HomePage: React.FC = () => {
               Bekijk use cases
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              Hoe we vergelijken
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
+              Praktische vergelijking voor teams die snelheid, voorspelbaarheid en schaalbaarheid
+              willen afwegen tegen handmatig werk of interne bouwcapaciteit.
+            </p>
+          </div>
+
+          <div className="mt-6 overflow-x-auto">
+            <table className="min-w-full border-separate border-spacing-0 text-left">
+              <thead>
+                <tr>
+                  <th className="rounded-tl-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    Onderdeel
+                  </th>
+                  <th className="border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
+                    AI-agent setup (wij)
+                  </th>
+                  <th className="border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
+                    Virtuele assistent (VA)
+                  </th>
+                  <th className="rounded-tr-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
+                    Zelf bouwen (DIY)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARISON_ROWS.map((row, index) => (
+                  <tr key={row.label} className="align-top">
+                    <th
+                      scope="row"
+                      className={[
+                        "border border-slate-200 px-4 py-3 text-sm font-medium text-slate-900",
+                        index % 2 === 0 ? "bg-white" : "bg-slate-50/50",
+                      ].join(" ")}
+                    >
+                      {row.label}
+                    </th>
+                    {[row.ours, row.va, row.diy].map((value) => (
+                      <td
+                        key={`${row.label}-${value}`}
+                        className={[
+                          "border border-slate-200 px-4 py-3 text-sm leading-relaxed text-slate-700",
+                          index % 2 === 0 ? "bg-white" : "bg-slate-50/50",
+                        ].join(" ")}
+                      >
+                        <span
+                          className={[
+                            "mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border text-xs font-semibold",
+                            value.startsWith("✓")
+                              ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                              : value.startsWith("✕")
+                                ? "border-rose-200 bg-rose-50 text-rose-700"
+                                : "border-amber-200 bg-amber-50 text-amber-700",
+                          ].join(" ")}
+                          aria-hidden="true"
+                        >
+                          {value.slice(0, 1)}
+                        </span>
+                        <span>{value.slice(2)}</span>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-4 text-xs leading-relaxed text-slate-500">
+            Eenmalige setup fee. Geen maandelijkse kosten vereist.
+          </p>
         </div>
       </section>
 
