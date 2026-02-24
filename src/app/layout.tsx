@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/",
     images: [
       {
-        url: "/og.png",
+        url: "/og.svg",
         width: 1200,
         height: 630,
         alt: "Your AI Worker",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
       "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
-    images: ["/og.png"],
+    images: ["/og.svg"],
   },
   other: {
     "application-name": "Your AI Worker",
@@ -94,6 +94,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
       <head>
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
