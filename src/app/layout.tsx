@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-title": "Your AI Worker",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
+    "msapplication-TileColor": "#0f172a",
   },
   icons: {
     icon: [
@@ -93,6 +94,11 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <html lang="nl">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+      
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
