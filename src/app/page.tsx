@@ -1,5 +1,16 @@
 import type { Metadata } from "next"
 
+const MARQUEE_ITEMS = [
+  "E-mail triage",
+  "Lead kwalificatie",
+  "Meeting planning",
+  "Rapportages",
+  "CRM updates",
+  "Support tickets",
+  "Data-analyse",
+  "Facturatie",
+]
+
 export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
   description:
@@ -69,6 +80,27 @@ const HomePage: React.FC = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marquee */}
+      <section className="border-y border-slate-200/70 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-4">
+          <div className="marquee-shell overflow-hidden">
+            <div className="marquee-track">
+              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, index) => (
+                <span
+                  key={`${item}-${index}`}
+                  className="inline-flex items-center gap-3 text-xs font-medium tracking-wide text-slate-500 sm:text-sm"
+                >
+                  <span>{item}</span>
+                  <span aria-hidden="true" className="text-slate-300">
+                    •
+                  </span>
+                </span>
+              ))}
             </div>
           </div>
         </div>

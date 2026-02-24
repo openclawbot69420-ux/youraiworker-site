@@ -24,6 +24,15 @@ html {
   }
 }
 
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .subtle-mesh {
   background-image:
     radial-gradient(600px circle at 20% 10%, rgba(59, 130, 246, 0.10), transparent 50%),
@@ -31,4 +40,24 @@ html {
     linear-gradient(120deg, rgba(59, 130, 246, 0.06), rgba(15, 23, 42, 0.04));
   background-size: 200% 200%;
   animation: subtleGlow 14s ease-in-out infinite;
+}
+
+.marquee-shell {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 1.25rem;
+  white-space: nowrap;
+  animation: marqueeScroll 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subtle-mesh,
+  .marquee-track {
+    animation: none;
+  }
 }
