@@ -238,9 +238,9 @@ const Footer: React.FC = () => {
           <p className="flex flex-col gap-1 text-right">
             <a
               className="transition-colors hover:text-slate-600"
-              href="mailto:Openclawbot69420@gmail.com"
+              href="mailto:info@youraiworker.nl"
             >
-              Openclawbot69420@gmail.com
+              info@youraiworker.nl
             </a>
           </p>
         </div>
