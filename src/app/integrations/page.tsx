@@ -79,20 +79,36 @@ const integrations = INTEGRATIONS.map((integration) => {
 const IntegrationsPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
+      <div className="motion-fade-in mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Integraties</h1>
           <p className="mt-4 text-slate-600">
-            Koppel je AI-agent aan de tools die je al gebruikt: CRM, ticketing, chat, planning en meer.
+            Wij koppelen je agent aan de tools die je team al gebruikt. De agent voert afgesproken acties uit
+            (zoals triage, drafts, routing en updates), terwijl jij duidelijke outputs, logging en controle over
+            goedkeuringen krijgt.
           </p>
+        </div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Wat de agent doet</p>
+            <p className="mt-2 text-sm text-slate-700">Leest triggers, verwerkt input en zet de volgende stap in je workflow klaar.</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Wat jij krijgt</p>
+            <p className="mt-2 text-sm text-slate-700">Minder handwerk, consistente uitvoering en een traceerbare implementatie die wij beheren.</p>
+          </div>
+          <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Goedkeuringen</p>
+            <p className="mt-2 text-sm text-slate-700">Kritieke acties kunnen we op handmatige review zetten, bijvoorbeeld verzenden of muteren.</p>
+          </div>
         </div>
       </div>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {integrations.map((integration) => (
+        {integrations.map((integration, index) => (
           <div
             key={integration.name}
-            className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
+            className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${index < 4 ? "motion-delay-1" : "motion-delay-2"}`}
           >
             <div className="flex items-start gap-3">
               <span
@@ -133,25 +149,33 @@ const IntegrationsPage: React.FC = () => {
               <h2 className="min-w-0 text-sm font-semibold leading-snug text-slate-900">{integration.name}</h2>
             </div>
             <p className="mt-3 text-sm text-slate-600">{integration.shortDescription}</p>
-            <a
-              href={`/integrations/${integration.slug}`}
-              className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
-            >
-              Bekijk details
-            </a>
+            <div className="mt-5 flex items-center justify-between gap-3">
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+                Managed setup
+              </span>
+              <a
+                href={`/integrations/${integration.slug}`}
+                className="inline-flex items-center text-sm font-medium text-slate-900 underline"
+              >
+                Bekijk details
+              </a>
+            </div>
           </div>
         ))}
       </div>
 
-      <p className="mt-10 text-sm text-slate-600">
-        Mis je een tool? OpenClaw koppelt met 10.000+ apps. Neem contact op en we bespreken de
-        mogelijkheden.
-      </p>
+      <div className="motion-fade-in motion-delay-3 mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+        <p className="text-sm text-slate-700">
+          Mis je een tool? We kunnen vaak extra systemen aansluiten via API’s of integratieplatformen zoals
+          Zapier. Tijdens intake bepalen we wat direct haalbaar is en waar maatwerk nodig is.
+        </p>
+      </div>
 
-      <div className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-white sm:px-12">
+      <div className="motion-fade-in motion-delay-4 mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-white sm:px-12">
         <h2 className="text-2xl font-bold tracking-tight">Klaar om te automatiseren?</h2>
         <p className="mt-3 max-w-2xl text-white/70">
-          Kies een package en vertel ons wat je wil automatiseren. Wij regelen de rest.
+          Vertel welke workflow je wil automatiseren. Wij doen de technische implementatie, testen met cases en
+          richten approvals in waar nodig.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
@@ -169,7 +193,7 @@ const IntegrationsPage: React.FC = () => {
         </div>
       </div>
 
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+      <section className="motion-fade-in motion-delay-4 mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
         <h2 className="text-lg font-semibold tracking-tight text-slate-900">Gerelateerd</h2>
         <p className="mt-2 text-sm text-slate-600">
           Bekijk toepassingen, implementatie-aanpak en prijsopties voor je koppelingen.
@@ -177,19 +201,19 @@ const IntegrationsPage: React.FC = () => {
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <a
             href="/use-cases"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            className="hover-lift rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
           >
             Toepassingen
           </a>
           <a
             href="/implementatie"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            className="hover-lift rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
           >
             Implementatie
           </a>
           <a
             href="/pricing"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            className="hover-lift rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
           >
             Prijzen
           </a>

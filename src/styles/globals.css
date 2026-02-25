@@ -12,6 +12,17 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes subtleGlow {
   0% {
     background-position: 0% 50%;
@@ -55,9 +66,55 @@ html {
   animation: marqueeScroll 34s linear infinite;
 }
 
+.motion-fade-in {
+  animation: fadeInUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-delay-1 {
+  animation-delay: 80ms;
+}
+
+.motion-delay-2 {
+  animation-delay: 160ms;
+}
+
+.motion-delay-3 {
+  animation-delay: 240ms;
+}
+
+.motion-delay-4 {
+  animation-delay: 320ms;
+}
+
+.hover-lift {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.hover-lift:hover,
+.hover-lift:focus-within {
+  transform: translateY(-2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .subtle-mesh,
-  .marquee-track {
+  .marquee-track,
+  .motion-fade-in {
     animation: none;
+  }
+
+  .hover-lift {
+    transition: none;
+  }
+
+  .hover-lift:hover,
+  .hover-lift:focus-within {
+    transform: none;
   }
 }
