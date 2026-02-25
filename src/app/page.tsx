@@ -460,7 +460,7 @@ const HomePage: React.FC = () => {
         aria-labelledby="workflow-marquee-title"
         className="border-b border-slate-200/70 bg-slate-50/70"
       >
-        <div className="mx-auto max-w-6xl px-4 py-4 sm:py-5">
+        <div className="mx-auto max-w-6xl px-4 pt-10 pb-6 sm:pt-12 sm:pb-7">
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
               <p

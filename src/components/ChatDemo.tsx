@@ -227,6 +227,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   const visibleLines = chatLines.slice(0, Math.min(revealCount, chatLines.length))
   const showResult = revealCount > chatLines.length
   const skin = pickAppSkin(scenario)
+  const outputTimeLabel = `09:${String(41 + visibleLines.length).padStart(2, "0")}`
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -354,22 +355,23 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-200 [animation-delay:240ms] motion-reduce:hidden" />
                       Agent typt...
                     </div>
+
+                    {showResult ? (
+                      <div className="max-w-[92%] rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
+                        <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                          Output (OpenClaw)
+                        </p>
+                        <p className="whitespace-pre-line break-words text-xs leading-relaxed text-slate-900 sm:text-sm">
+                          {scenario.resultaat}
+                        </p>
+                        <p className="mt-1 text-right text-[10px] text-slate-400">{outputTimeLabel}</p>
+                      </div>
+                    ) : null}
+
                     <div ref={endRef} />
                   </div>
                 </div>
 
-                <div className="mt-3 shrink-0 rounded-2xl border border-slate-200 bg-white/90 p-2.5 shadow-sm backdrop-blur">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Output (OpenClaw)
-                  </p>
-                  <p
-                    className={`mt-1 min-h-[3.75rem] whitespace-pre-line break-words text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
-                      showResult ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {scenario.resultaat}
-                  </p>
-                </div>
               </div>
             </div>
 
