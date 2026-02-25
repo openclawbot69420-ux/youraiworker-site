@@ -25,9 +25,9 @@ type ChatLine = {
   emailPreview?: string
 }
 
-const TICK_MS = 120
-const REVEAL_GAP_TICKS = 13
-const HOLD_TICKS = 92
+const TICK_MS = 160
+const REVEAL_GAP_TICKS = 18
+const HOLD_TICKS = 128
 const FADE_TICKS = 12
 
 interface ChatDemoProps {
@@ -225,7 +225,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   const chatLines = useMemo(() => createChatLines(scenario), [scenario])
   const revealCount = prefersReducedMotion ? chatLines.length + 1 : animation.revealedCount
   const visibleLines = chatLines.slice(0, Math.min(revealCount, chatLines.length))
-  const showResult = revealCount > chatLines.length
+  const showResult = false
   const skin = pickAppSkin(scenario)
   const outputTimeLabel = `09:${String(41 + visibleLines.length).padStart(2, "0")}`
 
@@ -236,9 +236,8 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
     // Keep the demo pinned to the latest message so nothing gets visually cut off.
     // IMPORTANT: avoid scrollIntoView here - it can scroll the whole page on some browsers.
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
-    }
+    // No auto-scroll here: we keep the chat static so the demo doesn't jump.
+    // (Users should just watch the conversation build up naturally.)
   }, [prefersReducedMotion, animation.scenarioIndex, animation.revealedCount])
   const fadeOpacity =
     !prefersReducedMotion && animation.phase === "fade"
@@ -252,7 +251,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   return (
     <div
       ref={rootRef}
-      className="h-[26rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
+      className="h-[30rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[32rem] sm:p-3 lg:h-[34rem]"
     >
       <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%),linear-gradient(180deg,#17212b,#0f172a)] p-2 sm:p-3">
         <div
@@ -286,7 +285,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
             <div className="min-h-0 flex-1 overflow-hidden px-3 py-3 sm:px-4">
               <div className="flex h-full flex-col">
-                <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto pr-1">
+                <div ref={scrollRef} className="min-h-0 flex-1 pr-1">
                   <div className="flex min-h-full flex-col justify-end gap-2">
                     {visibleLines.map((line, index) => {
                       const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
@@ -358,9 +357,6 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
                     {showResult ? (
                       <div className="max-w-[92%] rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
-                        <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
-                          Output (OpenClaw)
-                        </p>
                         <p className="whitespace-pre-line break-words text-xs leading-relaxed text-slate-900 sm:text-sm">
                           {scenario.resultaat}
                         </p>
@@ -375,7 +371,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
               </div>
             </div>
 
-            <div className="flex h-14 shrink-0 items-center gap-2 border-t border-black/5 bg-white/85 px-3 py-2 text-xs text-slate-500 backdrop-blur sm:px-4">
+            <div className="flex h-14 shrink-0 items-center gap-2 rounded-b-[1.15rem] border-t border-black/5 bg-white/85 px-3 py-2 text-xs text-slate-500 backdrop-blur sm:px-4">
               <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-slate-500">
                 <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-[10px] text-slate-500">
                   +

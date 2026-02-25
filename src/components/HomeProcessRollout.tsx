@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CheckCircle2, ChevronDown, Rocket, Send, Sparkles } from "lucide-react"
 
 type MockLine = {
@@ -134,6 +134,38 @@ const toneClassMap: Record<NonNullable<MockLine["tone"]>, string> = {
 
 export function HomeProcessRollout() {
   const [activeStepId, setActiveStepId] = useState<string>(ROLLOUT_STEPS[0].id)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const update = () => setPrefersReducedMotion(media.matches)
+    update()
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", update)
+      return () => media.removeEventListener("change", update)
+    }
+
+    media.addListener(update)
+    return () => media.removeListener(update)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    const stepIds = ROLLOUT_STEPS.map((step) => step.id)
+    const interval = window.setInterval(() => {
+      setActiveStepId((current) => {
+        const index = stepIds.indexOf(current)
+        const nextIndex = index >= 0 ? (index + 1) % stepIds.length : 0
+        return stepIds[nextIndex]
+      })
+    }, 4200)
+
+    return () => window.clearInterval(interval)
+  }, [prefersReducedMotion])
 
   const activeStep = ROLLOUT_STEPS.find((step) => step.id === activeStepId) ?? ROLLOUT_STEPS[0]
 
