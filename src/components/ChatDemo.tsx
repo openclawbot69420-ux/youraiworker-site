@@ -149,6 +149,8 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   demoTitle = "OpenClaw Assist",
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+  const endRef = useRef<HTMLDivElement | null>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const [isInView, setIsInView] = useState(true)
   const [animation, setAnimation] = useState<AnimationState>({
@@ -254,6 +256,15 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   const visibleLines = chatLines.slice(0, Math.min(revealCount, chatLines.length))
   const showResult = revealCount > chatLines.length
   const skin = pickAppSkin(scenario)
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    // Keep the demo pinned to the latest message so nothing gets visually cut off.
+    endRef.current?.scrollIntoView({ block: "end", behavior: "smooth" })
+  }, [prefersReducedMotion, animation.scenarioIndex, animation.revealedCount])
   const fadeOpacity =
     !prefersReducedMotion && animation.phase === "fade"
       ? Math.max(0, animation.ticksLeft / FADE_TICKS)
@@ -320,8 +331,8 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
             <div className="min-h-0 flex-1 overflow-hidden px-3 py-3 sm:px-4">
               <div className="flex h-full flex-col">
-                <div className="min-h-0 flex-1 overflow-hidden">
-                  <div className="flex h-full flex-col justify-end gap-2">
+                <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto pr-1">
+                  <div className="flex min-h-full flex-col justify-end gap-2">
                     {visibleLines.map((line, index) => {
                       const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
 
@@ -389,15 +400,16 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-200 [animation-delay:240ms] motion-reduce:hidden" />
                       Agent typt...
                     </div>
+                    <div ref={endRef} />
                   </div>
                 </div>
 
                 <div className="mt-3 shrink-0 rounded-2xl border border-slate-200 bg-white/90 p-2.5 shadow-sm backdrop-blur">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Resultaat
+                    Output (OpenClaw)
                   </p>
                   <p
-                    className={`mt-1 min-h-[3.75rem] text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
+                    className={`mt-1 min-h-[3.75rem] whitespace-pre-line text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
                       showResult ? "opacity-100" : "opacity-0"
                     }`}
                   >

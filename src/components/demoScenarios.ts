@@ -51,7 +51,7 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
         text: "Wil je deze lead direct aan Sales toewijzen of eerst in review houden?",
       },
     ],
-    resultaat: "Inbox opgeschoond en lead staat direct klaar voor opvolging.",
+    resultaat: "✓ Gmail draft opgeslagen\n✓ Lead aangemaakt (CRM)\n✓ Follow-up taak ingepland (+24u)\n✓ Samenvatting gelogd (audit trail)",
   },
   {
     title: "Lead qualification",
@@ -89,7 +89,7 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
         text: "Donderdag 10:30 is goed. Kunnen jullie vooraf een indicatie sturen?",
       },
     ],
-    resultaat: "Sales ziet alleen gekwalificeerde leads met context en volgende stap.",
+    resultaat: "✓ Leadscore berekend: 82/100\n✓ Samenvatting + intentie opgeslagen\n✓ CRM status: Qualified\n✓ Intake-slots voorgesteld (Telegram)",
   },
   {
     title: "WhatsApp support",
@@ -127,7 +127,7 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
         text: "Je ontvangt een update zodra finance heeft bevestigd. Verwachte reactietijd: vandaag binnen kantooruren.",
       },
     ],
-    resultaat: "1e lijn direct opgelost, billing automatisch doorgestuurd met audit trail.",
+    resultaat: "✓ Login-issue opgelost (1e lijn)\n✓ Ticket aangemaakt: Zendesk #5821\n✓ Context + transcript toegevoegd\n✓ Escalatie routed naar Finance",
   },
 ]
 
