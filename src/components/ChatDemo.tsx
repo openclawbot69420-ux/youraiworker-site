@@ -290,7 +290,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                   ref={scrollRef}
                   className="min-h-0 flex-1 overflow-y-auto pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
-                  <div className="flex min-h-full flex-col justify-end gap-2">
+                  <div className="flex min-h-full flex-col justify-end gap-2.5">
                     {visibleLines.map((line, index) => {
                       const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
 
@@ -298,7 +298,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                         return (
                           <div
                             key={line.id}
-                            className={`ml-auto max-w-[92%] rounded-2xl border p-2 shadow-sm ${skin.userBubble}`}
+                            className={`ml-auto max-w-[92%] rounded-2xl rounded-tr-md border p-2 shadow-sm ${skin.userBubble}`}
                           >
                             <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-700">
                               {line.label}
@@ -328,7 +328,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                           className={`max-w-[92%] rounded-2xl border px-3 py-2 shadow-sm ${bubbleClassForTone(
                             line.tone,
                             skin,
-                          )}`}
+                          )} ${line.tone === "user" ? "rounded-tr-md" : line.tone === "agent" ? "rounded-tl-md" : ""}`}
                         >
                           {line.label && line.tone === "meta" ? (
                             <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide opacity-70">
@@ -348,7 +348,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                     })}
 
                     <div
-                      className={`inline-flex w-fit items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] text-slate-500 shadow-sm transition-opacity ${
+                      className={`inline-flex w-fit items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] text-slate-500 shadow-sm transition-opacity duration-200 motion-reduce:transition-none ${
                         showTypingIndicator ? "opacity-100" : "opacity-0"
                       }`}
                       aria-hidden={!showTypingIndicator}
