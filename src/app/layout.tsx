@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   },
   description:
     "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
+  keywords: [
+    "AI agents",
+    "AI agent",
+    "workflow automation",
+    "automatisering",
+    "LLM",
+    "agentic AI",
+    "Nederland",
+    "security",
+    "integraties",
+  ],
   metadataBase: new URL("https://youraiworker.nl"),
   alternates: {
     canonical: "https://youraiworker.nl/",
