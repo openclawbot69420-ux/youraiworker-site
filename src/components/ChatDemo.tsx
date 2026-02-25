@@ -58,64 +58,19 @@ const CHANNEL_BRANDS: Record<string, string> = {
   zapier: "/brands/zapier.svg",
 }
 
-const pickAppSkin = (scenario: DashboardDemoScenario): AppSkin => {
-  const key = scenario.channel.toLowerCase()
-
-  if (key.includes("whatsapp")) {
-    return {
-      appName: "WhatsApp",
-      appIcon: "/brands/whatsapp.svg",
-      headerBg: "bg-[#075E54]",
-      headerFg: "text-white",
-      chatBg: "bg-[#ECE5DD]",
-      accent: "text-emerald-700",
-      accentSoft: "bg-emerald-50 border-emerald-200",
-      userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
-      agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
-    }
-  }
-
-  if (key.includes("telegram")) {
-    return {
-      appName: "Telegram",
-      appIcon: "/brands/telegram.svg",
-      headerBg: "bg-[#2AABEE]",
-      headerFg: "text-white",
-      chatBg: "bg-[#e6ebee]",
-      accent: "text-sky-700",
-      accentSoft: "bg-sky-50 border-sky-200",
-      userBubble: "ml-auto bg-[#2AABEE] border-sky-400/70 text-white",
-      agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
-    }
-  }
-
-  const preferWhatsApp =
-    scenario.title.toLowerCase().includes("support") || scenario.channel.toLowerCase().includes("slack")
-
-  return preferWhatsApp
-    ? {
-        appName: "WhatsApp",
-        appIcon: "/brands/whatsapp.svg",
-        headerBg: "bg-[#075E54]",
-        headerFg: "text-white",
-        chatBg: "bg-[#ECE5DD]",
-        accent: "text-emerald-700",
-        accentSoft: "bg-emerald-50 border-emerald-200",
-        userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
-        agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
-      }
-    : {
-        appName: "Telegram",
-        appIcon: "/brands/telegram.svg",
-        headerBg: "bg-[#2AABEE]",
-        headerFg: "text-white",
-        chatBg: "bg-[#e6ebee]",
-        accent: "text-sky-700",
-        accentSoft: "bg-sky-50 border-sky-200",
-        userBubble: "ml-auto bg-[#2AABEE] border-sky-400/70 text-white",
-        agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
-      }
-}
+// We always render the demo in a WhatsApp-style UI.
+// OpenClaw supports many channels, but this keeps the homepage demo instantly recognizable.
+const pickAppSkin = (_scenario: DashboardDemoScenario): AppSkin => ({
+  appName: "WhatsApp",
+  appIcon: "/brands/whatsapp.svg",
+  headerBg: "bg-[#075E54]",
+  headerFg: "text-white",
+  chatBg: "bg-[#ECE5DD]",
+  accent: "text-emerald-700",
+  accentSoft: "bg-emerald-50 border-emerald-200",
+  userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
+  agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
+})
 
 const getChannelIcon = (channel: string) => {
   const key = channel.toLowerCase()
