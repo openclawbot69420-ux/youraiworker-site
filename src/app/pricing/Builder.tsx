@@ -250,7 +250,7 @@ export const Builder = () => {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-white p-6 shadow-sm sm:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">

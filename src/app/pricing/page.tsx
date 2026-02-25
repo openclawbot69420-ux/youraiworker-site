@@ -97,7 +97,7 @@ const PricingPage = () => {
 
       <Builder />
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-20">
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -164,7 +164,7 @@ const PricingPage = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-20">
+      <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -178,11 +178,25 @@ const PricingPage = () => {
 
           <div className="mt-8 grid gap-4">
             {PRICING_FAQ_ITEMS.map((item) => (
-              <details key={item.question} className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-                <summary className="cursor-pointer list-none text-sm font-semibold text-slate-900">
-                  {item.question}
+              <details
+                key={item.question}
+                className="group rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 transition-colors open:bg-white"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                  <span className="min-w-0">{item.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-transform duration-300 group-open:rotate-180"
+                  >
+                    ˅
+                  </span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+
+                <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]">
+                  <div className="overflow-hidden">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+                  </div>
+                </div>
               </details>
             ))}
           </div>
