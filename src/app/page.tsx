@@ -523,27 +523,14 @@ const HomePage: React.FC = () => {
                 <h3 className="text-base font-semibold text-slate-900">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
 
-                <div className="mt-4 md:hidden">
-                  <details className="rounded-xl border border-slate-200 bg-slate-50">
-                    <summary className="cursor-pointer list-none px-4 py-2.5 text-xs font-medium text-slate-600">
+                <div className="mt-4">
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 motion-safe:animate-[fadeIn_240ms_ease-out]">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
                       Voorbeeld
-                    </summary>
-                    <div className="border-t border-slate-200 px-4 py-3">
-                      <p className="text-xs leading-relaxed text-slate-700">{snippet}</p>
-                    </div>
-                  </details>
-                </div>
-
-                <div className="mt-4 hidden md:block">
-                  <div className="max-h-0 overflow-hidden rounded-xl border border-transparent bg-transparent opacity-0 transition-all duration-200 group-hover:max-h-24 group-hover:border-slate-200 group-hover:bg-slate-50 group-hover:opacity-100 group-focus-within:max-h-24 group-focus-within:border-slate-200 group-focus-within:bg-slate-50 group-focus-within:opacity-100">
-                    <div className="px-4 py-3">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
-                        Voorbeeld
-                      </p>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
-                        {snippet}
-                      </p>
-                    </div>
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
+                      {snippet}
+                    </p>
                   </div>
                 </div>
               </div>
