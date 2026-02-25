@@ -6,7 +6,7 @@ import { USE_CASES } from "../../lib/catalog"
 export const metadata: Metadata = {
   title: "Toepassingen",
   description:
-    "Toepassingen voor AI-agents in e-mail, support, leadkwalificatie en rapportages.",
+    "Concrete toepassingen voor AI-agents in e-mail, support, leadkwalificatie en interne workflows.",
   alternates: {
     canonical: "https://youraiworker.nl/use-cases",
   },
@@ -48,20 +48,21 @@ const useCases = USE_CASES.map((useCase) => {
 const UseCasesPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
+      <div className="motion-fade-in mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Toepassingen</h1>
           <p className="mt-4 text-slate-600">
-            Voorbeelden van AI-agents die werk uit handen nemen: e-mail, support, lead qualification en meer.
+            Voorbeelden van workflows die we in OpenClaw implementeren - met duidelijke outputs, approvals en
+            beheerde livegang.
           </p>
         </div>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {useCases.map((useCase) => (
+        {useCases.map((useCase, index) => (
           <div
             key={useCase.title}
-            className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
+            className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${index % 3 === 0 ? "motion-delay-1" : index % 3 === 1 ? "motion-delay-2" : "motion-delay-3"}`}
           >
             <div className="flex items-start gap-3">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
@@ -88,15 +89,15 @@ const UseCasesPage: React.FC = () => {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
             href="/pricing"
-            className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
+            className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
           >
-              Bekijk packages
+            Bekijk packages
           </a>
           <a
             href="/contact"
-            className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
+            className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-white/10"
           >
-              Plan een intake
+            Plan een intake
           </a>
         </div>
       </div>
