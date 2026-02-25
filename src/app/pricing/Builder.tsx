@@ -13,6 +13,7 @@ type PackageDefinition = {
   title: string
   priceEuro: number
   includedAgents: number
+  fit: string
   subtitle: string
   leadTime: string
   support: string
@@ -40,15 +41,16 @@ const PACKAGES: PackageDefinition[] = [
     title: "Starter",
     priceEuro: 1000,
     includedAgents: 1,
-    subtitle: "Voor 1 duidelijke workflow met snelle livegang.",
-    leadTime: "Vaak 3 tot 7 werkdagen",
-    support: "2 weken break-fix support",
+    fit: "Voor 1 afgebakende workflow",
+    subtitle: "Start met één proces dat snel live moet en meetbaar resultaat kan geven.",
+    leadTime: "Indicatie: 3-7 werkdagen na scope-akkoord en toegang",
+    support: "2 weken break-fix na livegang",
     bullets: [
-      "1 production-ready AI-agent (1 workflow)",
-      "Intake en scopebepaling",
-      "Implementatie met 1 tot 2 integraties",
+      "1 productierijpe AI-agent voor 1 workflow",
+      "Intake, scope en acceptatiecriteria",
+      "Implementatie met 1-2 integraties",
       "Documentatie en handover",
-      "48 uur warranty na livegang",
+      "Basis testen met realistische cases",
     ],
   },
   {
@@ -56,14 +58,15 @@ const PACKAGES: PackageDefinition[] = [
     title: "Groei",
     priceEuro: 2500,
     includedAgents: 3,
-    subtitle: "Voor teams die meerdere workflows tegelijk willen uitrollen.",
-    leadTime: "Gefaseerde oplevering op scope",
-    support: "4 weken break-fix support",
+    fit: "Voor meerdere workflows tegelijk",
+    subtitle: "Voor teams die in één traject meerdere processen willen implementeren.",
+    leadTime: "Gefaseerde oplevering op basis van scope en afhankelijkheden",
+    support: "4 weken break-fix na livegang",
     bullets: [
-      "3 production-ready AI-agents (3 workflows)",
+      "Tot 3 productierijpe AI-agents (3 workflows)",
       "Scope en acceptatiecriteria per workflow",
       "UAT met echte cases en edge cases",
-      "Integraties waar het telt (2 tot 5 totaal)",
+      "2-5 integraties totaal (afhankelijk van workflows)",
       "Handover en korte beheertraining",
     ],
   },
@@ -74,8 +77,8 @@ const ADDONS: AddOnDefinition[] = [
     key: "managed-provisioning",
     title: "Managed provisioning (mailbox/nummer)",
     fromEuro: 500,
-    summary: "Wij regelen een dedicated mailbox en of telefoonnummer.",
-    detail: "Praktisch als je geen interne credentials wil delen tijdens implementatie.",
+    summary: "Wij regelen een dedicated mailbox en/of telefoonnummer.",
+    detail: "Praktisch als je geen interne accounts of credentials wilt delen tijdens implementatie.",
     brandIcons: [
       { label: "Gmail", src: "/brands/gmail.svg", hex: "#EA4335" },
       { label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" },
@@ -85,15 +88,15 @@ const ADDONS: AddOnDefinition[] = [
     key: "ai-billing",
     title: "AI model + billing setup",
     fromEuro: 250,
-    summary: "Keys, budget limits en basis guardrails.",
-    detail: "Voor een nette start met duidelijke billing en basisafspraken.",
+    summary: "Sleutels, budgetlimieten en basis guardrails.",
+    detail: "Voor een gecontroleerde start met duidelijke kostenafspraken.",
   },
   {
     key: "telegram",
     title: "Telegram setup",
     fromEuro: 250,
     summary: "Bot, routing en notificaties.",
-    detail: "Geschikt voor intake of support flows via Telegram.",
+    detail: "Geschikt voor intake- of supportflows via Telegram.",
     brandIcons: [{ label: "Telegram", src: "/brands/telegram.svg", hex: "#26A5E4" }],
   },
   {
@@ -101,7 +104,7 @@ const ADDONS: AddOnDefinition[] = [
     title: "WhatsApp Business setup",
     fromEuro: 750,
     summary: "Provider setup, verificatie en templates.",
-    detail: "Prijs hangt af van provider, nummerstatus en template flow.",
+    detail: "Prijs hangt af van provider, nummerstatus en templaterouting.",
     brandIcons: [{ label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" }],
   },
   {
@@ -109,7 +112,7 @@ const ADDONS: AddOnDefinition[] = [
     title: "CRM integratie (HubSpot/Salesforce)",
     fromEuro: 750,
     summary: "Field mapping, logging en workflow triggers.",
-    detail: "Definitieve scope hangt af van objecten, regels en foutafhandeling.",
+    detail: "Definitieve scope hangt af van objecten, regels, rechten en foutafhandeling.",
     brandIcons: [
       { label: "HubSpot", src: "/brands/hubspot.svg", hex: "#FF7A59" },
       { label: "Salesforce", src: "/brands/salesforce.svg", hex: "#00A1E0" },
@@ -120,7 +123,7 @@ const ADDONS: AddOnDefinition[] = [
     title: "Ticketing (Jira/Zendesk)",
     fromEuro: 500,
     summary: "Triage, routing, tags en status updates.",
-    detail: "Voor supportteams die intake en afhandeling willen versnellen.",
+    detail: "Voor supportteams die intake en afhandeling willen versnellen zonder maatwerkportaal.",
   },
   {
     key: "security",
@@ -130,6 +133,25 @@ const ADDONS: AddOnDefinition[] = [
     detail: "Inzetbaar wanneer extra governance of netwerkbeperking nodig is.",
   },
 ]
+
+const TRUST_ITEMS = [
+  "Vanafprijzen, geen vage pakketnamen",
+  "Duidelijke scope in intake voordat we bouwen",
+  "Third-party kosten altijd apart benoemd",
+] as const
+
+const NEXT_STEP_ITEMS = [
+  "Kies pakket en optionele add-ons",
+  "Start intake met je selectie als uitgangspunt",
+  "Ontvang definitieve scope, planning en offerte",
+] as const
+
+const INTAKE_SCOPE_ITEMS = [
+  "Workflow en gewenste uitkomst",
+  "Beschikbare tools, toegangen en integraties",
+  "Testcases en acceptatiecriteria",
+  "Wat buiten scope blijft voor fase 1",
+] as const
 
 const currency = (value: number) =>
   new Intl.NumberFormat("nl-NL", {
@@ -252,35 +274,65 @@ export const Builder = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-white p-6 shadow-sm sm:p-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_320px] lg:items-start">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Prijsconfigurator
+              Prijzen & pakketten
             </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Stel je package samen en start intake met een duidelijke uitgangspositie
+              Kies een pakket, zie wat erbij hoort en start intake zonder verrassingen
             </h1>
             <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">
-              Kies een basispakket en selecteer alleen de add-ons die nodig zijn voor jouw implementatie.
-              Prijzen zijn vanaf prijzen. Definitieve scope en planning bepalen we tijdens intake.
+              Deze pagina is bedoeld als duidelijk startpunt voor een done-for-you OpenClaw implementatie. Je
+              kiest een pakket en optionele add-ons; daarna stemmen we in intake de exacte scope, planning en
+              prijs af.
             </p>
+
+            <ul className="mt-5 grid gap-2 sm:grid-cols-3">
+              {TRUST_ITEMS.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-slate-200 bg-white/80 px-3 py-2 text-xs font-medium text-slate-700"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                type="button"
+                onClick={openIntake}
+                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-slate-800 motion-reduce:transition-none"
+              >
+                Plan intakegesprek
+              </button>
+              <button
+                type="button"
+                onClick={openRoi}
+                className="rounded-xl border border-slate-300 px-5 py-3 text-center text-sm font-medium text-slate-900 transition-colors duration-200 hover:bg-white motion-reduce:transition-none"
+              >
+                Bekijk ROI-indicatie
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={openIntake}
-              className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800"
-            >
-              Plan een intake
-            </button>
-            <button
-              type="button"
-              onClick={openRoi}
-              className="rounded-xl border border-slate-300 px-5 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-white"
-            >
-              ROI indicatie
-            </button>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Volgende stap</p>
+            <ol className="mt-4 space-y-3">
+              {NEXT_STEP_ITEMS.map((item, index) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
+                  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-900">
+                    {index + 1}
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 text-xs leading-5 text-slate-500">
+              Intake is voor scope-validatie. Definitieve offerte volgt pas na check van use case, toegangen en
+              afhankelijkheden.
+            </p>
           </div>
         </div>
       </div>
@@ -291,11 +343,11 @@ export const Builder = () => {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-                  1) Kies pakket
+                  1. Kies een pakket
                 </h2>
                 <p className="mt-2 text-sm text-slate-600">
-                  Twee duidelijke opties voor snelle start of bredere uitrol. Maatwerk scopen we apart in
-                  intake.
+                  Kies op basis van aantal workflows. We houden de pakketten bewust simpel; uitzonderingen en
+                  maatwerk bespreken we in de intake.
                 </p>
               </div>
             </div>
@@ -314,15 +366,16 @@ export const Builder = () => {
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setSelectedPackage(pkg.key)}
-                    className={`rounded-2xl border p-5 text-left transition-all ${
+                    className={`rounded-2xl border p-5 text-left transition-all duration-200 motion-reduce:transition-none ${
                       isActive
                         ? "border-slate-900 bg-white shadow-sm"
-                        : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white/70"
+                        : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white/70 motion-safe:hover:-translate-y-0.5"
                     }`}
                   >
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-slate-900">{pkg.title}</p>
+                        <p className="mt-1 text-xs font-medium text-slate-500">{pkg.fit}</p>
                         <p className="mt-1 text-sm text-slate-600">{pkg.subtitle}</p>
                       </div>
                       <span
@@ -358,6 +411,10 @@ export const Builder = () => {
                   </li>
                 ))}
               </ul>
+              <div className="mt-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-xs leading-5 text-slate-600">
+                Niet inbegrepen in pakketprijs: licentie- en usagekosten van tools/modellen van derden, extra
+                maatwerk buiten de afgesproken workflow(s) en doorlopende optimalisatie buiten het pakket.
+              </div>
             </div>
           </div>
 
@@ -365,13 +422,14 @@ export const Builder = () => {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-                  2) Voeg add-ons toe
+                  2. Voeg alleen toe wat nodig is
                 </h2>
                 <p className="mt-2 text-sm text-slate-600">
-                  Selecteer alleen wat nodig is. Je kunt toegang en accounts ook zelf aanleveren.
+                  Add-ons zijn optioneel. Je kunt accounts, sleutels en infrastructuur ook zelf aanleveren als
+                  je dat intern wilt beheren.
                 </p>
               </div>
-              <p className="text-xs text-slate-500">Prijzen zijn vanaf en afhankelijk van scope</p>
+              <p className="text-xs text-slate-500">Vanafprijzen per add-on, definitieve scope in intake</p>
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -383,10 +441,10 @@ export const Builder = () => {
                     type="button"
                     onClick={() => toggleAddOn(addOn.key)}
                     aria-pressed={selected}
-                    className={`group rounded-2xl border p-5 text-left transition-all ${
+                    className={`group rounded-2xl border p-5 text-left transition-all duration-200 motion-reduce:transition-none ${
                       selected
                         ? "border-slate-900 bg-slate-900 text-white shadow-sm"
-                        : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm"
+                        : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm motion-safe:hover:-translate-y-0.5"
                     }`}
                   >
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -443,22 +501,37 @@ export const Builder = () => {
               })}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">Snel ROI richting bepalen</p>
-              <p className="mt-2 text-sm text-slate-600">
-                Gebruik de ROI indicatie voor een snelle zakelijke inschatting op basis van volumes en uurtarief.
-                We rekenen bewust conservatief zodat de uitkomst bruikbaar blijft voor een eerste gesprek.
-              </p>
-              <button type="button" onClick={openRoi} className="mt-3 text-sm font-medium text-slate-900 underline">
-                Open ROI indicatie
-              </button>
+            <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_1fr]">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-sm font-semibold text-slate-900">Waarom vanafprijzen?</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  De werkelijke inzet hangt af van toegangen, datakwaliteit, uitzonderingen en gewenste
+                  foutafhandeling. Daarom geven we hier een bruikbaar startpunt en maken we de scope in intake
+                  concreet.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-sm font-semibold text-slate-900">Snel ROI richting bepalen</p>
+                <p className="mt-2 text-sm text-slate-600">
+                  Gebruik de ROI-indicatie voor een eerste zakelijke inschatting op basis van volumes en
+                  uurtarief. We rekenen bewust conservatief.
+                </p>
+                <button
+                  type="button"
+                  onClick={openRoi}
+                  className="mt-3 text-sm font-medium text-slate-900 underline underline-offset-4"
+                >
+                  Open ROI-indicatie
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-3xl border border-slate-900 bg-slate-900 p-6 text-white shadow-lg">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">Samenvatting</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">Jouw startpunt</p>
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="text-sm font-semibold">{activePackage.title}</p>
               <p className="mt-1 text-xs text-white/70">
@@ -486,23 +559,37 @@ export const Builder = () => {
             <div className="mt-6 border-t border-white/10 pt-5">
               <div className="flex items-end justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold">Totaal</p>
-                  <p className="text-xs text-white/70">vanaf, exclusief eventuele third-party kosten</p>
+                  <p className="text-sm font-semibold">Totaal vanaf</p>
+                  <p className="text-xs text-white/70">excl. third-party licenties/usage en extra maatwerk</p>
                 </div>
                 <p className="text-2xl font-bold tracking-tight">vanaf {currency(totalFrom)}</p>
               </div>
             </div>
 
+            <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-sm font-semibold">Wat gebeurt hierna?</p>
+              <ol className="mt-3 space-y-2 text-sm text-white/80">
+                {NEXT_STEP_ITEMS.map((item, index) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/20 text-[11px] font-semibold">
+                      {index + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
             <button
               type="button"
               onClick={openIntake}
-              className="mt-6 w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+              className="mt-6 w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-slate-100 motion-reduce:transition-none"
             >
-              Plan een intake
+              Start intake met deze selectie
             </button>
             <p className="mt-3 text-xs leading-5 text-white/70">
-              We gebruiken je selectie als intake-startpunt. Definitieve prijs volgt na scope, toegang en
-              validatie van use cases.
+              Je selectie wordt meegestuurd naar contact als intake-startpunt. Definitieve prijs volgt na scope,
+              toegang en validatie van use cases.
             </p>
           </div>
         </aside>
@@ -522,13 +609,13 @@ export const Builder = () => {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Plan een intake</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Start intake</p>
                 <h2 id="pricing-intake-title" className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
-                  Stuur je selectie door naar contact
+                  Stuur je selectie door
                 </h2>
                 <p className="mt-3 text-sm text-slate-600">
-                  We nemen je package en add-ons mee als startpunt. Vul je zakelijke e-mail in en voeg
-                  eventueel context toe.
+                  We nemen je pakket en add-ons mee als uitgangspunt voor het gesprek. Vul je zakelijke e-mail
+                  in en voeg eventueel context toe over de workflow.
                 </p>
               </div>
               <button
@@ -546,6 +633,18 @@ export const Builder = () => {
                 {activePackage.title} + {activeAddOns.length} add-on{activeAddOns.length === 1 ? "" : "s"}
               </p>
               <p className="mt-1 text-sm text-slate-600">Totaal vanaf {currency(totalFrom)}</p>
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+              <p className="text-sm font-semibold text-slate-900">We stemmen in intake af:</p>
+              <ul className="mt-3 grid gap-2 text-sm text-slate-600">
+                {INTAKE_SCOPE_ITEMS.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-900" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <form onSubmit={handleIntakeSubmit} className="mt-6 space-y-5">
@@ -588,9 +687,9 @@ export const Builder = () => {
                 </button>
                 <button
                   type="submit"
-                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white hover:bg-slate-800"
+                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-slate-800 motion-reduce:transition-none"
                 >
-                  Naar contact
+                  Ga naar contactformulier
                 </button>
               </div>
             </form>
@@ -618,7 +717,7 @@ export const Builder = () => {
                 </h2>
                 <p className="mt-3 text-sm text-slate-600">
                   Pas volumes en uurtarief aan voor een snelle indicatie. We gebruiken conservatieve aannames om
-                  overschatting te voorkomen.
+                  overschatting te voorkomen; dit is geen garantie of formele businesscase.
                 </p>
               </div>
               <button
@@ -735,7 +834,7 @@ export const Builder = () => {
                 </div>
 
                 <p className="mt-5 text-xs leading-5 text-slate-500">
-                  Indicatie - resultaten hangen af van workflow en gebruik
+                  Indicatie: resultaten hangen af van workflowontwerp, adoptie en kwaliteit van inputdata.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-end">
@@ -752,9 +851,9 @@ export const Builder = () => {
                       setRoiOpen(false)
                       openIntake()
                     }}
-                    className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
+                    className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-slate-800 motion-reduce:transition-none"
                   >
-                    Gebruik dit als intake-startpunt
+                    Gebruik als intake-startpunt
                   </button>
                 </div>
               </div>
