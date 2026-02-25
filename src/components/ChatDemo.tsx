@@ -234,10 +234,11 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
       return
     }
 
-    // Keep the demo pinned to the latest message so nothing gets visually cut off.
-    // IMPORTANT: avoid scrollIntoView here - it can scroll the whole page on some browsers.
-    // No auto-scroll here: we keep the chat static so the demo doesn't jump.
-    // (Users should just watch the conversation build up naturally.)
+    // Keep the chat pinned to the newest message.
+    // Use internal scrolling only (no scrollIntoView) to avoid page jumps.
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    }
   }, [prefersReducedMotion, animation.scenarioIndex, animation.revealedCount])
   const fadeOpacity =
     !prefersReducedMotion && animation.phase === "fade"
@@ -285,7 +286,10 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
             <div className="min-h-0 flex-1 overflow-hidden px-3 py-3 sm:px-4">
               <div className="flex h-full flex-col">
-                <div ref={scrollRef} className="min-h-0 flex-1 pr-1">
+                <div
+                  ref={scrollRef}
+                  className="min-h-0 flex-1 overflow-y-auto pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
                   <div className="flex min-h-full flex-col justify-end gap-2">
                     {visibleLines.map((line, index) => {
                       const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
@@ -296,11 +300,11 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                             key={line.id}
                             className={`ml-auto max-w-[92%] rounded-2xl border p-2 shadow-sm ${skin.userBubble}`}
                           >
-                            <p className="text-[10px] font-semibold uppercase tracking-wide text-white/80">
+                            <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-700">
                               {line.label}
                             </p>
-                            <div className="mt-1.5 rounded-xl border border-white/20 bg-white/15 p-2">
-                              <div className="flex items-center gap-2 text-[10px] text-white/90">
+                            <div className="mt-1.5 rounded-xl border border-slate-200 bg-white/70 p-2">
+                              <div className="flex items-center gap-2 text-[10px] text-slate-700">
                                 <img
                                   src="/brands/gmail.svg"
                                   alt=""
@@ -309,7 +313,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                                 />
                                 <span className="truncate font-medium">{line.emailSubject}</span>
                               </div>
-                              <p className="mt-1 break-words text-[11px] leading-relaxed text-white/95">
+                              <p className="mt-1 break-words text-[11px] leading-relaxed text-slate-700">
                                 {line.emailPreview}
                               </p>
                             </div>
