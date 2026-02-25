@@ -36,13 +36,11 @@ interface ChatDemoProps {
 }
 
 type AppSkin = {
-  appName: "WhatsApp" | "Telegram"
+  appName: "WhatsApp"
   appIcon: string
   headerBg: string
   headerFg: string
   chatBg: string
-  accent: string
-  accentSoft: string
   userBubble: string
   agentBubble: string
 }
@@ -66,8 +64,6 @@ const pickAppSkin = (_scenario: DashboardDemoScenario): AppSkin => ({
   headerBg: "bg-[#075E54]",
   headerFg: "text-white",
   chatBg: "bg-[#ECE5DD]",
-  accent: "text-emerald-700",
-  accentSoft: "bg-emerald-50 border-emerald-200",
   userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
   agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
 })
@@ -238,7 +234,10 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
     }
 
     // Keep the demo pinned to the latest message so nothing gets visually cut off.
-    endRef.current?.scrollIntoView({ block: "end", behavior: "smooth" })
+    // IMPORTANT: avoid scrollIntoView here - it can scroll the whole page on some browsers.
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    }
   }, [prefersReducedMotion, animation.scenarioIndex, animation.revealedCount])
   const fadeOpacity =
     !prefersReducedMotion && animation.phase === "fade"
@@ -267,7 +266,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-semibold">{demoTitle}</p>
-                <p className="truncate text-[11px] text-white/70">{skin.appName} flow demo</p>
+                <p className="truncate text-[11px] text-white/70">WhatsApp</p>
               </div>
               <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/90 ring-1 ring-white/10">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true" />
@@ -276,29 +275,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
             </div>
           </div>
 
-          <div className="h-10 shrink-0 overflow-x-auto border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
-            <div className="flex min-w-max items-center gap-1.5">
-              {activeScenarios.map((item, index) => {
-                const active = item.title === scenario.title
-                return (
-                  <span
-                    key={item.title}
-                    className={`shrink-0 max-w-[9rem] truncate rounded-full px-2 py-0.5 text-[10px] font-medium sm:max-w-[10.5rem] ${
-                      active
-                        ? `${skin.accentSoft} ${skin.accent}`
-                        : "border border-slate-200 bg-white text-slate-500"
-                    }`}
-                    aria-label={`Scenario ${index + 1}: ${item.title}`}
-                    title={item.title}
-                  >
-                    {item.title}
-                  </span>
-                )
-              })}
-            </div>
-          </div>
-
-          <div className="flex min-h-0 flex-1 flex-col bg-[#e5ddd5]">
+          <div className="flex min-h-0 flex-1 flex-col">
             <div className="flex h-9 shrink-0 items-center gap-2 border-b border-black/5 bg-white/75 px-3 py-2 text-[11px] text-slate-600 backdrop-blur sm:px-4">
               {channelIcon ? <img src={channelIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" /> : null}
               <span className="truncate font-medium text-slate-700">{scenario.channel}</span>
@@ -410,11 +387,11 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
               </div>
               <button
                 type="button"
-                className={`inline-flex h-9 w-9 items-center justify-center rounded-full border ${skin.accentSoft}`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700"
                 aria-label="Send disabled demo button"
                 disabled
               >
-                <span className={`text-sm font-semibold ${skin.accent}`}>{">"}</span>
+                <span className="text-sm font-semibold">{">"}</span>
               </button>
             </div>
           </div>
