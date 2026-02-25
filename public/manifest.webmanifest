@@ -1,10 +1,13 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
+  "description": "Productierijpe AI-agents voor je organisatie. Maatwerk automatisering, veilig ingericht en snel live.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "/icon-192.png",

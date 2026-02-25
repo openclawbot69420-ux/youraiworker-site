@@ -4,13 +4,18 @@ import { MobileNav } from "../components/MobileNav"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
+const SITE_NAME = "Your AI Worker"
+const SITE_URL = "https://youraiworker.nl"
+const DEFAULT_TITLE = "Productierijpe AI-agents voor je organisatie"
+const DEFAULT_DESCRIPTION =
+  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live."
+
 export const metadata: Metadata = {
   title: {
-    default: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
-    template: "%s · Your AI Worker",
+    default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
+  description: DEFAULT_DESCRIPTION,
   keywords: [
     "AI agents",
     "AI agent",
@@ -22,41 +27,39 @@ export const metadata: Metadata = {
     "security",
     "integraties",
   ],
-  metadataBase: new URL("https://youraiworker.nl"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "https://youraiworker.nl/",
+    canonical: `${SITE_URL}/`,
     languages: {
-      nl: "https://youraiworker.nl/",
-      "x-default": "https://youraiworker.nl/",
+      nl: `${SITE_URL}/`,
+      "x-default": `${SITE_URL}/`,
     },
   },
   openGraph: {
     type: "website",
     locale: "nl_NL",
-    siteName: "Your AI Worker",
-    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
-    description:
-      "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
-    url: "https://youraiworker.nl/",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
+    description: DEFAULT_DESCRIPTION,
+    url: `${SITE_URL}/`,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Your AI Worker",
+        alt: SITE_NAME,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
-    description:
-      "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live.",
+    title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
+    description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
   },
   other: {
-    "application-name": "Your AI Worker",
-    "apple-mobile-web-app-title": "Your AI Worker",
+    "application-name": SITE_NAME,
+    "apple-mobile-web-app-title": SITE_NAME,
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "msapplication-TileColor": "#0f172a",
