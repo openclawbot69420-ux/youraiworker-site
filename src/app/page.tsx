@@ -460,7 +460,7 @@ const HomePage: React.FC = () => {
         aria-labelledby="workflow-marquee-title"
         className="border-b border-slate-200/70 bg-slate-50/70"
       >
-        <div className="mx-auto max-w-6xl px-4 pt-10 pb-6 sm:pt-12 sm:pb-7">
+        <div className="mx-auto max-w-6xl px-4 pt-14 pb-8 sm:pt-16 sm:pb-10">
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
               <p
@@ -472,7 +472,7 @@ const HomePage: React.FC = () => {
               <p className="text-xs text-slate-500">Voorbeelden van workflows die we automatiseren</p>
             </div>
 
-            <div className="marquee-shell mt-6 overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-2">
+            <div className="marquee-shell mt-8 overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-2">
               <div className="marquee-track motion-reduce:flex motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:gap-2 motion-reduce:whitespace-normal">
                 {[...WORKFLOW_MARQUEE_ITEMS, ...WORKFLOW_MARQUEE_ITEMS].map((item, index) => (
                   <span
