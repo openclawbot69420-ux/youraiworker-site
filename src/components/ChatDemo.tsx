@@ -38,9 +38,13 @@ interface ChatDemoProps {
 type AppSkin = {
   appName: "WhatsApp" | "Telegram"
   appIcon: string
+  headerBg: string
+  headerFg: string
+  chatBg: string
   accent: string
   accentSoft: string
   userBubble: string
+  agentBubble: string
 }
 
 const CHANNEL_BRANDS: Record<string, string> = {
@@ -61,9 +65,13 @@ const pickAppSkin = (scenario: DashboardDemoScenario): AppSkin => {
     return {
       appName: "WhatsApp",
       appIcon: "/brands/whatsapp.svg",
+      headerBg: "bg-[#075E54]",
+      headerFg: "text-white",
+      chatBg: "bg-[#ECE5DD]",
       accent: "text-emerald-700",
       accentSoft: "bg-emerald-50 border-emerald-200",
-      userBubble: "bg-emerald-500 border-emerald-400/70 text-white",
+      userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
+      agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
     }
   }
 
@@ -71,9 +79,13 @@ const pickAppSkin = (scenario: DashboardDemoScenario): AppSkin => {
     return {
       appName: "Telegram",
       appIcon: "/brands/telegram.svg",
+      headerBg: "bg-[#2AABEE]",
+      headerFg: "text-white",
+      chatBg: "bg-[#e6ebee]",
       accent: "text-sky-700",
       accentSoft: "bg-sky-50 border-sky-200",
-      userBubble: "bg-sky-500 border-sky-400/70 text-white",
+      userBubble: "ml-auto bg-[#2AABEE] border-sky-400/70 text-white",
+      agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
     }
   }
 
@@ -84,16 +96,24 @@ const pickAppSkin = (scenario: DashboardDemoScenario): AppSkin => {
     ? {
         appName: "WhatsApp",
         appIcon: "/brands/whatsapp.svg",
+        headerBg: "bg-[#075E54]",
+        headerFg: "text-white",
+        chatBg: "bg-[#ECE5DD]",
         accent: "text-emerald-700",
         accentSoft: "bg-emerald-50 border-emerald-200",
-        userBubble: "bg-emerald-500 border-emerald-400/70 text-white",
+        userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
+        agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
       }
     : {
         appName: "Telegram",
         appIcon: "/brands/telegram.svg",
+        headerBg: "bg-[#2AABEE]",
+        headerFg: "text-white",
+        chatBg: "bg-[#e6ebee]",
         accent: "text-sky-700",
         accentSoft: "bg-sky-50 border-sky-200",
-        userBubble: "bg-sky-500 border-sky-400/70 text-white",
+        userBubble: "ml-auto bg-[#2AABEE] border-sky-400/70 text-white",
+        agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
       }
 }
 
@@ -134,14 +154,14 @@ const createChatLines = (scenario: DashboardDemoScenario): ChatLine[] => {
 
 const bubbleClassForTone = (tone: BubbleTone, skin: AppSkin) => {
   if (tone === "user") {
-    return `ml-auto ${skin.userBubble}`
+    return skin.userBubble
   }
 
   if (tone === "meta") {
     return "mr-auto bg-amber-50 border-amber-200 text-amber-950"
   }
 
-  return "mr-auto bg-white border-slate-200 text-slate-900"
+  return skin.agentBubble
 }
 
 export const ChatDemo: React.FC<ChatDemoProps> = ({
@@ -281,10 +301,10 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
     >
       <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%),linear-gradient(180deg,#17212b,#0f172a)] p-2 sm:p-3">
         <div
-          className="flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-slate-200/80 bg-[#e5ddd5] shadow-xl transition-opacity duration-200"
+          className={`flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-slate-200/80 shadow-xl transition-opacity duration-200 ${skin.chatBg}`}
           style={{ opacity: fadeOpacity }}
         >
-          <div className="relative overflow-hidden border-b border-black/5 bg-gradient-to-r from-slate-900 to-slate-800 px-3 py-2.5 text-white sm:px-4">
+          <div className={`relative overflow-hidden border-b border-black/5 px-3 py-2.5 sm:px-4 ${skin.headerBg} ${skin.headerFg}`}>
             <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:14px_14px]" />
             <div className="relative flex items-center gap-2.5">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white/10 ring-1 ring-white/15">
