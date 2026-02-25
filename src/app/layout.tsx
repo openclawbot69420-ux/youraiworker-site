@@ -257,7 +257,7 @@ const Footer: React.FC = () => {
               info@youraiworker.nl
             </a>
             <span className="text-[11px] text-slate-300">
-              KvK op aanvraag - BTW op aanvraag
+              KvK en BTW-nummer op aanvraag
             </span>
           </p>
         </div>
