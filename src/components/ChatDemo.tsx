@@ -121,7 +121,7 @@ const bubbleClassForTone = (tone: BubbleTone, skin: AppSkin) => {
 
 export const ChatDemo: React.FC<ChatDemoProps> = ({
   scenarios = HOMEPAGE_SCENARIOS,
-  demoTitle = "OpenClaw Assist",
+  demoTitle = "Your Assistant",
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null)
   const scrollRef = useRef<HTMLDivElement | null>(null)
