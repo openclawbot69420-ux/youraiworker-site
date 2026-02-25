@@ -79,7 +79,7 @@ const integrations = INTEGRATIONS.map((integration) => {
 const IntegrationsPage: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
+      <div className="mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Integraties</h1>
           <p className="mt-4 text-slate-600">
@@ -94,7 +94,7 @@ const IntegrationsPage: React.FC = () => {
             key={integration.name}
             className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-start gap-3">
               <span
                 className="group relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300"
                 aria-label={integration.name}
@@ -130,7 +130,7 @@ const IntegrationsPage: React.FC = () => {
 
                 <span className="sr-only">{integration.name}</span>
               </span>
-              <h2 className="font-semibold">{integration.name}</h2>
+              <h2 className="min-w-0 text-sm font-semibold leading-snug text-slate-900">{integration.name}</h2>
             </div>
             <p className="mt-3 text-sm text-slate-600">{integration.shortDescription}</p>
             <a
@@ -148,7 +148,7 @@ const IntegrationsPage: React.FC = () => {
         mogelijkheden.
       </p>
 
-      <div className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-12 text-white sm:px-12">
+      <div className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-white sm:px-12">
         <h2 className="text-2xl font-bold tracking-tight">Klaar om te automatiseren?</h2>
         <p className="mt-3 max-w-2xl text-white/70">
           Kies een package en vertel ons wat je wil automatiseren. Wij regelen de rest.

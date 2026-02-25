@@ -73,7 +73,7 @@ const deliverables = [
 const ImplementatiePage: React.FC = () => {
   return (
     <main className="mx-auto max-w-6xl px-4 py-20">
-      <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm sm:p-10">
+      <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
         <div className="max-w-3xl">
           <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-700">
             Managed OpenClaw
@@ -119,7 +119,7 @@ const ImplementatiePage: React.FC = () => {
                 <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
                   <option.icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-lg font-semibold text-slate-900">{option.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{option.description}</p>
                 </div>
@@ -168,7 +168,7 @@ const ImplementatiePage: React.FC = () => {
           <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
             <Lock className="h-5 w-5" aria-hidden="true" />
           </span>
-          <div>
+          <div className="min-w-0">
             <h2 className="text-xl font-semibold tracking-tight text-slate-900">Security baseline</h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
               We werken met least-privilege toegang, afgesproken logging en duidelijke verantwoordelijkheden.

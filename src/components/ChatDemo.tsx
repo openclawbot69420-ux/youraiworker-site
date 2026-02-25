@@ -38,9 +38,13 @@ interface ChatDemoProps {
 type AppSkin = {
   appName: "WhatsApp" | "Telegram"
   appIcon: string
+  headerBg: string
+  headerFg: string
+  chatBg: string
   accent: string
   accentSoft: string
   userBubble: string
+  agentBubble: string
 }
 
 const CHANNEL_BRANDS: Record<string, string> = {
@@ -54,48 +58,19 @@ const CHANNEL_BRANDS: Record<string, string> = {
   zapier: "/brands/zapier.svg",
 }
 
-const pickAppSkin = (scenario: DashboardDemoScenario): AppSkin => {
-  const key = scenario.channel.toLowerCase()
-
-  if (key.includes("whatsapp")) {
-    return {
-      appName: "WhatsApp",
-      appIcon: "/brands/whatsapp.svg",
-      accent: "text-emerald-700",
-      accentSoft: "bg-emerald-50 border-emerald-200",
-      userBubble: "bg-emerald-500 border-emerald-400/70 text-white",
-    }
-  }
-
-  if (key.includes("telegram")) {
-    return {
-      appName: "Telegram",
-      appIcon: "/brands/telegram.svg",
-      accent: "text-sky-700",
-      accentSoft: "bg-sky-50 border-sky-200",
-      userBubble: "bg-sky-500 border-sky-400/70 text-white",
-    }
-  }
-
-  const preferWhatsApp =
-    scenario.title.toLowerCase().includes("support") || scenario.channel.toLowerCase().includes("slack")
-
-  return preferWhatsApp
-    ? {
-        appName: "WhatsApp",
-        appIcon: "/brands/whatsapp.svg",
-        accent: "text-emerald-700",
-        accentSoft: "bg-emerald-50 border-emerald-200",
-        userBubble: "bg-emerald-500 border-emerald-400/70 text-white",
-      }
-    : {
-        appName: "Telegram",
-        appIcon: "/brands/telegram.svg",
-        accent: "text-sky-700",
-        accentSoft: "bg-sky-50 border-sky-200",
-        userBubble: "bg-sky-500 border-sky-400/70 text-white",
-      }
-}
+// We always render the demo in a WhatsApp-style UI.
+// OpenClaw supports many channels, but this keeps the homepage demo instantly recognizable.
+const pickAppSkin = (_scenario: DashboardDemoScenario): AppSkin => ({
+  appName: "WhatsApp",
+  appIcon: "/brands/whatsapp.svg",
+  headerBg: "bg-[#075E54]",
+  headerFg: "text-white",
+  chatBg: "bg-[#ECE5DD]",
+  accent: "text-emerald-700",
+  accentSoft: "bg-emerald-50 border-emerald-200",
+  userBubble: "ml-auto bg-[#DCF8C6] border-[#bfe5ad] text-slate-900",
+  agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
+})
 
 const getChannelIcon = (channel: string) => {
   const key = channel.toLowerCase()
@@ -134,21 +109,23 @@ const createChatLines = (scenario: DashboardDemoScenario): ChatLine[] => {
 
 const bubbleClassForTone = (tone: BubbleTone, skin: AppSkin) => {
   if (tone === "user") {
-    return `ml-auto ${skin.userBubble}`
+    return skin.userBubble
   }
 
   if (tone === "meta") {
     return "mr-auto bg-amber-50 border-amber-200 text-amber-950"
   }
 
-  return "mr-auto bg-white border-slate-200 text-slate-900"
+  return skin.agentBubble
 }
 
 export const ChatDemo: React.FC<ChatDemoProps> = ({
   scenarios = HOMEPAGE_SCENARIOS,
-  demoTitle = "OpenClaw Assist",
+  demoTitle = "Your Assistant",
 }) => {
   const rootRef = useRef<HTMLDivElement | null>(null)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+  const endRef = useRef<HTMLDivElement | null>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const [isInView, setIsInView] = useState(true)
   const [animation, setAnimation] = useState<AnimationState>({
@@ -254,6 +231,15 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   const visibleLines = chatLines.slice(0, Math.min(revealCount, chatLines.length))
   const showResult = revealCount > chatLines.length
   const skin = pickAppSkin(scenario)
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    // Keep the demo pinned to the latest message so nothing gets visually cut off.
+    endRef.current?.scrollIntoView({ block: "end", behavior: "smooth" })
+  }, [prefersReducedMotion, animation.scenarioIndex, animation.revealedCount])
   const fadeOpacity =
     !prefersReducedMotion && animation.phase === "fade"
       ? Math.max(0, animation.ticksLeft / FADE_TICKS)
@@ -266,14 +252,14 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   return (
     <div
       ref={rootRef}
-      className="h-[24rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
+      className="h-[26rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
     >
       <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%),linear-gradient(180deg,#17212b,#0f172a)] p-2 sm:p-3">
         <div
-          className="flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-slate-200/80 bg-[#e5ddd5] shadow-xl transition-opacity duration-200"
+          className={`flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-slate-200/80 shadow-xl transition-opacity duration-200 ${skin.chatBg}`}
           style={{ opacity: fadeOpacity }}
         >
-          <div className="relative overflow-hidden border-b border-black/5 bg-gradient-to-r from-slate-900 to-slate-800 px-3 py-2.5 text-white sm:px-4">
+          <div className={`relative overflow-hidden border-b border-black/5 px-3 py-2.5 sm:px-4 ${skin.headerBg} ${skin.headerFg}`}>
             <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:14px_14px]" />
             <div className="relative flex items-center gap-2.5">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white/10 ring-1 ring-white/15">
@@ -290,24 +276,26 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
             </div>
           </div>
 
-          <div className="flex h-10 shrink-0 items-center gap-1.5 border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
-            {activeScenarios.map((item, index) => {
-              const active = item.title === scenario.title
-              return (
-                <span
-                  key={item.title}
-                  className={`max-w-[9rem] truncate rounded-full px-2 py-0.5 text-[10px] font-medium sm:max-w-[10.5rem] ${
-                    active
-                      ? `${skin.accentSoft} ${skin.accent}`
-                      : "border border-slate-200 bg-white text-slate-500"
-                  }`}
-                  aria-label={`Scenario ${index + 1}: ${item.title}`}
-                  title={item.title}
-                >
-                  {item.title}
-                </span>
-              )
-            })}
+          <div className="h-10 shrink-0 overflow-x-auto border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
+            <div className="flex min-w-max items-center gap-1.5">
+              {activeScenarios.map((item, index) => {
+                const active = item.title === scenario.title
+                return (
+                  <span
+                    key={item.title}
+                    className={`shrink-0 max-w-[9rem] truncate rounded-full px-2 py-0.5 text-[10px] font-medium sm:max-w-[10.5rem] ${
+                      active
+                        ? `${skin.accentSoft} ${skin.accent}`
+                        : "border border-slate-200 bg-white text-slate-500"
+                    }`}
+                    aria-label={`Scenario ${index + 1}: ${item.title}`}
+                    title={item.title}
+                  >
+                    {item.title}
+                  </span>
+                )
+              })}
+            </div>
           </div>
 
           <div className="flex min-h-0 flex-1 flex-col bg-[#e5ddd5]">
@@ -320,8 +308,8 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
             <div className="min-h-0 flex-1 overflow-hidden px-3 py-3 sm:px-4">
               <div className="flex h-full flex-col">
-                <div className="min-h-0 flex-1 overflow-hidden">
-                  <div className="flex h-full flex-col justify-end gap-2">
+                <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto pr-1">
+                  <div className="flex min-h-full flex-col justify-end gap-2">
                     {visibleLines.map((line, index) => {
                       const timeLabel = `09:${String(41 + index).padStart(2, "0")}`
 
@@ -344,7 +332,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                                 />
                                 <span className="truncate font-medium">{line.emailSubject}</span>
                               </div>
-                              <p className="mt-1 text-[11px] leading-relaxed text-white/95">
+                              <p className="mt-1 break-words text-[11px] leading-relaxed text-white/95">
                                 {line.emailPreview}
                               </p>
                             </div>
@@ -366,7 +354,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                               {line.label}
                             </p>
                           ) : null}
-                          <p className="text-xs leading-relaxed sm:text-sm">{line.text}</p>
+                          <p className="break-words text-xs leading-relaxed sm:text-sm">{line.text}</p>
                           <p
                             className={`mt-1 text-right text-[10px] ${
                               line.tone === "user" ? "text-white/75" : "text-slate-400"
@@ -389,15 +377,16 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-200 [animation-delay:240ms] motion-reduce:hidden" />
                       Agent typt...
                     </div>
+                    <div ref={endRef} />
                   </div>
                 </div>
 
                 <div className="mt-3 shrink-0 rounded-2xl border border-slate-200 bg-white/90 p-2.5 shadow-sm backdrop-blur">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Resultaat
+                    Output (OpenClaw)
                   </p>
                   <p
-                    className={`mt-1 min-h-[3.75rem] text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
+                    className={`mt-1 min-h-[3.75rem] whitespace-pre-line break-words text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
                       showResult ? "opacity-100" : "opacity-0"
                     }`}
                   >

@@ -35,7 +35,7 @@ const ContactPage: React.FC = () => {
       </p>
 
       <div className="mt-10">
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="text-lg font-semibold">Stuur je aanvraag</h2>
           <p className="mt-2 text-sm text-slate-600">
             Vertel kort wat je wil automatiseren. Hoe concreter, hoe sneller we kunnen scopen.
@@ -44,7 +44,7 @@ const ContactPage: React.FC = () => {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
             <h2 className="text-lg font-semibold">Wat gebeurt er daarna?</h2>
             <ol className="mt-4 space-y-3 text-sm text-slate-700">
               <li className="flex gap-3"><span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-xs font-semibold text-slate-900">1</span><span>We nemen je aanvraag door en stellen 2 tot 5 verduidelijkende vragen.</span></li>
@@ -53,7 +53,7 @@ const ContactPage: React.FC = () => {
             </ol>
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white">
+          <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white sm:p-8">
             <h2 className="text-lg font-semibold">Checklist voor een snelle intake</h2>
             <ul className="mt-4 space-y-2 text-sm text-white/80">
               <li>• Voorbeeld van een echte case (e-mail, chat, ticket)</li>

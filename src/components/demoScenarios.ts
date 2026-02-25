@@ -17,79 +17,81 @@ export type DashboardDemoScenario = {
 export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
   {
     title: "Inbox triage",
-    channel: "Gmail",
-    status: "Workflow actief",
+    channel: "WhatsApp",
+    status: "Inbox triage + draft",
     bubbles: [
       {
         tone: "user",
-        label: "User",
-        text: "Kun je deze e-mail triagen en een conceptantwoord klaarzetten?",
+        label: "Jij",
+        text: "Kun je die offerte-mail van vanochtend triagen en een reply draft maken?",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Classificatie: Sales lead (P1). Intentie: offerteaanvraag. Herkend: 40 seats en gewenste start in maart.",
+        label: "Your Assistant",
+        text: "Check. Welke tone of voice wil je (formeel / direct / vriendelijk) en wil je dat ik meteen 2 follow-up vragen toevoeg?",
       },
       {
         tone: "user",
-        label: "User",
-        text: "Ja. Gebruik een zakelijke toon en vraag of ze al een CRM gebruiken.",
+        label: "Jij",
+        text: "Zakelijk en direct. Voeg 2 vragen toe: deadline + of ze al een CRM gebruiken.",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Conceptantwoord klaar. Vraag toegevoegd over huidige CRM en gewenste doorlooptijd voor onboarding.",
+        label: "Your Assistant",
+        text: "Gedaan. Ik heb 1 draft klaargezet in Gmail. Wil je eerst approval, of mag ik bij dit soort leads automatisch drafts maken?",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "CRM-lead aangemaakt, conceptreply opgeslagen in Gmail draft en follow-up reminder ingepland over 24 uur.",
+        text: "Lead herkend (P1) • draft opgeslagen in Gmail • follow-up reminder +24u • lead entry gelogd",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Wil je deze lead direct aan Sales toewijzen of eerst in review houden?",
+        label: "Your Assistant",
+        text: "Als je wilt, kan ik ook de lead meteen aan Sales toewijzen en een taak aanmaken voor morgen.",
       },
     ],
-    resultaat: "Inbox opgeschoond en lead staat direct klaar voor opvolging.",
+    resultaat:
+      "✓ Gmail: reply draft klaar (wacht op approval)\n✓ Lead gelogd (CRM/Sheet)\n✓ Follow-up reminder gepland (+24u)\n✓ Run gelogd (audit trail)",
   },
   {
-    title: "Lead qualification",
-    channel: "Telegram",
-    status: "Conversatie flow",
+    title: "Lead intake",
+    channel: "WhatsApp",
+    status: "Kwalificatie + routing",
     bubbles: [
       {
         tone: "user",
         label: "Lead",
-        text: "We zoeken AI-automatisering voor support en sales. Kunnen jullie helpen?",
+        text: "Hoi! Wij willen AI inzetten voor support en sales. Kunnen jullie helpen?",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Ja. Om goed te richten: hoeveel agents werken in support en in welke tools werken jullie nu?",
+        label: "Your Assistant",
+        text: "Ja. 3 snelle vragen zodat ik je direct goed route: (1) teamgrootte, (2) welke tools (Gmail/WhatsApp/CRM), (3) wanneer wil je live?",
       },
       {
         tone: "user",
         label: "Lead",
-        text: "12 mensen. Support via Gmail + WhatsApp, sales in HubSpot. We willen in maart live.",
+        text: "Support 10 mensen. Sales in HubSpot. Liefst binnen 4 weken live.",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Gekwalificeerd als MQL. Fit-score 82/100. Kansrijk voor intake: support-triage + lead routing als eerste workflow.",
+        label: "Your Assistant",
+        text: "Top. Dit is een goede fit. Wil je dat ik 2 intake-slots voorstel (morgen/overmorgen) of stuur ik eerst een indicatie van scope + vanafprijs?",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "CRM-status gezet op Qualified, samenvatting gelogd en twee intake-slots voorgesteld in Telegram.",
+        text: "Leadscore berekend • samenvatting opgeslagen • status: Qualified • intake-slots klaargezet",
       },
       {
         tone: "user",
         label: "Lead",
-        text: "Donderdag 10:30 is goed. Kunnen jullie vooraf een indicatie sturen?",
+        text: "Stuur eerst een indicatie en daarna slots.",
       },
     ],
-    resultaat: "Sales ziet alleen gekwalificeerde leads met context en volgende stap.",
+    resultaat:
+      "✓ Leadscore + samenvatting opgeslagen\n✓ Status: Qualified\n✓ Indicatie-bericht klaar voor verzending\n✓ Intake-slots voorgesteld",
   },
   {
     title: "WhatsApp support",
@@ -99,35 +101,36 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
       {
         tone: "user",
         label: "Klant",
-        text: "Ik kan niet inloggen en mis factuur #1049. Kunnen jullie helpen?",
+        text: "Ik kan niet inloggen en ik mis factuur 1049. Kunnen jullie helpen?",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Ja. Ik zie een combinatie van login en factuurvraag. Eerst reset-instructies gestuurd en verificatie gevraagd op klantnummer.",
+        label: "Your Assistant",
+        text: "Ik kan je hiermee helpen. Voor ik een ticket maak: wat is je klantnummer en welk e-mailadres gebruik je om in te loggen?",
       },
       {
         tone: "user",
         label: "Klant",
-        text: "Klantnummer is AC-2041. Reset lukt nu, maar factuur blijft ontbreken.",
+        text: "Klantnummer AC-2041. Mail is info@bedrijf.nl. Reset lukt nu wel.",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Login-probleem opgelost. Billing-item kan ik niet direct afhandelen. Ik maak nu een finance-escalatie met context en transcript.",
+        label: "Your Assistant",
+        text: "Top - login is opgelost. De factuur mis ik nog: ik escalatieer dit naar Finance met context. Wil je dat ik je op de hoogte houd via WhatsApp?",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Zendesk-ticket #5821 aangemaakt met samenvatting, klantnummer, factuurnummer en status 'urgent billing'.",
+        text: "Ticket aangemaakt (billing) • transcript toegevoegd • routed naar Finance • SLA: vandaag kantooruren",
       },
       {
         tone: "agent",
-        label: "Agent",
-        text: "Je ontvangt een update zodra finance heeft bevestigd. Verwachte reactietijd: vandaag binnen kantooruren.",
+        label: "Your Assistant",
+        text: "Done. Ik ping je zodra Finance bevestigt dat de factuur opnieuw is verstuurd.",
       },
     ],
-    resultaat: "1e lijn direct opgelost, billing automatisch doorgestuurd met audit trail.",
+    resultaat:
+      "✓ Login opgelost (1e lijn)\n✓ Ticket aangemaakt (billing)\n✓ Context + transcript toegevoegd\n✓ Escalatie routed naar Finance",
   },
 ]
 

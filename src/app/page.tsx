@@ -14,15 +14,79 @@ import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
-  { label: "Gmail", src: "/brands/gmail.svg", hex: "#EA4335" },
-  { label: "Google Calendar", src: "/brands/google-calendar.svg", hex: "#4285F4" },
-  { label: "WhatsApp", src: "/brands/whatsapp.svg", hex: "#25D366" },
-  { label: "Telegram", src: "/brands/telegram.svg", hex: "#26A5E4" },
-  { label: "Slack", src: "/brands/slack.svg", hex: "#4A154B" },
-  { label: "HubSpot", src: "/brands/hubspot.svg", hex: "#FF7A59" },
-  { label: "Salesforce", src: "/brands/salesforce.svg", hex: "#00A1E0" },
-  { label: "Zapier", src: "/brands/zapier.svg", hex: "#FF4A00" },
-  { label: "en meer", src: null, hex: null },
+  {
+    label: "Gmail",
+    src: "/brands/gmail.svg",
+    tileBg: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+    glyphHex: "#EA4335",
+    maskSize: "74%",
+    maskPosition: "center 53%",
+  },
+  {
+    label: "Google Calendar",
+    src: "/brands/google-calendar.svg",
+    tileBg: "linear-gradient(180deg, #ffffff 0%, #eff6ff 100%)",
+    glyphHex: "#4285F4",
+    maskSize: "76%",
+    maskPosition: "center 51%",
+  },
+  {
+    label: "WhatsApp",
+    src: "/brands/whatsapp.svg",
+    tileBg: "linear-gradient(145deg, #2be07a 0%, #1fbf5c 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "73%",
+  },
+  {
+    label: "Telegram",
+    src: "/brands/telegram.svg",
+    tileBg: "linear-gradient(145deg, #37b4f3 0%, #1d8fd8 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "72%",
+  },
+  {
+    label: "Slack",
+    src: "/brands/slack.svg",
+    tileBg: "linear-gradient(145deg, #5f1f67 0%, #42124c 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "64%",
+  },
+  {
+    label: "HubSpot",
+    src: "/brands/hubspot.svg",
+    tileBg: "linear-gradient(145deg, #ff8a65 0%, #f96945 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "63%",
+  },
+  {
+    label: "Salesforce",
+    src: "/brands/salesforce.svg",
+    tileBg: "linear-gradient(145deg, #20b6ec 0%, #008fe4 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "75%",
+    maskPosition: "center 52%",
+  },
+  {
+    label: "Zapier",
+    src: "/brands/zapier.svg",
+    tileBg: "linear-gradient(145deg, #ff7a1a 0%, #ff4a00 100%)",
+    glyphHex: "#ffffff",
+    maskSize: "68%",
+  },
+  { label: "en meer", src: null },
+] as const
+
+const WORKFLOW_MARQUEE_ITEMS = [
+  "Inbox triage voor supportteams",
+  "Leadopvolging voor B2B sales",
+  "Afsprakenplanning voor agencies",
+  "CRM-updates na calls en chats",
+  "Rapportages voor operations",
+  "Escalaties naar Slack-kanalen",
+  "Klantvragen via WhatsApp",
+  "Intake + routing via Telegram",
+  "Backoffice workflows met approvals",
+  "OpenClaw managed in productie",
 ] as const
 
 const PROBLEM_CARDS = [
@@ -213,7 +277,7 @@ const StarterAgentCard: React.FC<StarterAgentCardProps> = ({
     href={href}
     className={[
       "group block rounded-xl border border-slate-200 bg-white transition-all hover:border-slate-300 hover:shadow-sm",
-      compact ? "min-w-[16.75rem] snap-start p-4" : "p-4 sm:p-5",
+      compact ? "w-[85vw] min-w-[15.5rem] max-w-[18rem] snap-start p-4" : "p-4 sm:p-5",
     ].join(" ")}
   >
     <h3 className="text-sm font-semibold leading-snug text-slate-900 group-hover:underline">
@@ -223,6 +287,75 @@ const StarterAgentCard: React.FC<StarterAgentCardProps> = ({
     <p className="mt-3 text-xs font-medium text-slate-900 underline">Bekijk details</p>
   </a>
 )
+
+type IntegrationBadgeProps = {
+  label: string
+  src: string | null
+  tileBg?: string
+  glyphHex?: string
+  maskSize?: string
+  maskPosition?: string
+}
+
+const IntegrationBadge: React.FC<IntegrationBadgeProps> = ({
+  label,
+  src,
+  tileBg,
+  glyphHex = "#fff",
+  maskSize = "68%",
+  maskPosition = "center",
+}) => {
+  const showTooltip = Boolean(src)
+
+  const maskStyle = src
+    ? ({
+        backgroundColor: glyphHex,
+        WebkitMaskImage: `url(${src})`,
+        maskImage: `url(${src})`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: maskPosition,
+        maskPosition,
+        WebkitMaskSize: maskSize,
+        maskSize,
+      } as React.CSSProperties)
+    : undefined
+
+  return (
+    <span
+      className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-all hover:-translate-y-0.5 hover:border-slate-300 sm:h-14 sm:w-14"
+      aria-label={label}
+      tabIndex={0}
+      style={tileBg ? ({ background: tileBg } as React.CSSProperties) : undefined}
+    >
+      {src ? (
+        <>
+          <span
+            aria-hidden="true"
+            className="absolute inset-[2px] rounded-[0.85rem] border border-white/60 bg-white/10"
+          />
+          <span
+            aria-hidden="true"
+            className="relative h-6 w-6 sm:h-7 sm:w-7"
+            style={maskStyle}
+          />
+        </>
+      ) : (
+        <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
+          en meer
+        </span>
+      )}
+
+      {showTooltip ? (
+        <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-medium text-white shadow-lg opacity-0 transition-opacity group-hover:block group-hover:opacity-100 group-focus:block group-focus:opacity-100 sm:block sm:group-hover:opacity-100">
+          {label}
+        </span>
+      ) : null}
+
+      <span className="sr-only">{label}</span>
+    </span>
+  )
+}
 
 export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
@@ -320,48 +453,48 @@ const HomePage: React.FC = () => {
               Werkt met
             </p>
             <div className="grid grid-cols-5 gap-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-              {INTEGRATION_ITEMS.map(({ label, src, hex }) => {
-                const showTooltip = Boolean(src)
+              {INTEGRATION_ITEMS.map((item) => (
+                <IntegrationBadge key={item.label} {...item} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-                return (
+      {/* Workflows marquee */}
+      <section
+        aria-labelledby="workflow-marquee-title"
+        className="border-b border-slate-200/70 bg-slate-50/70"
+      >
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:py-5">
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+              <p
+                id="workflow-marquee-title"
+                className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500"
+              >
+                Waar teams OpenClaw voor inzetten
+              </p>
+              <p className="text-xs text-slate-500">
+                Voorbeelden van workflows en processen die we automatiseren
+              </p>
+            </div>
+
+            <div className="marquee-shell overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-2">
+              <div className="marquee-track motion-reduce:flex motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:gap-2 motion-reduce:whitespace-normal">
+                {[...WORKFLOW_MARQUEE_ITEMS, ...WORKFLOW_MARQUEE_ITEMS].map((item, index) => (
                   <span
-                    key={label}
-                    className="group relative inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5 transition-colors hover:border-slate-300 sm:h-14 sm:w-14"
-                    aria-label={label}
-                    tabIndex={0}
-                    style={
-                      src && hex
-                        ? {
-                            backgroundColor: `${hex}14`,
-                          }
-                        : undefined
-                    }
+                    key={`${item}-${index}`}
+                    className={[
+                      "inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700",
+                      index >= WORKFLOW_MARQUEE_ITEMS.length ? "motion-reduce:hidden" : "",
+                    ].join(" ")}
                   >
-                    {src ? (
-                      <img
-                        src={src}
-                        alt=""
-                        className="h-6 w-6 sm:h-7 sm:w-7"
-                        aria-hidden="true"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
-                        en meer
-                      </span>
-                    )}
-
-                    {/* Tooltip (brands only) */}
-                    {showTooltip ? (
-                      <span className="pointer-events-none absolute -top-9 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2 py-1 text-[11px] font-medium text-white shadow-lg opacity-0 transition-opacity group-hover:block group-hover:opacity-100 group-focus:block group-focus:opacity-100 sm:block sm:group-hover:opacity-100">
-                        {label}
-                      </span>
-                    ) : null}
-
-                    <span className="sr-only">{label}</span>
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+                    {item}
                   </span>
-                )
-              })}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -390,27 +523,14 @@ const HomePage: React.FC = () => {
                 <h3 className="text-base font-semibold text-slate-900">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p>
 
-                <div className="mt-4 md:hidden">
-                  <details className="rounded-xl border border-slate-200 bg-slate-50">
-                    <summary className="cursor-pointer list-none px-4 py-2.5 text-xs font-medium text-slate-600">
+                <div className="mt-4">
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 motion-safe:animate-[fadeIn_240ms_ease-out]">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
                       Voorbeeld
-                    </summary>
-                    <div className="border-t border-slate-200 px-4 py-3">
-                      <p className="text-xs leading-relaxed text-slate-700">{snippet}</p>
-                    </div>
-                  </details>
-                </div>
-
-                <div className="mt-4 hidden md:block">
-                  <div className="max-h-0 overflow-hidden rounded-xl border border-transparent bg-transparent opacity-0 transition-all duration-200 group-hover:max-h-24 group-hover:border-slate-200 group-hover:bg-slate-50 group-hover:opacity-100 group-focus-within:max-h-24 group-focus-within:border-slate-200 group-focus-within:bg-slate-50 group-focus-within:opacity-100">
-                    <div className="px-4 py-3">
-                      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
-                        Voorbeeld
-                      </p>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
-                        {snippet}
-                      </p>
-                    </div>
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-700 sm:text-sm">
+                      {snippet}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -469,7 +589,7 @@ const HomePage: React.FC = () => {
 
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
                   Zonder managed implementatie
                 </p>
@@ -483,7 +603,7 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <h3 className="text-base font-semibold text-slate-900">OpenClaw draait</h3>
                 <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
                   Managed implementatie
@@ -524,8 +644,8 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="min-w-full border-separate border-spacing-0 text-left">
+          <div className="-mx-6 mt-6 overflow-x-auto px-6 sm:mx-0 sm:px-0">
+            <table className="min-w-[52rem] border-separate border-spacing-0 text-left">
               <thead>
                 <tr>
                   <th className="rounded-tl-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
@@ -698,7 +818,7 @@ const HomePage: React.FC = () => {
               Veilige defaults, duidelijke support en heldere requirements zodat je snel live kunt
               zonder controle te verliezen.
             </p>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
+            <div className="mt-5 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
               <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
               <span>
                 Remote access via <span className="text-slate-900">Tailscale</span> - versleuteld,
@@ -789,7 +909,7 @@ const HomePage: React.FC = () => {
 
       {/* CTA */}
       <section id="intake" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-14 text-white sm:px-12">
+        <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-14 text-white sm:px-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Klaar om één proces te automatiseren?
           </h2>

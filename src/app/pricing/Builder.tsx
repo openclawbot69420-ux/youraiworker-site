@@ -320,8 +320,8 @@ export const Builder = () => {
                         : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white/70"
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="min-w-0">
                         <p className="text-sm font-semibold text-slate-900">{pkg.title}</p>
                         <p className="mt-1 text-sm text-slate-600">{pkg.subtitle}</p>
                       </div>
@@ -389,9 +389,9 @@ export const Builder = () => {
                         : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm"
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="flex items-center gap-2">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="min-w-0">
+                        <div className="flex items-start gap-2">
                           {addOn.brandIcons && addOn.brandIcons.length > 0 ? (
                             <span className="flex items-center -space-x-1" aria-hidden="true">
                               {addOn.brandIcons.map((brandIcon) => (
@@ -406,7 +406,7 @@ export const Builder = () => {
                               ))}
                             </span>
                           ) : null}
-                          <p className="text-sm font-semibold">{addOn.title}</p>
+                          <p className="min-w-0 text-sm font-semibold leading-snug">{addOn.title}</p>
                         </div>
                         <p className={`mt-2 text-sm leading-5 ${selected ? "text-white/80" : "text-slate-600"}`}>
                           {addOn.summary}
@@ -510,14 +510,14 @@ export const Builder = () => {
 
       {intakeOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 px-4 py-8"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-slate-950/60 px-4 py-4 sm:items-center sm:py-8"
           onClick={() => setIntakeOpen(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="pricing-intake-title"
-            className="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:p-8"
+            className="max-h-[calc(100vh-2rem)] w-full max-w-lg overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:max-h-[calc(100vh-4rem)] sm:p-8"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
@@ -600,14 +600,14 @@ export const Builder = () => {
 
       {roiOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 px-4 py-8"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-slate-950/60 px-4 py-4 sm:items-center sm:py-8"
           onClick={() => setRoiOpen(false)}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="pricing-roi-title"
-            className="w-full max-w-3xl rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:p-8"
+            className="max-h-[calc(100vh-2rem)] w-full max-w-3xl overflow-y-auto rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl sm:max-h-[calc(100vh-4rem)] sm:p-8"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
