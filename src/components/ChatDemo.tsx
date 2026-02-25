@@ -326,7 +326,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                             skin,
                           )}`}
                         >
-                          {line.label ? (
+                          {line.label && line.tone === "meta" ? (
                             <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide opacity-70">
                               {line.label}
                             </p>
@@ -334,7 +334,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                           <p className="break-words text-xs leading-relaxed sm:text-sm">{line.text}</p>
                           <p
                             className={`mt-1 text-right text-[10px] ${
-                              line.tone === "user" ? "text-white/75" : "text-slate-400"
+                              line.tone === "user" ? "text-slate-500" : "text-slate-400"
                             }`}
                           >
                             {timeLabel}

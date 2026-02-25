@@ -94,43 +94,43 @@ export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
       "✓ Leadscore + samenvatting opgeslagen\n✓ Status: Qualified\n✓ Indicatie-bericht klaar voor verzending\n✓ Intake-slots voorgesteld",
   },
   {
-    title: "WhatsApp support",
+    title: "Proactive updates",
     channel: "WhatsApp",
-    status: "Support + escalatie",
+    status: "Proactive briefing",
     bubbles: [
       {
-        tone: "user",
-        label: "Klant",
-        text: "Ik kan niet inloggen en ik mis factuur 1049. Kunnen jullie helpen?",
+        tone: "agent",
+        label: "Your Assistant",
+        text: "Goedemorgen. 3 dingen die aandacht nodig hebben:",
       },
       {
         tone: "agent",
         label: "Your Assistant",
-        text: "Ik kan je hiermee helpen. Voor ik een ticket maak: wat is je klantnummer en welk e-mailadres gebruik je om in te loggen?",
-      },
-      {
-        tone: "user",
-        label: "Klant",
-        text: "Klantnummer AC-2041. Mail is info@bedrijf.nl. Reset lukt nu wel.",
+        text: "1) Een klantreply staat klaar en wacht op jouw approval.",
       },
       {
         tone: "agent",
         label: "Your Assistant",
-        text: "Top - login is opgelost. De factuur mis ik nog: ik escalatieer dit naar Finance met context. Wil je dat ik je op de hoogte houd via WhatsApp?",
+        text: "2) Over 10 min start je meeting - ik heb de notities als concept toegevoegd.",
+      },
+      {
+        tone: "agent",
+        label: "Your Assistant",
+        text: "3) Factuur is betaald - ik kan de ontvangstbevestiging versturen. Wil je eerst even kijken?",
+      },
+      {
+        tone: "user",
+        label: "Jij",
+        text: "Stuur de ontvangstbevestiging. En zet die klantreply klaar voor approval.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Ticket aangemaakt (billing) • transcript toegevoegd • routed naar Finance • SLA: vandaag kantooruren",
-      },
-      {
-        tone: "agent",
-        label: "Your Assistant",
-        text: "Done. Ik ping je zodra Finance bevestigt dat de factuur opnieuw is verstuurd.",
+        text: "Receipt mail draft klaar • approval request gestuurd • meeting notes concept opgeslagen",
       },
     ],
     resultaat:
-      "✓ Login opgelost (1e lijn)\n✓ Ticket aangemaakt (billing)\n✓ Context + transcript toegevoegd\n✓ Escalatie routed naar Finance",
+      "✓ Receipt: concept klaar (versturen na approval)\n✓ Klantreply: approval flow gestart\n✓ Meeting: notities gekoppeld\n✓ Run gelogd (audit trail)",
   },
 ]
 
