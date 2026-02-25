@@ -195,19 +195,13 @@ const COMPARISON_ROWS = [
   },
 ] as const
 
-const STRANDT_WITHOUT_LINES = [
-  "$ git clone openclaw && npm run dev",
-  "✓ Demo werkt lokaal",
-  "",
-  "# Productievragen komen daarna:",
-  "ENV? webhooks? rate limits? retries?",
-  "Wie beheert secrets en rotatie?",
-  "Waar loggen we acties en approvals?",
-  "Wat gebeurt er bij exceptions of timeouts?",
-  "Wie monitort na livegang?",
-  "",
-  "Resultaat: proof-of-concept blijft hangen",
-  "tussen experiment en operatie.",
+const STRANDT_WITHOUT_POINTS = [
+  "Werkt lokaal, maar geen duidelijke owner voor productie",
+  "Secrets, ENV en permissies worden ad-hoc geregeld",
+  "Geen retries/monitoring - failures blijven liggen",
+  "Geen logging/audit - onduidelijk wat de agent deed",
+  "Geen approval gates - risico op fouten in klantcontact",
+  "Na livegang niemand die onderhoud + fixes oppakt",
 ] as const
 
 const STRANDT_WITH_MANAGED = [
@@ -341,7 +335,7 @@ const IntegrationBadge: React.FC<IntegrationBadgeProps> = ({
           />
         </>
       ) : (
-        <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
+        <span className="flex h-full w-full items-center justify-center text-center text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500 sm:text-[11px]">
           en meer
         </span>
       )}
@@ -475,12 +469,10 @@ const HomePage: React.FC = () => {
               >
                 Waar teams OpenClaw voor inzetten
               </p>
-              <p className="text-xs text-slate-500">
-                Voorbeelden van workflows en processen die we automatiseren
-              </p>
+              <p className="text-xs text-slate-500">Voorbeelden van workflows die we automatiseren</p>
             </div>
 
-            <div className="marquee-shell overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-2">
+            <div className="marquee-shell mt-6 overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-2">
               <div className="marquee-track motion-reduce:flex motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:gap-2 motion-reduce:whitespace-normal">
                 {[...WORKFLOW_MARQUEE_ITEMS, ...WORKFLOW_MARQUEE_ITEMS].map((item, index) => (
                   <span
@@ -578,12 +570,12 @@ const HomePage: React.FC = () => {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Waarom OpenClaw vaak strandt
+              Waarom AI agents in de praktijk vastlopen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              OpenClaw kan een sterke basis zijn. In de praktijk strandt het meestal niet op het model,
-              maar op implementatie, eigenaarschap en operationele inrichting. Daarom leveren wij een
-              managed implementatie die daadwerkelijk draait in jullie proces.
+              De meeste teams komen verder dan een demo. Daarna lopen AI agents vast op implementatie,
+              eigenaarschap en operationele inrichting. Daarom leveren wij een managed implementatie die
+              echt draait in jullie proces - met controls, logging en support.
             </p>
           </div>
 
@@ -591,15 +583,25 @@ const HomePage: React.FC = () => {
             <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-sm">
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
-                  Zonder managed implementatie
+                  Zonder implementatie + onderhoud
                 </p>
                 <span className="rounded-full border border-rose-300/25 bg-rose-400/10 px-2.5 py-1 text-[11px] font-medium text-rose-200">
-                  Vaak strandt dit
+                  Blijft vaak hangen
                 </span>
               </div>
-              <pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-black/20 p-4 text-xs leading-6 text-slate-200">
-                <code>{STRANDT_WITHOUT_LINES.join("\n")}</code>
-              </pre>
+              <div className="mt-4 space-y-2.5">
+                {STRANDT_WITHOUT_POINTS.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-3.5 py-3 text-sm text-slate-200"
+                  >
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-rose-300/25 bg-rose-400/10 text-[11px] font-semibold text-rose-200">
+                      ✕
+                    </span>
+                    <span className="leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
