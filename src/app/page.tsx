@@ -277,7 +277,7 @@ const StarterAgentCard: React.FC<StarterAgentCardProps> = ({
     href={href}
     className={[
       "group block rounded-xl border border-slate-200 bg-white transition-all hover:border-slate-300 hover:shadow-sm",
-      compact ? "min-w-[16.75rem] snap-start p-4" : "p-4 sm:p-5",
+      compact ? "w-[85vw] min-w-[15.5rem] max-w-[18rem] snap-start p-4" : "p-4 sm:p-5",
     ].join(" ")}
   >
     <h3 className="text-sm font-semibold leading-snug text-slate-900 group-hover:underline">
@@ -602,7 +602,7 @@ const HomePage: React.FC = () => {
 
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
                   Zonder managed implementatie
                 </p>
@@ -616,7 +616,7 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <h3 className="text-base font-semibold text-slate-900">OpenClaw draait</h3>
                 <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
                   Managed implementatie
@@ -657,8 +657,8 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="min-w-full border-separate border-spacing-0 text-left">
+          <div className="-mx-6 mt-6 overflow-x-auto px-6 sm:mx-0 sm:px-0">
+            <table className="min-w-[52rem] border-separate border-spacing-0 text-left">
               <thead>
                 <tr>
                   <th className="rounded-tl-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
@@ -831,7 +831,7 @@ const HomePage: React.FC = () => {
               Veilige defaults, duidelijke support en heldere requirements zodat je snel live kunt
               zonder controle te verliezen.
             </p>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
+            <div className="mt-5 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
               <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
               <span>
                 Remote access via <span className="text-slate-900">Tailscale</span> - versleuteld,
@@ -922,7 +922,7 @@ const HomePage: React.FC = () => {
 
       {/* CTA */}
       <section id="intake" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-14 text-white sm:px-12">
+        <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-14 text-white sm:px-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Klaar om één proces te automatiseren?
           </h2>

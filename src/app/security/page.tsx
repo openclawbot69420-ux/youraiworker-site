@@ -73,7 +73,7 @@ const securityItems = [
 const SecurityPage: React.FC = () => {
   return (
     <main className="mx-auto max-w-6xl px-4 py-20">
-      <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-8 shadow-sm sm:p-10">
+      <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
         <div className="max-w-3xl">
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
             <Shield className="h-6 w-6" aria-hidden="true" />
@@ -97,7 +97,7 @@ const SecurityPage: React.FC = () => {
                 <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
                   <item.icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h2 className="text-base font-semibold text-slate-900">{item.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">
                     {item.description}

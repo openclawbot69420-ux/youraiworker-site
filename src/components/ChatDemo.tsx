@@ -277,7 +277,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
   return (
     <div
       ref={rootRef}
-      className="h-[24rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
+      className="h-[26rem] w-full rounded-2xl border border-slate-200/20 bg-slate-950/70 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:h-[26rem] sm:p-3 lg:h-[28rem]"
     >
       <div className="relative h-full overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%),linear-gradient(180deg,#17212b,#0f172a)] p-2 sm:p-3">
         <div
@@ -301,24 +301,26 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
             </div>
           </div>
 
-          <div className="flex h-10 shrink-0 items-center gap-1.5 border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
-            {activeScenarios.map((item, index) => {
-              const active = item.title === scenario.title
-              return (
-                <span
-                  key={item.title}
-                  className={`max-w-[9rem] truncate rounded-full px-2 py-0.5 text-[10px] font-medium sm:max-w-[10.5rem] ${
-                    active
-                      ? `${skin.accentSoft} ${skin.accent}`
-                      : "border border-slate-200 bg-white text-slate-500"
-                  }`}
-                  aria-label={`Scenario ${index + 1}: ${item.title}`}
-                  title={item.title}
-                >
-                  {item.title}
-                </span>
-              )
-            })}
+          <div className="h-10 shrink-0 overflow-x-auto border-b border-black/5 bg-white/80 px-3 py-2 backdrop-blur sm:px-4">
+            <div className="flex min-w-max items-center gap-1.5">
+              {activeScenarios.map((item, index) => {
+                const active = item.title === scenario.title
+                return (
+                  <span
+                    key={item.title}
+                    className={`shrink-0 max-w-[9rem] truncate rounded-full px-2 py-0.5 text-[10px] font-medium sm:max-w-[10.5rem] ${
+                      active
+                        ? `${skin.accentSoft} ${skin.accent}`
+                        : "border border-slate-200 bg-white text-slate-500"
+                    }`}
+                    aria-label={`Scenario ${index + 1}: ${item.title}`}
+                    title={item.title}
+                  >
+                    {item.title}
+                  </span>
+                )
+              })}
+            </div>
           </div>
 
           <div className="flex min-h-0 flex-1 flex-col bg-[#e5ddd5]">
@@ -355,7 +357,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                                 />
                                 <span className="truncate font-medium">{line.emailSubject}</span>
                               </div>
-                              <p className="mt-1 text-[11px] leading-relaxed text-white/95">
+                              <p className="mt-1 break-words text-[11px] leading-relaxed text-white/95">
                                 {line.emailPreview}
                               </p>
                             </div>
@@ -377,7 +379,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                               {line.label}
                             </p>
                           ) : null}
-                          <p className="text-xs leading-relaxed sm:text-sm">{line.text}</p>
+                          <p className="break-words text-xs leading-relaxed sm:text-sm">{line.text}</p>
                           <p
                             className={`mt-1 text-right text-[10px] ${
                               line.tone === "user" ? "text-white/75" : "text-slate-400"
@@ -409,7 +411,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
                     Output (OpenClaw)
                   </p>
                   <p
-                    className={`mt-1 min-h-[3.75rem] whitespace-pre-line text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
+                    className={`mt-1 min-h-[3.75rem] whitespace-pre-line break-words text-xs leading-relaxed text-slate-900 transition-opacity duration-200 sm:text-sm ${
                       showResult ? "opacity-100" : "opacity-0"
                     }`}
                   >

@@ -146,7 +146,7 @@ export function HomeProcessRollout() {
             Kies, deel context en ga live met meetbare output.
           </p>
         </div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800">
+        <div className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800">
           <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
           Eerste rollout meestal in 3-7 werkdagen
         </div>
@@ -231,7 +231,7 @@ export function HomeProcessRollout() {
           className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-3 sm:p-4"
         >
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm shadow-slate-900/5">
-            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+            <div className="flex flex-col items-start gap-2 border-b border-slate-200 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                   {activeStep.panelTag}
@@ -254,10 +254,7 @@ export function HomeProcessRollout() {
                   {activeStep.lines.map((line) => {
                     const toneKey = line.tone ?? "default"
                     return (
-                      <div
-                        key={line.label}
-                        className="grid grid-cols-[90px_minmax(0,1fr)] items-center gap-2 text-xs"
-                      >
+                      <div key={line.label} className="grid gap-1 text-xs sm:grid-cols-[90px_minmax(0,1fr)] sm:items-center sm:gap-2">
                         <span className="text-slate-500">{line.label}</span>
                         <span className={["font-medium", toneClassMap[toneKey]].join(" ")}>
                           {line.value}
@@ -277,7 +274,7 @@ export function HomeProcessRollout() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid gap-2 sm:grid-cols-2">
                 <div className="rounded-xl border border-slate-200 bg-slate-900 px-3 py-2 text-white">
                   <div className="flex items-center gap-2 text-xs font-medium text-slate-200">
                     <Rocket className="h-3.5 w-3.5" aria-hidden="true" />
@@ -299,7 +296,7 @@ export function HomeProcessRollout() {
       </div>
 
       <details className="group mt-4 rounded-2xl border border-slate-200 bg-slate-50/60 open:bg-white">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-slate-900 [&::-webkit-details-marker]:hidden">
+        <summary className="flex cursor-pointer list-none flex-col items-start gap-2 px-4 py-3 text-sm font-medium text-slate-900 sm:flex-row sm:items-center sm:justify-between [&::-webkit-details-marker]:hidden">
           <span>Bekijk details van de 6 stappen</span>
           <span className="inline-flex items-center gap-2 text-xs text-slate-600">
             Oorspronkelijke planning

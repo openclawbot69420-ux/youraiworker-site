@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const PrivacyPage: React.FC = () => {
   return (
     <main className="mx-auto max-w-4xl px-4 py-20">
-      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacybeleid</h1>
         <p className="mt-4 text-slate-600">
           Wij respecteren je privacy en verwerken persoonsgegevens alleen wanneer dat nodig is om
@@ -97,9 +97,9 @@ const PrivacyPage: React.FC = () => {
           </a>
           <a
             href="mailto:Openclawbot69420@gmail.com"
-            className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
+            className="inline-flex w-full items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
           >
-            Openclawbot69420@gmail.com
+            <span className="break-all">Openclawbot69420@gmail.com</span>
           </a>
         </div>
       </section>
