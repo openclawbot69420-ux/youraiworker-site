@@ -16,121 +16,94 @@ export type DashboardDemoScenario = {
 
 export const HOMEPAGE_SCENARIOS: DashboardDemoScenario[] = [
   {
-    title: "Inbox triage",
+    title: "Schedule + share",
     channel: "WhatsApp",
-    status: "Inbox triage + draft",
+    status: "Calendar + file",
     bubbles: [
       {
         tone: "user",
-        label: "Jij",
-        text: "Kun je die offerte-mail van vanochtend triagen en een reply draft maken?",
+        text: "Plan 30 min met Sara morgen en stuur haar de proposal deck.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "Check. Welke tone of voice wil je (formeel / direct / vriendelijk) en wil je dat ik meteen 2 follow-up vragen toevoeg?",
+        text: "Top. Welke tijden passen (ochtend/middag) en wil je dat ik een agenda-invite of alleen een voorstel stuur?",
       },
       {
         tone: "user",
-        label: "Jij",
-        text: "Zakelijk en direct. Voeg 2 vragen toe: deadline + of ze al een CRM gebruiken.",
+        text: "Middag. Stuur invite.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "Gedaan. Ik heb 1 draft klaargezet in Gmail. Wil je eerst approval, of mag ik bij dit soort leads automatisch drafts maken?",
+        text: "Done ✅ Meeting staat om 15:30. Deck is verstuurd. Ik ping je als Sara verplaatst.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Lead herkend (P1) • draft opgeslagen in Gmail • follow-up reminder +24u • lead entry gelogd",
-      },
-      {
-        tone: "agent",
-        label: "Your Assistant",
-        text: "Als je wilt, kan ik ook de lead meteen aan Sales toewijzen en een taak aanmaken voor morgen.",
+        text: "Invite verstuurd • deck gedeeld • status gelogd",
       },
     ],
-    resultaat:
-      "✓ Gmail: reply draft klaar (wacht op approval)\n✓ Lead gelogd (CRM/Sheet)\n✓ Follow-up reminder gepland (+24u)\n✓ Run gelogd (audit trail)",
+    resultaat: "",
   },
   {
-    title: "Lead intake",
+    title: "Follow-ups, logged",
     channel: "WhatsApp",
-    status: "Kwalificatie + routing",
+    status: "Sales follow-up",
     bubbles: [
       {
         tone: "user",
-        label: "Lead",
-        text: "Hoi! Wij willen AI inzetten voor support en sales. Kunnen jullie helpen?",
+        text: "Nudge de B2B lead en log vandaag de call notes in HubSpot.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "Ja. 3 snelle vragen zodat ik je direct goed route: (1) teamgrootte, (2) welke tools (Gmail/WhatsApp/CRM), (3) wanneer wil je live?",
+        text: "Welke lead bedoel je (bedrijfsnaam) en welke tone of voice wil je voor de follow-up?",
       },
       {
         tone: "user",
-        label: "Lead",
-        text: "Support 10 mensen. Sales in HubSpot. Liefst binnen 4 weken live.",
+        text: "Dubai lead. Zakelijk en kort.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "Top. Dit is een goede fit. Wil je dat ik 2 intake-slots voorstel (morgen/overmorgen) of stuur ik eerst een indicatie van scope + vanafprijs?",
+        text: "Done ✅ Follow-up is verstuurd. HubSpot is bijgewerkt. Reminder staat voor vrijdag.",
       },
       {
         tone: "meta",
         label: "Acties",
-        text: "Leadscore berekend • samenvatting opgeslagen • status: Qualified • intake-slots klaargezet",
-      },
-      {
-        tone: "user",
-        label: "Lead",
-        text: "Stuur eerst een indicatie en daarna slots.",
+        text: "Follow-up verstuurd • CRM bijgewerkt • reminder gepland",
       },
     ],
-    resultaat:
-      "✓ Leadscore + samenvatting opgeslagen\n✓ Status: Qualified\n✓ Indicatie-bericht klaar voor verzending\n✓ Intake-slots voorgesteld",
+    resultaat: "",
   },
   {
     title: "Proactive updates",
     channel: "WhatsApp",
-    status: "Proactive briefing",
+    status: "Briefing",
     bubbles: [
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "Goedemorgen. 3 dingen die aandacht nodig hebben:",
+        text: "3 updates:",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "1) Een klantreply staat klaar en wacht op jouw approval.",
+        text: "1) Klantreply wacht op approval.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "2) Over 10 min start je meeting - ik heb de notities als concept toegevoegd.",
+        text: "2) Meeting in 10 min - notities toegevoegd.",
       },
       {
         tone: "agent",
-        label: "Your Assistant",
-        text: "3) Factuur is betaald - ik kan de ontvangstbevestiging versturen. Wil je eerst even kijken?",
+        text: "3) Factuur betaald - receipt kan eruit.",
       },
       {
         tone: "user",
-        label: "Jij",
-        text: "Stuur de ontvangstbevestiging. En zet die klantreply klaar voor approval.",
+        text: "Stuur approval request.",
       },
       {
-        tone: "meta",
-        label: "Acties",
-        text: "Receipt mail draft klaar • approval request gestuurd • meeting notes concept opgeslagen",
+        tone: "agent",
+        text: "Done ✅ Approval request is verstuurd.",
       },
     ],
-    resultaat:
-      "✓ Receipt: concept klaar (versturen na approval)\n✓ Klantreply: approval flow gestart\n✓ Meeting: notities gekoppeld\n✓ Run gelogd (audit trail)",
+    resultaat: "",
   },
 ]
 
