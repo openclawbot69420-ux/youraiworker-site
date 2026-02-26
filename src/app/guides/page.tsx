@@ -4,6 +4,26 @@ import type { LucideIcon } from "lucide-react"
 export const metadata: Metadata = {
   title: "Handleidingen",
   description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
+  alternates: {
+    canonical: "https://youraiworker.nl/guides",
+  },
+  openGraph: {
+    title: "Handleidingen voor AI-agents | Your AI Worker",
+    description: "Praktische stappenplannen voor scope, approvals, testen, security en go-live van AI-agents.",
+    url: "https://youraiworker.nl/guides",
+    images: [
+      {
+        url: "/og.png",
+        alt: "Your AI Worker handleidingen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI-agent handleidingen | Your AI Worker",
+    description: "Concrete guides voor workflow implementatie, approvals en beveiliging.",
+    images: ["/og.png"],
+  },
 }
 
 import { GUIDES } from "../../lib/catalog"
