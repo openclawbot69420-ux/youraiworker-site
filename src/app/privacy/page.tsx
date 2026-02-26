@@ -96,10 +96,10 @@ const PrivacyPage: React.FC = () => {
             Naar contact
           </a>
           <a
-            href="mailto:Openclawbot69420@gmail.com"
+            href="mailto:info@youraiworker.nl"
             className="inline-flex w-full items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
           >
-            <span className="break-all">Openclawbot69420@gmail.com</span>
+            <span className="break-all">info@youraiworker.nl</span>
           </a>
         </div>
       </section>
