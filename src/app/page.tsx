@@ -396,7 +396,7 @@ const HomePage: React.FC = () => {
                 href="/contact"
                 className="rounded-lg border border-slate-300 px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
               >
-                Vraag een voorstel aan
+                Bekijk tarieven
               </a>
             </div>
           </div>
@@ -839,8 +839,8 @@ const HomePage: React.FC = () => {
               </div>
               <div className="mt-5 space-y-2.5">
                 {[
-                  "Least privilege per integratie",
-                  "Secrets management",
+                  "Alleen toegang tot wat echt nodig is",
+                  "Beveiligde API-keys",
                   "Logging en traceability",
                   "Omgevingsscheiding waar nodig",
                 ].map((item) => (
@@ -888,7 +888,7 @@ const HomePage: React.FC = () => {
               </div>
               <ul className="mt-5 space-y-2.5 text-sm text-slate-700">
                 {[
-                  "Accounts en toegang met least-privilege rechten en scopes",
+                  "Accounts met toegang tot alleen wat nodig is",
                   "Realistische testcases voor gedrag en uitzonderingen",
                   "Een owner voor approvals tijdens build, review en go-live",
                 ].map((item) => (
