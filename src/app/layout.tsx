@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Github, Linkedin, MapPin, Lock, LifeBuoy } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
+import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
@@ -139,6 +140,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <Header />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   )
