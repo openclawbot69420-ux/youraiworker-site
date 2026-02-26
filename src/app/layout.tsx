@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, MapPin, Lock, LifeBuoy } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "./jsonld"
@@ -173,6 +173,25 @@ const Header: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-slate-200/70 bg-slate-50/80">
+      {/* Trust indicators bar */}
+      <div className="border-b border-slate-200/70 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 sm:gap-8">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              Gevestigd in Nederland
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Lock className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              Security-first opzet
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              48u warranty + 2 weken support
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="mx-auto max-w-6xl px-4 py-12 text-sm text-slate-600">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
