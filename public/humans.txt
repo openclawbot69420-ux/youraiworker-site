@@ -1,0 +1,30 @@
+# humanstxt.org/
+# The humans behind Your AI Worker
+
+/* TEAM */
+
+    Founder: Mees
+    Role: Entrepreneur, product strategy
+    Location: Amsterdam, The Netherlands
+    Contact: info@youraiworker.nl
+
+    Technical Partner: Tieko
+    Role: Systems, infrastructure
+    Location: The Netherlands
+
+    AI Agent: ONYX
+    Role: Development assistant, content review
+    From: OpenClaw
+
+/* THANKS */
+
+    To every client who trusted us with their workflow automation.
+
+/* SITE */
+
+    Last update: 2026-02-27
+    Standards: HTML5, CSS3, TypeScript
+    Components: Next.js, React, Tailwind CSS
+    Software: Node.js, OpenClaw
+    Language: Dutch (nl-NL)
+    Doctype: Strict mode

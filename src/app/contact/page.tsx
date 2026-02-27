@@ -1,5 +1,13 @@
 import type { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
+import { buildBreadcrumbJsonLd } from "../jsonld"
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+  { name: "Contact", url: "https://youraiworker.nl/contact" },
+])
+
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,7 +36,9 @@ export const metadata: Metadata = {
 
 const ContactPage: React.FC = () => {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-20">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      <section className="mx-auto max-w-3xl px-4 py-20">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Contact</h1>
       <p className="mt-4 text-slate-600">
         Plan een intake, stel een vraag, of vraag een voorstel aan. Je krijgt binnen 24 uur reactie.
