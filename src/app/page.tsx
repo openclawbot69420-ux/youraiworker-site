@@ -11,6 +11,7 @@ import {
 
 import { ChatDemo } from "../components/ChatDemo"
 import { HomeProcessRollout } from "../components/HomeProcessRollout"
+import { Testimonials } from "../components/Testimonials"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
@@ -711,6 +712,9 @@ const HomePage: React.FC = () => {
           </p>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* What We Deliver */}
       <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
