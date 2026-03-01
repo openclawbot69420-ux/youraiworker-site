@@ -578,7 +578,7 @@ const HomePage: React.FC = () => {
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
               De meeste teams komen verder dan een demo. Daarna lopen AI agents vast op implementatie,
               eigenaarschap en operationele inrichting. Daarom leveren wij een managed implementatie die
-              echt draait in jullie proces - met controls, logging en support.
+              echt draait in jullie proces - met controls, logging, support en een duidelijke overdracht.
             </p>
           </div>
 
