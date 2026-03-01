@@ -278,7 +278,7 @@ const Footer: React.FC = () => {
               info@youraiworker.nl
             </a>
             <span className="text-[11px] text-slate-300">
-              KvK en btw-nummer delen we na intake
+              KvK: 95290475 · BTW: NL8677.15.849.B01
             </span>
           </p>
         </div>
