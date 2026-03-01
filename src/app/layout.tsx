@@ -279,7 +279,7 @@ const Footer: React.FC = () => {
               info@youraiworker.nl
             </a>
             <span className="text-[11px] text-slate-300">
-              KvK: 95290475 · BTW: NL8677.15.849.B01
+              KvK: 95290475 - BTW: NL8677.15.849.B01
             </span>
           </p>
         </div>
