@@ -382,9 +382,8 @@ const HomePage: React.FC = () => {
               AI-agents die operationeel werk verlagen en opvolging versnellen.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-            Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
-            <strong className="text-slate-900">Vanaf €1.000 eenmalig</strong>.{" "}
-            Geen maandelijkse kosten verplicht.
+              Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
+              <strong className="text-slate-900"> Vanaf €1.000 eenmalig</strong>. Geen maandelijkse kosten verplicht.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
