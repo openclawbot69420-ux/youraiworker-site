@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
     creator: "@youraiworker",
+    site: "@youraiworker",
   },
   other: {
     "application-name": SITE_NAME,
@@ -66,6 +67,9 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-status-bar-style": "default",
     "msapplication-TileColor": "#0f172a",
   },
+  authors: [{ name: "Your AI Worker" }],
+  creator: "Your AI Worker",
+  publisher: "Your AI Worker",
   icons: {
     icon: [
       { url: "/favicon.ico" },
