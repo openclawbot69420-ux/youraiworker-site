@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Building2 } from "lucide-react"
 import { ContactForm } from "./ContactForm"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 
@@ -79,6 +80,15 @@ const ContactPage: React.FC = () => {
             </a>
           </div>
         </div>
+      </div>
+      {/* Trust indicator */}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
+        <span className="inline-flex items-center gap-1.5">
+          <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
+          KvK: 95290475
+        </span>
+        <span className="hidden sm:inline text-slate-300">|</span>
+        <span>BTW: NL8677.15.849.B01</span>
       </div>
     </section>
   </>
