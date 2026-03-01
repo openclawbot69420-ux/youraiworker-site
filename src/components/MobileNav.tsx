@@ -18,6 +18,21 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
+    if (!isOpen) return
+
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("keydown", handler)
+    return () => {
+      document.removeEventListener("keydown", handler)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
     if (!isOpen) {
       document.body.classList.remove("overflow-hidden")
       return
