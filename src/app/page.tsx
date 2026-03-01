@@ -394,7 +394,7 @@ const HomePage: React.FC = () => {
                 Plan een intake (20 min)
               </a>
               <a
-                href="/contact"
+                href="/pricing"
                 className="rounded-lg border border-slate-300 px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
               >
                 Bekijk tarieven
