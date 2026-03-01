@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
+    creator: "@youraiworker",
   },
   other: {
     "application-name": SITE_NAME,
