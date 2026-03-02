@@ -1,8 +1,4 @@
-# https://www.robotstxt.org/
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /404
 
 Sitemap: https://youraiworker.nl/sitemap.xml
