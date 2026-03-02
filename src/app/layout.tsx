@@ -282,6 +282,12 @@ const Footer: React.FC = () => {
             >
               info@youraiworker.nl
             </a>
+            <a
+              className="text-[11px] text-slate-300 transition-colors hover:text-slate-500"
+              href="/privacy"
+            >
+              Privacybeleid
+            </a>
             <span className="text-[11px] text-slate-300">
               KvK: 95290475 - BTW: NL8677.15.849.B01
             </span>
