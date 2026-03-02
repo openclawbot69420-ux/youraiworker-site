@@ -35,6 +35,9 @@ export const metadata: Metadata = {
       nl: `${SITE_URL}/`,
       "x-default": `${SITE_URL}/`,
     },
+    types: {
+      "application/rss+xml": `${SITE_URL}/guides/rss.xml`,
+    },
   },
   openGraph: {
     type: "website",
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: SITE_NAME,
+        alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
       },
     ],
   },
@@ -58,6 +61,7 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
   },
+
   other: {
     "application-name": SITE_NAME,
     "apple-mobile-web-app-title": SITE_NAME,
