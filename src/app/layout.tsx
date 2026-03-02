@@ -72,7 +72,6 @@ export const metadata: Metadata = {
   publisher: "Your AI Worker",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
       { url: "/icon.svg", type: "image/svg+xml" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
@@ -131,7 +130,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   return (
     <html lang="nl">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
