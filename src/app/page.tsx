@@ -387,6 +387,12 @@ const HomePage: React.FC = () => {
             </p>
             <p className="mt-3 max-w-xl text-sm text-slate-500">
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
+              <span className="ml-1.5 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
+                KvK 95290475
+              </span>
+              <span className="ml-2 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
+                Amsterdam
+              </span>
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
