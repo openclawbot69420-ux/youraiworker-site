@@ -365,7 +365,7 @@ const Footer: React.FC = () => {
               Privacybeleid
             </a>
             <span className="text-[11px] text-slate-300">
-              KvK: 95290475 | BTW: NL8677.15.849.B01
+              KvK: 95290475 | BTW: NL8677.15.849.B01 | <a className="underline underline-offset-2 transition-colors hover:text-slate-500" href="/security">Security</a>
             </span>
           </p>
         </div>
