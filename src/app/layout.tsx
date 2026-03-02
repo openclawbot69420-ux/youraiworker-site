@@ -92,24 +92,30 @@ export const metadata: Metadata = {
 type NavItem = {
   href: string
   label: string
+  title?: string
   external?: boolean
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/use-cases", label: "Toepassingen" },
-  { href: "/integrations", label: "Integraties" },
-  { href: "/implementatie", label: "Implementatie" },
-  { href: "/pricing", label: "Prijzen" },
-  { href: "/contact", label: "Contact" },
-  { href: "/security", label: "Beveiliging" },
+  { href: "/use-cases", label: "Toepassingen", title: "Bekijk toepassingen" },
+  { href: "/integrations", label: "Integraties", title: "Bekijk integraties" },
+  { href: "/implementatie", label: "Implementatie", title: "Lees hoe implementatie werkt" },
+  { href: "/pricing", label: "Prijzen", title: "Bekijk prijzen" },
+  { href: "/contact", label: "Contact", title: "Neem contact op" },
+  { href: "/security", label: "Beveiliging", title: "Lees over beveiliging" },
   {
     href: "https://github.com/openclawbot69420-ux/youraiworker-site",
     label: "GitHub",
+    title: "Bekijk de repository op GitHub",
     external: true,
   },
 ]
 
-const HEADER_CTA: NavItem = { href: "/contact", label: "Plan een intake" }
+const HEADER_CTA: NavItem = {
+  href: "/contact",
+  label: "Plan een intake",
+  title: "Plan een intakegesprek",
+}
 
 const buildNavHref = (item: NavItem) => {
   if (!item.external) return item.href
@@ -166,7 +172,11 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a href="/" className="text-lg font-semibold tracking-tight text-slate-900">
+        <a
+          href="/"
+          title="Your AI Worker - terug naar home"
+          className="text-lg font-semibold tracking-tight text-slate-900"
+        >
           Your AI Worker
         </a>
         <MobileNav items={NAV_ITEMS} cta={HEADER_CTA} />
@@ -179,6 +189,7 @@ const Header: React.FC = () => {
                 key={item.href}
                 className="hover:text-slate-900 transition-colors"
                 href={href}
+                title={item.title}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noreferrer" : undefined}
               >
@@ -189,6 +200,7 @@ const Header: React.FC = () => {
           <a
             className="rounded-lg bg-slate-900 px-4 py-2 text-white hover:bg-slate-800 transition-colors"
             href={HEADER_CTA.href}
+            title={HEADER_CTA.title}
           >
             {HEADER_CTA.label}
           </a>
@@ -234,6 +246,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
+                title="Volg ons op LinkedIn"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
               >
                 <Linkedin className="h-4 w-4" aria-hidden="true" />
@@ -243,6 +256,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
+                title="Bekijk de code op GitHub"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
               >
                 <Github className="h-4 w-4" aria-hidden="true" />
@@ -255,19 +269,39 @@ const Footer: React.FC = () => {
               Navigatie
             </p>
             <div className="mt-4 flex flex-col gap-3">
-              <a className="transition-colors hover:text-slate-900" href="/use-cases">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/use-cases"
+                title="Bekijk toepassingen"
+              >
                 Toepassingen
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/integrations">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/integrations"
+                title="Bekijk integraties"
+              >
                 Integraties
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/implementatie">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/implementatie"
+                title="Lees hoe implementatie werkt"
+              >
                 Implementatie
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/pricing">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/pricing"
+                title="Bekijk prijzen"
+              >
                 Prijzen
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/contact">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/contact"
+                title="Neem contact op"
+              >
                 Contact
               </a>
             </div>
@@ -278,16 +312,32 @@ const Footer: React.FC = () => {
               Bedrijf
             </p>
             <div className="mt-4 flex flex-col gap-3">
-              <a className="transition-colors hover:text-slate-900" href="/security">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/security"
+                title="Lees over beveiliging"
+              >
                 Beveiliging
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/privacy">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/privacy"
+                title="Lees het privacybeleid"
+              >
                 Privacy
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/guides">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/guides"
+                title="Bekijk handleidingen"
+              >
                 Handleidingen
               </a>
-              <a className="transition-colors hover:text-slate-900" href="/contact">
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/contact"
+                title="Plan een intakegesprek"
+              >
                 Plan een intake
               </a>
             </div>
