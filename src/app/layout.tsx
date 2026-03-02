@@ -95,6 +95,7 @@ export const metadata: Metadata = {
 type NavItem = {
   href: string
   label: string
+  external?: boolean
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -104,9 +105,22 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/pricing", label: "Prijzen" },
   { href: "/contact", label: "Contact" },
   { href: "/security", label: "Beveiliging" },
+  {
+    href: "https://github.com/openclawbot69420-ux/youraiworker-site",
+    label: "GitHub",
+    external: true,
+  },
 ]
 
 const HEADER_CTA: NavItem = { href: "/contact", label: "Plan een intake" }
+
+const buildNavHref = (item: NavItem) => {
+  if (!item.external) return item.href
+
+  const url = new URL(item.href)
+
+  return `${url.pathname}${url.search}${url.hash}`
+}
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
@@ -160,11 +174,21 @@ const Header: React.FC = () => {
         </a>
         <MobileNav items={NAV_ITEMS} cta={HEADER_CTA} />
         <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
-          {NAV_ITEMS.map((item) => (
-            <a key={item.href} className="hover:text-slate-900 transition-colors" href={item.href}>
-              {item.label}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const href = buildNavHref(item)
+
+            return (
+              <a
+                key={item.href}
+                className="hover:text-slate-900 transition-colors"
+                href={href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
+              >
+                {item.label}
+              </a>
+            )
+          })}
           <a
             className="rounded-lg bg-slate-900 px-4 py-2 text-white hover:bg-slate-800 transition-colors"
             href={HEADER_CTA.href}
