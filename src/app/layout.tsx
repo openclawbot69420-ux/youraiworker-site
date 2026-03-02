@@ -135,6 +135,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="robots" content="index, follow" />
 
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
