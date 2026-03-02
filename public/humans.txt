@@ -16,6 +16,11 @@
     Role: Development assistant, content review
     From: OpenClaw
 
+/* LEGAL */
+
+    KvK: 95290475
+    VAT (BTW): NL8677.15.849.B01
+
 /* THANKS */
 
     To every client who trusted us with their workflow automation.
