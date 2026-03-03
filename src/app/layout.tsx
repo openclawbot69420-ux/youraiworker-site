@@ -68,6 +68,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "msapplication-TileColor": "#0f172a",
+    "msapplication-config": "/browserconfig.xml",
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
