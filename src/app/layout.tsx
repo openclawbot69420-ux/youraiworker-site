@@ -9,7 +9,7 @@ const SITE_NAME = "Your AI Worker"
 const SITE_URL = "https://youraiworker.nl"
 const DEFAULT_TITLE = "Productierijpe AI-agents voor je organisatie"
 const DEFAULT_DESCRIPTION =
-  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
+  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 export const metadata: Metadata = {
   title: {
