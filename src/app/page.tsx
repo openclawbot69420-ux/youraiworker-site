@@ -199,10 +199,10 @@ const COMPARISON_ROWS = [
 const STRANDT_WITHOUT_POINTS = [
   "Werkt lokaal, maar geen duidelijke owner voor productie",
   "Secrets, ENV en permissies worden ad-hoc geregeld",
-  "Geen retries/monitoring - failures blijven liggen",
-  "Geen logging/audit - onduidelijk wat de agent deed",
+  "Geen retries en monitoring - failures blijven liggen",
+  "Geen logging en audit - onduidelijk wat de agent deed",
   "Geen approval gates - risico op fouten in klantcontact",
-  "Na livegang niemand die onderhoud + fixes oppakt",
+  "Na livegang niemand die onderhoud en fixes oppakt",
 ] as const
 
 const STRANDT_WITH_MANAGED = [
