@@ -356,10 +356,14 @@ export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
   description:
     "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Your AI Worker - AI-agents voor je organisatie",
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+    url: "/",
     images: ["/og.png"],
   },
   twitter: {
