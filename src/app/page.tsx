@@ -12,6 +12,7 @@ import {
 import { ChatDemo } from "../components/ChatDemo"
 import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { Testimonials } from "../components/Testimonials"
+import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 
 const INTEGRATION_ITEMS = [
@@ -388,10 +389,12 @@ const HomePage: React.FC = () => {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
               Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
               <strong className="text-slate-900"> Vanaf €1.000 eenmalig</strong> (excl. btw). Geen maandelijkse kosten.
+              <span className="sr-only"> Prijzen zijn vanaf en afhankelijk van scope en integraties.</span>
               <span className="sr-only"> Plan een intake om te zien welke workflow het meeste oplevert.</span>
             </p>
             <p className="mt-3 max-w-xl text-sm text-slate-500">
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
+              <span className="sr-only"> Inclusief duidelijke acceptatiecriteria en nazorg binnen de afgesproken supportperiode.</span>
               <span className="ml-1.5 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
                 KvK 95290475
               </span>
@@ -730,6 +733,9 @@ const HomePage: React.FC = () => {
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* FAQ */}
+      <HomeFaq />
 
       {/* What We Deliver */}
       <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
