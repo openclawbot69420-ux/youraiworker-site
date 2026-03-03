@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Github, Linkedin, MapPin, Lock, LifeBuoy } from "lucide-react"
+import { Github, Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
@@ -359,23 +359,32 @@ const Footer: React.FC = () => {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
-          <p className="flex flex-col gap-1 text-right">
-            <a
-              className="transition-colors hover:text-slate-600"
-              href="mailto:info@youraiworker.nl"
-            >
-              info@youraiworker.nl
-            </a>
-            <a
-              className="text-[11px] text-slate-300 transition-colors hover:text-slate-500"
-              href="/privacy"
-            >
-              Privacybeleid
-            </a>
-            <span className="text-[11px] text-slate-300">
-              KvK: 95290475 | BTW: NL8677.15.849.B01 | <a className="underline underline-offset-2 transition-colors hover:text-slate-500" href="/security">Security</a>
-            </span>
-          </p>
+          <div className="flex flex-col gap-3 text-right">
+            <p className="inline-flex items-center justify-end gap-1.5 text-[11px] text-slate-400">
+              <ShieldCheck className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
+              <a
+                className="underline underline-offset-2 transition-colors hover:text-slate-500"
+                href="/security"
+                title="Lees over beveiliging"
+              >
+                Security-first
+              </a>
+              <span className="text-slate-300">|</span>
+              <a
+                className="underline underline-offset-2 transition-colors hover:text-slate-500"
+                href="/privacy"
+                title="Lees het privacybeleid"
+              >
+                Privacy
+              </a>
+            </p>
+            <p className="flex flex-col gap-1">
+              <a className="transition-colors hover:text-slate-600" href="mailto:info@youraiworker.nl">
+                info@youraiworker.nl
+              </a>
+              <span className="text-[11px] text-slate-300">KvK: 95290475 | BTW: NL8677.15.849.B01</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
