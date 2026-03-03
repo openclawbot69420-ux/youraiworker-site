@@ -16,7 +16,7 @@ const TESTIMONIALS = [
     size: "8 personeel",
   },
   {
-    quote: "De heldere scope en 48u warranty gaven ons vertrouwen om te starten. Nu rollen we stap voor stap meer workflows uit.",
+    quote: "De heldere scope en 48 uur warranty gaven ons vertrouwen om te starten. Nu rollen we stap voor stap meer workflows uit.",
     author: "Thomas",
     role: "Eigenaar",
     company: "Adviesbureau",
