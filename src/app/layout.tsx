@@ -9,7 +9,7 @@ const SITE_NAME = "Your AI Worker"
 const SITE_URL = "https://youraiworker.nl"
 const DEFAULT_TITLE = "Productierijpe AI-agents voor je organisatie"
 const DEFAULT_DESCRIPTION =
-  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live."
+  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Productierijp, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +61,11 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
     creator: "@youraiworker",
+  },
+  verification: {
+    // Add verification tokens here when available.
+    // google: "...",
+    // other: { "msvalidate.01": "..." },
   },
 
   other: {
