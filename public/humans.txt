@@ -13,7 +13,7 @@
     Location: The Netherlands
 
     AI Agent: ONYX
-    Role: Development assistant, content review
+    Role: Development assistant
     From: OpenClaw
 
 /* LEGAL */
