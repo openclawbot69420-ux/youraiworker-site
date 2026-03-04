@@ -3,7 +3,7 @@ import { Github, Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck } from "lucide-re
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
-import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "./jsonld"
+import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
 const SITE_NAME = "Your AI Worker"
 const SITE_URL = "https://youraiworker.nl"
@@ -143,6 +143,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
 
   const orgJsonLd = buildOrganizationJsonLd()
   const websiteJsonLd = buildWebSiteJsonLd()
+  const serviceJsonLd = buildServiceJsonLd()
 
   return (
     <html lang="nl">
@@ -169,6 +170,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">

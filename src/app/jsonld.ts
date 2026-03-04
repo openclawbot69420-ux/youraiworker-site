@@ -1,6 +1,15 @@
-import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList } from "schema-dts"
+import type {
+  WithContext,
+  Organization,
+  WebSite,
+  ContactPoint,
+  ListItem,
+  BreadcrumbList,
+} from "schema-dts"
 
-export const buildBreadcrumbJsonLd = (items: Array<{ name: string; url: string }>): WithContext<BreadcrumbList> => {
+export const buildBreadcrumbJsonLd = (
+  items: Array<{ name: string; url: string }>
+): WithContext<BreadcrumbList> => {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -59,5 +68,25 @@ export const buildWebSiteJsonLd = (): WithContext<WebSite> => {
     name: "Your AI Worker",
     url: "https://youraiworker.nl/",
     inLanguage: "nl-NL",
+  }
+}
+
+export const buildServiceJsonLd = (): Record<string, unknown> => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI-agents op maat (implementatie)",
+    provider: {
+      "@type": "Organization",
+      name: "Your AI Worker",
+      url: "https://youraiworker.nl/",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Netherlands",
+    },
+    serviceType: "AI agent implementation",
+    description:
+      "Maatwerk AI-agents die processen automatiseren. Security-first opzet, integraties en begeleiding van intake tot livegang.",
   }
 }
