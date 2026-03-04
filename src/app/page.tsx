@@ -198,7 +198,7 @@ const COMPARISON_ROWS = [
 ] as const
 
 const STRANDT_WITHOUT_POINTS = [
-  "Werkt lokaal, maar geen duidelijke owner voor productie",
+  "Werkt lokaal, maar geen duidelijke eigenaar voor productie",
   "Secrets, ENV en permissies worden ad-hoc geregeld",
   "Geen retries en monitoring - failures blijven liggen",
   "Geen logging en audit - onduidelijk wat de agent deed",
@@ -857,7 +857,7 @@ const HomePage: React.FC = () => {
               <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
               <span>
                 Remote access via <span className="text-slate-900">Tailscale</span> - versleuteld,
-                identity-based, geen open poorten.
+                identity-based en geen open poorten.
               </span>
             </div>
           </div>
