@@ -13,6 +13,7 @@ const DEFAULT_DESCRIPTION =
 
 const DEFAULT_OG_IMAGE = "/og.png"
 const CONTACT_PHONE = "+31 6 12345678"
+const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
 
@@ -162,7 +163,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta name="contact" content="mailto:info@youraiworker.nl" />
+        <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
         <meta name="telephone" content={CONTACT_PHONE} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -395,8 +396,11 @@ const Footer: React.FC = () => {
               </a>
             </p>
             <p className="flex flex-col gap-1">
-              <a className="transition-colors hover:text-slate-600" href="mailto:info@youraiworker.nl">
-                info@youraiworker.nl
+              <a
+                className="transition-colors hover:text-slate-600"
+                href={`mailto:${CONTACT_EMAIL}`}
+              >
+                {CONTACT_EMAIL}
               </a>
               <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
                 {CONTACT_PHONE}
