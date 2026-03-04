@@ -60,6 +60,7 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
     images: ["/og.png"],
+    creator: "@youraiworker",
   },
   verification: {
     // Add verification tokens here when available.
