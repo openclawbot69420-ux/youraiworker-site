@@ -126,8 +126,8 @@ const NAV_ITEMS: NavItem[] = [
 
 const HEADER_CTA: NavItem = {
   href: "/contact",
-  label: "Plan een intake",
-  title: "Plan een intakegesprek",
+  label: "Plan een intake (20 min)",
+  title: "Plan een intakegesprek van 20 minuten",
 }
 
 const buildNavHref = (item: NavItem) => {
