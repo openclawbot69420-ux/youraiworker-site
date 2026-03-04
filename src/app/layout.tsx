@@ -11,6 +11,8 @@ const DEFAULT_TITLE = "Productierijpe AI-agents voor je organisatie"
 const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
+const DEFAULT_OG_IMAGE = "/og.png"
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/`,
     images: [
       {
-        url: "/og.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
-    images: ["/og.png"],
+    images: [DEFAULT_OG_IMAGE],
     creator: "@youraiworker",
   },
   verification: {
@@ -90,6 +92,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
+  category: "technology",
   robots: {
     index: true,
     follow: true,
