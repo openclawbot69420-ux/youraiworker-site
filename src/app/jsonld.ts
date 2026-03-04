@@ -28,6 +28,7 @@ export const buildOrganizationJsonLd = (): WithContext<Organization> => {
     email: "info@youraiworker.nl",
     contactType: "customer service",
     availableLanguage: ["Dutch", "English"],
+    url: "https://youraiworker.nl/contact",
   }
 
   return {
