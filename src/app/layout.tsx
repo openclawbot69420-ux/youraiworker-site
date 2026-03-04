@@ -62,7 +62,6 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
-    creator: "@youraiworker",
   },
   verification: {
     // Add verification tokens here when available.

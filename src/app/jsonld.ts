@@ -37,7 +37,7 @@ export const buildOrganizationJsonLd = (): WithContext<Organization> => {
     legalName: "Your AI Worker",
     url: "https://youraiworker.nl/",
     logo: "https://youraiworker.nl/icon-512.png",
-    sameAs: ["https://www.linkedin.com/company/youraiworker"],
+    sameAs: ["https://github.com/openclawbot69420-ux/youraiworker-site"],
     contactPoint,
     address: {
       "@type": "PostalAddress",
