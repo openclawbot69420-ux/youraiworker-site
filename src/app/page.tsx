@@ -395,13 +395,21 @@ const HomePage: React.FC = () => {
             <p className="mt-3 max-w-xl text-sm text-slate-500">
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
               <span className="sr-only"> Inclusief duidelijke acceptatiecriteria en nazorg binnen de afgesproken supportperiode.</span>
-              <span className="ml-1.5 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                KvK 95290475
-              </span>
-              <span className="ml-2 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                Amsterdam
-              </span>
             </p>
+            <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
+                <span className="text-slate-500">KvK</span>
+                <span className="text-slate-900">95290475</span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
+                <span className="text-slate-500">BTW</span>
+                <span className="text-slate-900">NL8677.15.849.B01</span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
+                <span className="text-slate-500">Locatie</span>
+                <span className="text-slate-900">Amsterdam</span>
+              </div>
+            </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="/contact"
