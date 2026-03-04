@@ -2,7 +2,7 @@ import { Quote } from "lucide-react"
 
 const TESTIMONIALS = [
   {
-    quote: "We automationseverwachting was 3 maanden. Binnen 5 dagen hadden we onze eerste agent live voor inbox triage.",
+    quote: "Onze automatiseringsverwachting was 3 maanden. Binnen 5 dagen hadden we onze eerste agent live voor inbox triage.",
     author: "Martijn",
     role: "Operations Manager",
     company: "B2B Agency",
