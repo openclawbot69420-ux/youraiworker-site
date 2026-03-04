@@ -602,9 +602,9 @@ const HomePage: React.FC = () => {
               Waarom AI agents in de praktijk vastlopen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              De meeste teams komen verder dan een demo. Daarna lopen AI agents vast op implementatie,
+              De meeste teams komen verder dan een demo. Daarna lopen AI-agents vast op implementatie,
               eigenaarschap en operationele inrichting. Daarom leveren wij een managed implementatie die
-              echt draait in jullie proces - met controls, logging, support en een duidelijke overdracht.
+              echt draait in jullie proces, met controls, logging, support en een duidelijke overdracht.
             </p>
           </div>
 
