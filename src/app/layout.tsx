@@ -12,6 +12,7 @@ const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 const DEFAULT_OG_IMAGE = "/og.png"
+const CONTACT_PHONE = "+31 6 12345678"
 
 export const metadata: Metadata = {
   title: {
@@ -159,6 +160,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="contact" content="mailto:info@youraiworker.nl" />
+        <meta name="telephone" content={CONTACT_PHONE} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -253,7 +256,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-12 text-sm text-slate-600">
+      <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-600">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <p className="text-base font-semibold text-slate-900">Your AI Worker</p>
@@ -366,7 +369,10 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
+          <div className="flex flex-col gap-2">
+            <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
+            <p className="text-[11px] text-slate-400">Amsterdam, Nederland</p>
+          </div>
           <div className="flex flex-col gap-3 text-right">
             <p className="inline-flex items-center justify-end gap-1.5 text-[11px] text-slate-400">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
@@ -389,6 +395,9 @@ const Footer: React.FC = () => {
             <p className="flex flex-col gap-1">
               <a className="transition-colors hover:text-slate-600" href="mailto:info@youraiworker.nl">
                 info@youraiworker.nl
+              </a>
+              <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
+                {CONTACT_PHONE}
               </a>
               <span className="text-[11px] text-slate-300">KvK: 95290475 | BTW: NL8677.15.849.B01</span>
             </p>
