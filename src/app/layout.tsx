@@ -13,6 +13,8 @@ const DEFAULT_DESCRIPTION =
 
 const DEFAULT_OG_IMAGE = "/og.png"
 const CONTACT_PHONE = "+31 6 12345678"
+const CONTACT_KVK = "95290475"
+const CONTACT_BTW = "NL8677.15.849.B01"
 
 export const metadata: Metadata = {
   title: {
@@ -145,7 +147,7 @@ const buildNavHref = (item: NavItem) => {
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
 
-  const orgJsonLd = buildOrganizationJsonLd()
+  const orgJsonLd = buildOrganizationJsonLd({ kvk: CONTACT_KVK, vatId: CONTACT_BTW })
   const websiteJsonLd = buildWebSiteJsonLd()
   const serviceJsonLd = buildServiceJsonLd()
 

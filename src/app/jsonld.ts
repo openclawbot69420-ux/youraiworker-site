@@ -22,7 +22,10 @@ export const buildBreadcrumbJsonLd = (
   }
 }
 
-export const buildOrganizationJsonLd = (): WithContext<Organization> => {
+export const buildOrganizationJsonLd = (options?: {
+  kvk?: string
+  vatId?: string
+}): WithContext<Organization> => {
   const contactPoint: ContactPoint = {
     "@type": "ContactPoint",
     email: "info@youraiworker.nl",
@@ -39,6 +42,8 @@ export const buildOrganizationJsonLd = (): WithContext<Organization> => {
     url: "https://youraiworker.nl/",
     logo: "https://youraiworker.nl/icon-512.png",
     sameAs: ["https://github.com/openclawbot69420-ux/youraiworker-site"],
+    ...(options?.kvk ? { identifier: options.kvk } : {}),
+    ...(options?.vatId ? { vatID: options.vatId } : {}),
     contactPoint,
     address: {
       "@type": "PostalAddress",
