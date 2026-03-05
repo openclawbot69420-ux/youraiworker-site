@@ -17,6 +17,11 @@ const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
 
+// Keep these as "undefined" until you have real IDs.
+// This avoids publishing placeholders in metadata.
+const SOCIAL_LINKEDIN: string | undefined = undefined
+const SOCIAL_GITHUB: string | undefined = "https://github.com/openclawbot69420-ux/youraiworker-site"
+
 const CONTACT_STREET_ADDRESS = ""
 const CONTACT_POSTAL_CODE = ""
 const CONTACT_CITY = "Amsterdam"
@@ -65,6 +70,7 @@ export const metadata: Metadata = {
         alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
       },
     ],
+    ...(SOCIAL_LINKEDIN ? { sameAs: [SOCIAL_LINKEDIN] } : {}),
   },
   twitter: {
     card: "summary_large_image",
@@ -86,6 +92,7 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#0f172a",
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileImage": "/mstile-150x150.png",
+    ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
@@ -285,16 +292,18 @@ const Footer: React.FC = () => {
               veilig ingericht en snel live.
             </p>
             <div className="mt-5 flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com/company/youraiworker"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                title="Volg ons op LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
-              >
-                <Linkedin className="h-4 w-4" aria-hidden="true" />
-              </a>
+              {SOCIAL_LINKEDIN ? (
+                <a
+                  href={SOCIAL_LINKEDIN}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  title="Volg ons op LinkedIn"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+                >
+                  <Linkedin className="h-4 w-4" aria-hidden="true" />
+                </a>
+              ) : null}
               <a
                 href="https://github.com/openclawbot69420-ux/youraiworker-site"
                 target="_blank"
