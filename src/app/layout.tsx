@@ -76,7 +76,6 @@ export const metadata: Metadata = {
         alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
       },
     ],
-    ...(SOCIAL_LINKEDIN ? { sameAs: [SOCIAL_LINKEDIN] } : {}),
   },
   twitter: {
     card: "summary_large_image",
