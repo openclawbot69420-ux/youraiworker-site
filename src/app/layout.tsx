@@ -12,10 +12,15 @@ const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 const DEFAULT_OG_IMAGE = "/og.png"
-const CONTACT_PHONE = "+31 6 12345678"
+const CONTACT_PHONE = "+31 6 1234 5678"
 const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
+
+const CONTACT_STREET_ADDRESS = ""
+const CONTACT_POSTAL_CODE = ""
+const CONTACT_CITY = "Amsterdam"
+const CONTACT_COUNTRY = "NL"
 
 export const metadata: Metadata = {
   title: {
@@ -148,7 +153,18 @@ const buildNavHref = (item: NavItem) => {
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const { children } = props
 
-  const orgJsonLd = buildOrganizationJsonLd({ kvk: CONTACT_KVK, vatId: CONTACT_BTW })
+  const orgJsonLd = buildOrganizationJsonLd({
+    kvk: CONTACT_KVK,
+    vatId: CONTACT_BTW,
+    address: {
+      streetAddress: CONTACT_STREET_ADDRESS,
+      postalCode: CONTACT_POSTAL_CODE,
+      addressLocality: CONTACT_CITY,
+      addressCountry: CONTACT_COUNTRY,
+    },
+    email: CONTACT_EMAIL,
+    telephone: CONTACT_PHONE,
+  })
   const websiteJsonLd = buildWebSiteJsonLd()
   const serviceJsonLd = buildServiceJsonLd()
 
@@ -165,6 +181,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
         <meta name="telephone" content={CONTACT_PHONE} />
+        <meta name="email" content={CONTACT_EMAIL} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -25,10 +25,19 @@ export const buildBreadcrumbJsonLd = (
 export const buildOrganizationJsonLd = (options?: {
   kvk?: string
   vatId?: string
+  address?: {
+    streetAddress?: string
+    postalCode?: string
+    addressLocality?: string
+    addressCountry?: string
+  }
+  email?: string
+  telephone?: string
 }): WithContext<Organization> => {
   const contactPoint: ContactPoint = {
     "@type": "ContactPoint",
-    email: "info@youraiworker.nl",
+    email: options?.email ?? "info@youraiworker.nl",
+    ...(options?.telephone ? { telephone: options.telephone } : {}),
     contactType: "customer service",
     availableLanguage: ["Dutch", "English"],
     url: "https://youraiworker.nl/contact",
@@ -47,8 +56,10 @@ export const buildOrganizationJsonLd = (options?: {
     contactPoint,
     address: {
       "@type": "PostalAddress",
-      addressCountry: "NL",
-      addressLocality: "Amsterdam",
+      ...(options?.address?.streetAddress ? { streetAddress: options.address.streetAddress } : {}),
+      ...(options?.address?.postalCode ? { postalCode: options.address.postalCode } : {}),
+      addressCountry: options?.address?.addressCountry ?? "NL",
+      addressLocality: options?.address?.addressLocality ?? "Amsterdam",
     },
     foundingLocation: {
       "@type": "Place",
