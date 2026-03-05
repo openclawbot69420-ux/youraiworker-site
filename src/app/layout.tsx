@@ -86,6 +86,7 @@ export const metadata: Metadata = {
   verification: {
     // Add verification tokens here when available.
     // google: "...",
+    // yandex: "...",
     // other: { "msvalidate.01": "..." },
   },
 
