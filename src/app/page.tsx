@@ -397,6 +397,7 @@ const HomePage: React.FC = () => {
               <span className="sr-only">
                 Inclusief duidelijke acceptatiecriteria en nazorg binnen de afgesproken supportperiode.
               </span>
+              <span className="text-slate-600"> Reactie binnen 1 werkdag.</span>
             </p>
             <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
