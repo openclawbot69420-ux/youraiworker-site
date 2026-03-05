@@ -12,6 +12,9 @@ const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 const DEFAULT_OG_IMAGE = "/og.png"
+
+const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
+const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
 const CONTACT_PHONE: string | undefined = undefined
@@ -280,7 +283,7 @@ const Footer: React.FC = () => {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              48 uur warranty + 2 weken support
+              {CONTACT_RESPONSE_TIME}
             </span>
           </div>
         </div>
@@ -405,6 +408,9 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-400">Amsterdam, Nederland</p>
           </div>
           <div className="flex flex-col gap-3 text-right">
+            <p className="text-[11px] text-slate-400">
+              {CONTACT_HOURS} - {CONTACT_RESPONSE_TIME}
+            </p>
             <p className="inline-flex items-center justify-end gap-1.5 text-[11px] text-slate-400">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
               <a
