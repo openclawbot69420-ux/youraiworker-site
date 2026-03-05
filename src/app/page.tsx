@@ -200,9 +200,9 @@ const COMPARISON_ROWS = [
 const STRANDT_WITHOUT_POINTS = [
   "Werkt lokaal, maar geen duidelijke eigenaar voor productie",
   "Secrets, ENV en permissies worden ad-hoc geregeld",
-  "Geen retries en monitoring - failures blijven liggen",
-  "Geen logging en audit - onduidelijk wat de agent deed",
-  "Geen approval gates - risico op fouten in klantcontact",
+  "Geen retries en monitoring, failures blijven liggen",
+  "Geen logging en audit, onduidelijk wat de agent deed",
+  "Geen approval gates, risico op fouten in klantcontact",
   "Na livegang niemand die onderhoud en fixes oppakt",
 ] as const
 
@@ -361,7 +361,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Your AI Worker - AI-agents voor je organisatie",
+    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
     url: "/",
@@ -369,7 +369,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your AI Worker - AI-agents voor je organisatie",
+    title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
     images: ["/og.png"],
