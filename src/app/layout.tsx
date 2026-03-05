@@ -15,6 +15,7 @@ const DEFAULT_OG_IMAGE = "/og.png"
 
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
+const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
 const CONTACT_PHONE: string | undefined = undefined
@@ -192,6 +193,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
+        <meta name="reply-to" content={CONTACT_EMAIL} />
         {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
         <meta name="email" content={CONTACT_EMAIL} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -433,8 +435,10 @@ const Footer: React.FC = () => {
               <a
                 className="transition-colors hover:text-slate-600"
                 href={`mailto:${CONTACT_EMAIL}`}
+                aria-label={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
+                title={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
               >
-                {CONTACT_EMAIL}
+                {CONTACT_EMAIL_DISPLAY}
               </a>
               {CONTACT_PHONE ? (
                 <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
