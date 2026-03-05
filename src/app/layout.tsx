@@ -196,6 +196,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="reply-to" content={CONTACT_EMAIL} />
         {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
         <meta name="email" content={CONTACT_EMAIL} />
+        <meta name="color-scheme" content="light" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
