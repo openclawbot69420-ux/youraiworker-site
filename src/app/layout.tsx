@@ -33,6 +33,8 @@ const CONTACT_POSTAL_CODE = ""
 const CONTACT_CITY = "Amsterdam"
 const CONTACT_COUNTRY = "NL"
 
+const CONTACT_ADDRESS_LINE = [CONTACT_CITY, "Nederland"].filter(Boolean).join(", ")
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -408,7 +410,7 @@ const Footer: React.FC = () => {
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-2">
             <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
-            <p className="text-[11px] text-slate-400">Amsterdam, Nederland</p>
+            <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_LINE}</p>
           </div>
           <div className="flex flex-col gap-3 text-right">
             <p className="text-[11px] text-slate-400">
