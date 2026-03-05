@@ -445,8 +445,7 @@ const Footer: React.FC = () => {
                   {CONTACT_PHONE}
                 </a>
               ) : null}
-              <span className="text-[11px] text-slate-300">KvK: 95290475 | BTW: NL8677.15.849.B01</span>
-            <span className="text-[11px] text-slate-300">Laatste update: {new Date().toLocaleDateString("nl-NL")}</span>
+              <span className="text-[11px] text-slate-300">KvK: {CONTACT_KVK} | BTW: {CONTACT_BTW}</span>
             </p>
           </div>
         </div>
