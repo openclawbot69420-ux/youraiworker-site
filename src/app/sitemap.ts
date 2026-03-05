@@ -1,24 +1,30 @@
-import { MetadataRoute } from "next"
+import type { MetadataRoute } from "next"
 
 const SITE_URL = "https://youraiworker.nl"
 
-const routes = [
-  { path: "", priority: 1.0, changefreq: "weekly" },
-  { path: "/contact", priority: 0.9, changefreq: "monthly" },
-  { path: "/pricing", priority: 0.9, changefreq: "weekly" },
-  { path: "/implementatie", priority: 0.8, changefreq: "monthly" },
-  { path: "/use-cases", priority: 0.8, changefreq: "weekly" },
-  { path: "/integrations", priority: 0.7, changefreq: "weekly" },
-  { path: "/security", priority: 0.6, changefreq: "monthly" },
-  { path: "/privacy", priority: 0.4, changefreq: "monthly" },
-  { path: "/guides", priority: 0.5, changefreq: "weekly" },
-] as const
+const ROUTES: Array<{ path: string; priority?: number; changeFrequency?: MetadataRoute.Sitemap[0]["changeFrequency"] }> = [
+  { path: "/", priority: 1, changeFrequency: "weekly" },
+  { path: "/use-cases", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/integrations", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/implementatie", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
+  { path: "/security", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/guides", priority: 0.6, changeFrequency: "weekly" },
+]
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: route.changefreq,
-    priority: route.priority,
-  }))
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+  const now = new Date()
+
+  return ROUTES.map((route) => {
+    return {
+      url: `${SITE_URL}${route.path}`,
+      lastModified: now,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    }
+  })
 }
+
+export default sitemap
