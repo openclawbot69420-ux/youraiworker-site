@@ -12,7 +12,9 @@ const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan vandaag nog een intake."
 
 const DEFAULT_OG_IMAGE = "/og.png"
-const CONTACT_PHONE = "+31 6 1234 5678"
+// Use real contact details here.
+// Avoid publishing placeholder phone numbers.
+const CONTACT_PHONE: string | undefined = undefined
 const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
@@ -170,7 +172,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
       addressCountry: CONTACT_COUNTRY,
     },
     email: CONTACT_EMAIL,
-    telephone: CONTACT_PHONE,
+    ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
   })
   const websiteJsonLd = buildWebSiteJsonLd()
   const serviceJsonLd = buildServiceJsonLd()
@@ -184,10 +186,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="robots" content="index, follow" />
 
         <meta name="theme-color" content="#0f172a" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
-        <meta name="telephone" content={CONTACT_PHONE} />
+        {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
         <meta name="email" content={CONTACT_EMAIL} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -428,9 +430,11 @@ const Footer: React.FC = () => {
               >
                 {CONTACT_EMAIL}
               </a>
-              <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
-                {CONTACT_PHONE}
-              </a>
+              {CONTACT_PHONE ? (
+                <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
+                  {CONTACT_PHONE}
+                </a>
+              ) : null}
               <span className="text-[11px] text-slate-300">KvK: 95290475 | BTW: NL8677.15.849.B01</span>
             </p>
           </div>
