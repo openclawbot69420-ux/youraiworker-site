@@ -101,6 +101,13 @@ export const metadata: Metadata = {
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileImage": "/mstile-150x150.png",
     ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
+
+    // Business contact info (used by some crawlers).
+    "contact:email": CONTACT_EMAIL,
+    "contact:hours": CONTACT_HOURS,
+    "contact:response_time": CONTACT_RESPONSE_TIME,
+    "business:kvk": CONTACT_KVK,
+    "business:vat": CONTACT_BTW,
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
@@ -198,6 +205,11 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="reply-to" content={CONTACT_EMAIL} />
         {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
         <meta name="email" content={CONTACT_EMAIL} />
+        <meta name="contact:hours" content={CONTACT_HOURS} />
+        <meta name="contact:response_time" content={CONTACT_RESPONSE_TIME} />
+        <meta name="contact:location" content={CONTACT_ADDRESS_LINE} />
+        <meta name="contact:kvk" content={CONTACT_KVK} />
+        <meta name="contact:vat" content={CONTACT_BTW} />
         <meta name="color-scheme" content="light" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

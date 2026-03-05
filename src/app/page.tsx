@@ -374,6 +374,14 @@ export const metadata: Metadata = {
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
     images: ["/og.png"],
   },
+  other: {
+    // Light credibility / contact hints for previews and some crawlers.
+    "contact:email": "info@youraiworker.nl",
+    "contact:hours": "Ma-vr 09:00-17:00 (CET)",
+    "contact:response_time": "Reactie binnen 1 werkdag",
+    "business:kvk": "95290475",
+    "business:vat": "NL8677.15.849.B01",
+  },
 }
 
 const HomePage: React.FC = () => {
