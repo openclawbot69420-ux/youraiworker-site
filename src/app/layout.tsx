@@ -446,6 +446,7 @@ const Footer: React.FC = () => {
                 </a>
               ) : null}
               <span className="text-[11px] text-slate-300">KvK: 95290475 | BTW: NL8677.15.849.B01</span>
+            <span className="text-[11px] text-slate-300">Laatste update: {new Date().toLocaleDateString("nl-NL")}</span>
             </p>
           </div>
         </div>
