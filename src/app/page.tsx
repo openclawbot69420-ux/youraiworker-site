@@ -597,7 +597,7 @@ const HomePage: React.FC = () => {
               href="/use-cases"
               className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
-              Bekijk use cases
+              Bekijk toepassingen
             </a>
           </div>
         </div>
