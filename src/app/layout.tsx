@@ -14,7 +14,7 @@ const DEFAULT_DESCRIPTION =
 const DEFAULT_OG_IMAGE = "/og.png"
 
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
-const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
+const CONTACT_RESPONSE_TIME = "Reactie binnen 24 uur"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
