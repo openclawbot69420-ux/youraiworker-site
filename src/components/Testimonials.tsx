@@ -33,13 +33,13 @@ const buildAggregateRatingJsonLd = () => ({
     "name": "Your AI Worker",
     "url": "https://youraiworker.nl",
   },
-  "ratingValue": "4.8",
-  "reviewCount": "12",
+  "ratingValue": "5",
+  "reviewCount": "3",
   "bestRating": "5",
   "worstRating": "1",
 })
 
-const buildReviewJsonLd = (review: (typeof TESTIMONIALS)[number], index: number) => ({
+const buildReviewJsonLd = (review: (typeof TESTIMONIALS)[number]) => ({
   "@context": "https://schema.org",
   "@type": "Review",
   "itemReviewed": {
@@ -71,7 +71,7 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 
 export const Testimonials: React.FC = () => {
   const aggregateRatingJsonLd = buildAggregateRatingJsonLd()
-  const reviewJsonLd = TESTIMONIALS.map((t, i) => buildReviewJsonLd(t, i))
+  const reviewJsonLd = TESTIMONIALS.map((t) => buildReviewJsonLd(t))
 
   return (
     <>
