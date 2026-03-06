@@ -23,6 +23,11 @@ export const buildBreadcrumbJsonLd = (
 }
 
 export const buildOrganizationJsonLd = (options?: {
+  name?: string
+  legalName?: string
+  url?: string
+  logo?: string
+  sameAs?: string[]
   kvk?: string
   vatId?: string
   address?: {
@@ -43,14 +48,20 @@ export const buildOrganizationJsonLd = (options?: {
     url: "https://youraiworker.nl/contact",
   }
 
+  const name = options?.name ?? "Your AI Worker"
+  const legalName = options?.legalName ?? name
+  const url = options?.url ?? "https://youraiworker.nl/"
+  const logo = options?.logo ?? "https://youraiworker.nl/icon-512.png"
+  const sameAs = options?.sameAs ?? ["https://github.com/openclawbot69420-ux/youraiworker-site"]
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Your AI Worker",
-    legalName: "Your AI Worker",
-    url: "https://youraiworker.nl/",
-    logo: "https://youraiworker.nl/icon-512.png",
-    sameAs: ["https://github.com/openclawbot69420-ux/youraiworker-site"],
+    name,
+    legalName,
+    url,
+    logo,
+    sameAs,
     ...(options?.kvk ? { identifier: options.kvk } : {}),
     ...(options?.vatId ? { vatID: options.vatId } : {}),
     contactPoint,
