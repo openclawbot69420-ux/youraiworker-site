@@ -356,14 +356,14 @@ const IntegrationBadge: React.FC<IntegrationBadgeProps> = ({
 export const metadata: Metadata = {
   title: "AI-agents voor je organisatie",
   description:
-    "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+    "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
     url: "/",
     images: ["/og.png"],
   },
@@ -371,7 +371,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live.",
+      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
     images: ["/og.png"],
   },
   other: {
