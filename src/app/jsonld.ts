@@ -50,10 +50,7 @@ export const buildOrganizationJsonLd = (options?: {
     legalName: "Your AI Worker",
     url: "https://youraiworker.nl/",
     logo: "https://youraiworker.nl/icon-512.png",
-    sameAs: [
-      "https://github.com/openclawbot69420-ux/youraiworker-site",
-      "https://www.linkedin.com/company/your-ai-worker",
-    ],
+    sameAs: ["https://github.com/openclawbot69420-ux/youraiworker-site"],
     ...(options?.kvk ? { identifier: options.kvk } : {}),
     ...(options?.vatId ? { vatID: options.vatId } : {}),
     contactPoint,

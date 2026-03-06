@@ -1,3 +1,5 @@
+import { FaqJsonLd } from "./FaqJsonLd"
+
 type FaqItem = {
   question: string
   answer: string
@@ -39,6 +41,7 @@ const FAQ_ITEMS: FaqItem[] = [
 export const HomeFaq = () => {
   return (
     <section aria-labelledby="faq-title" className="border-b border-slate-200/70 bg-white">
+      <FaqJsonLd items={[...FAQ_ITEMS]} />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">FAQ</p>
