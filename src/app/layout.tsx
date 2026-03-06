@@ -9,7 +9,7 @@ const SITE_NAME = "Your AI Worker"
 const SITE_URL = "https://youraiworker.nl"
 const DEFAULT_TITLE = "Productierijpe AI-agents voor je organisatie"
 const DEFAULT_DESCRIPTION =
-  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan een intakegesprek van 20 minuten."
+  "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan een intakegesprek (20 min)."
 
 const DEFAULT_OG_IMAGE = "/og.png"
 const DEFAULT_TWITTER_IMAGE = "/og.png"
