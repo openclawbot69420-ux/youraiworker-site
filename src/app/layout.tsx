@@ -96,6 +96,10 @@ export const metadata: Metadata = {
   },
 
   other: {
+    // Helps browsers and social platforms pick the canonical language.
+    // Also improves perceived polish in share previews.
+    "content-language": "nl-NL",
+
     "application-name": SITE_NAME,
     "apple-mobile-web-app-title": SITE_NAME,
     "apple-mobile-web-app-capable": "yes",
