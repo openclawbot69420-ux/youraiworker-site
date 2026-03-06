@@ -124,6 +124,10 @@ export const metadata: Metadata = {
     "contact:response_time": CONTACT_RESPONSE_TIME,
     "business:kvk": CONTACT_KVK,
     "business:vat": CONTACT_BTW,
+
+    // Basic share preview polish.
+    "twitter:site": "@youraiworker",
+    "twitter:creator": "@youraiworker",
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
