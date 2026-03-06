@@ -35,6 +35,8 @@ const CONTACT_CITY = "Amsterdam"
 const CONTACT_COUNTRY = "NL"
 
 const CONTACT_ADDRESS_LINE = [CONTACT_CITY, "Nederland"].filter(Boolean).join(", ")
+const CONTACT_KVK_LABEL = "KvK"
+const CONTACT_BTW_LABEL = "BTW"
 
 export const metadata: Metadata = {
   title: {
@@ -464,7 +466,9 @@ const Footer: React.FC = () => {
                   {CONTACT_PHONE}
                 </a>
               ) : null}
-              <span className="text-[11px] text-slate-300">KvK: {CONTACT_KVK} | BTW: {CONTACT_BTW}</span>
+              <span className="text-[11px] text-slate-300">
+                {CONTACT_KVK_LABEL}: {CONTACT_KVK} | {CONTACT_BTW_LABEL}: {CONTACT_BTW}
+              </span>
             </p>
           </div>
         </div>
