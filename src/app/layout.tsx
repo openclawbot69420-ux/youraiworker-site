@@ -14,6 +14,9 @@ const DEFAULT_DESCRIPTION =
 const DEFAULT_OG_IMAGE = "/og.png"
 const DEFAULT_TWITTER_IMAGE = "/og.png"
 
+const DEFAULT_META_IMAGE_WIDTH = 1200
+const DEFAULT_META_IMAGE_HEIGHT = 630
+
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
@@ -76,8 +79,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: DEFAULT_OG_IMAGE,
-        width: 1200,
-        height: 630,
+        width: DEFAULT_META_IMAGE_WIDTH,
+        height: DEFAULT_META_IMAGE_HEIGHT,
         alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
       },
     ],
@@ -109,7 +112,11 @@ export const metadata: Metadata = {
     "msapplication-TileImage": "/mstile-150x150.png",
     ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
     "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
+    "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
+    "twitter:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
     "og:image": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:width": String(DEFAULT_META_IMAGE_WIDTH),
+    "og:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
 
     // Business contact info (used by some crawlers).
     "contact:email": CONTACT_EMAIL,
