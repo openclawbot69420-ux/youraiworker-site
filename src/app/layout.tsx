@@ -12,6 +12,7 @@ const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan een intakegesprek van 20 minuten."
 
 const DEFAULT_OG_IMAGE = "/og.png"
+const DEFAULT_TWITTER_IMAGE = "/og.png"
 
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 24 uur"
@@ -83,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE],
+    images: [DEFAULT_TWITTER_IMAGE],
   },
   verification: {
     // Add verification tokens here when available.
@@ -101,6 +102,8 @@ export const metadata: Metadata = {
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileImage": "/mstile-150x150.png",
     ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
+    "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
+    "og:image": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
 
     // Business contact info (used by some crawlers).
     "contact:email": CONTACT_EMAIL,
