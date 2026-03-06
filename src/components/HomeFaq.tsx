@@ -15,6 +15,11 @@ const FAQ_ITEMS: FaqItem[] = [
       "Meestal binnen 3-10 werkdagen, afhankelijk van scope en integraties. Na intake krijg je een concrete planning met duidelijke stappen.",
   },
   {
+    question: "Wat is het verschil met een VA of zelf bouwen?",
+    answer:
+      "Wij leveren een afgebakende workflow die productie draait, inclusief security baseline, logging, foutafhandeling en duidelijke overdracht. Een VA is vooral capaciteit. Zelf bouwen kan, maar kost vaak weken tot maanden aan ontwikkeling en beheer.",
+  },
+  {
     question: "Zijn er maandelijkse kosten?",
     answer:
       "Onze implementatie is eenmalig. Wel kunnen er kosten zijn voor tools, nummers, licenties of model-usage van derde partijen. Die stemmen we vooraf af.",
@@ -23,6 +28,11 @@ const FAQ_ITEMS: FaqItem[] = [
     question: "Moeten jullie toegang hebben tot al onze systemen?",
     answer:
       "Nee. We werken met least privilege: alleen toegang tot wat nodig is voor de workflow. Remote access kan via Tailscale zodat je geen poorten hoeft open te zetten.",
+  },
+  {
+    question: "Hoe zit het met privacy en data?",
+    answer:
+      "We gebruiken een minimale set aan rechten, loggen acties waar nodig en richten approvals in voor kritieke stappen. In de intake stemmen we af welke data de agent mag zien, wat er opgeslagen wordt, en welke retention past bij je proces.",
   },
 ] as const
 
