@@ -23,6 +23,7 @@ const DEFAULT_META_IMAGE_HEIGHT = 630
 
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
+const CONTACT_TURNAROUND = "Binnen 24 uur op werkdagen"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
@@ -134,6 +135,7 @@ export const metadata: Metadata = {
     "contact:email": CONTACT_EMAIL,
     "contact:hours": CONTACT_HOURS,
     "contact:response_time": CONTACT_RESPONSE_TIME,
+    "contact:turnaround": CONTACT_TURNAROUND,
     "business:kvk": CONTACT_KVK,
     "business:vat": CONTACT_BTW,
   },
@@ -338,7 +340,7 @@ const Footer: React.FC = () => {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              {CONTACT_RESPONSE_TIME}
+              {CONTACT_TURNAROUND}
             </span>
           </div>
         </div>
