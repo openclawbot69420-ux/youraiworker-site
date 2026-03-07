@@ -12,13 +12,13 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Plan een intake, stel je vraag of vraag een voorstel aan voor jouw AI-agent workflow.",
+  description: "Plan een intake, stel je vraag of vraag een voorstel aan. Binnen 1 werkdag reactie.",
   alternates: {
     canonical: "https://youraiworker.nl/contact",
   },
   openGraph: {
     title: "Contact voor AI-agent intake | Your AI Worker",
-    description: "Bespreek je workflow, scope en planning. Binnen 24 uur een eerste reactie.",
+    description: "Bespreek je workflow, scope en planning. Binnen 1 werkdag een eerste reactie.",
     url: "https://youraiworker.nl/contact",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Plan AI-agent intake | Your AI Worker",
-    description: "Vraag een intake of voorstel aan voor AI-automatisering. Snel reactie, heldere scope.",
+    description: "Vraag een intake of voorstel aan voor AI-automatisering. Binnen 1 werkdag reactie, heldere scope.",
     images: ["/og.png"],
   },
 }
