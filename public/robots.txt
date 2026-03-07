@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
+
+# Prevent indexing of internal Next.js assets
+Disallow: /_next/
