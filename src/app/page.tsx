@@ -407,18 +407,18 @@ const HomePage: React.FC = () => {
               </span>
               <span className="text-slate-600"> Reactie binnen 1 werkdag.</span>
             </p>
-            <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700">
+            <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700" aria-label="Bedrijfsgegevens">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
-                <span className="text-slate-500">KvK</span>
-                <span className="text-slate-900">95290475</span>
+                <dt className="text-slate-500">KvK</dt>
+                <dd className="text-slate-900">95290475</dd>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
-                <span className="text-slate-500">BTW</span>
-                <span className="text-slate-900">NL8677.15.849.B01</span>
+                <dt className="text-slate-500">BTW</dt>
+                <dd className="text-slate-900">NL8677.15.849.B01</dd>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
-                <span className="text-slate-500">Locatie</span>
-                <span className="text-slate-900">Amsterdam</span>
+                <dt className="text-slate-500">Locatie</dt>
+                <dd className="text-slate-900">Amsterdam</dd>
               </div>
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
