@@ -94,8 +94,10 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
     images: [DEFAULT_TWITTER_IMAGE],
-    site: "@youraiworker",
-    creator: "@youraiworker",
+    // Keep handles undefined until you have the real account.
+    // Publishing placeholders can look unprofessional in share previews.
+    site: undefined,
+    creator: undefined,
   },
   verification: {
     // Add verification tokens here when available.
@@ -111,8 +113,13 @@ export const metadata: Metadata = {
 
     // Brand polish in link previews and SERPs.
     // Keep these consistent with the site and OG image.
-    "twitter:site": "@youraiworker",
-    "twitter:creator": "@youraiworker",
+    // Do not publish placeholder social handles.
+    ...(false
+      ? {
+          "twitter:site": "@youraiworker",
+          "twitter:creator": "@youraiworker",
+        }
+      : {}),
 
     "application-name": SITE_NAME,
     "apple-mobile-web-app-title": SITE_NAME,
