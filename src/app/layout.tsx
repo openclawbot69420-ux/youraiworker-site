@@ -94,6 +94,8 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
     description: DEFAULT_DESCRIPTION,
     images: [DEFAULT_TWITTER_IMAGE],
+    site: "@youraiworker",
+    creator: "@youraiworker",
   },
   verification: {
     // Add verification tokens here when available.
@@ -106,6 +108,11 @@ export const metadata: Metadata = {
     // Helps browsers and social platforms pick the canonical language.
     // Also improves perceived polish in share previews.
     "content-language": "nl-NL",
+
+    // Brand polish in link previews and SERPs.
+    // Keep these consistent with the site and OG image.
+    "twitter:site": "@youraiworker",
+    "twitter:creator": "@youraiworker",
 
     "application-name": SITE_NAME,
     "apple-mobile-web-app-title": SITE_NAME,
@@ -129,9 +136,6 @@ export const metadata: Metadata = {
     "business:kvk": CONTACT_KVK,
     "business:vat": CONTACT_BTW,
 
-    // Basic share preview polish.
-    "twitter:site": "@youraiworker",
-    "twitter:creator": "@youraiworker",
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
