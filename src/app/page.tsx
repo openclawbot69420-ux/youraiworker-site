@@ -452,7 +452,7 @@ const HomePage: React.FC = () => {
                     "Inbox triage, lead kwalificatie of rapportages",
                   ],
                   ["2. Wij bouwen & testen", "Production-ready binnen dagen, niet maanden"],
-                  ["3. Live + support", "48 uur warranty + 2 weken break-fix"],
+                  ["3. Live + support", "48 uur warranty + 2 weken break-fix (business hours)"],
                 ].map(([title, desc]) => (
                   <div
                     key={title}
