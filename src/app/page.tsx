@@ -402,9 +402,6 @@ const HomePage: React.FC = () => {
             </p>
             <p className="mt-3 max-w-xl text-sm text-slate-500">
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
-              <span className="sr-only">
-                Inclusief duidelijke acceptatiecriteria en nazorg binnen de afgesproken supportperiode.
-              </span>
               <span className="text-slate-600"> Reactie binnen 1 werkdag.</span>
             </p>
             <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700" aria-label="Bedrijfsgegevens">
