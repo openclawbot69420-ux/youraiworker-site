@@ -64,6 +64,8 @@ const faqSchema = {
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
+const PRICING_JSON_LD_ID = "pricing-jsonld"
+
 export const metadata: Metadata = {
   title: "Prijzen",
   description: "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
@@ -92,8 +94,11 @@ export const metadata: Metadata = {
 const PricingPage = () => {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }} />
+      <script
+        id={PRICING_JSON_LD_ID}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd([serviceSchema, faqSchema]) }}
+      />
 
       <Builder />
 
