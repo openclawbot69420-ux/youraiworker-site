@@ -51,6 +51,13 @@ export const metadata: Metadata = {
     template: `%s · ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
+  // Adds canonical icon for iOS and a subtle professionalism boost in SERPs.
+  // Safe, no external dependencies.
+  appleWebApp: {
+    title: SITE_NAME,
+    capable: true,
+    statusBarStyle: "default",
+  },
   keywords: [
     "AI agents",
     "AI agent",
@@ -112,9 +119,6 @@ export const metadata: Metadata = {
     "content-language": "nl-NL",
 
     "application-name": SITE_NAME,
-    "apple-mobile-web-app-title": SITE_NAME,
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
     "msapplication-TileColor": "#0f172a",
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileImage": "/mstile-150x150.png",
