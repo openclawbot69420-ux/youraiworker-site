@@ -111,16 +111,6 @@ export const metadata: Metadata = {
     // Also improves perceived polish in share previews.
     "content-language": "nl-NL",
 
-    // Brand polish in link previews and SERPs.
-    // Keep these consistent with the site and OG image.
-    // Do not publish placeholder social handles.
-    ...(false
-      ? {
-          "twitter:site": "@youraiworker",
-          "twitter:creator": "@youraiworker",
-        }
-      : {}),
-
     "application-name": SITE_NAME,
     "apple-mobile-web-app-title": SITE_NAME,
     "apple-mobile-web-app-capable": "yes",
@@ -142,7 +132,6 @@ export const metadata: Metadata = {
     "contact:response_time": CONTACT_RESPONSE_TIME,
     "business:kvk": CONTACT_KVK,
     "business:vat": CONTACT_BTW,
-
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
