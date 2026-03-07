@@ -21,5 +21,11 @@ export const FaqJsonLd: React.FC<{ items: FaqItem[] }> = (props) => {
     })),
   }
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+  return (
+    <script
+      type="application/ld+json"
+      // Reduce HTML escaping for JSON-LD (keeps the output readable for crawlers and debugging).
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd, null, 2) }}
+    />
+  )
 }
