@@ -1,6 +1,6 @@
 {
   "name": "Your AI Worker",
-  "short_name": "Your AI Worker",
+  "short_name": "YAW",
   "description": "Productierijpe AI-agents voor je organisatie",
   "scope": "/",
   "start_url": "/",
