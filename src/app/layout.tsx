@@ -49,7 +49,7 @@ const CONTACT_BTW_LABEL = "BTW"
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
-    template: `%s · ${SITE_NAME}`,
+    template: `%s | ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
   // Adds canonical icon for iOS and a subtle professionalism boost in SERPs.
