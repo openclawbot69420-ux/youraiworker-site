@@ -280,7 +280,12 @@ const StarterAgentCard: React.FC<StarterAgentCardProps> = ({
       {title}
     </h3>
     <p className="mt-1.5 text-xs leading-relaxed text-slate-600 sm:text-sm">{description}</p>
-    <p className="mt-3 text-xs font-medium text-slate-900 underline">Bekijk details</p>
+    <p
+      className="mt-3 text-xs font-medium text-slate-900 underline"
+      aria-label={`Bekijk details over ${title}`}
+    >
+      Bekijk details
+    </p>
   </a>
 )
 
