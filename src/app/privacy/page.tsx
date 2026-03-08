@@ -5,11 +5,14 @@ export const metadata: Metadata = {
   description: "Privacybeleid van Your AI Worker.",
 }
 
+const LAST_UPDATED = "8 maart 2026"
+
 const PrivacyPage: React.FC = () => {
   return (
     <main className="mx-auto max-w-4xl px-4 py-20">
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacybeleid</h1>
+        <p className="mt-3 text-xs text-slate-500">Laatst bijgewerkt: {LAST_UPDATED}</p>
         <p className="mt-4 text-slate-600">
           Wij respecteren je privacy en verwerken persoonsgegevens alleen wanneer dat nodig is om
           contact op te nemen of een aanvraag te behandelen.
@@ -53,6 +56,15 @@ const PrivacyPage: React.FC = () => {
           </div>
 
           <div>
+            <h2 className="text-lg font-semibold text-slate-900">Rechtsgrond</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              We verwerken gegevens op basis van gerechtvaardigd belang (het beantwoorden van je
+              vraag en het leveren van onze dienst) en, waar van toepassing, uitvoering van een
+              overeenkomst.
+            </p>
+          </div>
+
+          <div>
             <h2 className="text-lg font-semibold text-slate-900">Hoe gebruiken we je gegevens?</h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Alleen voor communicatie over je aanvraag, intake of voorstel. We gebruiken de
@@ -75,6 +87,15 @@ const PrivacyPage: React.FC = () => {
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               We bewaren je gegevens niet langer dan noodzakelijk voor het doel waarvoor ze zijn
               verzameld of zolang dit wettelijk vereist is.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900">Je rechten</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              Je kunt inzage, correctie of verwijdering van je persoonsgegevens aanvragen. Ook kun
+              je bezwaar maken tegen verwerking of vragen om gegevensoverdraagbaarheid waar dit van
+              toepassing is. Stuur hiervoor een e-mail naar info.nl.
             </p>
           </div>
         </div>
