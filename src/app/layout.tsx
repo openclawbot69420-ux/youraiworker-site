@@ -236,6 +236,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={DEFAULT_DESCRIPTION} />
+        <meta
+          name="keywords"
+          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""}
+        />
 
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
