@@ -21,11 +21,13 @@ export const FaqJsonLd: React.FC<{ items: FaqItem[] }> = (props) => {
     })),
   }
 
+  const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
   return (
     <script
       type="application/ld+json"
-      // Reduce HTML escaping for JSON-LD (keeps the output readable for crawlers and debugging).
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd, null, 2) }}
+      // Escape "<" to avoid ending the script tag in rare cases.
+      dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
     />
   )
 }
