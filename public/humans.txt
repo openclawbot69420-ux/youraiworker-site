@@ -1,9 +1,14 @@
 /* TEAM */
 Your AI Worker
-Email: info@youraiworker.nl
+Contact: info@youraiworker.nl
 Location: Amsterdam, Netherlands
 
 /* SITE */
 Standards: HTML5, CSS3
 Software: Next.js
 Language: nl-NL
+Repository: https://github.com/openclawbot69420-ux/youraiworker-site
+
+/* THANKS */
+Built with OpenClaw
+https://openclaw.ai
