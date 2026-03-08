@@ -404,7 +404,10 @@ const HomePage: React.FC = () => {
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
               <span className="text-slate-600"> Reactie binnen 1 werkdag.</span>
             </p>
-            <dl className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700" aria-label="Bedrijfsgegevens">
+            <dl
+              className="mt-3 flex max-w-xl flex-wrap gap-2 text-[11px] font-medium text-slate-700"
+              aria-label="Bedrijfsgegevens"
+            >
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
                 <dt className="text-slate-500">KvK</dt>
                 <dd className="text-slate-900">95290475</dd>
@@ -962,6 +965,9 @@ const HomePage: React.FC = () => {
           <p className="mt-4 max-w-2xl text-white/70">
             Plan een korte intake. Je krijgt binnen 24-48 uur een concreet voorstel met scope,
             planning en vaste uitgangspunten.
+          </p>
+          <p className="mt-3 max-w-2xl text-xs text-white/60">
+            Antwoord binnen 1 werkdag. KvK 95290475.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
