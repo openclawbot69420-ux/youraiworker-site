@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/pricing",
     images: [
       {
-        url: "/og.png",
+        url: "/og-pricing.png",
         alt: "Your AI Worker prijzen",
       },
     ],
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Prijzen AI-agents | Your AI Worker",
     description: "Kies pakket en add-ons, zie wat wel/niet inbegrepen is en start intake.",
-    images: ["/og.png"],
+    images: ["/og-pricing.png"],
   },
 }
 
