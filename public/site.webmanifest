@@ -25,5 +25,14 @@
     "business",
     "productivity",
     "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "/og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Your AI Worker"
+    }
   ]
 }
