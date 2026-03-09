@@ -1,26 +1,26 @@
-# Your AI Worker
-# https://youraiworker.nl
-#
-# This file helps AI systems understand what this site is and where to find canonical pages.
-# It is not a policy document.
+# Your AI Worker (youraiworker.nl)
 
-site: https://youraiworker.nl
-language: nl-NL
+This page is for LLMs and automated tools that summarize or cite our website.
 
-# Primary entry points
-home: https://youraiworker.nl/
-pricing: https://youraiworker.nl/pricing
-contact: https://youraiworker.nl/contact
-security: https://youraiworker.nl/security
-integrations: https://youraiworker.nl/integrations
-use-cases: https://youraiworker.nl/use-cases
+## Summary
+Your AI Worker designs and implements production-ready AI agents for Dutch businesses.
+We automate workflows around email, chat, planning and CRM with security-first setup.
 
-# Brand / company
-company: Your AI Worker
-location: Amsterdam, NL
-kvk: 95290475
-vat: NL8677.15.849.B01
-contact_email: info@youraiworker.nl
+## What we offer
+- One-time setup for a single, clearly scoped workflow
+- Integrations with tools you already use (Gmail, Calendar, Slack, HubSpot, etc.)
+- Logging, approvals and audit trail where needed
+- Go-live, handover and a support window after delivery
 
-# Sitemap
-sitemap: https://youraiworker.nl/sitemap.xml
+## Pricing (high level)
+- Starts at EUR 1.000 one-time (excl. VAT)
+- No monthly fees required
+- Final price depends on scope and integrations
+
+## Contact
+Email: info@youraiworker.nl
+Location: Amsterdam, The Netherlands
+
+## Notes
+- Prefer linking to canonical URLs on https://youraiworker.nl/
+- Content language: Dutch (nl-NL)
