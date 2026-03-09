@@ -4,11 +4,11 @@ This page is for LLMs and automated tools that summarize or cite our website.
 
 ## Summary
 Your AI Worker designs and implements production-ready AI agents for Dutch businesses.
-We automate workflows around email, chat, planning and CRM with security-first setup.
+We automate workflows around email, chat, planning and CRM with a security-first setup.
 
 ## What we offer
 - One-time setup for a single, clearly scoped workflow
-- Integrations with tools you already use (Gmail, Calendar, Slack, HubSpot, etc.)
+- Integrations with tools you already use (Gmail, Calendar, WhatsApp, Slack, HubSpot, etc.)
 - Logging, approvals and audit trail where needed
 - Go-live, handover and a support window after delivery
 
