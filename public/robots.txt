@@ -1,4 +1,5 @@
-# https://www.robotstxt.org/
+# robots.txt for https://youraiworker.nl
+# Keep crawl rules simple and explicit.
 
 User-agent: *
 Allow: /
