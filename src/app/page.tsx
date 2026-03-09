@@ -204,6 +204,7 @@ const STRANDT_WITHOUT_POINTS = [
   "Geen logging en audit, onduidelijk wat de agent deed",
   "Geen approval gates, risico op fouten in klantcontact",
   "Na livegang niemand die onderhoud en fixes oppakt",
+  "Geen privacy- en compliance check (AVG), dus risico op datalekken",
 ] as const
 
 const STRANDT_WITH_MANAGED = [
