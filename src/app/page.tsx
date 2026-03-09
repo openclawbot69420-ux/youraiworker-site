@@ -370,14 +370,14 @@ export const metadata: Metadata = {
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
     url: "/",
-    images: ["/og.png"],
+    images: ["/og-home.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
-    images: ["/og.png"],
+    images: ["/og-home.png"],
   },
   other: {
     // Light credibility / contact hints for previews and some crawlers.
