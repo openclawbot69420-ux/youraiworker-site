@@ -11,8 +11,8 @@ const DEFAULT_TITLE = "Productierijpe AI-agents voor Nederlandse bedrijven"
 const DEFAULT_DESCRIPTION =
   "Maatwerk AI-agents die je organisatie echt werk uit handen nemen. Production-ready, veilig ingericht en binnen dagen live. Plan een intakegesprek (20 min)."
 
-const DEFAULT_OG_IMAGE = "/og.png"
-const DEFAULT_TWITTER_IMAGE = "/og.png"
+const DEFAULT_OG_IMAGE = "/og-home.png"
+const DEFAULT_TWITTER_IMAGE = "/og-home.png"
 
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
