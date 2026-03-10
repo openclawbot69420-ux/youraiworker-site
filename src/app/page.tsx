@@ -383,7 +383,8 @@ export const metadata: Metadata = {
   other: {
     // Light credibility / contact hints for previews and some crawlers.
     "contact:email": "info@youraiworker.nl",
-    "contact:hours": "Ma-vr 09:00-17:00 (CET)",
+    // Amsterdam timezone is the business default.
+    "contact:hours": "Ma-vr 09:00-17:00 (Amsterdam)",
     "contact:response_time": "Reactie binnen 1 werkdag",
     "business:kvk": "95290475",
     "business:vat": "NL8677.15.849.B01",
