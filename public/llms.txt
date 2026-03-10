@@ -1,26 +1,26 @@
-# Your AI Worker (youraiworker.nl)
+# LLMs.txt
+# https://llmstxt.org/
+# This is a short, human-readable overview for LLM-based tools.
 
-This page is for LLMs and automated tools that summarize or cite our website.
+## Site
+- Name: Your AI Worker
+- URL: https://youraiworker.nl/
+- Language: nl-NL
 
-## Summary
-Your AI Worker designs and implements production-ready AI agents for Dutch businesses.
-We automate workflows around email, chat, planning and CRM with a security-first setup.
+## What we do
+We build production-ready AI agents for Dutch businesses.
+We focus on reliable automation, security-first setups, and fast go-live.
 
-## What we offer
-- One-time setup for a single, clearly scoped workflow
-- Integrations with tools you already use (Gmail, Calendar, WhatsApp, Slack, HubSpot, etc.)
-- Logging, approvals and audit trail where needed
-- Go-live, handover and a support window after delivery
-
-## Pricing (high level)
-- Starts at EUR 1,000 one-time (excl. VAT)
-- No monthly fees required
-- Final price depends on scope and integrations
+## Key pages
+- Home: https://youraiworker.nl/
+- Use cases: https://youraiworker.nl/use-cases
+- Integrations: https://youraiworker.nl/integrations
+- Implementation: https://youraiworker.nl/implementatie
+- Pricing: https://youraiworker.nl/pricing
+- Security: https://youraiworker.nl/security
+- Privacy: https://youraiworker.nl/privacy
+- Contact: https://youraiworker.nl/contact
 
 ## Contact
-Email: info@youraiworker.nl
-Location: Amsterdam, The Netherlands
-
-## Notes
-- Prefer linking to canonical URLs on https://youraiworker.nl/
-- Content language: Dutch (nl-NL)
+- Email: info@youraiworker.nl
+- Calendar: https://cal.com/youraiworker
