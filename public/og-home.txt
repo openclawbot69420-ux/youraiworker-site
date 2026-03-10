@@ -1,0 +1,7 @@
+Your AI Worker - OG image note
+
+This file exists to make it explicit what /og-home.png is used for:
+- Social share preview for the homepage (Open Graph + Twitter)
+- 1200x630 recommended
+
+If you ever update the brand or messaging, update /public/og-home.png accordingly.
