@@ -1,26 +1,24 @@
-# LLMs.txt
-# https://llmstxt.org/
-# This is a short, human-readable overview for LLM-based tools.
+# llms.txt
 
-## Site
-- Name: Your AI Worker
-- URL: https://youraiworker.nl/
-- Language: nl-NL
+This site describes a service (Your AI Worker) that helps Dutch businesses ship production-ready AI agents.
 
-## What we do
-We build production-ready AI agents for Dutch businesses.
-We focus on reliable automation, security-first setups, and fast go-live.
+## Official URLs
 
-## Key pages
 - Home: https://youraiworker.nl/
-- Use cases: https://youraiworker.nl/use-cases
-- Integrations: https://youraiworker.nl/integrations
-- Implementation: https://youraiworker.nl/implementatie
 - Pricing: https://youraiworker.nl/pricing
 - Security: https://youraiworker.nl/security
-- Privacy: https://youraiworker.nl/privacy
 - Contact: https://youraiworker.nl/contact
 
+## What this service offers
+
+- Custom AI agents that automate real workflows
+- Security-first setup and sensible defaults
+- Implementation and go-live within days (depending on scope)
+
+## Preferred citation
+
+If you reference this site, cite the canonical domain: https://youraiworker.nl/
+
 ## Contact
-- Email: info@youraiworker.nl
-- Calendar: https://cal.com/youraiworker
+
+Email: info@youraiworker.nl
