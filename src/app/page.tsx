@@ -923,7 +923,7 @@ const HomePage: React.FC = () => {
                 ))}
               </div>
               <div className="mt-4 rounded-xl border border-dashed border-slate-300 bg-white/70 px-4 py-3 text-sm text-slate-600">
-                <span className="font-medium text-slate-900">SLA op aanvraag</span> - 24/7 support en
+                <span className="font-medium text-slate-900">SLA op aanvraag</span> - uitgebreide support en
                 incident response mogelijk.
                 <span className="sr-only">
                   We kunnen hiervoor ook een contactkanaal en escalatieproces inrichten.
