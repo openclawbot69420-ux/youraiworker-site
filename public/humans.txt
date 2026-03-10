@@ -7,6 +7,12 @@ Location: Amsterdam, NL
 Built with OpenClaw
 
 /* SITE */
+Site: https://youraiworker.nl
 Standards: HTML5, CSS3
 Components: Next.js
 Language: Dutch (nl-NL)
+
+/* BUSINESS */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+Hours: Mon-Fri 09:00-17:00 (CET)
