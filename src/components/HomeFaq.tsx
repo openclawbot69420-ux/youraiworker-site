@@ -27,6 +27,11 @@ const FAQ_ITEMS: FaqItem[] = [
       "Onze implementatie is eenmalig. Wel kunnen er kosten zijn voor tools, nummers, licenties of model-usage van derde partijen. Die stemmen we vooraf af.",
   },
   {
+    question: "Hoe ziet support eruit na oplevering?",
+    answer:
+      "Standaard: 48 uur warranty (bugs en regressies) en 2 weken break-fix tijdens business hours. Daarna kun je kiezen voor support op aanvraag.",
+  },
+  {
     question: "Moeten jullie toegang hebben tot al onze systemen?",
     answer:
       "Nee. We werken met least privilege: alleen toegang tot wat nodig is voor de workflow. Remote access kan via Tailscale zodat je geen poorten hoeft open te zetten.",
