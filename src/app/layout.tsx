@@ -23,7 +23,7 @@ const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
 const DEFAULT_META_IMAGE_WIDTH = 1200
 const DEFAULT_META_IMAGE_HEIGHT = 630
 
-const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
+const CONTACT_HOURS = "Ma-vr 09:00-17:00 (Amsterdam)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
 const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
