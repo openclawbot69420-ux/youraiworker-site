@@ -234,9 +234,11 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="author" href="/humans.txt" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs" />
+        <link rel="alternate" type="text/plain" href="/humans.txt" title="Humans" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Your AI Worker" />
         <meta name="description" content={DEFAULT_DESCRIPTION} />
         <meta
           name="keywords"
