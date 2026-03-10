@@ -13,7 +13,7 @@ We automate workflows around email, chat, planning and CRM with a security-first
 - Go-live, handover and a support window after delivery
 
 ## Pricing (high level)
-- Starts at EUR 1.000 one-time (excl. VAT)
+- Starts at EUR 1,000 one-time (excl. VAT)
 - No monthly fees required
 - Final price depends on scope and integrations
 
