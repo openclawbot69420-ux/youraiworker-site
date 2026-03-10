@@ -24,6 +24,7 @@ const DEFAULT_META_IMAGE_HEIGHT = 630
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (CET)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
 const CONTACT_TURNAROUND = "Binnen 1 werkdag"
+const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
@@ -316,8 +317,10 @@ const Header: React.FC = () => {
           })}
           <a
             className="rounded-lg bg-slate-900 px-4 py-2 text-white hover:bg-slate-800 transition-colors"
-            href={HEADER_CTA.href}
+            href={CONTACT_CALENDAR_URL}
             title={HEADER_CTA.title}
+            target="_blank"
+            rel="noreferrer"
           >
             {HEADER_CTA.label}
           </a>
