@@ -1,7 +1,7 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "description": "Productierijpe AI-agents voor je organisatie",
+  "description": "Productierijpe AI-agents voor Nederlandse bedrijven",
   "scope": "/",
   "start_url": "/",
   "display": "standalone",
