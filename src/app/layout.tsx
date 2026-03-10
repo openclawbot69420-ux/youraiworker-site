@@ -14,6 +14,8 @@ const DEFAULT_DESCRIPTION =
 const DEFAULT_OG_IMAGE = "/og-home.png"
 const DEFAULT_TWITTER_IMAGE = "/og-home.png"
 
+const DEFAULT_OG_ALT = "Your AI Worker - Productierijpe AI-agents voor Nederlandse bedrijven"
+
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
@@ -94,7 +96,7 @@ export const metadata: Metadata = {
         url: DEFAULT_OG_IMAGE,
         width: DEFAULT_META_IMAGE_WIDTH,
         height: DEFAULT_META_IMAGE_HEIGHT,
-        alt: `${SITE_NAME} - ${DEFAULT_TITLE}`,
+        alt: DEFAULT_OG_ALT,
       },
     ],
   },
@@ -119,6 +121,10 @@ export const metadata: Metadata = {
     // Helps browsers and social platforms pick the canonical language.
     // Also improves perceived polish in share previews.
     "content-language": "nl-NL",
+
+    // Used by some platforms when building share previews.
+    "og:image:alt": DEFAULT_OG_ALT,
+    "twitter:image:alt": DEFAULT_OG_ALT,
 
     "application-name": SITE_NAME,
     "msapplication-TileColor": "#0f172a",
