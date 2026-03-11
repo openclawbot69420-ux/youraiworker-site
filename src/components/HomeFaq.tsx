@@ -5,7 +5,7 @@ type FaqItem = {
   answer: string
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+const FAQ_ITEMS: ReadonlyArray<FaqItem> = [
   {
     question: "Wat leveren jullie precies op?",
     answer:
