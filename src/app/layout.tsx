@@ -113,6 +113,11 @@ export const metadata: Metadata = {
     site: undefined,
     creator: undefined,
   },
+  formatDetection: {
+    email: true,
+    address: false,
+    telephone: false,
+  },
   verification: {
     // Add verification tokens here when available.
     // google: "...",
