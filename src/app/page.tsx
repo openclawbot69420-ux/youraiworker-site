@@ -1002,6 +1002,21 @@ const HomePage: React.FC = () => {
             </a>
           </div>
 
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-white/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+              Intake: 20 min
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-cyan-300" />
+              Geen maandelijkse kosten
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-violet-300" />
+              Start vanaf €1.000 (excl. btw)
+            </span>
+          </div>
+
           <p className="mt-4 text-xs text-white/60">
             Liever mailen?{" "}
             <a
