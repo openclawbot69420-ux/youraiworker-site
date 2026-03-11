@@ -2,6 +2,8 @@
 Company: Your AI Worker
 Contact: info@youraiworker.nl
 Location: Amsterdam, NL
+KvK: 95290475
+VAT: NL8677.15.849.B01
 
 /* SERVICES */
 What we do: Production-ready AI-agents (delivery + integrations)
