@@ -24,6 +24,13 @@ const TESTIMONIALS = [
   },
 ] as const
 
+const TESTIMONIAL_DISCLAIMER =
+  "Voorbeeldquotes voor positionering. Vervang met echte klantreviews zodra beschikbaar."
+
+// NOTE: Only emit Review / AggregateRating JSON-LD when testimonials are real.
+// Publishing placeholder reviews can be considered misleading and is a trust hit.
+const SHOULD_EMIT_REVIEW_SCHEMA = false
+
 // AggregateRating schema for rich snippets
 const buildAggregateRatingJsonLd = () => ({
   "@context": "https://schema.org",
@@ -34,7 +41,7 @@ const buildAggregateRatingJsonLd = () => ({
     "url": "https://youraiworker.nl",
   },
   "ratingValue": "5",
-  "reviewCount": "3",
+  "reviewCount": String(TESTIMONIALS.length),
   "bestRating": "5",
   "worstRating": "1",
 })
@@ -75,17 +82,21 @@ export const Testimonials: React.FC = () => {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(aggregateRatingJsonLd) }}
-      />
-      {reviewJsonLd.map((review, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: toJsonLd(review) }}
-        />
-      ))}
+      {SHOULD_EMIT_REVIEW_SCHEMA ? (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: toJsonLd(aggregateRatingJsonLd) }}
+          />
+          {reviewJsonLd.map((review, i) => (
+            <script
+              key={i}
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: toJsonLd(review) }}
+            />
+          ))}
+        </>
+      ) : null}
       <section id="testimonials" className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
@@ -122,7 +133,7 @@ export const Testimonials: React.FC = () => {
           ))}
         </div>
         <p className="mt-6 text-xs text-slate-400">
-          Bij privacygevoelige projecten delen we cases alleen na toestemming. Vraag naar referenties tijdens intake.
+          {TESTIMONIAL_DISCLAIMER}
         </p>
       </section>
     </>
