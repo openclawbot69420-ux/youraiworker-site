@@ -79,6 +79,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-home.png",
+        width: 1200,
+        height: 630,
         alt: "Your AI Worker prijzen",
       },
     ],
@@ -87,7 +89,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Prijzen AI-agents | Your AI Worker",
     description: "Kies pakket en add-ons, zie wat wel/niet inbegrepen is en start intake.",
-    images: ["/og-home.png"],
+    images: [
+      {
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Your AI Worker prijzen",
+      },
+    ],
   },
 }
 
