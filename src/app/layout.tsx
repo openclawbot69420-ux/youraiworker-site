@@ -242,7 +242,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="author" href="/humans.txt" />
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs" />
+        <link rel="alternate" type="text/plain" href="/LLMS.txt" title="LLMs" />
         <link rel="alternate" type="text/plain" href="/humans.txt" title="Humans" />
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />

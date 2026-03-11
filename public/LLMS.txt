@@ -1,0 +1,19 @@
+# Your AI Worker - LLMs.txt
+
+This page helps LLM-based tools understand this site.
+
+Site: https://youraiworker.nl
+Language: nl-NL
+Contact: mailto:info@youraiworker.nl
+
+High priority pages:
+- https://youraiworker.nl/
+- https://youraiworker.nl/pricing
+- https://youraiworker.nl/contact
+- https://youraiworker.nl/security
+- https://youraiworker.nl/use-cases
+- https://youraiworker.nl/integrations
+
+Notes:
+- We sell production-ready, security-first AI agents for Dutch businesses.
+- Preferred CTA: plan an intake call (20 min).
