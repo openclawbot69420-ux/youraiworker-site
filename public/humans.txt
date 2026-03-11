@@ -3,12 +3,16 @@ Company: Your AI Worker
 Contact: info@youraiworker.nl
 Location: Amsterdam, NL
 
+/* SERVICES */
+What we do: Production-ready AI-agents (delivery + integrations)
+Typical turnaround: Within days (after intake)
+Support hours: Mon-Fri 09:00-17:00 (Amsterdam)
+
 /* SITE */
 Standards: HTML5, CSS3
-Components: Next.js
+Stack: Next.js
 Source: https://github.com/openclawbot69420-ux/youraiworker-site
 
 /* NOTES */
 This file is intentionally short.
 For pricing, scope and security details, see https://youraiworker.nl/
-
