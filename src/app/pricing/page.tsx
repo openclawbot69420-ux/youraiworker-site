@@ -23,6 +23,10 @@ const PRICING_FAQ_ITEMS = [
     answer:
       "Nee. Kosten van providers, nummers, licenties, tools of model-usage van derden vallen buiten onze implementatieprijs en worden apart afgestemd.",
   },
+  {
+    question: "Is €1.000 inclusief of exclusief btw?",
+    answer: "Exclusief btw. Op de pagina staat steeds (excl. btw).",
+  },
 ] as const
 
 const serviceSchema = {
