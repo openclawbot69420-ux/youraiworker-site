@@ -1003,7 +1003,13 @@ const HomePage: React.FC = () => {
           </div>
 
           <p className="mt-4 text-xs text-white/60">
-            Liever mailen? <a className="underline underline-offset-2 hover:text-white" href="mailto:info@youraiworker.nl">info@youraiworker.nl</a>
+            Liever mailen?{" "}
+            <a
+              className="underline underline-offset-2 hover:text-white"
+              href="mailto:info@youraiworker.nl"
+            >
+              info@youraiworker.nl
+            </a>
           </p>
         </div>
       </section>
