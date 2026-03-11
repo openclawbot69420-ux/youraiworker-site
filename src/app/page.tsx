@@ -454,13 +454,22 @@ const HomePage: React.FC = () => {
               </p>
               <div className="mt-5 space-y-2.5">
                 {[
-                  [
-                    "1. Kies één workflow",
-                    "Inbox triage, lead kwalificatie of rapportages",
-                  ],
-                  ["2. Wij bouwen & testen", "Production-ready binnen dagen, niet maanden"],
-                  ["3. Live + support", "48 uur warranty + 2 weken break-fix (business hours)"],
-                ].map(([title, desc]) => (
+                  {
+                    title: "1. Kies één workflow",
+                    desc: "Inbox triage, leadkwalificatie of rapportages",
+                    meta: "Intake 20 min",
+                  },
+                  {
+                    title: "2. Wij bouwen en testen",
+                    desc: "Production-ready binnen dagen, niet maanden",
+                    meta: "Duidelijke scope",
+                  },
+                  {
+                    title: "3. Live en support",
+                    desc: "48 uur warranty plus 2 weken break-fix (business hours)",
+                    meta: "Reactie binnen 1 werkdag",
+                  },
+                ].map(({ title, desc, meta }) => (
                   <div
                     key={title}
                     className="flex gap-3 rounded-xl border border-slate-100 bg-white p-3.5"
@@ -469,8 +478,11 @@ const HomePage: React.FC = () => {
                       aria-hidden="true"
                       className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-cyan-500"
                     />
-                    <div>
-                      <p className="text-xs font-medium text-slate-700">{title}</p>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                        <p className="text-xs font-medium text-slate-700">{title}</p>
+                        <p className="text-[11px] font-medium text-slate-500">{meta}</p>
+                      </div>
                       <p className="mt-0.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
                         {desc}
                       </p>
