@@ -16,6 +16,9 @@ const DEFAULT_TWITTER_IMAGE = "/og-home.png"
 
 const DEFAULT_OG_ALT = "Your AI Worker - Productierijpe AI-agents voor Nederlandse bedrijven"
 
+// Basic SEO: makes it easier for crawlers and browsers to show a stable preview title.
+const DEFAULT_META_TITLE = `${SITE_NAME} - ${DEFAULT_TITLE}`
+
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
@@ -249,10 +252,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Your AI Worker" />
         <meta name="description" content={DEFAULT_DESCRIPTION} />
-        <meta
-          name="keywords"
-          content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""}
-        />
+        <meta name="keywords" content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""} />
+
+        {/* Explicit document title helps some crawlers, browser UI, and share previews. */}
+        <title>{DEFAULT_META_TITLE}</title>
 
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
