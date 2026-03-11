@@ -1,8 +1,6 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "description": "Productierijpe AI-agents voor Nederlandse bedrijven",
-  "scope": "/",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -17,18 +15,6 @@
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
-  ],
-  "id": "/",
-  "lang": "nl-NL",
-  "categories": ["business", "productivity", "utilities"],
-  "screenshots": [
-    {
-      "src": "/og-home.png",
-      "sizes": "1200x630",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Your AI Worker"
     }
   ]
 }
