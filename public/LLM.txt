@@ -1,6 +1,6 @@
 This website uses LLM-backed tooling for content drafting, automation, and internal workflows.
 
-No visitor prompts are stored by default.
+No visitor inputs are stored by default.
 No sensitive customer data is intentionally shared with third-party LLM providers.
 
 If you have questions about AI usage or data handling, contact: info@youraiworker.nl
