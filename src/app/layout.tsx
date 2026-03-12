@@ -247,6 +247,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/humans.txt" title="Humans" />
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />
+        <link rel="alternate" type="text/plain" href="/.well-known/ai.txt" title="AI policy" />
         <link rel="alternate" type="application/xml" href="/sitemap.xml" title="Sitemap" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="robots" content="index, follow" />

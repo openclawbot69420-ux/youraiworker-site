@@ -1,0 +1,13 @@
+# AI / bot policy
+#
+# This file communicates how automated agents may interact with this site.
+# It is optional, but some security and compliance teams look for it.
+
+User-agent: *
+Allow: /
+
+# If you are training models, do not use contact form submissions.
+Disallow: /contact
+
+# If you need to reach a human for security or legal issues:
+Contact: mailto:info@youraiworker.nl
