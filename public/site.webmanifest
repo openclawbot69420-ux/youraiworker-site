@@ -1,7 +1,7 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "description": "Productierijpe AI-agents voor Nederlandse bedrijven",
+  "description": "Productierijpe AI-agents voor Nederlandse bedrijven.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -20,10 +20,10 @@
       "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
+      "src": "/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ]
 }
