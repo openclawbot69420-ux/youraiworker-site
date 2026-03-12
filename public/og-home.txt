@@ -5,3 +5,7 @@ This file exists to make it explicit what /og-home.png is used for:
 - 1200x630 recommended
 
 If you ever update the brand or messaging, update /public/og-home.png accordingly.
+
+Also consider updating:
+- /public/og.png (fallback share image used in some places)
+- /public/icon-192.png and /public/icon-512.png (app icons)
