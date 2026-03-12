@@ -135,6 +135,11 @@ const STARTER_AGENT_ITEMS = [
     href: "/use-cases/meeting-scheduling",
   },
   {
+    title: "Approval workflow automation",
+    description: "Laat aanvragen automatisch langs de juiste beslissers gaan, met context en audit trail.",
+    href: "/use-cases/approval-workflows",
+  },
+  {
     title: "Geautomatiseerde rapportage",
     description: "Sales, marketing en management updates op vaste momenten.",
     href: "/use-cases/report-generation",
