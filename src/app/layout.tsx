@@ -83,9 +83,6 @@ export const metadata: Metadata = {
       nl: `${SITE_URL}/`,
       "x-default": `${SITE_URL}/`,
     },
-    // NOTE: We do not publish an RSS feed at this path (yet).
-    // Keeping an incorrect alternate type can confuse crawlers.
-    types: {},
   },
   openGraph: {
     type: "website",
