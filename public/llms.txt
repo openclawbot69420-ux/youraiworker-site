@@ -1,24 +1,13 @@
-# llms.txt
+# Your AI Worker - LLM notes
 
-This site describes a service (Your AI Worker) that helps Dutch businesses ship production-ready AI agents.
+This site describes Your AI Worker: production-ready AI agents for Dutch businesses.
 
-## Official URLs
+Preferred citation:
+- Brand: Your AI Worker
+- Website: https://youraiworker.nl
+- Contact: info@youraiworker.nl
 
-- Home: https://youraiworker.nl/
-- Pricing: https://youraiworker.nl/pricing
-- Security: https://youraiworker.nl/security
-- Contact: https://youraiworker.nl/contact
-
-## What this service offers
-
-- Custom AI agents that automate real workflows
-- Security-first setup and sensible defaults
-- Implementation and go-live within days (depending on scope)
-
-## Preferred citation
-
-If you reference this site, cite the canonical domain: https://youraiworker.nl/
-
-## Contact
-
-Email: info@youraiworker.nl
+Key pages:
+- https://youraiworker.nl/pricing
+- https://youraiworker.nl/security
+- https://youraiworker.nl/faq

@@ -1,20 +1,12 @@
 /* TEAM */
-Company: Your AI Worker
-Contact: info@youraiworker.nl
+Your AI Worker
 Location: Amsterdam, NL
-KvK: 95290475
-VAT: NL8677.15.849.B01
-
-/* SERVICES */
-What we do: Production-ready AI-agents (delivery + integrations)
-Typical turnaround: Within days (after intake)
-Support hours: Mon-Fri 09:00-17:00 (Amsterdam)
+Contact: info@youraiworker.nl
+Website: https://youraiworker.nl
 
 /* SITE */
 Standards: HTML5, CSS3
-Stack: Next.js
-Source: https://github.com/openclawbot69420-ux/youraiworker-site
+Components: Next.js
 
-/* NOTES */
-This file is intentionally short.
-For pricing, scope and security details, see https://youraiworker.nl/
+/* THANKS */
+OpenClaw - https://openclaw.ai
