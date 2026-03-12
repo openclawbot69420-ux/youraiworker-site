@@ -1,9 +1,6 @@
 Contact: mailto:info@youraiworker.nl
+Expires: 2026-09-01T00:00:00.000Z
 Preferred-Languages: nl, en
 Canonical: https://youraiworker.nl/.well-known/security.txt
 Policy: https://youraiworker.nl/security
-Hiring: https://youraiworker.nl/contact
-
-# Notes
-# This file enables security researchers to quickly find how to report vulnerabilities.
-# We currently accept reports via email.
+Acknowledgments: https://youraiworker.nl/security
