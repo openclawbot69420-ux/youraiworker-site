@@ -1027,11 +1027,30 @@ const HomePage: React.FC = () => {
             </a>
           </p>
 
-          <p className="mt-2 text-[11px] leading-relaxed text-white/50">
-            Tip: voeg een korte omschrijving van je aanvraag toe (use-case, kanaal, volumes). Dan kunnen
-            we sneller een concreet voorstel maken.
-          </p>
-
+          <div className="mt-5 grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:max-w-xl sm:grid-cols-2">
+            <div className="rounded-xl border border-white/10 bg-black/10 px-3.5 py-3">
+              <p className="text-xs font-semibold text-white">Wat je krijgt na de intake</p>
+              <ul className="mt-2 space-y-1.5 text-[11px] leading-relaxed text-white/70">
+                {[
+                  "Scope (wat wel en niet)",
+                  "Plan van aanpak + planning",
+                  "Vaste uitgangspunten (security, privacy, ownership)",
+                ].map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-black/10 px-3.5 py-3">
+              <p className="text-xs font-semibold text-white">Tip voor een snelle proposal</p>
+              <p className="mt-2 text-[11px] leading-relaxed text-white/70">
+                Stuur alvast je use-case, kanaal (e-mail, WhatsApp, Slack), volumes per dag en de tools
+                die je gebruikt. Dan kunnen we sneller concreet worden.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </>
