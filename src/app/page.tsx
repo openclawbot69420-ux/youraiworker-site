@@ -595,7 +595,7 @@ const HomePage: React.FC = () => {
               Zie de chat-agent in actie
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-200 sm:text-base">
-              Korte chatdemo’s van inbox triage, lead kwalificatie en support, inclusief
+              Korte chatdemo's van inbox triage, lead kwalificatie en support, inclusief
               doorgestuurde e-mail, kwalificatievragen en support-escalatie.
             </p>
           </div>
@@ -983,6 +983,10 @@ const HomePage: React.FC = () => {
           <p className="mt-4 max-w-2xl text-white/70">
             Plan een korte intake. Je krijgt binnen 24-48 uur een concreet voorstel met scope,
             planning en vaste uitgangspunten.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm text-white/80">
+            Geen vage demo, maar een call met een eigenaar die je workflow snapt en meteen kan
+            inschatten wat er nodig is.
           </p>
           <p className="mt-3 max-w-2xl text-xs text-white/60">
             Antwoord binnen 1 werkdag. KvK 95290475.
