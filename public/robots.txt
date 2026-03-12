@@ -1,7 +1,6 @@
-# robots.txt for https://youraiworker.nl
-# Keep crawl rules simple and explicit.
-
 User-agent: *
 Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
+
+Host: youraiworker.nl
