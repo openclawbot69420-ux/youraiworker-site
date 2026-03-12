@@ -190,6 +190,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/implementatie", label: "Implementatie", title: "Lees hoe implementatie werkt" },
   { href: "/pricing", label: "Prijzen", title: "Bekijk prijzen" },
   { href: "/contact", label: "Contact", title: "Neem contact op" },
+  { href: "/faq", label: "FAQ", title: "Veelgestelde vragen" },
   { href: "/security", label: "Beveiliging", title: "Lees over beveiliging" },
   {
     href: "https://github.com/openclawbot69420-ux/youraiworker-site",
@@ -468,6 +469,9 @@ const Footer: React.FC = () => {
                 title="Lees het privacybeleid"
               >
                 Privacy
+              </a>
+              <a className="transition-colors hover:text-slate-900" href="/faq" title="Veelgestelde vragen">
+                FAQ
               </a>
               <a
                 className="transition-colors hover:text-slate-900"
