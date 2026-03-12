@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/contact",
     images: [
       {
-        url: "/og.png",
-        alt: "Your AI Worker contact",
+        url: "/og-home.png",
+        alt: "Your AI Worker - contact",
       },
     ],
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Plan AI-agent intake | Your AI Worker",
     description: "Vraag een intake of voorstel aan voor AI-automatisering. Binnen 1 werkdag reactie, heldere scope.",
-    images: ["/og.png"],
+    images: ["/og-home.png"],
   },
 }
 
