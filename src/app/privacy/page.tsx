@@ -95,7 +95,7 @@ const PrivacyPage: React.FC = () => {
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               Je kunt inzage, correctie of verwijdering van je persoonsgegevens aanvragen. Ook kun
               je bezwaar maken tegen verwerking of vragen om gegevensoverdraagbaarheid waar dit van
-              toepassing is. Stuur hiervoor een e-mail naar info.nl.
+              toepassing is. Stuur hiervoor een e-mail naar info@youraiworker.nl.
             </p>
           </div>
         </div>
