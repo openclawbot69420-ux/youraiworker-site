@@ -137,7 +137,6 @@ export const metadata: Metadata = {
     "application-name": SITE_NAME,
     "msapplication-TileColor": "#0f172a",
     "msapplication-config": "/browserconfig.xml",
-    "msapplication-TileImage": "/mstile-150x150.png",
     ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
     "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
     "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
