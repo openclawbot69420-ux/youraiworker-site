@@ -990,13 +990,13 @@ const HomePage: React.FC = () => {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="/contact"
-              className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
+              className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
             >
               Plan een intake
             </a>
             <a
               href="/pricing"
-              className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
+              className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
               Prijzen
             </a>
@@ -1026,6 +1026,12 @@ const HomePage: React.FC = () => {
               info@youraiworker.nl
             </a>
           </p>
+
+          <p className="mt-2 text-[11px] leading-relaxed text-white/50">
+            Tip: voeg een korte omschrijving van je aanvraag toe (use-case, kanaal, volumes). Dan kunnen
+            we sneller een concreet voorstel maken.
+          </p>
+
         </div>
       </section>
     </>
