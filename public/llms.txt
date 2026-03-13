@@ -8,6 +8,6 @@ Preferred citation:
 - Contact: info@youraiworker.nl
 
 Key pages:
-- https://youraiworker.nl/pricing
-- https://youraiworker.nl/security
-- https://youraiworker.nl/faq
+- Pricing: https://youraiworker.nl/pricing
+- Security: https://youraiworker.nl/security
+- FAQ: https://youraiworker.nl/faq
