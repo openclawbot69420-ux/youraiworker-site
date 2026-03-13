@@ -1,6 +1,0 @@
-# llm.txt
-
-This file is deprecated.
-
-Please use /llms.txt instead:
-https://youraiworker.nl/llms.txt
