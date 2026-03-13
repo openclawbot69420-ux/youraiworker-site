@@ -38,6 +38,10 @@ const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
 
+// Quick trust indicator for first-time visitors.
+// Keep it short and factual.
+const CONTACT_EVENING_WEEKEND_NOTICE = "Avond en weekend op afspraak"
+
 // Keep these as "undefined" until you have real IDs.
 // This avoids publishing placeholders in metadata.
 const SOCIAL_LINKEDIN: string | undefined = undefined
@@ -369,6 +373,10 @@ const Footer: React.FC = () => {
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               {CONTACT_TURNAROUND}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              {CONTACT_EVENING_WEEKEND_NOTICE}
             </span>
           </div>
         </div>
