@@ -27,6 +27,10 @@ const TESTIMONIALS = [
 const TESTIMONIAL_DISCLAIMER =
   "Voorbeeldquotes voor positionering. Vervang met echte klantreviews zodra beschikbaar."
 
+const TESTIMONIAL_SECTION_TITLE = "Resultaat in dagen, niet maanden"
+const TESTIMONIAL_SECTION_SUBTITLE =
+  "Voorbeeldquotes voor positionering (nog geen echte klantreviews)."
+
 // NOTE: Only emit Review / AggregateRating JSON-LD when testimonials are real.
 // Publishing placeholder reviews can be considered misleading and is a trust hit.
 const SHOULD_EMIT_REVIEW_SCHEMA = false
@@ -100,10 +104,10 @@ export const Testimonials: React.FC = () => {
       <section id="testimonials" className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Wat klanten zeggen
+            {TESTIMONIAL_SECTION_TITLE}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-            Teams die startten met 1 workflow en binnen dagen resultaat zagen.
+            {TESTIMONIAL_SECTION_SUBTITLE}
           </p>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
