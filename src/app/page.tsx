@@ -88,7 +88,7 @@ const WORKFLOW_MARQUEE_ITEMS = [
   "Klantvragen via WhatsApp",
   "Intake + routing via Telegram",
   "Backoffice workflows met approvals",
-  "OpenClaw managed in productie",
+  "OpenClaw in productie beheerd", 
 ] as const
 
 const PROBLEM_CARDS = [
