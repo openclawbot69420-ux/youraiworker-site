@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 const FAQS: Array<{ question: string; answer: string }> = [
   {
     question: "Wat is een AI-agent precies?",
@@ -31,7 +33,7 @@ const FAQS: Array<{ question: string; answer: string }> = [
   },
 ]
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
