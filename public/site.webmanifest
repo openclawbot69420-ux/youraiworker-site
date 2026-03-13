@@ -2,7 +2,7 @@
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
   "description": "Productierijpe AI-agents voor Nederlandse bedrijven.",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
@@ -25,5 +25,13 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "scope": "/",
+  "lang": "nl",
+  "orientation": "portrait",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
   ]
 }
