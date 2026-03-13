@@ -4,6 +4,11 @@ Site: https://youraiworker.nl
 Location: Amsterdam, NL
 Contact: info@youraiworker.nl
 
+/* CREDIBILITY */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+Response time: binnen 1 werkdag
+
 /* THANKS */
 OpenClaw: https://github.com/openclaw
 
