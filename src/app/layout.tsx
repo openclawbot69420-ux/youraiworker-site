@@ -14,6 +14,9 @@ const DEFAULT_DESCRIPTION =
 const DEFAULT_OG_IMAGE = "/og-home.png"
 const DEFAULT_TWITTER_IMAGE = "/og-home.png"
 
+// Extra share preview image (used by some platforms, and as a fallback when the primary OG image fails).
+const FALLBACK_OG_IMAGE = "/og.png"
+
 const DEFAULT_OG_ALT = "Your AI Worker - Productierijpe AI-agents voor Nederlandse bedrijven"
 
 // Basic SEO: makes it easier for crawlers and browsers to show a stable preview title.
@@ -102,6 +105,12 @@ export const metadata: Metadata = {
         height: DEFAULT_META_IMAGE_HEIGHT,
         alt: DEFAULT_OG_ALT,
       },
+      {
+        url: FALLBACK_OG_IMAGE,
+        width: DEFAULT_META_IMAGE_WIDTH,
+        height: DEFAULT_META_IMAGE_HEIGHT,
+        alt: DEFAULT_OG_ALT,
+      },
     ],
   },
   twitter: {
@@ -143,6 +152,8 @@ export const metadata: Metadata = {
     "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
     "twitter:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
     "og:image": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:secure_url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     "og:image:width": String(DEFAULT_META_IMAGE_WIDTH),
     "og:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
 
