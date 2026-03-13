@@ -8,5 +8,9 @@ Website: https://youraiworker.nl
 Standards: HTML5, CSS3
 Components: Next.js
 
+/* CREDIBILITY */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+
 /* THANKS */
 OpenClaw - https://openclaw.ai
