@@ -56,7 +56,7 @@ export default function FAQPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqJsonLd) }} />
       <div className="mx-auto max-w-6xl px-4 py-16">
-      <div className="max-w-3xl">
+        <div className="max-w-3xl">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
         <p className="mt-4 text-base leading-relaxed text-slate-600">
           Snelle antwoorden op de meest voorkomende vragen. Staat jouw vraag er niet bij? Stuur ons een
@@ -64,7 +64,7 @@ export default function FAQPage() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-4">
+        <div className="mt-10 grid gap-4">
         {FAQS.map((item) => (
           <details
             key={item.question}
@@ -84,9 +84,9 @@ export default function FAQPage() {
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">{item.answer}</p>
           </details>
         ))}
-      </div>
+        </div>
 
-      <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+        <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
         <p className="text-sm font-semibold text-slate-900">Klaar voor de volgende stap?</p>
         <p className="mt-2 text-sm text-slate-600">
           Plan een korte intake en krijg een concreet voorstel met scope, planning en prijs.
@@ -99,7 +99,7 @@ export default function FAQPage() {
             Plan intake (20 min)
           </a>
         </div>
-      </div>
+        </div>
       </div>
     </>
   )
