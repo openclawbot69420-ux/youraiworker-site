@@ -4,6 +4,7 @@ Contact: info@youraiworker.nl
 Location: Amsterdam, The Netherlands
 
 /* SITE */
+URL: https://youraiworker.nl
 Stack: Next.js, React, Tailwind CSS
 Language: Dutch (nl-NL)
 
