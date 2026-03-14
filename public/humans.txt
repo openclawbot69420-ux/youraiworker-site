@@ -9,5 +9,9 @@ Standards: HTML5, CSS3
 Language: nl-NL
 Software: Next.js
 
+/* LEGAL */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+
 /* SOCIAL */
 GitHub: https://github.com/openclawbot69420-ux/youraiworker-site
