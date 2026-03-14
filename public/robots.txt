@@ -1,6 +1,7 @@
+# robots.txt
+# https://youraiworker.nl/robots.txt
+
 User-agent: *
 Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
-
-Host: youraiworker.nl
