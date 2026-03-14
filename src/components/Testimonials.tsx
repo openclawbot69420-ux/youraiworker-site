@@ -29,7 +29,7 @@ const TESTIMONIAL_DISCLAIMER =
 
 const TESTIMONIAL_SECTION_TITLE = "Resultaat in dagen, niet maanden"
 const TESTIMONIAL_SECTION_SUBTITLE =
-  "Voorbeeldquotes voor positionering (nog geen echte klantreviews)."
+  "Indicatieve voorbeelden. Vervang met echte klantreviews zodra beschikbaar."
 
 // NOTE: Only emit Review / AggregateRating JSON-LD when testimonials are real.
 // Publishing placeholder reviews can be considered misleading and is a trust hit.
