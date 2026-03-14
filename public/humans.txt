@@ -1,17 +1,11 @@
 /* TEAM */
-Company: Your AI Worker
-Site: https://youraiworker.nl
-Location: Amsterdam, NL
+Name: Your AI Worker
 Contact: info@youraiworker.nl
-
-/* CREDIBILITY */
-KvK: 95290475
-VAT: NL8677.15.849.B01
-Response time: binnen 1 werkdag
-
-/* THANKS */
-OpenClaw: https://github.com/openclaw
+Location: Amsterdam, The Netherlands
 
 /* SITE */
-Language: nl
-Stack: Next.js
+Stack: Next.js, React, Tailwind CSS
+Language: Dutch (nl-NL)
+
+/* THANKS */
+Open-source community

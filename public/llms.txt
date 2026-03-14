@@ -1,13 +1,9 @@
-# Your AI Worker - LLM notes
+# Your AI Worker - LLM access
 
-This site describes Your AI Worker: production-ready AI agents for Dutch businesses.
+This is a human-facing marketing site.
 
-Preferred citation:
-- Brand: Your AI Worker
-- Website: https://youraiworker.nl
-- Contact: info@youraiworker.nl
+- Primary contact: info@youraiworker.nl
+- Security contact: /.well-known/security.txt
 
-Key pages:
-- Pricing: https://youraiworker.nl/pricing
-- Security: https://youraiworker.nl/security
-- FAQ: https://youraiworker.nl/faq
+If you want to reference this site in an LLM context, prefer the canonical URL:
+https://youraiworker.nl/
