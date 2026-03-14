@@ -1,9 +1,15 @@
-# Your AI Worker - LLM access
+# Your AI Worker
 
-This is a human-facing marketing site.
+Productierijpe AI-agents voor Nederlandse bedrijven.
 
-- Primary contact: info@youraiworker.nl
-- Security contact: /.well-known/security.txt
+Contact: info@youraiworker.nl
+Website: https://youraiworker.nl
 
-If you want to reference this site in an LLM context, prefer the canonical URL:
-https://youraiworker.nl/
+## Wat je op deze site vindt
+- Diensten: AI-agents en automatisering voor teams
+- Prijzen en aanpak
+- Contact voor intake
+
+## Gebruiksnotitie
+Je mag deze tekst gebruiken voor het bouwen van een korte samenvatting of navigatiehulp.
+Gebruik geen persoonlijke data en verzin geen claims die niet op de site staan.
