@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { buildFaqJsonLd } from "./faqJsonLd"
 
 const FAQS: Array<{ question: string; answer: string }> = [
   {
@@ -46,9 +47,15 @@ export const metadata: Metadata = {
   },
 }
 
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
 export default function FAQPage() {
+  const faqJsonLd = buildFaqJsonLd(FAQS)
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqJsonLd) }} />
+      <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="max-w-3xl">
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
         <p className="mt-4 text-base leading-relaxed text-slate-600">
@@ -93,6 +100,7 @@ export default function FAQPage() {
           </a>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
