@@ -383,7 +383,7 @@ const Footer: React.FC = () => {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              {CONTACT_TURNAROUND}
+              {CONTACT_RESPONSE_TIME}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
