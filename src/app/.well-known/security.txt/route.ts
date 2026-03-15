@@ -7,10 +7,11 @@ export const runtime = "nodejs"
 export const GET = (_req: NextRequest) => {
   const body = [
     "Contact: mailto:info@youraiworker.nl",
-    "Expires: 2026-12-31T23:59:59.000Z",
+    "Expires: 2027-12-31T23:59:59.000Z",
     "Preferred-Languages: nl, en",
     "Canonical: " + SITE_URL + "/.well-known/security.txt",
     "Policy: " + SITE_URL + "/security",
+    "Hiring: " + SITE_URL + "/contact",
     "",
     "# This file follows https://securitytxt.org",
     "# Please report security issues responsibly.",
