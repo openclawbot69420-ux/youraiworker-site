@@ -7,5 +7,7 @@ Contact: info@youraiworker.nl
 
 /* SITE */
 
+Standards: HTML5, CSS3, TypeScript, Next.js
+
 Last update: 2026-03-15 (automated hourly improvements)
 Language: nl
