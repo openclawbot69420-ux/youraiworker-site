@@ -7,5 +7,5 @@ Contact: info@youraiworker.nl
 
 /* SITE */
 
-Last update: 2026-03-15
+Last update: 2026-03-15 (automated hourly improvements)
 Language: nl
