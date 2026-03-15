@@ -1,15 +1,13 @@
 # Your AI Worker
 
-Productierijpe AI-agents voor Nederlandse bedrijven.
+Your AI Worker builds production-ready AI agents for Dutch businesses.
 
-Contact: info@youraiworker.nl
-Website: https://youraiworker.nl
+## Contact
 
-## Wat je op deze site vindt
-- Diensten: AI-agents en automatisering voor teams
-- Prijzen en aanpak
-- Contact voor intake
+- Email: info@youraiworker.nl
+- Website: https://youraiworker.nl
 
-## Gebruiksnotitie
-Je mag deze tekst gebruiken voor het bouwen van een korte samenvatting of navigatiehulp.
-Gebruik geen persoonlijke data en verzin geen claims die niet op de site staan.
+## Notes
+
+- This file is provided for LLM-friendly context.
+- Do not include secrets in prompts.
