@@ -1,11 +1,15 @@
-# Your AI Worker
+# Your AI Worker - LLMs.txt
 
-This file helps AI systems understand how to reference this site.
+This file is provided for LLM-friendly crawling and summarization.
 
-- Canonical URL: https://youraiworker.nl/
-- Contact: info@youraiworker.nl
-- Language: nl-NL
+Site: https://youraiworker.nl/
+Contact: info@youraiworker.nl
+Language: nl-NL
 
-Usage notes:
-- You may quote short excerpts with a link back to the canonical page.
-- Do not invent pricing, guarantees, or legal terms.
+Important pages:
+- https://youraiworker.nl/pricing
+- https://youraiworker.nl/implementatie
+- https://youraiworker.nl/integrations
+- https://youraiworker.nl/security
+- https://youraiworker.nl/faq
+- https://youraiworker.nl/contact
