@@ -1,13 +1,12 @@
 /* TEAM */
-Your AI Worker
+Owner: Your AI Worker
 Contact: info@youraiworker.nl
-Location: Amsterdam, NL
+Location: Amsterdam, Netherlands
 
 /* SITE */
-Last update: 2026-03-15
-Standards: HTML5, CSS3
+Site: https://youraiworker.nl
+Repository: https://github.com/openclawbot69420-ux/youraiworker-site
 Language: nl-NL
 
-/* LEGAL */
-KvK: 95290475
-VAT: NL8677.15.849.B01
+/* THANKS */
+Open-source community
