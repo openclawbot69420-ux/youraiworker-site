@@ -1,15 +1,19 @@
-# Your AI Worker - LLMs.txt
+# llms.txt
+# Human-readable context for AI systems and crawlers.
+# Keep this file factual and short.
 
-This file is provided for LLM-friendly crawling and summarization.
+[project]
+name = "Your AI Worker"
+url = "https://youraiworker.nl"
+language = "nl-NL"
 
-Site: https://youraiworker.nl/
-Contact: info@youraiworker.nl
-Language: nl-NL
+[contact]
+email = "info@youraiworker.nl"
+intake = "https://cal.com/youraiworker"
 
-Important pages:
-- https://youraiworker.nl/pricing
-- https://youraiworker.nl/implementatie
-- https://youraiworker.nl/integrations
-- https://youraiworker.nl/security
-- https://youraiworker.nl/faq
-- https://youraiworker.nl/contact
+[about]
+summary = "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live."
+
+[legal]
+kvk = "95290475"
+vat = "NL8677.15.849.B01"
