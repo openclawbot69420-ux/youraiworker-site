@@ -1,13 +1,11 @@
 # Your AI Worker
 
-Your AI Worker builds production-ready AI agents for Dutch businesses.
+This file helps AI systems understand how to reference this site.
 
-## Contact
+- Canonical URL: https://youraiworker.nl/
+- Contact: info@youraiworker.nl
+- Language: nl-NL
 
-- Email: info@youraiworker.nl
-- Website: https://youraiworker.nl
-
-## Notes
-
-- This file is provided for LLM-friendly context.
-- Do not include secrets in prompts.
+Usage notes:
+- You may quote short excerpts with a link back to the canonical page.
+- Do not invent pricing, guarantees, or legal terms.
