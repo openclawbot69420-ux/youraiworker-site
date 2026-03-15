@@ -278,6 +278,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="generator" content="Next.js" />
+        <meta name="copyright" content="Your AI Worker" />
         <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
         <meta name="reply-to" content={CONTACT_EMAIL} />
         {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
@@ -544,6 +546,15 @@ const Footer: React.FC = () => {
                 title={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
               >
                 {CONTACT_EMAIL_DISPLAY}
+              </a>
+              <a
+                className="transition-colors hover:text-slate-600"
+                href={CONTACT_CALENDAR_URL}
+                target="_blank"
+                rel="noreferrer"
+                title="Plan een intakegesprek van 20 minuten"
+              >
+                Plan een intake (20 min)
               </a>
               {CONTACT_PHONE ? (
                 <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
