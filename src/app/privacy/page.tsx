@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Privacybeleid van Your AI Worker.",
 }
 
-const LAST_UPDATED = "8 maart 2026"
+const LAST_UPDATED = "15 maart 2026"
 
 const PrivacyPage: React.FC = () => {
   return (
