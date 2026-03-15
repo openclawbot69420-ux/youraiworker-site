@@ -7,3 +7,7 @@ Location: Amsterdam, NL
 Last update: 2026-03-15
 Standards: HTML5, CSS3
 Language: nl-NL
+
+/* LEGAL */
+KvK: 95290475
+VAT: NL8677.15.849.B01
