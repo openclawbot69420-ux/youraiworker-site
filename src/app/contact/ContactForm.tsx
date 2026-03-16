@@ -106,7 +106,7 @@ export const ContactForm: React.FC = () => {
         <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
           <p className="text-sm font-semibold text-slate-900">Jouw configuratie</p>
           <p className="mt-2 text-sm text-slate-700">
-            <span className="font-semibold">Package:</span> {configSummary.packageLabel}
+            <span className="font-semibold">Pakket:</span> {configSummary.packageLabel}
           </p>
           <p className="mt-1 text-sm text-slate-700">
             <span className="font-semibold">Add-ons:</span>{" "}
@@ -114,7 +114,7 @@ export const ContactForm: React.FC = () => {
           </p>
           <p className="mt-1 text-sm text-slate-700">
             <span className="font-semibold">Volumes:</span>{" "}
-            {configSummary.volumes.emailsPerDay} emails/dag, {configSummary.volumes.leadsPerWeek} leads/week, {configSummary.volumes.ticketsPerWeek} tickets/week
+            {configSummary.volumes.emailsPerDay} e-mails/dag, {configSummary.volumes.leadsPerWeek} leads/week, {configSummary.volumes.ticketsPerWeek} tickets/week
           </p>
           <p className="mt-1 text-sm text-slate-700">
             <span className="font-semibold">Uurtarief:</span> €{configSummary.hourlyRateEuro}/uur
