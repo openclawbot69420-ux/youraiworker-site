@@ -85,10 +85,10 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: `${SITE_URL}/`,
+    canonical: SITE_URL,
     languages: {
-      nl: `${SITE_URL}/`,
-      "x-default": `${SITE_URL}/`,
+      nl: SITE_URL,
+      "x-default": SITE_URL,
     },
   },
   openGraph: {
