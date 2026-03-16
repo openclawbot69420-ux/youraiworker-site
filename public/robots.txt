@@ -6,5 +6,4 @@ Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
 
-# Crawl-delay is ignored by Google, but can help some other crawlers be polite.
-Crawl-delay: 10
+# Keep this lean. Crawl-delay is ignored by Google and can slow down discovery on smaller sites.
