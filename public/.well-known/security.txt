@@ -1,7 +1,8 @@
 Contact: mailto:info@youraiworker.nl
-Expires: 2030-12-31T23:59:59Z
 Preferred-Languages: nl, en
 Canonical: https://youraiworker.nl/.well-known/security.txt
+Policy: https://youraiworker.nl/security
+Expires: 2030-12-31T23:59:59Z
 
 # Security contact for Your AI Worker
 # Report vulnerabilities responsibly via email.
