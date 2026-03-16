@@ -3,6 +3,10 @@ Owner: Your AI Worker
 Contact: info@youraiworker.nl
 Location: Amsterdam, Netherlands
 
+/* BUSINESS */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+
 /* SITE */
 Site: https://youraiworker.nl
 Repository: https://github.com/openclawbot69420-ux/youraiworker-site
