@@ -255,8 +255,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     <html lang="nl">
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
@@ -269,7 +269,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />
         <link rel="alternate" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="robots" content="index, follow" />
         <meta name="rating" content="general" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
