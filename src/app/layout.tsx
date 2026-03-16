@@ -257,6 +257,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
+        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="author" href="/humans.txt" />
