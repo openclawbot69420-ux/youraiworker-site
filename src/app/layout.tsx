@@ -55,7 +55,9 @@ const CONTACT_POSTAL_CODE = ""
 const CONTACT_CITY = "Amsterdam"
 const CONTACT_COUNTRY = "NL"
 
-const CONTACT_ADDRESS_LINE = [CONTACT_CITY, "Nederland"].filter(Boolean).join(", ")
+const CONTACT_ADDRESS_LINE = [CONTACT_STREET_ADDRESS, CONTACT_POSTAL_CODE, CONTACT_CITY, "Nederland"]
+  .filter(Boolean)
+  .join(", ")
 const CONTACT_KVK_LABEL = "KvK"
 const CONTACT_BTW_LABEL = "BTW"
 
