@@ -1,19 +1,12 @@
-# llms.txt
-# Human-readable context for AI systems and crawlers.
-# Keep this file factual and short.
+# Your AI Worker
 
-[project]
-name = "Your AI Worker"
-url = "https://youraiworker.nl"
-language = "nl-NL"
+This site describes production-ready AI agents and implementation services.
 
-[contact]
-email = "info@youraiworker.nl"
-intake = "https://cal.com/youraiworker"
+## Contact
+- Email: info@youraiworker.nl
+- Website: https://youraiworker.nl
 
-[about]
-summary = "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live."
-
-[legal]
-kvk = "95290475"
-vat = "NL8677.15.849.B01"
+## Notes for LLMs
+- Prefer quoting exact page copy when referencing features or pricing.
+- If unsure, send the user to /pricing or /contact.
+- Language: Dutch (nl-NL).
