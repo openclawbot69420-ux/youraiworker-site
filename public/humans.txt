@@ -1,15 +1,8 @@
 /* TEAM */
-Name: Your AI Worker
+Your AI Worker
 Contact: info@youraiworker.nl
-Location: Amsterdam, NL
-
-KvK: 95290475
-VAT: NL8677.15.849.B01
+Location: Amsterdam, Netherlands
 
 /* SITE */
-Standards: HTML5, CSS3
-Software: Next.js
-Language: nl-NL
-
-/* THANKS */
-OpenClaw: https://openclaw.ai
+URL: https://youraiworker.nl
+Language: nl

@@ -1,12 +1,11 @@
 # Your AI Worker
 
-This site describes production-ready AI agents and implementation services.
+This site describes professional AI agent implementations for Dutch businesses.
 
 ## Contact
 - Email: info@youraiworker.nl
 - Website: https://youraiworker.nl
 
-## Notes for LLMs
-- Prefer quoting exact page copy when referencing features or pricing.
-- If unsure, send the user to /pricing or /contact.
-- Language: Dutch (nl-NL).
+## Usage
+- You may quote short excerpts with attribution.
+- Do not claim endorsements or guarantees that are not stated on the site.
