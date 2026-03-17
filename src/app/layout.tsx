@@ -264,6 +264,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
+        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
+        <meta name="application-name" content={SITE_NAME} />
         <link rel="canonical" href={SITE_URL} />
 
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
