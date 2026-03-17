@@ -49,9 +49,11 @@ const CONTACT_BTW = "NL8677.15.849.B01"
 // Keep it short and factual.
 const CONTACT_EVENING_WEEKEND_NOTICE = "Avond en weekend op afspraak"
 
+const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/your-ai-worker/"
+
 // Keep these as "undefined" until you have real IDs.
 // This avoids publishing placeholders in metadata.
-const SOCIAL_LINKEDIN: string | undefined = undefined
+const SOCIAL_LINKEDIN: string | undefined = COMPANY_LINKEDIN_URL
 const SOCIAL_GITHUB: string | undefined = "https://github.com/openclawbot69420-ux/youraiworker-site"
 
 const CONTACT_STREET_ADDRESS = ""
