@@ -1,14 +1,11 @@
 /* TEAM */
-Your AI Worker
+Owner: Your AI Worker
 Contact: info@youraiworker.nl
-Location: Amsterdam, NL
+Location: Amsterdam, Netherlands
 
 /* SITE */
 Standards: HTML5, CSS3
-Components: Next.js
-Hosting: Vercel
-Repo: https://github.com/openclawbot69420-ux/youraiworker-site
-Language: nl-NL
+Software: Next.js
 
-/* THANKS */
-Open-source community
+/* SECURITY */
+Security contact: https://youraiworker.nl/.well-known/security.txt
