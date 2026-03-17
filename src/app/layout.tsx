@@ -277,7 +277,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         {/* Icons: keep deterministic, no duplicates. */}
         <link rel="icon" href={DEFAULT_FAVICON_SVG} type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
