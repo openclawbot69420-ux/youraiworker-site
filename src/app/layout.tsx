@@ -64,6 +64,9 @@ const CONTACT_ADDRESS_DISPLAY = CONTACT_ADDRESS_LINE || `${CONTACT_CITY}, Nederl
 const CONTACT_KVK_LABEL = "KvK"
 const CONTACT_BTW_LABEL = "BTW"
 
+// Minimal legal footer line for extra credibility. Keep it factual and short.
+const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BTW})`
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -535,6 +538,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col gap-2">
             <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
+            <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
           </div>
           <div className="flex flex-col gap-3 text-right">
             <p className="text-[11px] text-slate-400">
