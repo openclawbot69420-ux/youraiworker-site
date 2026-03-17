@@ -38,12 +38,36 @@ export const metadata: Metadata = {
   title: "FAQ",
   description:
     "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
-  alternates: { canonical: "/faq" },
+  alternates: {
+    canonical: "https://youraiworker.nl/faq",
+  },
   openGraph: {
     title: "FAQ | Your AI Worker",
     description:
       "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
-    url: "/faq",
+    url: "https://youraiworker.nl/faq",
+    images: [
+      {
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Your AI Worker FAQ",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ | Your AI Worker",
+    description:
+      "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
+    images: [
+      {
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
+        alt: "Your AI Worker FAQ",
+      },
+    ],
   },
 }
 
