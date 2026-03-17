@@ -22,6 +22,9 @@ const DEFAULT_OG_ALT = "Your AI Worker - Productierijpe AI-agents voor Nederland
 // Basic SEO: makes it easier for crawlers and browsers to show a stable preview title.
 const DEFAULT_META_TITLE = `${SITE_NAME} - ${DEFAULT_TITLE}`
 
+// Keep this aligned with public/favicon.svg to avoid 404s.
+const DEFAULT_FAVICON_SVG = "/favicon.svg"
+
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
@@ -268,8 +271,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     <html lang="nl">
       <head>
         {/* Icons: keep deterministic, no duplicates. */}
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href={DEFAULT_FAVICON_SVG} type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
