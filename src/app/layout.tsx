@@ -267,6 +267,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="application-name" content={SITE_NAME} />
+        <meta name="theme-color" content="#0f172a" />
+        <meta name="color-scheme" content="light" />
         <link rel="canonical" href={SITE_URL} />
 
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
@@ -289,7 +291,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         {/* Explicit document title helps some crawlers, browser UI, and share previews. */}
         <title>{DEFAULT_META_TITLE}</title>
 
-        <meta name="theme-color" content="#0f172a" />
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="generator" content="Next.js" />
@@ -303,7 +304,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="contact:location" content={CONTACT_ADDRESS_LINE} />
         <meta name="contact:kvk" content={CONTACT_KVK} />
         <meta name="contact:vat" content={CONTACT_BTW} />
-        <meta name="color-scheme" content="light" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
