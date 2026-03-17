@@ -34,10 +34,10 @@ const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
 const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
+const CONTACT_EMAIL = "info@youraiworker.nl"
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
 const CONTACT_PHONE: string | undefined = undefined
-const CONTACT_EMAIL = "info@youraiworker.nl"
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
 
@@ -130,7 +130,7 @@ export const metadata: Metadata = {
   formatDetection: {
     email: true,
     address: false,
-    telephone: false,
+    telephone: CONTACT_PHONE ? true : false,
   },
   verification: {
     // Add verification tokens here when available.
