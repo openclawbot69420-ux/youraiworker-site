@@ -423,6 +423,10 @@ const Footer: React.FC = () => {
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               {CONTACT_EVENING_WEEKEND_NOTICE}
             </span>
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              BTW: {CONTACT_BTW}
+            </span>
           </div>
         </div>
       </div>
