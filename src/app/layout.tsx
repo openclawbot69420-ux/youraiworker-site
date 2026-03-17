@@ -286,6 +286,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="color-scheme" content="light" />
         <link rel="canonical" href={SITE_URL} />
 
+        {/* Privacy-friendly performance hint (no tracking). */}
+        <meta name="robots" content="max-image-preview:large" />
+
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
