@@ -466,7 +466,7 @@ const HomePage: React.FC = () => {
                   },
                   {
                     title: "2. Wij bouwen en testen",
-                    desc: "Production-ready binnen dagen, niet maanden",
+                    desc: "Live-ready binnen dagen, niet maanden",
                     meta: "Duidelijke scope",
                   },
                   {
@@ -631,12 +631,13 @@ const HomePage: React.FC = () => {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Waarom AI agents in de praktijk vastlopen
+              Waarom AI-agents in de praktijk vastlopen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
               De meeste teams komen verder dan een demo. Daarna lopen AI-agents vast op implementatie,
               eigenaarschap en operationele inrichting. Daarom leveren wij een managed implementatie die
               echt draait in jullie proces, met controls, logging, support en een duidelijke overdracht.
+              <span className="text-slate-900"> Geen experiment, maar een workflow met eigenaar en acceptatie.</span>
             </p>
           </div>
 
