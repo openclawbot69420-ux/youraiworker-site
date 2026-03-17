@@ -38,14 +38,22 @@ export const buildOrganizationJsonLd = (options?: {
   }
   email?: string
   telephone?: string
+  contactPoint?: {
+    url?: string
+    email?: string
+    telephone?: string
+    contactType?: string
+  }
 }): WithContext<Organization> => {
   const contactPoint: ContactPoint = {
     "@type": "ContactPoint",
-    email: options?.email ?? "info@youraiworker.nl",
-    ...(options?.telephone ? { telephone: options.telephone } : {}),
-    contactType: "customer service",
+    email: options?.contactPoint?.email ?? options?.email ?? "info@youraiworker.nl",
+    ...(options?.contactPoint?.telephone || options?.telephone
+      ? { telephone: options?.contactPoint?.telephone ?? options?.telephone }
+      : {}),
+    contactType: options?.contactPoint?.contactType ?? "customer service",
     availableLanguage: ["Dutch", "English"],
-    url: "https://youraiworker.nl/contact",
+    url: options?.contactPoint?.url ?? "https://youraiworker.nl/contact",
   }
 
   const name = options?.name ?? "Your AI Worker"

@@ -25,6 +25,7 @@ const DEFAULT_META_TITLE = `${SITE_NAME} - ${DEFAULT_TITLE}`
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
+const COMPANY_CONTACT_URL = `${SITE_URL}/contact`
 
 const DEFAULT_META_IMAGE_WIDTH = 1200
 const DEFAULT_META_IMAGE_HEIGHT = 630
@@ -241,6 +242,11 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     legalName: COMPANY_LEGAL_NAME,
     url: SITE_URL,
     logo: COMPANY_LOGO_URL,
+    contactPoint: {
+      url: COMPANY_CONTACT_URL,
+      email: CONTACT_EMAIL,
+      contactType: "sales",
+    },
     kvk: CONTACT_KVK,
     vatId: CONTACT_BTW,
     address: {
