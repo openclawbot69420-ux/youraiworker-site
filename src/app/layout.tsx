@@ -308,12 +308,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="robots" content="index, follow" />
         <meta name="rating" content="general" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Your AI Worker" />
-        <meta name="description" content={DEFAULT_DESCRIPTION} />
-        <meta name="keywords" content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : ""} />
-
-        {/* Explicit document title helps some crawlers, browser UI, and share previews. */}
-        <title>{DEFAULT_META_TITLE}</title>
 
         <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
