@@ -3,6 +3,9 @@ Your AI Worker
 Contact: info@youraiworker.nl
 Location: Amsterdam, Netherlands
 
+Social: https://www.linkedin.com/company/your-ai-worker/
+GitHub: https://github.com/openclawbot69420-ux/youraiworker-site
+
 /* SITE */
 URL: https://youraiworker.nl
 Language: nl
