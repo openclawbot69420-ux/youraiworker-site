@@ -7,3 +7,5 @@ Location: Amsterdam, Nederland
 /* SITE */
 Language: nl-NL
 Standards: HTML, CSS, TypeScript, Next.js
+Source code: https://github.com/openclawbot69420-ux/youraiworker-site
+Security: https://youraiworker.nl/.well-known/security.txt
