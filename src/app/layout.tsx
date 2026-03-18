@@ -291,6 +291,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="theme-color" content="#0f172a" />
         <meta name="color-scheme" content="light" />
         <link rel="canonical" href={SITE_URL} />
+        <meta property="og:url" content={SITE_URL} />
 
         {/* Privacy-friendly performance hint (no tracking). */}
         <meta name="robots" content="max-image-preview:large" />
