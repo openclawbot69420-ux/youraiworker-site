@@ -75,6 +75,13 @@ const CONTACT_BTW_LABEL = "BTW"
 const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BTW})`
 const COMPANY_BRAND_FOOTER_LINE = `${COMPANY_BRAND_TAGLINE}.`
 
+const CONTACT_CTA: NavItem = {
+  href: CONTACT_CALENDAR_URL,
+  label: "Plan een intake (20 min)",
+  title: "Plan een intakegesprek van 20 minuten",
+  external: true,
+}
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -547,17 +554,29 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 grid gap-6 border-t border-slate-200 pt-6 text-xs text-slate-400 sm:grid-cols-[1fr_auto] sm:items-start">
           <div className="flex flex-col gap-2">
             <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
           </div>
-          <div className="flex flex-col gap-3 text-right">
+
+          <div className="flex flex-col items-start gap-3 sm:items-end">
+            <a
+              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
+              href={CONTACT_CTA.href}
+              title={CONTACT_CTA.title}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {CONTACT_CTA.label}
+            </a>
+
             <p className="text-[11px] text-slate-400">
               {CONTACT_HOURS} - {CONTACT_RESPONSE_TIME}
             </p>
-            <p className="inline-flex items-center justify-end gap-1.5 text-[11px] text-slate-400">
+
+            <p className="inline-flex items-center gap-1.5 text-[11px] text-slate-400">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
               <a
                 className="underline underline-offset-2 transition-colors hover:text-slate-500"
@@ -575,7 +594,8 @@ const Footer: React.FC = () => {
                 Privacy
               </a>
             </p>
-            <p className="flex flex-col gap-1">
+
+            <div className="flex flex-col gap-1 text-left sm:text-right">
               <a
                 className="transition-colors hover:text-slate-600"
                 href={`mailto:${CONTACT_EMAIL}`}
@@ -583,15 +603,6 @@ const Footer: React.FC = () => {
                 title={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
               >
                 {CONTACT_EMAIL_DISPLAY}
-              </a>
-              <a
-                className="transition-colors hover:text-slate-600"
-                href={CONTACT_CALENDAR_URL}
-                target="_blank"
-                rel="noreferrer"
-                title="Plan een intakegesprek van 20 minuten"
-              >
-                Plan een intake (20 min)
               </a>
               {CONTACT_PHONE ? (
                 <a className="transition-colors hover:text-slate-600" href={`tel:${CONTACT_PHONE}`}>
@@ -601,7 +612,7 @@ const Footer: React.FC = () => {
               <span className="text-[11px] text-slate-300">
                 {CONTACT_KVK_LABEL}: {CONTACT_KVK} | {CONTACT_BTW_LABEL}: {CONTACT_BTW}
               </span>
-            </p>
+            </div>
           </div>
         </div>
       </div>
