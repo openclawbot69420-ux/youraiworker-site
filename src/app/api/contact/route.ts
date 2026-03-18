@@ -4,6 +4,14 @@ import { z } from "zod"
 
 import { rateLimit } from "./rateLimit"
 
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+
 const ContactSchema = z
   .object({
     name: z.string().trim().min(2).max(80),
@@ -70,12 +78,12 @@ export const POST = async (request: Request) => {
       html: `
         <h2>Nieuwe aanvraag via youraiworker.nl</h2>
         <table style="border-collapse:collapse;">
-          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Naam</td><td>${name}</td></tr>
-          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">E-mail</td><td><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Bedrijf</td><td>${company || "-"}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Naam</td><td>${escapeHtml(name)}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">E-mail</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
+          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Bedrijf</td><td>${escapeHtml(company || "-")}</td></tr>
         </table>
         <h3>Bericht</h3>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
       `,
     })
 
