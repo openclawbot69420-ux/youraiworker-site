@@ -60,7 +60,10 @@ export const buildOrganizationJsonLd = (options?: {
   const legalName = options?.legalName ?? name
   const url = options?.url ?? "https://youraiworker.nl/"
   const logo = options?.logo ?? "https://youraiworker.nl/icon-512.png"
-  const sameAs = options?.sameAs ?? ["https://github.com/openclawbot69420-ux/youraiworker-site"]
+  const sameAs = options?.sameAs ?? [
+    "https://github.com/openclawbot69420-ux/youraiworker-site",
+    "https://www.linkedin.com/company/your-ai-worker/",
+  ]
 
   return {
     "@context": "https://schema.org",
