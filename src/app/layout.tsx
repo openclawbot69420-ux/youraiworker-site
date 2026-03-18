@@ -136,6 +136,40 @@ export const metadata: Metadata = {
       },
     ],
   },
+  other: {
+    // Helps browsers and social platforms pick the canonical language.
+    // Also improves perceived polish in share previews.
+    "content-language": "nl-NL",
+
+    // Used by some platforms when building share previews.
+    "og:image:alt": DEFAULT_OG_ALT,
+    "twitter:image:alt": DEFAULT_OG_ALT,
+
+    "application-name": SITE_NAME,
+    "msapplication-TileColor": "#0f172a",
+    "msapplication-config": "/browserconfig.xml",
+
+    // Optional social pointers (not standard, but harmless as metadata "other" entries).
+    ...(SOCIAL_LINKEDIN ? { "social:linkedin": SOCIAL_LINKEDIN } : {}),
+    ...(SOCIAL_GITHUB ? { "social:github": SOCIAL_GITHUB } : {}),
+
+    "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
+    "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
+    "twitter:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
+    "og:image": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:secure_url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    "og:image:width": String(DEFAULT_META_IMAGE_WIDTH),
+    "og:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
+
+    // Business contact info (used by some crawlers).
+    "contact:email": CONTACT_EMAIL,
+    "contact:hours": CONTACT_HOURS,
+    "contact:response_time": CONTACT_RESPONSE_TIME,
+    "contact:turnaround": CONTACT_TURNAROUND,
+    "business:kvk": CONTACT_KVK,
+    "business:vat": CONTACT_BTW,
+  },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -161,37 +195,6 @@ export const metadata: Metadata = {
     // google: "...",
     // yandex: "...",
     // other: { "msvalidate.01": "..." },
-  },
-
-  other: {
-    // Helps browsers and social platforms pick the canonical language.
-    // Also improves perceived polish in share previews.
-    "content-language": "nl-NL",
-
-    // Used by some platforms when building share previews.
-    "og:image:alt": DEFAULT_OG_ALT,
-    "twitter:image:alt": DEFAULT_OG_ALT,
-
-    "application-name": SITE_NAME,
-    "msapplication-TileColor": "#0f172a",
-    "msapplication-config": "/browserconfig.xml",
-    ...(SOCIAL_GITHUB ? { "github:site": SOCIAL_GITHUB } : {}),
-    "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
-    "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
-    "twitter:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
-    "og:image": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
-    "og:image:secure_url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
-    "og:image:url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
-    "og:image:width": String(DEFAULT_META_IMAGE_WIDTH),
-    "og:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
-
-    // Business contact info (used by some crawlers).
-    "contact:email": CONTACT_EMAIL,
-    "contact:hours": CONTACT_HOURS,
-    "contact:response_time": CONTACT_RESPONSE_TIME,
-    "contact:turnaround": CONTACT_TURNAROUND,
-    "business:kvk": CONTACT_KVK,
-    "business:vat": CONTACT_BTW,
   },
   authors: [{ name: "Your AI Worker" }],
   creator: "Your AI Worker",
