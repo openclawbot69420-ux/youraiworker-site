@@ -139,6 +139,9 @@ export const metadata: Metadata = {
     site: undefined,
     creator: undefined,
   },
+  // Small polish: show a lightweight site name suffix in browser UI (where supported).
+  // Keeps titles consistent across pages.
+  applicationName: SITE_NAME,
   formatDetection: {
     // Prevent iOS/Safari from auto-linking phone numbers and addresses.
     // This avoids accidental "tappable" formatting in the footer and keeps typography clean.
