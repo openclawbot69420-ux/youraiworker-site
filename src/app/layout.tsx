@@ -27,6 +27,7 @@ const DEFAULT_FAVICON_SVG = "/favicon.svg"
 
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
+const COMPANY_BRAND_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijven"
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
 const COMPANY_CONTACT_URL = `${SITE_URL}/contact`
 
@@ -72,6 +73,7 @@ const CONTACT_BTW_LABEL = "BTW"
 
 // Minimal legal footer line for extra credibility. Keep it factual and short.
 const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BTW})`
+const COMPANY_BRAND_FOOTER_LINE = `${COMPANY_BRAND_TAGLINE}.`
 
 export const metadata: Metadata = {
   title: {
@@ -436,8 +438,7 @@ const Footer: React.FC = () => {
           <div>
             <p className="text-base font-semibold text-slate-900">Your AI Worker</p>
             <p className="mt-2 max-w-sm leading-relaxed">
-              Production-ready AI-agents voor Nederlandse bedrijven. Maatwerk automatisering,
-              veilig ingericht en snel live.
+              {COMPANY_BRAND_FOOTER_LINE} Maatwerk automatisering, veilig ingericht en snel live.
             </p>
             <div className="mt-5 flex items-center gap-3">
               {SOCIAL_LINKEDIN ? (
