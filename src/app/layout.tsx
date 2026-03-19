@@ -41,15 +41,18 @@ const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 const CONTACT_EMAIL = "info@youraiworker.nl"
+const CONTACT_PHONE: string | undefined = undefined
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
-const CONTACT_PHONE: string | undefined = undefined
+// CONTACT_PHONE stays undefined to avoid exposing phone numbers on the public site.
+// CONTACT_PHONE_DISPLAY is used only for microcopy explaining phone support (no number shown).
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
 
 // Quick trust indicator for first-time visitors.
 // Keep it short and factual.
 const CONTACT_EVENING_WEEKEND_NOTICE = "Avond en weekend op afspraak"
+const CONTACT_PHONE_NOTICE = "Telefonisch op afspraak"
 
 const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/your-ai-worker/"
 
@@ -423,6 +426,10 @@ const Footer: React.FC = () => {
             <span className="inline-flex items-center gap-1.5">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               {CONTACT_EVENING_WEEKEND_NOTICE}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              {CONTACT_PHONE_NOTICE}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
