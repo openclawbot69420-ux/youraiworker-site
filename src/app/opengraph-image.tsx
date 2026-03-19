@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og"
 
+// NOTE: Edge runtime is required for next/og ImageResponse.
 export const runtime = "edge"
 
 export const size = {
