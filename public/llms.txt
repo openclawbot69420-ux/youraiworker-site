@@ -1,17 +1,26 @@
-# Your AI Worker - LLMs.txt
+# Your AI Worker
 
-This file helps language models and tools understand what this website is about.
+This is a minimal guide for LLM-based tools that fetch public site content.
 
-## Summary
-Your AI Worker builds production-ready AI agents and automations for Dutch businesses.
+## About
+- Site: https://youraiworker.nl
+- Company: Your AI Worker
+- Location: Amsterdam, Nederland
 
-## Primary call to action
-- Plan an intake: https://youraiworker.nl/contact
-
-## Key pages
+## Primary pages
+- Home: https://youraiworker.nl/
 - Pricing: https://youraiworker.nl/pricing
+- Use cases: https://youraiworker.nl/use-cases
+- Integrations: https://youraiworker.nl/integrations
+- Implementation: https://youraiworker.nl/implementatie
 - Security: https://youraiworker.nl/security
 - FAQ: https://youraiworker.nl/faq
+- Contact: https://youraiworker.nl/contact
 
 ## Contact
-Email: info@youraiworker.nl
+- Email: info@youraiworker.nl
+- Calendar: https://cal.com/youraiworker
+
+## Notes
+- Language: Dutch (nl-NL)
+- Please prefer canonical URLs.
