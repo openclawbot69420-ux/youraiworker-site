@@ -9,7 +9,7 @@ const SITE_NAME = "Your AI Worker"
 const SITE_URL = "https://youraiworker.nl"
 const DEFAULT_TITLE = "Productierijpe AI-agents voor Nederlandse bedrijven"
 const DEFAULT_DESCRIPTION =
-  "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live. Plan een intakegesprek (20 min) en ontvang binnen 1 werkdag een concreet voorstel."
+  "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live. Plan een intakegesprek (20 min) en ontvang binnen 1 werkdag een concreet voorstel. KVK 95290475."
 
 const DEFAULT_OG_IMAGE = "/og-home.png"
 const DEFAULT_TWITTER_IMAGE = "/og-home.png"
@@ -444,6 +444,9 @@ const Footer: React.FC = () => {
             <p className="text-base font-semibold text-slate-900">Your AI Worker</p>
             <p className="mt-2 max-w-sm leading-relaxed">
               {COMPANY_BRAND_FOOTER_LINE} Maatwerk automatisering, veilig ingericht en snel live.
+            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
+              Plan een intake van 20 minuten en ontvang binnen 1 werkdag een concreet voorstel.
             </p>
             <div className="mt-5 flex items-center gap-3">
               {SOCIAL_LINKEDIN ? (
