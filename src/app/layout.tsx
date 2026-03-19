@@ -41,6 +41,7 @@ const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 const CONTACT_EMAIL = "info@youraiworker.nl"
+// Mailto stays visible in the footer. Cal link is used for the primary CTA.
 const CONTACT_PHONE: string | undefined = undefined
 // Use real contact details here.
 // Avoid publishing placeholder phone numbers.
@@ -428,10 +429,6 @@ const Footer: React.FC = () => {
               {CONTACT_EVENING_WEEKEND_NOTICE}
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              {CONTACT_PHONE_NOTICE}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               BTW: {CONTACT_BTW}
             </span>
@@ -615,6 +612,7 @@ const Footer: React.FC = () => {
               <span className="text-[11px] text-slate-300">
                 {CONTACT_KVK_LABEL}: {CONTACT_KVK} | {CONTACT_BTW_LABEL}: {CONTACT_BTW}
               </span>
+              <span className="text-[11px] text-slate-300">{CONTACT_TURNAROUND}</span>
             </div>
           </div>
         </div>
