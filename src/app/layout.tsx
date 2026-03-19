@@ -114,6 +114,7 @@ export const metadata: Metadata = {
       "x-default": SITE_URL,
     },
   },
+  referrer: "strict-origin-when-cross-origin",
   openGraph: {
     type: "website",
     locale: "nl_NL",
@@ -161,6 +162,11 @@ export const metadata: Metadata = {
     "og:image:url": `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     "og:image:width": String(DEFAULT_META_IMAGE_WIDTH),
     "og:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
+
+    // Extra credibility signals for crawlers and some business directories.
+    "business:entity": "LocalBusiness",
+    "business:country": CONTACT_COUNTRY,
+    "business:city": CONTACT_CITY,
 
     // Business contact info (used by some crawlers).
     "contact:email": CONTACT_EMAIL,
@@ -300,12 +306,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="application-name" content={SITE_NAME} />
         <meta name="theme-color" content="#0f172a" />
         <meta name="color-scheme" content="light" />
-        <link rel="canonical" href={SITE_URL} />
-        <meta property="og:url" content={SITE_URL} />
-
-        {/* Privacy-friendly performance hint (no tracking). */}
-        <meta name="robots" content="max-image-preview:large" />
-
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
@@ -316,23 +316,13 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />
         <link rel="alternate" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-        <meta name="robots" content="index, follow" />
         <meta name="rating" content="general" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta name="format-detection" content={CONTACT_PHONE ? "telephone=yes" : "telephone=no"} />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta name="generator" content="Next.js" />
-        <meta name="copyright" content="Your AI Worker" />
-        <meta name="contact" content={`mailto:${CONTACT_EMAIL}`} />
-        <meta name="reply-to" content={CONTACT_EMAIL} />
-        {CONTACT_PHONE ? <meta name="telephone" content={CONTACT_PHONE} /> : null}
-        <meta name="email" content={CONTACT_EMAIL} />
-        <meta name="contact:hours" content={CONTACT_HOURS} />
-        <meta name="contact:response_time" content={CONTACT_RESPONSE_TIME} />
-        <meta name="contact:location" content={CONTACT_ADDRESS_LINE} />
-        <meta name="contact:kvk" content={CONTACT_KVK} />
-        <meta name="contact:vat" content={CONTACT_BTW} />
+        {/*
+          Note: SEO + social metadata is handled by Next.js `metadata` above.
+          Keep `<head>` deterministic and avoid duplicating canonical/OG/robots tags.
+        */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
