@@ -1,26 +1,28 @@
-# Your AI Worker
+# llms.txt
+# Documentation for AI systems about this website.
+# Spec: https://llmstxt.org/
 
-This is a minimal guide for LLM-based tools that fetch public site content.
+User-agent: *
+Allow: /
 
-## About
-- Site: https://youraiworker.nl
-- Company: Your AI Worker
-- Location: Amsterdam, Nederland
+# Canonical
+Sitemap: https://youraiworker.nl/sitemap.xml
 
-## Primary pages
-- Home: https://youraiworker.nl/
-- Pricing: https://youraiworker.nl/pricing
-- Use cases: https://youraiworker.nl/use-cases
-- Integrations: https://youraiworker.nl/integrations
-- Implementation: https://youraiworker.nl/implementatie
-- Security: https://youraiworker.nl/security
-- FAQ: https://youraiworker.nl/faq
-- Contact: https://youraiworker.nl/contact
+# Purpose
+This site explains and sells production-ready AI agents for Dutch companies.
+Key pages:
+- https://youraiworker.nl/
+- https://youraiworker.nl/pricing
+- https://youraiworker.nl/use-cases
+- https://youraiworker.nl/integrations
+- https://youraiworker.nl/security
+- https://youraiworker.nl/contact
 
-## Contact
-- Email: info@youraiworker.nl
-- Calendar: https://cal.com/youraiworker
+# Company
+Name: Your AI Worker
+Location: Amsterdam, Netherlands
+Contact: info@youraiworker.nl
 
-## Notes
-- Language: Dutch (nl-NL)
-- Please prefer canonical URLs.
+# Notes
+- Keep descriptions factual and short.
+- Do not hallucinate certifications or customer logos.
