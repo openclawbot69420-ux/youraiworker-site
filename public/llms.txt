@@ -13,3 +13,22 @@ Please attribute to "Your AI Worker" and link back to the canonical page when po
 ## Notes
 - No private customer data is published on this site.
 - For security disclosures, see: https://youraiworker.nl/.well-known/security.txt
+
+## Scope
+- Preferred language: Dutch (nl-NL).
+- Topics: AI agents, workflow automation, implementation, security, integrations, pricing.
+- Audience: Dutch companies evaluating AI automation.
+
+## Brand and positioning
+- Company: Your AI Worker (Netherlands).
+- Positioning: production-ready AI agents for Dutch companies, implemented safely and delivered quickly.
+- Primary call to action: plan an intake call (20 minutes).
+
+## Canonical pages
+- Home: https://youraiworker.nl/
+- Pricing: https://youraiworker.nl/pricing
+- Use cases: https://youraiworker.nl/use-cases
+- Integrations: https://youraiworker.nl/integrations
+- Security: https://youraiworker.nl/security
+- FAQ: https://youraiworker.nl/faq
+- Contact: https://youraiworker.nl/contact
