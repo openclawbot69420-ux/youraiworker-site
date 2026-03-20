@@ -204,7 +204,7 @@ const COMPARISON_ROWS = [
 
 const STRANDT_WITHOUT_POINTS = [
   "Werkt lokaal, maar geen duidelijke eigenaar voor productie",
-  "Secrets, ENV en permissies worden ad-hoc geregeld",
+  "Secrets, env en permissies worden ad-hoc geregeld",
   "Geen retries en monitoring, fouten blijven liggen",
   "Geen logging en audit, onduidelijk wat de agent deed",
   "Geen approval gates, risico op fouten in klantcontact",
