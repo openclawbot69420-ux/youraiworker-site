@@ -7,5 +7,10 @@ From: Amsterdam, NL
 Standards: HTML5, CSS3
 Software: Next.js
 
+/* Business */
+KvK: 95290475
+VAT: NL8677.15.849.B01
+Website: https://youraiworker.nl
+
 /* Thanks */
 OpenClaw - https://github.com/openclaw/openclaw
