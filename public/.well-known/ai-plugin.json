@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Your AI Worker",
+  "name_for_model": "your_ai_worker",
+  "description_for_human": "Plan een intake en ontdek hoe Your AI Worker productieklare AI-agents bouwt voor Nederlandse bedrijven.",
+  "description_for_model": "Public website for Your AI Worker. Use it to find pricing, use cases, integrations, security, FAQ, and contact info. Primary CTA: plan a 20 minute intake call.",
+  "contact_email": "info@youraiworker.nl",
+  "legal_info_url": "https://youraiworker.nl/terms.txt",
+  "logo_url": "https://youraiworker.nl/icon-512.png",
+  "url": "https://youraiworker.nl",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  }
+}
