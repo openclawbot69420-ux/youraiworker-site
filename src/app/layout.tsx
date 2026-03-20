@@ -41,6 +41,7 @@ const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
 const CONTACT_EMAIL = "info@youraiworker.nl"
+const CONTACT_EMAIL_CTA = "mailto:info@youraiworker.nl"
 // Mailto stays visible in the footer. Cal link is used for the primary CTA.
 const CONTACT_PHONE: string | undefined = undefined
 // Use real contact details here.
@@ -83,6 +84,13 @@ const CONTACT_CTA: NavItem = {
   href: CONTACT_CALENDAR_URL,
   label: "Plan een intake (20 min)",
   title: "Plan een intakegesprek van 20 minuten",
+  external: true,
+}
+
+const CONTACT_SECONDARY_CTA: NavItem = {
+  href: CONTACT_EMAIL_CTA,
+  label: "Mail ons",
+  title: `Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`,
   external: true,
 }
 
@@ -562,15 +570,26 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
-            <a
-              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
-              href={CONTACT_CTA.href}
-              title={CONTACT_CTA.title}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {CONTACT_CTA.label}
-            </a>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <a
+                className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-slate-800"
+                href={CONTACT_CTA.href}
+                title={CONTACT_CTA.title}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {CONTACT_CTA.label}
+              </a>
+              <a
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+                href={CONTACT_SECONDARY_CTA.href}
+                title={CONTACT_SECONDARY_CTA.title}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {CONTACT_SECONDARY_CTA.label}
+              </a>
+            </div>
 
             <p className="text-[11px] text-slate-400">
               {CONTACT_HOURS} - {CONTACT_RESPONSE_TIME}
