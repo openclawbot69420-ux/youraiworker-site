@@ -165,7 +165,6 @@ export const metadata: Metadata = {
     // Optional social pointers (not standard, but harmless as metadata "other" entries).
     ...(SOCIAL_LINKEDIN ? { "social:linkedin": SOCIAL_LINKEDIN } : {}),
 
-
     "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
     "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
     "twitter:image:height": String(DEFAULT_META_IMAGE_HEIGHT),
