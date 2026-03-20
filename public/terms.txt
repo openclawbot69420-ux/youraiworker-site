@@ -1,0 +1,44 @@
+# Algemene voorwaarden - Your AI Worker
+
+Laatst bijgewerkt: 2026-03-20
+
+Dit is een korte, praktische samenvatting van hoe Your AI Worker werkt.
+
+## 1. Dienst
+Your AI Worker levert maatwerk AI automatisering en implementatie van AI agents voor bedrijven.
+
+## 2. Intake en voorstel
+- Een intakegesprek is vrijblijvend.
+- Na de intake ontvang je een voorstel met scope, planning en prijs.
+
+## 3. Planning en oplevering
+- Doorlooptijd en planning hangen af van scope en beschikbaarheid.
+- We leveren in fases: eerst een werkende basis, daarna iteraties.
+
+## 4. Verantwoordelijkheden
+- Jij levert tijdig toegang, input en eventueel API keys of accounts die nodig zijn.
+- Jij blijft verantwoordelijk voor het gebruik van de automatisering in je organisatie.
+
+## 5. Betaling
+- Betalingsafspraken staan in het voorstel en de factuur.
+- Werk start meestal na akkoord en (waar van toepassing) betaling.
+
+## 6. Support
+- Supportafspraken staan in het voorstel.
+- We communiceren primair via e-mail.
+
+## 7. Beveiliging
+We nemen security serieus. Details en richtlijnen staan op https://youraiworker.nl/security.
+
+## 8. Privacy
+We verwerken persoonsgegevens volgens het privacybeleid: https://youraiworker.nl/privacy.
+
+## 9. Aansprakelijkheid
+We leveren zorgvuldig, maar aansprakelijkheid is beperkt tot wat redelijk is en wat in het voorstel is afgesproken.
+
+## 10. Contact
+Your AI Worker
+- E-mail: info@youraiworker.nl
+- Website: https://youraiworker.nl
+- KvK: 95290475
+- BTW: NL8677.15.849.B01
