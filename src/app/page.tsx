@@ -377,6 +377,9 @@ export const metadata: Metadata = {
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
     url: "/",
     images: ["/og-home.png"],
+    siteName: "Your AI Worker",
+    locale: "nl_NL",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
