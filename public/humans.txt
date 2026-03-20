@@ -1,13 +1,19 @@
 Your AI Worker
 https://youraiworker.nl
 
+Owner
+- Your AI Worker
+
 Contact
 - info@youraiworker.nl
 - https://cal.com/youraiworker
 
 Legal
 - KvK: 95290475
-- VAT: NL8677.15.849.B01
+- BTW: NL8677.15.849.B01
 
 Location
-- Amsterdam, The Netherlands
+- Amsterdam, Nederland
+
+Notes
+- Build: Next.js
