@@ -2,7 +2,7 @@
 
 Laatst bijgewerkt: 2026-03-20
 
-Dit is een korte, praktische samenvatting van hoe Your AI Worker werkt.
+Dit document is een korte, praktische samenvatting van hoe Your AI Worker werkt. Het is geen juridisch advies. Bij verschillen tussen dit document en een ondertekend voorstel of overeenkomst, geldt de ondertekende overeenkomst.
 
 ## 1. Dienst
 Your AI Worker levert maatwerk AI automatisering en implementatie van AI agents voor bedrijven.
