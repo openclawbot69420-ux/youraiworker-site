@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Github, Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck } from "lucide-react"
+import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
@@ -61,7 +61,7 @@ const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/your-ai-worker/"
 // Keep these as "undefined" until you have real IDs.
 // This avoids publishing placeholders in metadata.
 const SOCIAL_LINKEDIN: string | undefined = COMPANY_LINKEDIN_URL
-const SOCIAL_GITHUB: string | undefined = "https://github.com/openclawbot69420-ux/youraiworker-site"
+const SOCIAL_GITHUB: string | undefined = undefined
 
 const CONTACT_STREET_ADDRESS = ""
 const CONTACT_POSTAL_CODE = ""
@@ -164,7 +164,7 @@ export const metadata: Metadata = {
 
     // Optional social pointers (not standard, but harmless as metadata "other" entries).
     ...(SOCIAL_LINKEDIN ? { "social:linkedin": SOCIAL_LINKEDIN } : {}),
-    ...(SOCIAL_GITHUB ? { "social:github": SOCIAL_GITHUB } : {}),
+
 
     "twitter:image": `${SITE_URL}${DEFAULT_TWITTER_IMAGE}`,
     "twitter:image:width": String(DEFAULT_META_IMAGE_WIDTH),
@@ -257,9 +257,9 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/faq", label: "FAQ", title: "Veelgestelde vragen" },
   { href: "/security", label: "Beveiliging", title: "Lees over beveiliging" },
   {
-    href: "https://github.com/openclawbot69420-ux/youraiworker-site",
-    label: "GitHub",
-    title: "Bekijk de repository op GitHub",
+    href: "https://docs.openclaw.ai",
+    label: "OpenClaw",
+    title: "Lees over OpenClaw",
     external: true,
   },
 ]
@@ -454,6 +454,31 @@ const Footer: React.FC = () => {
               Plan een intake van 20 minuten en ontvang binnen 1 werkdag een concreet voorstel.
             </p>
             <div className="mt-5 flex items-center gap-3">
+              <a
+                href="https://openclaw.ai"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="OpenClaw"
+                title="OpenClaw - agent runtime"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-4 w-4"
+                  style={{
+                    backgroundColor: "currentColor",
+                    WebkitMaskImage: "url(/openclaw.svg)",
+                    maskImage: "url(/openclaw.svg)",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                  }}
+                />
+              </a>
+
               {SOCIAL_LINKEDIN ? (
                 <a
                   href={SOCIAL_LINKEDIN}
@@ -466,16 +491,6 @@ const Footer: React.FC = () => {
                   <Linkedin className="h-4 w-4" aria-hidden="true" />
                 </a>
               ) : null}
-              <a
-                href="https://github.com/openclawbot69420-ux/youraiworker-site"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                title="Bekijk de code op GitHub"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
-              >
-                <Github className="h-4 w-4" aria-hidden="true" />
-              </a>
             </div>
           </div>
 
