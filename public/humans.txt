@@ -17,3 +17,5 @@ Location
 
 Notes
 - Build: Next.js
+- Security contact: /.well-known/security.txt
+- Sitemap: /sitemap.xml
