@@ -1,8 +1,8 @@
 Contact: mailto:info@youraiworker.nl
 Preferred-Languages: nl, en
-Canonical: https://youraiworker.nl/security.txt
+Canonical: https://youraiworker.nl/.well-known/security.txt
 Policy: https://youraiworker.nl/security
-Hiring: https://youraiworker.nl/contact
+Acknowledgments: https://youraiworker.nl/security
 
 # Notes
 # This file enables security researchers to quickly find how to report vulnerabilities.
