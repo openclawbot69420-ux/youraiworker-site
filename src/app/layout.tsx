@@ -317,6 +317,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <meta name="application-name" content={SITE_NAME} />
         <meta name="theme-color" content="#0f172a" />
         <meta name="color-scheme" content="light" />
+        <meta name="description" content={DEFAULT_DESCRIPTION} />
         {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
