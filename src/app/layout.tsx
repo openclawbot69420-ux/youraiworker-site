@@ -328,6 +328,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />
         <link rel="alternate" type="application/xml" href="/sitemap.xml" title="Sitemap" />
+        <link rel="alternate" type="text/plain" href="/terms.txt" title="Algemene voorwaarden" />
+        <link rel="alternate" type="text/plain" href="/privacy" title="Privacybeleid" />
         <meta name="rating" content="general" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
