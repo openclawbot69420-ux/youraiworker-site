@@ -1,7 +1,6 @@
 Contact: mailto:info@youraiworker.nl
-Contact: https://youraiworker.nl/contact
-Expires: 2027-03-20T00:00:00.000Z
+Expires: 2027-03-21T00:00:00.000Z
 Preferred-Languages: nl, en
 Canonical: https://youraiworker.nl/.well-known/security.txt
-Hiring: https://youraiworker.nl/contact
 Policy: https://youraiworker.nl/security
+Hiring: https://youraiworker.nl/contact
