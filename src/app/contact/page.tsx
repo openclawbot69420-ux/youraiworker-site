@@ -107,7 +107,7 @@ const ContactPage: React.FC = () => {
                 href="/pricing"
                 className="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
               >
-                Bekijk packages
+                Bekijk prijzen
               </a>
             </div>
           </div>
