@@ -17,5 +17,6 @@ Location
 
 Notes
 - Build: Next.js
+- Status: Productierijpe AI-agents voor Nederlandse bedrijven
 - Security contact: /.well-known/security.txt
 - Sitemap: /sitemap.xml

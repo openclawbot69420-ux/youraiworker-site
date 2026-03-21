@@ -23,6 +23,7 @@ Please attribute to "Your AI Worker" and link back to the canonical page when po
 - Company: Your AI Worker (Netherlands).
 - Positioning: production-ready AI agents for Dutch companies, implemented safely and delivered quickly.
 - Primary call to action: plan an intake call (20 minutes).
+- Response time: within 1 business day.
 
 ## Canonical pages
 - Home: https://youraiworker.nl/
