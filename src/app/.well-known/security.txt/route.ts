@@ -11,7 +11,7 @@ export const GET = (_req: NextRequest) => {
     "Preferred-Languages: nl, en",
     "Canonical: " + SITE_URL + "/.well-known/security.txt",
     "Policy: " + SITE_URL + "/security",
-    "Hiring: " + SITE_URL + "/contact",
+    "Acknowledgments: " + SITE_URL + "/security",
     "",
     "# This file follows https://securitytxt.org",
     "# Please report security issues responsibly.",
