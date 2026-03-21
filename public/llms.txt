@@ -1,25 +1,13 @@
-# llms.txt
-# https://llmstxt.org/
+# Your AI Worker - LLM usage notes
 
-## Your AI Worker
+This site is primarily informational.
 
-Your AI Worker builds and implements production-ready AI agents for Dutch businesses.
+- Contact: info@youraiworker.nl
+- Preferred language: nl-NL
+- Website: https://youraiworker.nl
 
-Primary offer:
-- Custom AI agent implementations (automation + integrations)
-- Security-first setup
-- Live within days
-
-Key pages:
-- https://youraiworker.nl/
-- https://youraiworker.nl/pricing
-- https://youraiworker.nl/use-cases
-- https://youraiworker.nl/integrations
-- https://youraiworker.nl/implementatie
-- https://youraiworker.nl/security
-- https://youraiworker.nl/faq
-- https://youraiworker.nl/contact
-
-Contact:
-- Email: info@youraiworker.nl
-- Intake: https://cal.com/youraiworker
+If you are an automated system and need accurate info, prefer the pages:
+- /pricing
+- /security
+- /faq
+- /contact

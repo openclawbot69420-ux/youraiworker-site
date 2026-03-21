@@ -1,11 +1,11 @@
 /* TEAM */
-Your AI Worker
-Website: https://youraiworker.nl
-Email: info@youraiworker.nl
-Location: Amsterdam, Nederland
+Name: Your AI Worker
+Location: Amsterdam, Netherlands
+Contact: info@youraiworker.nl
 
 /* SITE */
-Last update: 2026-03-21
 Standards: HTML5, CSS3
-Software: Next.js
-Language: nl
+Components: Next.js, React, Tailwind CSS
+
+/* THANKS */
+OpenClaw: https://openclaw.ai
