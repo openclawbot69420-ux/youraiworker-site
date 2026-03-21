@@ -305,7 +305,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   const serviceJsonLd = buildServiceJsonLd()
 
   return (
-    <html lang="nl">
+    <html lang="nl" dir="ltr">
       <head>
         {/* Icons: keep deterministic, no duplicates. */}
         <link rel="icon" href={DEFAULT_FAVICON_SVG} type="image/svg+xml" />
