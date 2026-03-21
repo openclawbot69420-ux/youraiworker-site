@@ -1,25 +1,11 @@
+/* TEAM */
 Your AI Worker
-https://youraiworker.nl
+Website: https://youraiworker.nl
+Email: info@youraiworker.nl
+Location: Amsterdam, Nederland
 
-Owner
-- Your AI Worker (Amsterdam, NL)
-
-Open for introductions
-- LinkedIn: https://www.linkedin.com/company/your-ai-worker/
-
-Contact
-- info@youraiworker.nl
-- https://cal.com/youraiworker
-
-Legal
-- KvK: 95290475
-- BTW: NL8677.15.849.B01
-
-Location
-- Amsterdam, Nederland
-
-Notes
-- Build: Next.js
-- Status: Productierijpe AI-agents voor Nederlandse bedrijven
-- Security contact: /.well-known/security.txt
-- Sitemap: /sitemap.xml
+/* SITE */
+Last update: 2026-03-21
+Standards: HTML5, CSS3
+Software: Next.js
+Language: nl
