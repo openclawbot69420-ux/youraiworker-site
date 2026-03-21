@@ -33,7 +33,11 @@ const TRUST_METRICS = [
 ] as const
 
 const TRUST_SECTION_TITLE = "Voorspelbaarheid en zekerheid"
-const TRUST_SECTION_SUBTITLE = "Geen vage beloftes, wel concrete uitgangspunten die we vooraf met je afstemmen."
+const TRUST_SECTION_SUBTITLE =
+  "Geen vage beloftes, wel concrete uitgangspunten die we vooraf met je afstemmen."
+
+const TRUST_SECTION_DISCLAIMER =
+  "Indicatief. We bevestigen scope, doorlooptijd en supportafspraken altijd in het voorstel."
 
 export const Testimonials: React.FC = () => {
   return (
@@ -77,6 +81,9 @@ export const Testimonials: React.FC = () => {
           )
         })}
       </div>
+      <p className="mt-5 text-xs leading-relaxed text-slate-500">
+        {TRUST_SECTION_DISCLAIMER}
+      </p>
     </section>
   )
 }
