@@ -574,9 +574,16 @@ const Footer: React.FC = () => {
               <a
                 className="transition-colors hover:text-slate-900"
                 href="/terms.txt"
-                title="Lees de algemene voorwaarden"
+                title="Lees de algemene voorwaarden (tekst)"
               >
                 Voorwaarden
+              </a>
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/terms"
+                title="Lees de algemene voorwaarden"
+              >
+                Voorwaarden (pagina)
               </a>
               <a
                 className="transition-colors hover:text-slate-900"
