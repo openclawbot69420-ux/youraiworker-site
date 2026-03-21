@@ -30,7 +30,7 @@ const PrivacyPage: React.FC = () => {
               EU verwerking
             </p>
             <p className="mt-2 text-sm text-slate-700">
-              Gegevensverwerking vindt plaats binnen de EU.
+              Waar mogelijk verwerken we gegevens binnen de EU.
             </p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
