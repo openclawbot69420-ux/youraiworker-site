@@ -245,6 +245,7 @@ type NavItem = {
   label: string
   title?: string
   external?: boolean
+  rel?: string
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -260,6 +261,7 @@ const NAV_ITEMS: NavItem[] = [
     label: "OpenClaw",
     title: "Lees over OpenClaw",
     external: true,
+    rel: "nofollow",
   },
 ]
 
@@ -390,7 +392,7 @@ const Header: React.FC = () => {
                 href={href}
                 title={item.title}
                 target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
+                rel={item.external ? item.rel ?? "noreferrer" : undefined}
               >
                 {item.label}
               </a>
