@@ -74,11 +74,12 @@ const PrivacyPage: React.FC = () => {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">AVG / GDPR en verwerking binnen de EU</h2>
+            <h2 className="text-lg font-semibold text-slate-900">AVG / GDPR en verwerking</h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               We hanteren AVG/GDPR-principes zoals dataminimalisatie, doelbinding en beperkte
-              bewaartermijnen. Persoonsgegevens die via deze website worden verwerkt, blijven binnen
-              de EU.
+              bewaartermijnen. Waar mogelijk verwerken we gegevens binnen de EU. In sommige gevallen
+              kan verwerking (deels) buiten de EU plaatsvinden, bijvoorbeeld door gebruikte
+              infrastructuur of leveranciers. In dat geval zorgen we voor passende waarborgen.
             </p>
           </div>
 
