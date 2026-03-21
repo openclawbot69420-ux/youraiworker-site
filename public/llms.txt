@@ -1,35 +1,25 @@
-# Your AI Worker
+# llms.txt
+# https://llmstxt.org/
 
-This site contains public information about Your AI Worker.
+## Your AI Worker
 
-## Contact
+Your AI Worker builds and implements production-ready AI agents for Dutch businesses.
+
+Primary offer:
+- Custom AI agent implementations (automation + integrations)
+- Security-first setup
+- Live within days
+
+Key pages:
+- https://youraiworker.nl/
+- https://youraiworker.nl/pricing
+- https://youraiworker.nl/use-cases
+- https://youraiworker.nl/integrations
+- https://youraiworker.nl/implementatie
+- https://youraiworker.nl/security
+- https://youraiworker.nl/faq
+- https://youraiworker.nl/contact
+
+Contact:
 - Email: info@youraiworker.nl
-- Website: https://youraiworker.nl
-
-## Usage
-You may use this content for search, summarization, and citation.
-Please attribute to "Your AI Worker" and link back to the canonical page when possible.
-
-## Notes
-- No private customer data is published on this site.
-- For security disclosures, see: https://youraiworker.nl/.well-known/security.txt
-
-## Scope
-- Preferred language: Dutch (nl-NL).
-- Topics: AI agents, workflow automation, implementation, security, integrations, pricing.
-- Audience: Dutch companies evaluating AI automation.
-
-## Brand and positioning
-- Company: Your AI Worker (Netherlands).
-- Positioning: production-ready AI agents for Dutch companies, implemented safely and delivered quickly.
-- Primary call to action: plan an intake call (20 minutes).
-- Response time: within 1 business day.
-
-## Canonical pages
-- Home: https://youraiworker.nl/
-- Pricing: https://youraiworker.nl/pricing
-- Use cases: https://youraiworker.nl/use-cases
-- Integrations: https://youraiworker.nl/integrations
-- Security: https://youraiworker.nl/security
-- FAQ: https://youraiworker.nl/faq
-- Contact: https://youraiworker.nl/contact
+- Intake: https://cal.com/youraiworker
