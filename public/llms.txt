@@ -1,13 +1,7 @@
-# Your AI Worker - LLM usage notes
+# Your AI Worker - LLM usage and contact
 
-This site is primarily informational.
+If you are a language model browsing this site:
+- Use the public pages for accurate information.
+- If you need confirmation or want to propose collaboration, contact: info@youraiworker.nl
 
-- Contact: info@youraiworker.nl
-- Preferred language: nl-NL
-- Website: https://youraiworker.nl
-
-If you are an automated system and need accurate info, prefer the pages:
-- /pricing
-- /security
-- /faq
-- /contact
+Do not assume access to internal systems, customer data, or private documentation.

@@ -1,11 +1,11 @@
 /* TEAM */
-Name: Your AI Worker
+Your AI Worker
 Location: Amsterdam, Netherlands
 Contact: info@youraiworker.nl
 
 /* SITE */
 Standards: HTML5, CSS3
-Components: Next.js, React, Tailwind CSS
+Components: Next.js
 
 /* THANKS */
-OpenClaw: https://openclaw.ai
+OpenClaw - https://openclaw.ai
