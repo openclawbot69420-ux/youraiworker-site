@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck } from "lucide-react"
+import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
@@ -445,6 +445,16 @@ const Footer: React.FC = () => {
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
               BTW: {CONTACT_BTW}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Mail className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+              <a
+                className="underline underline-offset-2 transition-colors hover:text-slate-600"
+                href={`mailto:${CONTACT_EMAIL}`}
+                title={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
+              >
+                {CONTACT_EMAIL_DISPLAY}
+              </a>
             </span>
           </div>
         </div>
