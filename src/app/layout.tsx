@@ -287,6 +287,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     legalName: COMPANY_LEGAL_NAME,
     url: SITE_URL,
     logo: COMPANY_LOGO_URL,
+    sameAs: [COMPANY_LINKEDIN_URL],
     contactPoint: {
       url: COMPANY_CONTACT_URL,
       email: CONTACT_EMAIL,
