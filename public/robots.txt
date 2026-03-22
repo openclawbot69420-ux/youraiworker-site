@@ -1,9 +1,4 @@
-# robots.txt
-# https://youraiworker.nl/robots.txt
-
 User-agent: *
 Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
-
-# Keep this lean. Crawl-delay is ignored by Google and can slow down discovery on smaller sites.
