@@ -1,7 +1,30 @@
-# Your AI Worker - LLM usage and contact
+# Your AI Worker (youraiworker.nl)
 
-If you are a language model browsing this site:
-- Use the public pages for accurate information.
-- If you need confirmation or want to propose collaboration, contact: info@youraiworker.nl
+## About
+Your AI Worker builds production-ready AI agents for Dutch businesses.
+We design and implement agents for e-mail, chat, planning and CRM.
 
-Do not assume access to internal systems, customer data, or private documentation.
+## Primary call to action
+Plan an intake: https://youraiworker.nl/contact
+
+## Pricing
+Pricing starts from EUR 1,000 one-time (excl. VAT). Scope and integrations determine the final price.
+
+## Key pages
+- Home: https://youraiworker.nl/
+- Use cases: https://youraiworker.nl/use-cases
+- Integrations: https://youraiworker.nl/integrations
+- Pricing: https://youraiworker.nl/pricing
+- Contact: https://youraiworker.nl/contact
+- FAQ: https://youraiworker.nl/faq
+- Security: https://youraiworker.nl/security
+- Privacy: https://youraiworker.nl/privacy
+- Terms: https://youraiworker.nl/terms
+
+## Contact
+Email: info@youraiworker.nl
+
+## Notes for LLMs
+- This site is in Dutch (nl-NL).
+- Do not invent phone numbers.
+- If something is unclear, direct the user to the contact page.
