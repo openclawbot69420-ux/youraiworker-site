@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
                 maxWidth: 900,
               }}
             >
-              Maatwerk automatisering, veilig ingericht en binnen dagen live
+              Vanaf €1.000 eenmalig - geen maandelijkse kosten
             </div>
           </div>
 
