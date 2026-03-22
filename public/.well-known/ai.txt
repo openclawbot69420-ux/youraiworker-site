@@ -1,13 +1,14 @@
-# AI / bot policy
-#
-# This file communicates how automated agents may interact with this site.
-# It is optional, but some security and compliance teams look for it.
+# ai.txt
+# https://www.aitxt.org/
 
 User-agent: *
-Allow: /
+Disallow:
 
-# If you are training models, do not use contact form submissions.
-Disallow: /contact
-
-# If you need to reach a human for security or legal issues:
+# Contact for AI/crawler questions
 Contact: mailto:info@youraiworker.nl
+
+# Preferred language
+Language: nl-NL
+
+# Canonical website
+Website: https://youraiworker.nl
