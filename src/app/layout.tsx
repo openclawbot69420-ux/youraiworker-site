@@ -36,7 +36,7 @@ const DEFAULT_META_IMAGE_HEIGHT = 630
 
 const CONTACT_HOURS = "Ma-vr 09:00-17:00 (Amsterdam)"
 const CONTACT_RESPONSE_TIME = "Reactie binnen 1 werkdag"
-const CONTACT_RESPONSE_SLA = "Reactie binnen 24 uur op werkdagen"
+const CONTACT_RESPONSE_SLA = "Reactie binnen 1 werkdag"
 const CONTACT_TURNAROUND = "Binnen 1 werkdag"
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
 const CONTACT_EMAIL_DISPLAY = "info@youraiworker.nl"
