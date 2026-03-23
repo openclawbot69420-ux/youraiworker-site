@@ -1,11 +1,15 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "description": "Productierijpe AI-agents voor Nederlandse bedrijven.",
+  "description": "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Setup vanaf -1.000, geen maandelijkse kosten.",
   "start_url": "/?source=pwa",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
+  "categories": ["business", "productivity", "technology"],
+  "lang": "nl",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -28,6 +32,45 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Prijzen bekijken",
+      "short_name": "Prijzen",
+      "description": "Bekijk tarieven en wat er inbegrepen is",
+      "url": "/pricing?source=pwa-shortcut",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact opnemen",
+      "short_name": "Contact",
+      "description": "Plan een intakegesprek of stuur een bericht",
+      "url": "/contact?source=pwa-shortcut",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Toepassingen",
+      "short_name": "Toepassingen",
+      "description": "Bekijk voorbeelden van AI-agents",
+      "url": "/use-cases?source=pwa-shortcut",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-home.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Your AI Worker homepage"
+    },
+    {
+      "src": "/og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Your AI Worker mobiele weergave"
     }
   ]
 }
