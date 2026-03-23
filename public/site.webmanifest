@@ -1,7 +1,7 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "description": "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Setup vanaf -1.000, geen maandelijkse kosten.",
+  "description": "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Setup vanaf €1.000, geen maandelijkse kosten.",
   "start_url": "/?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
