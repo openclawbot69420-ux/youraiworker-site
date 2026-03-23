@@ -83,8 +83,8 @@ export default function FAQPage() {
         <div className="max-w-3xl">
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
-            Snelle antwoorden op de meest voorkomende vragen. Staat jouw vraag er niet bij? Stuur ons
-            een bericht.
+            Snelle antwoorden op de meest voorkomende vragen. Staat jouw vraag er niet bij? Plan een
+            intake of mail ons.
           </p>
         </div>
 
@@ -115,12 +115,18 @@ export default function FAQPage() {
           <p className="mt-2 text-sm text-slate-600">
             Plan een korte intake en krijg een concreet voorstel met scope, planning en prijs.
           </p>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row">
             <a
               href="/contact"
               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
             >
               Plan intake (20 min)
+            </a>
+            <a
+              href="mailto:info@youraiworker.nl"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+            >
+              Mail ons
             </a>
           </div>
         </div>
