@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail } from "lucide-react"
+import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import "../styles/globals.css"
@@ -259,7 +259,7 @@ const NAV_ITEMS: NavItem[] = [
   {
     href: "https://docs.openclaw.ai",
     label: "OpenClaw",
-    title: "Lees over OpenClaw",
+    title: "Lees over OpenClaw (opent in nieuw tabblad)",
     external: true,
     rel: "nofollow",
   },
@@ -276,6 +276,8 @@ const buildNavHref = (item: NavItem) => {
 
   const url = new URL(item.href)
 
+  // For external links we keep a relative path so Next routing stays consistent,
+  // but we later mark the anchor as external (target=_blank).
   return `${url.pathname}${url.search}${url.hash}`
 }
 
@@ -390,13 +392,16 @@ const Header: React.FC = () => {
             return (
               <a
                 key={item.href}
-                className="hover:text-slate-900 transition-colors"
+                className="hover:text-slate-900 transition-colors inline-flex items-center gap-1"
                 href={href}
                 title={item.title}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? item.rel ?? "noreferrer" : undefined}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {item.external ? (
+                  <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+                ) : null}
               </a>
             )
           })}
