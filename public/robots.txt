@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://youraiworker.nl/sitemap.xml
+
+# Additional discovery hints for crawlers and tooling.
+# These are safe to include and help search engines find key text resources.
+Host: youraiworker.nl
