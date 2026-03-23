@@ -1,8 +1,9 @@
 /* TEAM */
-Product: Your AI Worker
+Your AI Worker
 Contact: info@youraiworker.nl
-Location: Amsterdam, The Netherlands
+Location: Amsterdam, Nederland
 
 /* SITE */
+Language: nl-NL
 Standards: HTML5, CSS3
-Language: Dutch (nl-NL)
+Components: Next.js

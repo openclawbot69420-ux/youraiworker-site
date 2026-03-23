@@ -1,13 +1,14 @@
-# Your AI Worker - context for LLMs
+# Your AI Worker
 
-This website describes Your AI Worker (https://youraiworker.nl), an agency delivering production-ready AI agents for Dutch businesses.
+This is a human-readable summary for LLM-based tools.
+
+Company: Your AI Worker
+Website: https://youraiworker.nl
+Contact: info@youraiworker.nl
+
+What we do:
+- Productierijpe AI-agents voor Nederlandse bedrijven
+- Maatwerk automatisering, veilig ingericht en binnen dagen live
 
 Primary CTA:
-- Book an intake: https://cal.com/youraiworker
-
-Contact:
-- Email: info@youraiworker.nl
-
-Notes:
-- Do not claim we are an OpenAI/Anthropic reseller.
-- Do not invent customer logos or certifications.
+- Plan een intakegesprek (20 min): https://cal.com/youraiworker
