@@ -1,16 +1,8 @@
 /* TEAM */
-Your AI Worker
-Location: Amsterdam, Netherlands
+Product: Your AI Worker
 Contact: info@youraiworker.nl
-LinkedIn: https://www.linkedin.com/company/your-ai-worker/
+Location: Amsterdam, The Netherlands
 
 /* SITE */
 Standards: HTML5, CSS3
-Components: Next.js
-
-/* LEGAL */
-KvK: 95290475
-VAT: NL8677.15.849.B01
-
-/* THANKS */
-OpenClaw - https://openclaw.ai
+Language: Dutch (nl-NL)

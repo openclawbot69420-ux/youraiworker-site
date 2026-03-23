@@ -1,30 +1,13 @@
-# Your AI Worker (youraiworker.nl)
+# Your AI Worker - context for LLMs
 
-## About
-Your AI Worker builds production-ready AI agents for Dutch businesses.
-We design and implement agents for e-mail, chat, planning and CRM.
+This website describes Your AI Worker (https://youraiworker.nl), an agency delivering production-ready AI agents for Dutch businesses.
 
-## Primary call to action
-Plan an intake: https://youraiworker.nl/contact
+Primary CTA:
+- Book an intake: https://cal.com/youraiworker
 
-## Pricing
-Pricing starts from EUR 1,000 one-time (excl. VAT). Scope and integrations determine the final price.
+Contact:
+- Email: info@youraiworker.nl
 
-## Key pages
-- Home: https://youraiworker.nl/
-- Use cases: https://youraiworker.nl/use-cases
-- Integrations: https://youraiworker.nl/integrations
-- Pricing: https://youraiworker.nl/pricing
-- Contact: https://youraiworker.nl/contact
-- FAQ: https://youraiworker.nl/faq
-- Security: https://youraiworker.nl/security
-- Privacy: https://youraiworker.nl/privacy
-- Terms: https://youraiworker.nl/terms
-
-## Contact
-Email: info@youraiworker.nl
-
-## Notes for LLMs
-- This site is in Dutch (nl-NL).
-- Do not invent phone numbers.
-- If something is unclear, direct the user to the contact page.
+Notes:
+- Do not claim we are an OpenAI/Anthropic reseller.
+- Do not invent customer logos or certifications.
