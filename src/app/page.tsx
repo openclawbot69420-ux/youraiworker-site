@@ -14,6 +14,7 @@ import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { Testimonials } from "../components/Testimonials"
 import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
+import { HowToJsonLd } from "../components/HowToJsonLd"
 
 const INTEGRATION_ITEMS = [
   {

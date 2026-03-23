@@ -118,3 +118,100 @@ html {
     transform: none;
   }
 }
+
+/* Print styles for professional output */
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Remove decorative backgrounds and animations */
+  .subtle-mesh, .marquee-shell {
+    background: none !important;
+    animation: none !important;
+  }
+
+  /* Hide navigation and interactive elements */
+  header, .marquee-shell, .marquee-track {
+    display: none !important;
+  }
+
+  /* Show all content that might be hidden */
+  details {
+    display: block !important;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Ensure links show their URLs */
+  a[href^="http"]::after,
+  a[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Make sure sections don't break awkwardly */
+  section {
+    page-break-inside: avoid;
+    margin: 1em 0;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  /* Clean up cards for printing */
+  .rounded-2xl, .rounded-xl, .rounded-lg {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  /* Ensure text is readable - force dark colors to black */
+  .text-white, .text-slate-50, .text-slate-100, .text-slate-200,
+  .text-slate-300, .text-slate-400, .text-slate-500,
+  .text-slate-600, .text-slate-700, .text-slate-800, .text-slate-900 {
+    color: black !important;
+  }
+
+  /* Dark sections need white backgrounds for print */
+  .bg-slate-900, .bg-slate-800, .bg-slate-700,
+  .bg-gradient-to-br, .bg-gradient-to-r {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Preserve button-like CTAs but make them look professional */
+  a.rounded-lg {
+    border: 1px solid #333 !important;
+    padding: 0.5em 1em !important;
+    text-decoration: none !important;
+  }
+
+  /* Footer styling for print */
+  footer {
+    border-top: 2px solid #333 !important;
+    margin-top: 2em !important;
+    padding-top: 1em !important;
+  }
+
+  footer a {
+    text-decoration: none;
+    color: black !important;
+  }
+}
