@@ -1,5 +1,13 @@
 import type { Metadata } from "next"
 import { CheckCircle2, Lock, Server, ShieldCheck } from "lucide-react"
+import { buildBreadcrumbJsonLd } from "../jsonld"
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+  { name: "Implementatie", url: "https://youraiworker.nl/implementatie" },
+])
+
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
   title: "OpenClaw implementatie voor bedrijven",
@@ -72,6 +80,8 @@ const deliverables = [
 
 const ImplementatiePage: React.FC = () => {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
     <main className="mx-auto max-w-6xl px-4 py-20">
       <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
         <div className="max-w-3xl">
@@ -209,6 +219,7 @@ const ImplementatiePage: React.FC = () => {
         </div>
       </section>
     </main>
+    </>
   )
 }
 

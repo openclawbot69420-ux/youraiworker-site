@@ -2,6 +2,14 @@ import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 
 import { USE_CASES } from "../../lib/catalog"
+import { buildBreadcrumbJsonLd } from "../jsonld"
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+  { name: "Toepassingen", url: "https://youraiworker.nl/use-cases" },
+])
+
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
   title: "Toepassingen",
@@ -47,6 +55,8 @@ const useCases = USE_CASES.map((useCase) => {
 
 const UseCasesPage: React.FC = () => {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
     <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="motion-fade-in mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
         <div className="max-w-2xl">
@@ -129,6 +139,7 @@ const UseCasesPage: React.FC = () => {
         </div>
       </section>
     </section>
+    </>
   )
 }
 

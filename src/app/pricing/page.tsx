@@ -1,6 +1,12 @@
 import type { Metadata } from "next"
 
 import { Builder } from "./Builder"
+import { buildBreadcrumbJsonLd } from "../jsonld"
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+  { name: "Prijzen", url: "https://youraiworker.nl/pricing" },
+])
 
 const PRICING_FAQ_ITEMS = [
   {
@@ -110,7 +116,7 @@ const PricingPage = () => {
       <script
         id={PRICING_JSON_LD_ID}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd([serviceSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLd([serviceSchema, faqSchema, breadcrumbJsonLd]) }}
       />
 
       <Builder />
