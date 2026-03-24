@@ -22,13 +22,36 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
     }
   }
 
+  const siteUrl = "https://youraiworker.nl"
   return {
-    title: `${useCase.title}`,
+    title: `${useCase.title} | Your AI Worker`,
     description: useCase.shortDescription,
     alternates: {
-      canonical: `https://youraiworker.nl/use-cases/${useCase.slug}`,
+      canonical: `${siteUrl}/use-cases/${useCase.slug}`,
     },
     keywords: ["AI-agent", "automatisering", "Your AI Worker", "workflows", useCase.title],
+    openGraph: {
+      title: `${useCase.title} - AI-agent implementatie | Your AI Worker`,
+      description: useCase.shortDescription,
+      url: `${siteUrl}/use-cases/${useCase.slug}`,
+      siteName: "Your AI Worker",
+      locale: "nl_NL",
+      type: "article",
+      images: [
+        {
+          url: "/og-home.png",
+          width: 1200,
+          height: 630,
+          alt: `${useCase.title} - Your AI Worker`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${useCase.title} | Your AI Worker`,
+      description: useCase.shortDescription,
+      images: ["/og-home.png"],
+    },
   }
 }
 
