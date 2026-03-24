@@ -23,7 +23,9 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/implementatie",
     images: [
       {
-        url: "/og.png",
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
         alt: "Your AI Worker - OpenClaw implementatie",
       },
     ],
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
     title: "OpenClaw implementatie | Your AI Worker",
     description:
       "Managed OpenClaw implementatie voor bedrijven met duidelijke deliverables en security aanpak.",
-    images: ["/og.png"],
+    images: ["/og-home.png"],
   },
 }
 

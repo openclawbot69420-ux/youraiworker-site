@@ -25,7 +25,9 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/use-cases",
     images: [
       {
-        url: "/og.png",
+        url: "/og-home.png",
+        width: 1200,
+        height: 630,
         alt: "Your AI Worker use cases",
       },
     ],
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     title: "AI-agent use cases | Your AI Worker",
     description:
       "Concrete voorbeelden van AI-agents voor support, leads, e-mail en rapportages.",
-    images: ["/og.png"],
+    images: ["/og-home.png"],
   },
 }
 
