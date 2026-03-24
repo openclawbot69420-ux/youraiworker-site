@@ -1,5 +1,8 @@
 import type { NextConfig } from "next"
 
+// Build timestamp for "Last updated" footer indicator
+const buildDate = new Date().toISOString()
+
 const SECURITY_HEADERS = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -12,6 +15,9 @@ const SECURITY_HEADERS = [
 ]
 
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_BUILD_DATE: buildDate,
+  },
   async redirects() {
     return [
       {

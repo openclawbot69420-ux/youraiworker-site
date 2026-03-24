@@ -3,6 +3,7 @@ import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink } fro
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import { FloatingCta } from "../components/FloatingCta"
+import { BuildInfo } from "../components/BuildInfo"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
@@ -624,6 +625,7 @@ const Footer: React.FC = () => {
             <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
+              <BuildInfo />
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
