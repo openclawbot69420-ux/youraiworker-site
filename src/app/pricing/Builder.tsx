@@ -17,6 +17,7 @@ type PackageDefinition = {
   subtitle: string
   leadTime: string
   support: string
+  popular?: boolean
   bullets: string[]
 }
 
@@ -45,6 +46,7 @@ const PACKAGES: PackageDefinition[] = [
     subtitle: "Start met één proces dat snel live moet en meetbaar resultaat kan geven.",
     leadTime: "Indicatie: 3-7 werkdagen na scope-akkoord en toegang",
     support: "2 weken break-fix na livegang",
+    popular: true,
     bullets: [
       "1 productierijpe AI-agent voor 1 workflow",
       "Intake, scope en acceptatiecriteria",
@@ -366,7 +368,7 @@ export const Builder = () => {
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setSelectedPackage(pkg.key)}
-                    className={`rounded-2xl border p-5 text-left transition-all duration-200 motion-reduce:transition-none ${
+                    className={`relative rounded-2xl border p-5 text-left transition-all duration-200 motion-reduce:transition-none ${
                       isActive
                         ? "border-slate-900 bg-white shadow-sm"
                         : "border-transparent bg-transparent hover:border-slate-200 hover:bg-white/70 motion-safe:hover:-translate-y-0.5"

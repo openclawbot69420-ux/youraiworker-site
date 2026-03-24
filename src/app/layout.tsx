@@ -438,43 +438,34 @@ const Header: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-slate-200/70 bg-slate-50/80">
-      {/* Trust indicators bar */}
+      {/* Trust indicators bar - professional badge-style presentation */}
       <div className="border-b border-slate-200/70 bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 sm:gap-8">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              Gevestigd in Nederland
+        <div className="mx-auto max-w-6xl px-4 py-5">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-600 sm:gap-4">
+            {/* Business Registration Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
+              <span className="font-medium text-slate-700">KvK: {CONTACT_KVK}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Lock className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              Security-first opzet
+            {/* VAT Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
+              <span className="font-medium text-slate-700">BTW: {CONTACT_BTW}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              KvK: {CONTACT_KVK}
+            {/* Location Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              <MapPin className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+              <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              {CONTACT_RESPONSE_SLA}
+            {/* Security Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+              <span className="font-medium text-slate-700">Security-first</span>
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <LifeBuoy className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              {CONTACT_EVENING_WEEKEND_NOTICE}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              BTW: {CONTACT_BTW}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Mail className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-              <a
-                className="underline underline-offset-2 transition-colors hover:text-slate-600"
-                href={`mailto:${CONTACT_EMAIL}`}
-                title={`Stuur een e-mail naar ${CONTACT_EMAIL_DISPLAY}`}
-              >
-                {CONTACT_EMAIL_DISPLAY}
-              </a>
+            {/* Response Time Badge */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
+              <LifeBuoy className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+              <span className="font-medium text-slate-700">{CONTACT_RESPONSE_SLA}</span>
             </span>
           </div>
         </div>
