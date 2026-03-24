@@ -16,6 +16,25 @@ import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
 
+// HowTo structured data for the 3-step process (enables Google rich results)
+const HOWTO_STEPS = [
+  {
+    name: "Kies één workflow",
+    url: "https://youraiworker.nl/#proces",
+    description: "Inbox triage, leadkwalificatie of rapportages. We bespreken je use-case tijdens een 20-minuten intake.",
+  },
+  {
+    name: "Wij bouwen en testen",
+    url: "https://youraiworker.nl/implementatie",
+    description: "Live-ready binnen 3-10 werkdagen met duidelijke scope, integraties en testcases.",
+  },
+  {
+    name: "Live en support",
+    url: "https://youraiworker.nl/contact",
+    description: "48 uur warranty plus 2 weken break-fix support tijdens business hours.",
+  },
+]
+
 const INTEGRATION_ITEMS = [
   {
     label: "Gmail",
@@ -403,6 +422,11 @@ export const metadata: Metadata = {
 const HomePage: React.FC = () => {
   return (
     <>
+      <HowToJsonLd
+        name="AI-agent implementatie in 3 stappen"
+        description="Van intake tot livegang: kies een workflow, wij bouwen en testen, daarna live met support."
+        steps={HOWTO_STEPS}
+      />
       {/* Hero */}
       <section id="top" className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
