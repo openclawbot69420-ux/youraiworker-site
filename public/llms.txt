@@ -1,14 +1,72 @@
-# Your AI Worker
+# Your AI Worker - LLM Discovery File
+# This file helps AI assistants and LLM-based tools understand the website.
+# Format: https://llmstxt.org/
 
-This is a human-readable summary for LLM-based tools.
+## Company Overview
 
-Company: Your AI Worker
-Website: https://youraiworker.nl
-Contact: info@youraiworker.nl
+Your AI Worker is a Dutch technology company based in Amsterdam that implements production-ready AI-agents for businesses. We specialize in workflow automation using the OpenClaw agent platform.
 
-What we do:
-- Productierijpe AI-agents voor Nederlandse bedrijven
-- Maatwerk automatisering, veilig ingericht en binnen dagen live
+- Website: https://youraiworker.nl
+- Contact: info@youraiworker.nl
+- Location: Amsterdam, The Netherlands
+- KvK: 95290475
+- BTW: NL8677.15.849.B01
+- Response time: Within 1 business day
 
-Primary CTA:
-- Plan een intakegesprek (20 min): https://cal.com/youraiworker
+## What We Do
+
+We design, build and deliver AI agents for:
+- Email inbox triage and management
+- Lead qualification and CRM updates
+- Meeting scheduling and calendar automation
+- Support ticket handling
+- Approval workflows
+- Report generation
+- Knowledge base Q&A
+
+## Approach
+
+1. Start small: Choose one focused workflow to automate
+2. Build fast: Live within 3-10 business days
+3. Secure by default: Security-first implementation with proper access controls
+4. Clear pricing: From EUR 1,000 one-time (excl. VAT), no monthly fees
+5. Supported: 48-hour warranty + 2 weeks break-fix support
+
+## Key Pages
+
+- Home: https://youraiworker.nl/
+- Pricing: https://youraiworker.nl/pricing
+- Use Cases: https://youraiworker.nl/use-cases
+- Implementation: https://youraiworker.nl/implementatie
+- Security: https://youraiworker.nl/security
+- FAQ: https://youraiworker.nl/faq
+- Contact: https://youraiworker.nl/contact
+
+## Technology Stack
+
+- Framework: Next.js 16+ (App Router)
+- Styling: Tailwind CSS 4
+- Language: TypeScript
+- Platform: OpenClaw agent runtime
+- Security: Tailscale for encrypted remote access
+- Compliance: AVG/GDPR compliant by design
+
+## Primary Call to Action
+
+Book a 20-minute intake call:
+https://cal.com/youraiworker
+
+## Support Channels
+
+- Email: info@youraiworker.nl
+- Response time: Within 1 business day
+- Hours: Monday-Friday 09:00-17:00 (Amsterdam)
+
+## Humans & Security
+
+- humans.txt: https://youraiworker.nl/humans.txt
+- security.txt: https://youraiworker.nl/.well-known/security.txt
+
+## Last Updated
+
+2026-03-24
