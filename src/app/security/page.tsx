@@ -22,7 +22,9 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/security",
     images: [
       {
-        url: "/og.png",
+        url: "/og-home.png",
+          width: 1200,
+          height: 630,
         alt: "Your AI Worker security",
       },
     ],
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Beveiliging AI-agents | Your AI Worker",
     description: "Bekijk hoe we AI-agent workflows veilig inrichten met logging, secrets en least privilege.",
-    images: ["/og.png"],
+    images: [{ url: "/og-home.png", width: 1200, height: 630, alt: "Your AI Worker security" }],
   },
 }
 
