@@ -15,6 +15,7 @@ import { Testimonials } from "../components/Testimonials"
 import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
+import { NewsletterSignup } from "../components/NewsletterSignup"
 
 // HowTo structured data for the 3-step process (enables Google rich results)
 const HOWTO_STEPS = [
@@ -1007,6 +1008,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Newsletter */}
+      <NewsletterSignup />
 
       {/* CTA */}
       <section id="intake" className="mx-auto max-w-6xl px-4 py-16">
