@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
+import { FloatingCta } from "../components/FloatingCta"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
@@ -368,6 +369,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <main>{children}</main>
         <Footer />
         <BackToTop />
+      <FloatingCta />
       </body>
     </html>
   )
