@@ -365,13 +365,25 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
+        <SkipToContent />
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <BackToTop />
       <FloatingCta />
       </body>
     </html>
+  )
+}
+
+const SkipToContent: React.FC = () => {
+  return (
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+    >
+      Ga naar hoofdinhoud
+    </a>
   )
 }
 
