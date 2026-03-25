@@ -11,10 +11,11 @@ type NavItem = {
 interface MobileNavProps {
   items: NavItem[]
   cta: NavItem
+  currentPath?: string
 }
 
 export const MobileNav: React.FC<MobileNavProps> = (props) => {
-  const { items, cta } = props
+  const { items, cta, currentPath } = props
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -95,16 +96,20 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
             </div>
 
             <nav className="mt-6 flex flex-1 flex-col gap-1 text-sm text-slate-700">
-              {items.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-lg px-3 py-3 transition-colors hover:bg-slate-100 hover:text-slate-900"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {items.map((item) => {
+                const isActive = currentPath === item.href
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-lg px-3 py-3 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                    {...(isActive ? { "aria-current": "page" } : {})}
+                  >
+                    {item.label}
+                  </a>
+                )
+              })}
             </nav>
 
             <a

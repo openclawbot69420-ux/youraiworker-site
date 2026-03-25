@@ -49,5 +49,5 @@ Response time: Within 1 business day
 Intake: 20 minutes, book via cal.com/youraiworker
 
 ================================================================================
-            Last updated: March 2026 | Built with precision in Amsterdam
+            Last updated: March 25, 2026 | Built with precision in Amsterdam
 ================================================================================

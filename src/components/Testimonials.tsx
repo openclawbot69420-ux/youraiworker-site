@@ -1,4 +1,4 @@
-import { Clock, Shield, Zap, Users } from "lucide-react"
+import { Clock, Shield, Zap, Users, Building2, Briefcase, Store, Globe, UserRound } from "lucide-react"
 
 // Trust indicators - concrete operational metrics that speak louder than placeholder testimonials
 const TRUST_METRICS = [
@@ -33,11 +33,20 @@ const TRUST_METRICS = [
 ] as const
 
 const TRUST_SECTION_TITLE = "Voorspelbaarheid en zekerheid"
-const TRUST_SECTION_SUBTITLE =
-  "Geen vage beloftes, wel concrete uitgangspunten die we vooraf met je afstemmen."
+const TRUST_SECTION_SUBTITLE = "Geen vage beloftes, wel concrete uitgangspunten die we vooraf met je afstemmen."
+const TRUST_SECTION_DISCLAIMER = "Indicatief. We bevestigen scope, doorlooptijd en supportafspraken altijd in het voorstel."
 
-const TRUST_SECTION_DISCLAIMER =
-  "Indicatief. We bevestigen scope, doorlooptijd en supportafspraken altijd in het voorstel."
+// Industry sectors we serve - helps visitors self-identify fit
+const SECTOR_BADGES = [
+  { icon: Building2, label: "Marketing- & creatieve agencies", description: "Voor klantcontact en planning" },
+  { icon: Briefcase, label: "B2B dienstverlening", description: "Leadopvolging en offertes" },
+  { icon: Store, label: "Retail & e-commerce", description: "Support en orderafhandeling" },
+  { icon: Globe, label: "Administratieve dienstverlening", description: "Workflows en rapportages" },
+  { icon: UserRound, label: "Consultancy & ZZP", description: "Intake en planning" },
+] as const
+
+const SECTORS_TITLE = "Voor wie we het meest geschikt zijn"
+const SECTORS_SUBTITLE = "AI-automatisering die het beste past bij deze organisatietypes."
 
 export const Testimonials: React.FC = () => {
   return (
@@ -84,6 +93,36 @@ export const Testimonials: React.FC = () => {
       <p className="mt-5 text-xs leading-relaxed text-slate-500">
         {TRUST_SECTION_DISCLAIMER}
       </p>
+
+      {/* Industry sectors - helps visitors self-identify fit */}
+      <div className="mt-12 border-t border-slate-200/70 pt-10">
+        <div className="max-w-3xl">
+          <h3 className="text-lg font-semibold tracking-tight text-slate-900">
+            {SECTORS_TITLE}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            {SECTORS_SUBTITLE}
+          </p>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {SECTOR_BADGES.map((sector) => {
+            const Icon = sector.icon
+            return (
+              <span
+                key={sector.label}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50 hover:shadow"
+                title={sector.description}
+              >
+                <Icon className="h-4 w-4 text-slate-500" aria-hidden="true" />
+                <span className="font-medium">{sector.label}</span>
+              </span>
+            )
+          })}
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-slate-500">
+          Geen exacte match? Geen probleem - we bespreken tijdens de intake of jouw use-case past.
+        </p>
+      </div>
     </section>
   )
 }

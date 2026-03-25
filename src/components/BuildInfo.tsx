@@ -19,7 +19,10 @@ export const BuildInfo: React.FC = () => {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
-    }))
+    }) + ' ' + date.toLocaleTimeString('nl-NL', {
+      hour: '2-digit',
+      minute: '2-digit',
+    }) + ' CET')
   }, [])
 
   if (!buildDate) return null
