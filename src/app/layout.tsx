@@ -441,18 +441,28 @@ const Header: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-slate-200/70 bg-slate-50/80">
-      {/* Trust indicators bar - professional badge-style presentation */}
+      {/* Trust indicators bar - professional badge-style presentation with verification */}
       <div className="border-b border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-5">
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-600 sm:gap-4">
-            {/* Business Registration Badge */}
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
-              <span className="font-medium text-slate-700">KvK: {CONTACT_KVK}</span>
-            </span>
-            {/* VAT Badge */}
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
-              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
+            {/* Business Registration Badge - verified */}
+            <a
+              href={`https://www.kvk.nl/zoeken/?q=${CONTACT_KVK}`}
+              target="_blank"
+              rel="noreferrer"
+              title="KvK-inschrijving verifiëren"
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm"
+            >
+              <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <ShieldCheck className="h-2.5 w-2.5" aria-hidden="true" />
+              </span>
+              <span className="font-medium text-slate-700 group-hover:text-emerald-800">KvK: {CONTACT_KVK}</span>
+            </a>
+            {/* VAT Badge - verified */}
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5">
+              <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <ShieldCheck className="h-2.5 w-2.5" aria-hidden="true" />
+              </span>
               <span className="font-medium text-slate-700">BTW: {CONTACT_BTW}</span>
             </span>
             {/* Location Badge */}
