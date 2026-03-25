@@ -119,6 +119,40 @@ html {
   }
 }
 
+/* Focus-visible styles for better keyboard navigation accessibility */
+@layer base {
+  :focus-visible {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Skip to content link */
+  .sr-only:focus:not(:focus-visible) {
+    outline: 2px solid #0f172a;
+    outline-offset: 2px;
+  }
+}
+
+/* Smooth focus transitions for interactive elements */
+a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
+  transition: outline-offset 0.1s ease;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline-offset: 2px;
+}
+
+/* Reduced motion support for focus transitions */
+@media (prefers-reduced-motion: reduce) {
+  a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
+    transition: none;
+  }
+}
+
 /* Print styles for professional output */
 @media print {
   html {
