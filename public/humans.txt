@@ -13,7 +13,7 @@ BTW: NL8677.15.849.B01
 
 TECHNOLOGY
 ----------
-Framework: Next.js 14+ (App Router)
+Framework: Next.js 16.2.0 (App Router)
 Styling: Tailwind CSS 4
 Language: TypeScript
 Runtime: Node.js
