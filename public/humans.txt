@@ -1,6 +1,6 @@
 ================================================================================
                             YOUR AI WORKER
-                       https://youraiworker.nl
+                      https://youraiworker.nl
 ================================================================================
 
 TEAM
@@ -10,6 +10,7 @@ Contact: info@youraiworker.nl
 Location: Amsterdam, The Netherlands
 KvK: 95290475
 BTW: NL8677.15.849.B01
+Founded: 2025
 
 TECHNOLOGY
 ----------
@@ -17,12 +18,14 @@ Framework: Next.js 16.2.0 (App Router)
 Styling: Tailwind CSS 4
 Language: TypeScript
 Runtime: Node.js
+Deployment: Vercel
 
 STANDARDS
 ---------
 HTML5
 CSS3
 WCAG 2.1 AA Accessibility
+Schema.org Structured Data
 
 PRINCIPLES
 ----------
@@ -32,6 +35,13 @@ PRINCIPLES
 - Clear scoping and deliverables
 - 48-hour warranty on all implementations
 
+VERIFICATION
+------------
+KvK Registration: https://www.kvk.nl/zoeken/?q=95290475
+EU VAT Validation: https://ec.europa.eu/taxation_customs/vies/
+LinkedIn: https://www.linkedin.com/company/your-ai-worker/
+Security: https://youraiworker.nl/security
+
 CONTACT
 -------
 Email: info@youraiworker.nl
@@ -39,5 +49,5 @@ Response time: Within 1 business day
 Intake: 20 minutes, book via cal.com/youraiworker
 
 ================================================================================
-        Last updated: March 2026
+            Last updated: March 2026 | Built with precision in Amsterdam
 ================================================================================
