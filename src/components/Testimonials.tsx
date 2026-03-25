@@ -11,10 +11,10 @@ const TRUST_METRICS = [
   },
   {
     icon: Clock,
-    value: "<24",
-    unit: "uur",
+    value: "1",
+    unit: "werkdag",
     label: "Reactietijd",
-    description: "Reactie binnen 1 werkdag op aanvragen",
+    description: "Snel antwoord op je intake-aanvraag",
   },
   {
     icon: Shield,
