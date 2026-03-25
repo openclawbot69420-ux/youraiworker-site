@@ -1,11 +1,4 @@
-import type {
-  WithContext,
-  Organization,
-  WebSite,
-  ContactPoint,
-  ListItem,
-  BreadcrumbList,
-} from "schema-dts"
+import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, } from "schema-dts"
 
 export const buildBreadcrumbJsonLd = (
   items: Array<{ name: string; url: string }>
@@ -78,8 +71,12 @@ export const buildOrganizationJsonLd = (options?: {
     contactPoint,
     address: {
       "@type": "PostalAddress",
-      ...(options?.address?.streetAddress ? { streetAddress: options.address.streetAddress } : {}),
-      ...(options?.address?.postalCode ? { postalCode: options.address.postalCode } : {}),
+      ...(options?.address?.streetAddress
+        ? { streetAddress: options.address.streetAddress }
+        : {}),
+      ...(options?.address?.postalCode
+        ? { postalCode: options.address.postalCode }
+        : {}),
       addressCountry: options?.address?.addressCountry ?? "NL",
       addressLocality: options?.address?.addressLocality ?? "Amsterdam",
     },
@@ -110,6 +107,81 @@ export const buildWebSiteJsonLd = (): WithContext<WebSite> => {
   }
 }
 
+export const buildOfferJsonLd = (options?: {
+  name?: string
+  description?: string
+  price?: string
+  priceCurrency?: string
+  availability?: "https://schema.org/InStock" | "https://schema.org/OutOfStock" | "https://schema.org/PreOrder"
+  url?: string
+  category?: string
+}): WithContext<Offer> => {
+  const url = options?.url ?? "https://youraiworker.nl/pricing"
+  return {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    name: options?.name ?? "AI-agent implementatie",
+    description:
+      options?.description ??
+      "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Vanaf EUR 1.000 eenmalig.",
+    price: options?.price ?? "1000",
+    priceCurrency: options?.priceCurrency ?? "EUR",
+    availability: (options?.availability ?? "https://schema.org/InStock") as unknown as Offer["availability"],
+    url,
+    category: options?.category ?? "Business Software",
+    seller: {
+      "@type": "Organization",
+      name: "Your AI Worker",
+      url: "https://youraiworker.nl/",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Netherlands",
+    },
+  }
+}
+
+export const buildAggregateOfferJsonLd = (): WithContext<AggregateOffer> => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AggregateOffer",
+    name: "AI-agent implementatie pakketten",
+    description: "Starter en Groei pakketten voor AI-agent implementatie",
+    lowPrice: "1000",
+    highPrice: "2500",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://youraiworker.nl/pricing",
+    seller: {
+      "@type": "Organization",
+      name: "Your AI Worker",
+      url: "https://youraiworker.nl/",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Netherlands",
+    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Starter pakket",
+        description: "1 workflow in 3-7 werkdagen",
+        price: "1000",
+        priceCurrency: "EUR",
+        url: "https://youraiworker.nl/pricing",
+      },
+      {
+        "@type": "Offer",
+        name: "Groei pakket",
+        description: "Tot 5 workflows",
+        price: "2500",
+        priceCurrency: "EUR",
+        url: "https://youraiworker.nl/pricing",
+      },
+    ],
+  }
+}
+
 export const buildServiceJsonLd = (): Record<string, unknown> => {
   return {
     "@context": "https://schema.org",
@@ -125,7 +197,6 @@ export const buildServiceJsonLd = (): Record<string, unknown> => {
       name: "Netherlands",
     },
     serviceType: "AI agent implementation",
-    description:
-      "Maatwerk AI-agents die processen automatiseren. Security-first opzet, integraties en begeleiding van intake tot livegang.",
+    description: "Maatwerk AI-agents die processen automatiseren. Security-first opzet, integraties en begeleiding van intake tot livegang.",
   }
 }

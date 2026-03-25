@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
 import { CheckCircle2, Lock, Server, ShieldCheck } from "lucide-react"
-import { buildBreadcrumbJsonLd } from "../jsonld"
+import { buildBreadcrumbJsonLd, buildAggregateOfferJsonLd } from "../jsonld"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
   { name: "Implementatie", url: "https://youraiworker.nl/implementatie" },
 ])
+
+const aggregateOfferJsonLd = buildAggregateOfferJsonLd()
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
@@ -84,6 +86,7 @@ const ImplementatiePage: React.FC = () => {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(aggregateOfferJsonLd) }} />
     <main className="mx-auto max-w-6xl px-4 py-20">
       <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
         <div className="max-w-3xl">
