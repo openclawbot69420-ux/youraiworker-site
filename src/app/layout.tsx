@@ -4,6 +4,7 @@ import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import { FloatingCta } from "../components/FloatingCta"
 import { BuildInfo } from "../components/BuildInfo"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
@@ -369,6 +370,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
         <SkipToContent />
         <Header />
+      <Breadcrumbs />
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <BackToTop />
