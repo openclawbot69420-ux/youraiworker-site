@@ -33,11 +33,31 @@ const FAQS: Array<{ question: string; answer: string; id: string }> = [
     question: "Wat heb je nodig om te starten?",
     answer: "Een korte intake (20 min) en toegang tot de relevante tools (bijv. Google Workspace of WhatsApp Business). Daarna werken we het plan uit en gaan we bouwen.",
   },
+  {
+    id: "fouten-afhandeling",
+    question: "Wat als de agent een fout maakt?",
+    answer: "Elke workflow heeft expliciete foutafhandeling: onduidelijke requests worden teruggezet voor review, kritieke acties vereisen approval, en uitzonderingen worden gelogd met notificatie. De 48-uurs warranty dekt bugs en regressies binnen scope.",
+  },
+  {
+    id: "data-toegang",
+    question: "Wie heeft er toegang tot mijn data?",
+    answer: "Alleen jij en de geconfigureerde agent hebben toegang, via versleutelde verbindingen met least-privilege permissies. We gebruiken Tailscale voor beveiligde remote access en slaan geen data langer op dan nodig voor de workflow.",
+  },
+  {
+    id: "bestaande-tools",
+    question: "Werkt dit met onze bestaande tools?",
+    answer: "Ja. We integreren met gangbare tools zoals Gmail, Google Calendar, Slack, WhatsApp Business, Telegram, HubSpot, Salesforce, Zapier en veel meer. Tijdens intake bespreken we welke tools je gebruikt en hoe we deze veilig koppelen.",
+  },
+  {
+    id: "aanpassen-na-oplevering",
+    question: "Kan ik de agent zelf aanpassen na oplevering?",
+    answer: "Je krijgt documentatie en een handover met uitleg over configuratie. Kleine aanpassingen (regels, teksten) kan je zelf doen. Grotere wijzigingen of nieuwe features bespreken we via een vervolgafspraak.",
+  },
 ]
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
+  description: "Veelgestelde vragen over AI-agents: implementatie, security, fouten, data-toegang en integraties. Krijg snel duidelijkheid voordat je een intake plant.",
   alternates: {
     canonical: "https://youraiworker.nl/faq",
   },
