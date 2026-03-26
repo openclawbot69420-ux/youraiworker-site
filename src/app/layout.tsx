@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
+import { ScrollProgress } from "../components/ScrollProgress"
 import { FloatingCta } from "../components/FloatingCta"
 import { BuildInfo } from "../components/BuildInfo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
@@ -369,6 +370,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
         <SkipToContent />
+        <ScrollProgress />
         <Header />
       <Breadcrumbs />
         <main id="main-content" tabIndex={-1}>{children}</main>
