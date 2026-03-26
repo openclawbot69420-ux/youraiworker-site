@@ -162,8 +162,16 @@ const currency = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value)
 
+// Prefetch helper for intake flow (improves perceived performance)
+const usePrefetchContact = (router: ReturnType<typeof useRouter>) => {
+  useEffect(() => {
+    router.prefetch("/contact")
+  }, [router])
+}
+
 export const Builder = () => {
   const router = useRouter()
+  usePrefetchContact(router)
 
   const [selectedPackage, setSelectedPackage] = useState<PackageKey>("starter")
   const [selectedAddOns, setSelectedAddOns] = useState<AddOnKey[]>([])
