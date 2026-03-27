@@ -5,7 +5,8 @@
 
 TEAM
 ----
-Your AI Worker
+Founder: Mees
+Company: Your AI Worker
 Contact: info@youraiworker.nl
 Location: Amsterdam, The Netherlands
 KvK: 95290475

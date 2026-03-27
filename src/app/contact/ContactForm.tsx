@@ -82,7 +82,7 @@ export const ContactForm: React.FC = () => {
     return (
       <div className="mt-10 rounded-2xl border border-green-200 bg-green-50 p-8 text-center">
         <p className="text-lg font-semibold text-green-900">Bedankt voor je bericht!</p>
-        <p className="mt-2 text-sm text-green-700">We reageren binnen 24 uur.</p>
+        <p className="mt-2 text-sm text-green-700">We reageren binnen 1 werkdag.</p>
         <button
           onClick={() => setStatus("idle")}
           className="mt-4 text-sm text-green-700 underline hover:text-green-900"
