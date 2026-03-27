@@ -4,7 +4,7 @@ import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import { ScrollProgress } from "../components/ScrollProgress"
 import { FloatingCta } from "../components/FloatingCta"
-import { BuildInfo } from "../components/BuildInfo"
+import { BuildInfo, CopyButton } from "../components/BuildInfo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
@@ -696,8 +696,13 @@ const Footer: React.FC = () => {
                   {CONTACT_PHONE}
                 </a>
               ) : null}
-              <span className="text-[11px] text-slate-300">
-                {CONTACT_KVK_LABEL}: {CONTACT_KVK} | {CONTACT_BTW_LABEL}: {CONTACT_BTW}
+              <span className="inline-flex items-center justify-end gap-2 text-[11px] text-slate-300">
+                {CONTACT_KVK_LABEL}: {CONTACT_KVK}
+                <CopyButton text={CONTACT_KVK} label="KvK" />
+              </span>
+              <span className="inline-flex items-center justify-end gap-2 text-[11px] text-slate-300">
+                {CONTACT_BTW_LABEL}: {CONTACT_BTW}
+                <CopyButton text={CONTACT_BTW} label="BTW" />
               </span>
               <span className="text-[11px] text-slate-300">{CONTACT_TURNAROUND}</span>
             </div>

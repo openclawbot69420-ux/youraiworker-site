@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Check, Copy } from 'lucide-react'
 
 /**
  * Displays the last build/update date.
@@ -14,15 +15,20 @@ export const BuildInfo: React.FC = () => {
     const date = process.env.NEXT_PUBLIC_BUILD_DATE
       ? new Date(process.env.NEXT_PUBLIC_BUILD_DATE)
       : new Date()
-    
-    setBuildDate(date.toLocaleDateString('nl-NL', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }) + ' ' + date.toLocaleTimeString('nl-NL', {
-      hour: '2-digit',
-      minute: '2-digit',
-    }) + ' CET')
+
+    setBuildDate(
+      date.toLocaleDateString('nl-NL', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }) +
+      ' ' +
+      date.toLocaleTimeString('nl-NL', {
+        hour: '2-digit',
+        minute: '2-digit',
+      }) +
+      ' CET'
+    )
   }, [])
 
   if (!buildDate) return null
@@ -31,6 +37,45 @@ export const BuildInfo: React.FC = () => {
     <span className="text-[11px] text-slate-400" title="Laatste site-update">
       Laatst bijgewerkt: {buildDate}
     </span>
+  )
+}
+
+/**
+ * CopyButton - Small button to copy text to clipboard with visual feedback.
+ */
+interface CopyButtonProps {
+  text: string
+  label: string
+}
+
+export const CopyButton: React.FC<CopyButtonProps> = ({ text, label }) => {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // Silently fail if clipboard API not available
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-600"
+      title={`Kopieer ${label}`}
+      aria-label={`Kopieer ${label}`}
+    >
+      {copied ? (
+        <Check className="h-3 w-3 text-emerald-600" aria-hidden="true" />
+      ) : (
+        <Copy className="h-3 w-3" aria-hidden="true" />
+      )}
+      <span>{copied ? 'Gekopieerd' : label}</span>
+    </button>
   )
 }
 
