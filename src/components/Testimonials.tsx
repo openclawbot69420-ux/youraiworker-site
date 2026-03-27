@@ -1,4 +1,5 @@
 import { Clock, Shield, Zap, Users, Building2, Briefcase, Store, Globe, UserRound } from "lucide-react"
+import { TrustIndicatorsJsonLd } from "./TrustIndicatorsJsonLd"
 
 // Trust indicators - concrete operational metrics that speak louder than placeholder testimonials
 const TRUST_METRICS = [
@@ -48,9 +49,18 @@ const SECTOR_BADGES = [
 const SECTORS_TITLE = "Voor wie we het meest geschikt zijn"
 const SECTORS_SUBTITLE = "AI-automatisering die het beste past bij deze organisatietypes."
 
+const SITE_URL = "https://youraiworker.nl"
+const SITE_NAME = "Your AI Worker"
+
 export const Testimonials: React.FC = () => {
   return (
     <section id="trust-metrics" className="mx-auto max-w-6xl px-4 py-16">
+      <TrustIndicatorsJsonLd
+        trustMetrics={[...TRUST_METRICS]}
+        sectorBadges={[...SECTOR_BADGES]}
+        siteName={SITE_NAME}
+        siteUrl={SITE_URL}
+      />
       <div className="max-w-3xl">
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
           {TRUST_SECTION_TITLE}
