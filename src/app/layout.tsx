@@ -461,12 +461,12 @@ const Footer: React.FC = () => {
               <span className="font-medium text-slate-700 group-hover:text-emerald-800">KvK: {CONTACT_KVK}</span>
             </a>
             {/* VAT Badge - verified */}
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5">
+            <a href="https://ec.europa.eu/taxation_customs/vies/vatBug.html?selectedLanguage=NL&VATNumber=NL867715849B01" target="_blank" rel="noreferrer" title="BTW-nummer verifiëren via EU VIES" className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm">
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <ShieldCheck className="h-2.5 w-2.5" aria-hidden="true" />
               </span>
-              <span className="font-medium text-slate-700">BTW: {CONTACT_BTW}</span>
-            </span>
+              <span className="font-medium text-slate-700 group-hover:text-emerald-800">BTW: {CONTACT_BTW}</span>
+            </a>
             {/* Location Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
               <MapPin className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
