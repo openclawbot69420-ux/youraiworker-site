@@ -1,8 +1,18 @@
 User-agent: *
 Allow: /
+Disallow: /.well-known/
+Disallow: /.git/
 
+# Sitemap locations
 Sitemap: https://youraiworker.nl/sitemap.xml
 
-# Additional discovery hints for crawlers and tooling.
-# These are safe to include and help search engines find key text resources.
+# Main domain pointer for crawler canonicalization
 Host: youraiworker.nl
+
+# Key text resources discovery
+# These plain-text resources improve crawler efficiency and transparency
+Humans: https://youraiworker.nl/humans.txt
+Security: https://youraiworker.nl/.well-known/security.txt
+Privacy: https://youraiworker.nl/privacy.txt
+Terms: https://youraiworker.nl/terms.txt
+LLMs: https://youraiworker.nl/llms.txt
