@@ -472,11 +472,14 @@ const Footer: React.FC = () => {
               <MapPin className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
               <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
             </span>
-            {/* Security Badge */}
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
-              <Lock className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
-              <span className="font-medium text-slate-700">Security-first</span>
-            </span>
+            {/* Security Badge - with security.txt reference */}
+            <a href="/.well-known/security.txt" target="_blank" rel="noreferrer" title="Bekijk ons security.txt bestand (RFC 9116)"
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm">
+              <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <Lock className="h-2.5 w-2.5" aria-hidden="true" />
+              </span>
+              <span className="font-medium text-slate-700 group-hover:text-emerald-800">Security-first</span>
+            </a>
             {/* Response Time Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
               <LifeBuoy className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
