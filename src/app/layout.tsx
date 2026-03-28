@@ -7,6 +7,7 @@ import { FloatingCta } from "../components/FloatingCta"
 import { BuildInfo, CopyButton } from "../components/BuildInfo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 import { ToastProviderWrapper } from "../components/ToastProviderWrapper"
+import { CookieConsent } from "../components/CookieConsent"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
