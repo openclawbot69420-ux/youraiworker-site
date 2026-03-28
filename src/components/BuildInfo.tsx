@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Check, Copy } from 'lucide-react'
+import { Copy } from 'lucide-react'
+import { useSuccessToast } from './Toast'
 
 /**
  * Displays the last build/update date.
@@ -41,7 +42,7 @@ export const BuildInfo: React.FC = () => {
 }
 
 /**
- * CopyButton - Small button to copy text to clipboard with visual feedback.
+ * CopyButton - Small button to copy text to clipboard with toast feedback.
  */
 interface CopyButtonProps {
   text: string
@@ -49,13 +50,12 @@ interface CopyButtonProps {
 }
 
 export const CopyButton: React.FC<CopyButtonProps> = ({ text, label }) => {
-  const [copied, setCopied] = useState(false)
+  const showSuccess = useSuccessToast()
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      showSuccess(`${label} gekopieerd naar klembord`)
     } catch {
       // Silently fail if clipboard API not available
     }
@@ -69,12 +69,8 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ text, label }) => {
       title={`Kopieer ${label}`}
       aria-label={`Kopieer ${label}`}
     >
-      {copied ? (
-        <Check className="h-3 w-3 text-emerald-600" aria-hidden="true" />
-      ) : (
-        <Copy className="h-3 w-3" aria-hidden="true" />
-      )}
-      <span>{copied ? 'Gekopieerd' : label}</span>
+      <Copy className="h-3 w-3" aria-hidden="true" />
+      <span>{label}</span>
     </button>
   )
 }
