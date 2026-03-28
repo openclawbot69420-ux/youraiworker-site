@@ -322,13 +322,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
-        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
-        <meta name="application-name" content={SITE_NAME} />
-        <meta name="theme-color" content="#0f172a" />
-        <meta name="color-scheme" content="light" />
-        <meta name="description" content={DEFAULT_DESCRIPTION} />
-      <meta name="generator" content="Next.js 16.2.0" />
-        {/* Canonical favicon helps older browsers that do not parse Next metadata icons reliably. */}
+{/* Note: apple-mobile-web-app-title, application-name, theme-color, color-scheme,
+         and description are handled by the Next.js metadata object above.
+         Do not duplicate them here to avoid rendering issues. */}
+<meta name="generator" content="Next.js 16.2.0" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -342,7 +339,6 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/privacy.txt" title="Privacybeleid" />
         <link rel="alternate" type="text/plain" href="/privacy.txt" title="Privacybeleid (tekst)" />
         <meta name="rating" content="general" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/*
           Note: SEO + social metadata is handled by Next.js `metadata` above.
