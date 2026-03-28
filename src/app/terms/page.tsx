@@ -1,13 +1,28 @@
-export const metadata = {
+import type { Metadata } from "next"
+import { buildBreadcrumbJsonLd } from "../jsonld"
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+  { name: "Algemene voorwaarden", url: "https://youraiworker.nl/terms" },
+])
+
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
+export const metadata: Metadata = {
   title: "Algemene voorwaarden",
   description: "Algemene voorwaarden van Your AI Worker.",
+  alternates: {
+    canonical: "https://youraiworker.nl/terms",
+  },
 }
 
 const TERMS_UPDATED_AT = "2026-03-20"
 
-export default function TermsPage() {
+const TermsPage: React.FC = () => {
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-16">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      <main className="mx-auto w-full max-w-4xl px-6 py-16">
       <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Juridisch</p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -138,5 +153,8 @@ export default function TermsPage() {
         </section>
       </div>
     </main>
+    </>
   )
 }
+
+export default TermsPage
