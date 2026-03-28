@@ -137,6 +137,7 @@ export const ContactForm: React.FC = () => {
             id="name"
             name="name"
             required
+            autoComplete="name"
             className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
           />
         </div>
@@ -149,6 +150,7 @@ export const ContactForm: React.FC = () => {
             id="email"
             name="email"
             required
+            autoComplete="email"
             defaultValue={prefillEmailInput}
             className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
           />
@@ -163,6 +165,7 @@ export const ContactForm: React.FC = () => {
           type="text"
           id="company"
           name="company"
+          autoComplete="organization"
           className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
         />
       </div>
