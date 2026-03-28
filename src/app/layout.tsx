@@ -6,6 +6,7 @@ import { ScrollProgress } from "../components/ScrollProgress"
 import { FloatingCta } from "../components/FloatingCta"
 import { BuildInfo, CopyButton } from "../components/BuildInfo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
+import { ToastProviderWrapper } from "../components/ToastProviderWrapper"
 import "../styles/globals.css"
 import { buildOrganizationJsonLd, buildServiceJsonLd, buildWebSiteJsonLd } from "./jsonld"
 
@@ -365,6 +366,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
+<ToastProviderWrapper>
         <SkipToContent />
         <ScrollProgress />
         <Header />
@@ -372,7 +374,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <BackToTop />
-      <FloatingCta />
+</ToastProviderWrapper>
+
+      
       </body>
     </html>
   )
