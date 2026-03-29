@@ -389,6 +389,8 @@ export interface Guide {
   overview: string
   steps: string[]
   checklist: string[]
+  publishedAt: string // ISO 8601 date (YYYY-MM-DD)
+  updatedAt?: string // Optional: last update date (ISO 8601)
 }
 
 export const GUIDES: Guide[] = [
@@ -412,6 +414,8 @@ export const GUIDES: Guide[] = [
       "Toegangen, permissions en API scopes",
       "Logging, monitoring en rollback plan",
     ],
+    publishedAt: "2025-03-15",
+    updatedAt: "2025-03-28",
   },
   {
     slug: "security",
@@ -433,5 +437,7 @@ export const GUIDES: Guide[] = [
       "Logging bewaartermijn en audit trail",
       "Incident flow en rollback/procedure",
     ],
+    publishedAt: "2025-03-20",
+    updatedAt: "2025-03-27",
   },
 ]
