@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-
 import { USE_CASES } from "../../../lib/catalog"
 
 interface UseCaseDetailPageProps {
@@ -14,14 +13,12 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<Metadata> => {
   const { slug } = await props.params
   const useCase = USE_CASES.find((item) => item.slug === slug)
-
   if (!useCase) {
     return {
       title: "Toepassing",
       description: "Details over deze AI-agent toepassing zijn niet beschikbaar.",
     }
   }
-
   const siteUrl = "https://youraiworker.nl"
   return {
     title: `${useCase.title} | Your AI Worker`,
@@ -37,20 +34,11 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
       siteName: "Your AI Worker",
       locale: "nl_NL",
       type: "article",
-      images: [
-        {
-          url: "/og-home.png",
-          width: 1200,
-          height: 630,
-          alt: `${useCase.title} - Your AI Worker`,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${useCase.title} | Your AI Worker`,
       description: useCase.shortDescription,
-      images: ["/og-home.png"],
     },
   }
 }
@@ -58,7 +46,6 @@ export const generateMetadata = async (props: UseCaseDetailPageProps): Promise<M
 const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
   const { slug } = await props.params
   const useCase = USE_CASES.find((item) => item.slug === slug)
-
   if (!useCase) {
     notFound()
   }
@@ -74,7 +61,6 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
-        {/* SEO helper text */}
         <div className="lg:col-span-2">
           <div className="rounded-2xl border border-slate-200 bg-white p-8">
             <h2 className="text-lg font-semibold">Wat je krijgt</h2>
@@ -98,7 +84,6 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
                 </li>
               ))}
             </ul>
-
             <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-semibold text-slate-900">Typische doorlooptijd</p>
               <p className="mt-2 text-sm text-slate-700">
@@ -113,7 +98,7 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
             <h2 className="text-lg font-semibold">Typische integraties</h2>
             <ul className="mt-5 space-y-2 text-sm text-slate-700">
               {useCase.typicalIntegrations.map((item) => (
-                <li key={item}>• {item}</li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
