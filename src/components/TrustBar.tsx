@@ -24,7 +24,7 @@ export const TrustBar: React.FC = () => {
 
       {/* VAT Badge - verified */}
       <a
-        href="https://ec.europa.eu/taxation_customs/vies/vatBug.html?selectedLanguage=NL&VATNumber=NL867715849B01"
+        href="https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01"
         target="_blank"
         rel="noreferrer"
         title="BTW-nummer verifiëren via EU VIES"
