@@ -280,13 +280,7 @@ const HEADER_CTA: NavItem = {
 }
 
 const buildNavHref = (item: NavItem) => {
-  if (!item.external) return item.href
-
-  const url = new URL(item.href)
-
-  // For external links we keep a relative path so Next routing stays consistent,
-  // but we later mark the anchor as external (target=_blank).
-  return `${url.pathname}${url.search}${url.hash}`
+  return item.href
 }
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
