@@ -9,7 +9,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
-  title: "Privacy",
+  title: "Privacybeleid | AVG-compliant | Your AI Worker",
   description: "Privacybeleid van Your AI Worker.",
   alternates: {
     canonical: "https://youraiworker.nl/privacy",

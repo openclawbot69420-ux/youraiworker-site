@@ -11,7 +11,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
-  title: "Beveiliging",
+  title: "Beveiliging | AI-agent security en privacy | Your AI Worker",
   description: "Lees hoe we AI-agents beveiligen met toegangsbeheer, logging en data-bescherming.",
   alternates: {
     canonical: "https://youraiworker.nl/security",

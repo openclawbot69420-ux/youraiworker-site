@@ -77,7 +77,7 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 const PRICING_JSON_LD_ID = "pricing-jsonld"
 
 export const metadata: Metadata = {
-  title: "Prijzen",
+  title: "Prijzen | AI-agent implementatie vanaf EUR 1.000 | Your AI Worker",
   description: "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
   alternates: {
     canonical: "https://youraiworker.nl/pricing",

@@ -5,7 +5,7 @@ import { Cloud, MessageSquare } from "lucide-react"
 import { BrandIcon, type BrandIconName } from "../../components/BrandIcon"
 
 export const metadata: Metadata = {
-  title: "Integraties",
+  title: "Integraties | Koppel AI-agents aan je tools | Your AI Worker",
   description: "Koppel AI-agents aan CRM, ticketing, chat en planningstools die je team al gebruikt.",
   alternates: {
     canonical: "https://youraiworker.nl/integrations",

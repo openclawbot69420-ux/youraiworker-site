@@ -56,7 +56,7 @@ const FAQS: Array<{ question: string; answer: string; id: string }> = [
 ]
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Veelgestelde vragen | AI-agents en implementatie | Your AI Worker",
   description: "Veelgestelde vragen over AI-agents: implementatie, security, fouten, data-toegang en integraties. Krijg snel duidelijkheid voordat je een intake plant.",
   alternates: {
     canonical: "https://youraiworker.nl/faq",

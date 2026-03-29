@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Handleidingen",
+  title: "Handleidingen | AI-agent guides en best practices | Your AI Worker",
   description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
   alternates: {
     canonical: "https://youraiworker.nl/guides",
