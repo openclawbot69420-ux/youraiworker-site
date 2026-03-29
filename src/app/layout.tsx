@@ -376,6 +376,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
         <BackToTop />
+        <FloatingCta />
+        <CookieConsent />
 </ToastProviderWrapper>
 
       
