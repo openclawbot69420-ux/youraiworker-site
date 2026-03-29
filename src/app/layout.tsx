@@ -320,10 +320,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
-{/* Note: apple-mobile-web-app-title, application-name, theme-color, color-scheme,
-         and description are handled by the Next.js metadata object above.
-         Do not duplicate them here to avoid rendering issues. */}
-<meta name="generator" content="Next.js 16.2.0" />
+        {/* Note: apple-mobile-web-app-title, application-name, theme-color, color-scheme,
+           and description are handled by the Next.js metadata object above.
+           Do not duplicate them here to avoid rendering issues. */}
+        <meta name="generator" content="Next.js 16.2.0" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -333,7 +333,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="text/plain" href="/.well-known/security.txt" title="Security" />
         <link rel="alternate" type="text/plain" href="/robots.txt" title="Robots" />
         <link rel="alternate" type="application/xml" href="/sitemap.xml" title="Sitemap" />
-      <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="Your AI Worker - Guides" />
+        <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="Your AI Worker - Guides" />
         <link rel="alternate" type="text/plain" href="/terms.txt" title="Algemene voorwaarden" />
         <link rel="alternate" type="text/plain" href="/privacy.txt" title="Privacybeleid" />
         <link rel="alternate" type="text/plain" href="/privacy.txt" title="Privacybeleid (tekst)" />
@@ -364,19 +364,19 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
-<ToastProviderWrapper>
-        <SkipToContent />
-        <ScrollProgress />
-        <Header />
-      <Breadcrumbs />
-        <main id="main-content" tabIndex={-1}>{children}</main>
-        <Footer />
-        <BackToTop />
-        <FloatingCta />
-        <CookieConsent />
-</ToastProviderWrapper>
-
-      
+        <ToastProviderWrapper>
+          <SkipToContent />
+          <ScrollProgress />
+          <Header />
+          <Breadcrumbs />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+          <BackToTop />
+          <FloatingCta />
+          <CookieConsent />
+        </ToastProviderWrapper>
       </body>
     </html>
   )
