@@ -76,7 +76,7 @@ const TermsPage: React.FC = () => {
           <div>
             <h2 className="text-lg font-semibold text-slate-900">4. Verantwoordelijkheden</h2>
             <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-600">
-              <li>Jij levert tijdig toegang, input en eventueel API keys of accounts die nodig zijn.</li>
+              <li>Jij levert tijdig toegang, input en eventueel API-sleutels of accounts die nodig zijn.</li>
               <li>Jij blijft verantwoordelijk voor het gebruik van de automatisering in je organisatie.</li>
             </ul>
           </div>

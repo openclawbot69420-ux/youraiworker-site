@@ -16,7 +16,7 @@ Your AI Worker levert maatwerk AI automatisering en implementatie van AI agents 
 - We leveren in fases: eerst een werkende basis, daarna iteraties.
 
 ## 4. Verantwoordelijkheden
-- Jij levert tijdig toegang, input en eventueel API keys of accounts die nodig zijn.
+- Jij levert tijdig toegang, input en eventueel API-sleutels of accounts die nodig zijn.
 - Jij blijft verantwoordelijk voor het gebruik van de automatisering in je organisatie.
 
 ## 5. Betaling
