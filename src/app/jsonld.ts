@@ -80,6 +80,7 @@ export const buildOrganizationJsonLd = (options?: {
       addressCountry: options?.address?.addressCountry ?? "NL",
       addressLocality: options?.address?.addressLocality ?? "Amsterdam",
     },
+    foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
       name: "Amsterdam, Netherlands",
