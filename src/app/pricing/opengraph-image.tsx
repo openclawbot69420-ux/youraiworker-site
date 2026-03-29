@@ -48,7 +48,7 @@ export default function PricingOpenGraphImage() {
                 maxWidth: 980,
               }}
             >
-              Duidelijke pakkeren voor AI-agent implementatie
+              Duidelijke pakketten voor AI-agent implementatie
             </div>
             <div
               style={{
