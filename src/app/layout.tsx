@@ -37,6 +37,8 @@ const COMPANY_BRAND_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijv
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
 const COMPANY_CONTACT_URL = `${SITE_URL}/contact`
 
+const COMPANY_SLOGAN = "Maatwerk AI-agents. Veilig, schaalbaar en binnen dagen live."
+
 const DEFAULT_META_IMAGE_WIDTH = 1200
 const DEFAULT_META_IMAGE_HEIGHT = 630
 
@@ -497,7 +499,7 @@ const Footer: React.FC = () => {
           <div>
             <p className="text-base font-semibold text-slate-900">Your AI Worker</p>
             <p className="mt-2 max-w-sm leading-relaxed">
-              {COMPANY_BRAND_FOOTER_LINE} Maatwerk automatisering, veilig ingericht en snel live.
+              {COMPANY_BRAND_FOOTER_LINE} {COMPANY_SLOGAN}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-600">
               Plan een intake van 20 minuten en ontvang binnen 1 werkdag een concreet voorstel.
