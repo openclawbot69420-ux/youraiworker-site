@@ -23,7 +23,7 @@ const TermsPage: React.FC = () => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
       <main className="mx-auto w-full max-w-4xl px-6 py-16">
-      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Juridisch</p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
           Algemene voorwaarden
@@ -151,8 +151,8 @@ const TermsPage: React.FC = () => {
             </ul>
           </div>
         </section>
-      </div>
-    </main>
+        </div>
+      </main>
     </>
   )
 }
