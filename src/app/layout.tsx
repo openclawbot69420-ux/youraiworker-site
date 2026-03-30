@@ -37,6 +37,10 @@ const COMPANY_BRAND_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijv
 const COMPANY_LOGO_URL = `${SITE_URL}/icon-512.png`
 const COMPANY_CONTACT_URL = `${SITE_URL}/contact`
 
+// Public, generic contact email for security researchers (RFC 9116).
+// This is not a secret and can match what is already shown on the site.
+const SECURITY_CONTACT_EMAIL = "security@youraiworker.nl"
+
 const COMPANY_SLOGAN = "Maatwerk AI-agents. Veilig, schaalbaar en binnen dagen live."
 
 // Helps credibility + local SEO (basic): a clear physical service area label.
@@ -164,6 +168,10 @@ export const metadata: Metadata = {
     // Helps browsers and social platforms pick the canonical language.
     // Also improves perceived polish in share previews.
     "content-language": "nl-NL",
+
+    // Easy-to-find security contact (non-standard but harmless).
+    // For the canonical policy and contacts, see /.well-known/security.txt.
+    "security:contact": SECURITY_CONTACT_EMAIL,
 
     // Used by some platforms when building share previews.
     "og:image:alt": DEFAULT_OG_ALT,
