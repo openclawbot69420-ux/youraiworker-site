@@ -1,0 +1,10 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+# Placeholder
+#
+# Add your security team's PGP key here when available.
+# Until then, keep this file present so security.txt can reference a stable URL.
+#
+# Tip: you can export an ASCII-armored public key and paste it between the markers.
+
+-----END PGP PUBLIC KEY BLOCK-----
