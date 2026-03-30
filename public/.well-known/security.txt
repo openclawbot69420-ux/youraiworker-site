@@ -1,15 +1,6 @@
+Contact: mailto:security@youraiworker.nl
 Contact: mailto:info@youraiworker.nl
-Encryption: https://youraiworker.nl/.well-known/pgp-key.txt
+Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: nl, en
-Canonical: https://youraiworker.nl/.well-known/security.txt
 Policy: https://youraiworker.nl/security
 Acknowledgments: https://youraiworker.nl/security
-
-# Verification
-# KvK: 95290475 - https://www.kvk.nl/zoeken/?q=95290475
-# BTW: NL8677.15.849.B01 - https://ec.europa.eu/taxation_customs/vies/
-
-# Notes
-# This file enables security researchers to quickly find how to report vulnerabilities.
-# We currently accept reports via email and aim to respond within 48 hours.
-# See our security page for responsible disclosure guidelines.
