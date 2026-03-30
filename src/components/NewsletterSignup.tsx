@@ -119,7 +119,7 @@ export const NewsletterSignup: React.FC = () => {
                 <a href="/privacy" className="underline underline-offset-2 transition-colors hover:text-slate-700">
                   privacybeleid
                 </a>
-                . Je e-mail wordt veilig opgeslagen en nooit gedeeld.
+                . Je e-mail wordt alleen gebruikt om deze updates te sturen en nooit gedeeld.
               </p>
             </form>
           </div>
