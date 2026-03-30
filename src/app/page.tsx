@@ -435,10 +435,14 @@ const HomePage: React.FC = () => {
             <h1 className="text-balance text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Productierijpe AI-agents voor e-mail, chat, planning en CRM.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800">
+            <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+            Geen maandelijkse kosten - eenmalige implementatie
+          </div>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-600">
               Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
               <strong className="text-slate-900"> Vanaf €1.000 eenmalig</strong> (excl. btw).
-              <span className="text-slate-900"> Geen maandelijkse kosten.</span>
+              
               <span className="text-slate-600"> Prijs hangt af van scope en integraties.</span>
             </p>
             <p className="mt-3 max-w-xl text-sm text-slate-500">
