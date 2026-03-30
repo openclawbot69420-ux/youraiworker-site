@@ -20,7 +20,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <style>{`** /body { font-family: 'Inter', system-ui, sans-serif; }
+        <style>{`body { font-family: 'Inter', system-ui, sans-serif; }
           .container { max-width: 42rem; margin: 0 auto; padding: 1rem; }
           .card { background: white; border-radius: 1.5rem; border: 1px solid #e2e8f0; padding: 2rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
           .icon-box { width: 4rem; height: 4rem; border-radius: 1rem; background: #fef3c7; border: 1px solid #fde68a; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
