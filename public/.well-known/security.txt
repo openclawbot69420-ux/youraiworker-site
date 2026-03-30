@@ -11,4 +11,4 @@ Acknowledgments: https://youraiworker.nl/security
 # Notes
 # This file enables security researchers to quickly find how to report vulnerabilities.
 # We currently accept reports via email and aim to respond within 48 hours.
-# See our security page for PGP key and responsible disclosure guidelines.
+# See our security page for responsible disclosure guidelines.
