@@ -76,6 +76,7 @@ const CONTACT_EVENING_WEEKEND_NOTICE = "Avond en weekend op afspraak"
 const CONTACT_PHONE_NOTICE = "Telefonisch op afspraak"
 
 const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/your-ai-worker/"
+const COMPANY_TWITTER_HANDLE: string | undefined = undefined
 
 // Keep these as "undefined" until you have real IDs.
 // This avoids publishing placeholders in metadata.
@@ -217,8 +218,8 @@ export const metadata: Metadata = {
     images: [DEFAULT_TWITTER_IMAGE],
     // Keep handles undefined until you have the real account.
     // Publishing placeholders can look unprofessional in share previews.
-    site: undefined,
-    creator: undefined,
+    site: COMPANY_TWITTER_HANDLE,
+    creator: COMPANY_TWITTER_HANDLE,
   },
   // Small polish: show a lightweight site name suffix in browser UI (where supported).
   // Keeps titles consistent across pages.
