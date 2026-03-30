@@ -31,6 +31,10 @@ const DEFAULT_META_TITLE = `${SITE_NAME} - ${DEFAULT_TITLE}`
 // Keep this aligned with public/favicon.svg to avoid 404s.
 const DEFAULT_FAVICON_SVG = "/favicon.svg"
 
+// Prefer a deterministic PNG when a platform does not support SVG favicons.
+// Note: our favicon.png is 512x512, but browsers accept it for smaller icon slots.
+const DEFAULT_FAVICON_PNG_32 = "/favicon.png"
+
 const COMPANY_NAME = "Your AI Worker"
 const COMPANY_LEGAL_NAME = "Your AI Worker"
 const COMPANY_BRAND_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijven"
@@ -327,8 +331,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
       <head>
         {/* Icons: keep deterministic, no duplicates. */}
         <link rel="icon" href={DEFAULT_FAVICON_SVG} type="image/svg+xml" />
+        <link rel="icon" href={DEFAULT_FAVICON_PNG_32} type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="mask-icon" href="/icon.svg" color="#0f172a" />
         {/* Note: apple-mobile-web-app-title, application-name, theme-color, color-scheme,
