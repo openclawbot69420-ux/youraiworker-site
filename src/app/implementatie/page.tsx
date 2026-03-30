@@ -19,25 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://youraiworker.nl/implementatie",
   },
   openGraph: {
-    title: "OpenClaw implementatie voor bedrijven | Your AI Worker",
-    description:
-      "Wij hosten en implementeren OpenClaw voor je bedrijf. Kies client-owned hosting of managed hosting. Inclusief integraties, security baseline en overdracht.",
+    title: "Implementatie | Hoe we AI-agents opleveren | Your AI Worker",
+    description: "Van intake tot livegang in dagen, niet maanden. Bekijk ons implementatieproces.",
     url: "https://youraiworker.nl/implementatie",
-    images: [
-      {
-        url: "/og-home.png",
-        width: 1200,
-        height: 630,
-        alt: "Your AI Worker - OpenClaw implementatie",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw implementatie | Your AI Worker",
-    description:
-      "Managed OpenClaw implementatie voor bedrijven met duidelijke deliverables en security aanpak.",
-    images: ["/og-home.png"],
+    title: "AI-agent implementatie | Your AI Worker",
+    description: "Done-for-you implementatie met scope, controls en livegang binnen dagen.",
   },
 }
 

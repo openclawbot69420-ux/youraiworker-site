@@ -81,27 +81,11 @@ export const metadata: Metadata = {
     title: "Prijzen voor AI-agents | Your AI Worker",
     description: "Heldere pakketten, scopegrenzen en intakeflow voor done-for-you AI-agent implementatie.",
     url: "https://youraiworker.nl/pricing",
-    images: [
-      {
-        url: "/og-home.png",
-        width: 1200,
-        height: 630,
-        alt: "Your AI Worker prijzen",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prijzen AI-agents | Your AI Worker",
     description: "Kies pakket en add-ons, zie wat wel/niet inbegrepen is en start intake.",
-    images: [
-      {
-        url: "/og-home.png",
-        width: 1200,
-        height: 630,
-        alt: "Your AI Worker prijzen",
-      },
-    ],
   },
 }
 

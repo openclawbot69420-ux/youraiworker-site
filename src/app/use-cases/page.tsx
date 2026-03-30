@@ -20,24 +20,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Toepassingen voor AI-agents | Your AI Worker",
-    description:
-      "Bekijk concrete AI-agent use cases voor support, inboxbeheer, leads en interne workflows.",
+    description: "Bekijk concrete AI-agent use cases voor support, inboxbeheer, leads en interne workflows.",
     url: "https://youraiworker.nl/use-cases",
-    images: [
-      {
-        url: "/og-home.png",
-        width: 1200,
-        height: 630,
-        alt: "Your AI Worker use cases",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI-agent use cases | Your AI Worker",
-    description:
-      "Concrete voorbeelden van AI-agents voor support, leads, e-mail en rapportages.",
-    images: ["/og-home.png"],
+    description: "Concrete voorbeelden van AI-agents voor support, leads, e-mail en rapportages.",
   },
 }
 

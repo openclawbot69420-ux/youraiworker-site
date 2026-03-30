@@ -1,8 +1,17 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { Clock } from "lucide-react"
+import { Clock, Calendar } from "lucide-react"
 import { ReadingTime } from "../../../components/ReadingTime"
 import { GUIDES } from "../../../lib/catalog"
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString)
+  return new Intl.DateTimeFormat("nl-NL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date)
+}
 
 const GUIDE_APPROVAL_NOTES: Record<string, string[]> = {
   "eerste-agent": [
@@ -52,8 +61,16 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Handleiding</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{guide.title}</h1>
-          <div className="mt-2">
+          <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500">
             <ReadingTime steps={guide.steps} checklist={guide.checklist} />
+            {guide.updatedAt && (
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
+                <time dateTime={guide.updatedAt}>
+                  Bijgewerkt: {formatDate(guide.updatedAt)}
+                </time>
+              </span>
+            )}
           </div>
           <p className="mt-4 text-slate-600">{guide.overview}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

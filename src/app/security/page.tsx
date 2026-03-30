@@ -20,14 +20,6 @@ export const metadata: Metadata = {
     title: "Security voor AI-agents | Your AI Worker",
     description: "Onze aanpak voor toegangsbeheer, secrets, logging en veilige deployments van AI-agents.",
     url: "https://youraiworker.nl/security",
-    images: [
-      {
-        url: "/og-home.png",
-          width: 1200,
-          height: 630,
-        alt: "Your AI Worker security",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
