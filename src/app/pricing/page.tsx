@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 
 import { Builder } from "./Builder"
 import { buildBreadcrumbJsonLd } from "../jsonld"
+import { buildFaqJsonLd } from "../faq/faqJsonLd"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
@@ -59,18 +60,12 @@ const serviceSchema = {
   },
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: PRICING_FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-}
+const faqSchema = buildFaqJsonLd(
+  PRICING_FAQ_ITEMS.map((item) => ({
+    question: item.question,
+    answer: item.answer,
+  }))
+)
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
