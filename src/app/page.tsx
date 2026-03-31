@@ -12,6 +12,7 @@ import {
 import { ChatDemo } from "../components/ChatDemo"
 import { HomeProcessRollout } from "../components/HomeProcessRollout"
 import { Testimonials } from "../components/Testimonials"
+import { ClientTestimonials } from "../components/ClientTestimonials"
 import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
@@ -807,8 +808,11 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Trust Metrics */}
       <Testimonials />
+
+      {/* Client Testimonials */}
+      <ClientTestimonials />
 
       {/* FAQ */}
       <HomeFaq />

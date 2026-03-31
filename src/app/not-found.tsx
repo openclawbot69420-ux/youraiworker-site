@@ -1,12 +1,15 @@
 import type { Metadata } from "next"
 import type * as React from "react"
-import { FileX, Home, MessageSquare, ArrowRight, LifeBuoy } from "lucide-react"
+import { FileX, Home, MessageSquare, ArrowRight, LifeBuoy, Map } from "lucide-react"
 import BackButton from "../components/BackButton"
 
 export const metadata: Metadata = {
   title: "Pagina niet gevonden | Your AI Worker",
   description: "De pagina die je zoekt bestaat niet. Ga terug naar home of plan een intake.",
-  robots: { index: false, follow: true },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const SUGGESTED_PAGES = [
@@ -26,15 +29,13 @@ export default function NotFoundPage(): React.ReactElement {
             <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
               <FileX className="h-8 w-8 text-slate-400" aria-hidden="true" />
             </div>
-
             <h1 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pagina niet gevonden
             </h1>
             <p className="mt-3 text-base text-slate-600">
-              De pagina die je zoekt bestaat niet (meer).
-              Misschien is deze verplaatst of is er een fout in de URL.
+              De pagina die je zoekt bestaat niet (meer). Misschien is deze verplaatst of is er een
+              fout in de URL.
             </p>
-
             {/* Error code */}
             <p className="mt-4 text-xs font-medium text-slate-400">Error code: 404</p>
           </div>
@@ -84,8 +85,30 @@ export default function NotFoundPage(): React.ReactElement {
             </nav>
           </div>
 
+          {/* Sitemap hint */}
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+            <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
+              <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
+                <Map className="h-5 w-5 text-slate-600" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">Alle pagina's op een rij?</p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Bekijk onze{" "}
+                  <a
+                    href="/sitemap.xml"
+                    className="font-medium text-slate-900 underline underline-offset-2 transition-colors hover:text-slate-700"
+                  >
+                    sitemap
+                  </a>{" "}
+                  of scan de voorgestelde pagina's hierboven.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Support hint */}
-            <div className="mt-10 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
             <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
               <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white">
                 <LifeBuoy className="h-5 w-5 text-slate-600" aria-hidden="true" />
@@ -97,7 +120,7 @@ export default function NotFoundPage(): React.ReactElement {
                   <a
                     href="mailto:info@youraiworker.nl"
                     className="font-medium text-slate-900 underline underline-offset-2 transition-colors hover:text-slate-700"
-                  >
+                    >
                     info@youraiworker.nl
                   </a>{" "}
                   of plan een intake. We helpen je graag verder.

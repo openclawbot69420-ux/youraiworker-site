@@ -100,8 +100,9 @@ const CONTACT_BTW_LABEL = "BTW"
 const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BTW})`
 
 // Build timestamp for "last updated" indicator - shows site is actively maintained
-const BUILD_TIMESTAMP = new Date().toISOString()
-const BUILD_DATE_FORMATTED = new Date().toLocaleDateString("nl-NL", {
+// Uses environment variable injected at build time (see next.config.ts) for reproducible builds
+const BUILD_TIMESTAMP = process.env.NEXT_PUBLIC_BUILD_DATE || "2025-03-31T12:00:00.000Z"
+const BUILD_DATE_FORMATTED = new Date(BUILD_TIMESTAMP).toLocaleDateString("nl-NL", {
   year: "numeric",
   month: "long",
   day: "numeric",
