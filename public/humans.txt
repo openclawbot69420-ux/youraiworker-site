@@ -1,11 +1,41 @@
 /* TEAM */
-Your AI Worker
-Contact: info@youraiworker.nl
+
+Company: Your AI Worker
 Location: Amsterdam, Nederland
+Email: info@youraiworker.nl
+Website: https://youraiworker.nl
+Founding: 2026
+KvK: 95290475
+BTW: NL8677.15.849.B01
 
 /* SITE */
-Standards: HTML, CSS, TypeScript
-Software: Next.js
+
+Last update: 2026-03-31
+Language: Dutch (nl-NL)
+Standards: HTML5, CSS3, TypeScript, React
+Software: Next.js 16.2.0, Tailwind CSS, Node.js
+Build: Static export with Next.js
+
+/* TECHNOLOGY */
+
+Runtime: OpenClaw (https://openclaw.ai)
+Framework: Next.js with App Router
+Styling: Tailwind CSS
+Icons: Lucide React, Simple Icons
+Fonts: Inter (Google Fonts)
+
+/* PRINCIPLES */
+
+Security-first: TLS, least-privilege access, secrets management
+Privacy-by-design: AVG-compliant, data minimalization
+No trackers: No third-party analytics or advertising scripts
 
 /* THANKS */
+
 OpenClaw: https://github.com/openclaw/openclaw
+Open source community: React, Next.js, Tailwind CSS contributors
+
+/* SECURITY */
+
+Responsible disclosure: security@youraiworker.nl
+Policy: https://youraiworker.nl/.well-known/security.txt
