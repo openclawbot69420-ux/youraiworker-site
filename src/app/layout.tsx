@@ -98,6 +98,14 @@ const CONTACT_BTW_LABEL = "BTW"
 
 // Minimal legal footer line for extra credibility. Keep it factual and short.
 const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BTW})`
+
+// Build timestamp for "last updated" indicator - shows site is actively maintained
+const BUILD_TIMESTAMP = new Date().toISOString()
+const BUILD_DATE_FORMATTED = new Date().toLocaleDateString("nl-NL", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+})
 const COMPANY_BRAND_FOOTER_LINE = `${COMPANY_BRAND_TAGLINE}.`
 
 const CONTACT_CTA: NavItem = {
@@ -656,6 +664,9 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
               <BuildInfo />
+              <p className="text-[11px] text-slate-400 mt-1">
+                Laatst bijgewerkt: {BUILD_DATE_FORMATTED}
+              </p>
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
