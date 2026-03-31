@@ -1,6 +1,7 @@
 "use client"
+
 import { useState } from "react"
-import { Mail, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Mail, CheckCircle, AlertCircle, Loader2, ArrowRight } from "lucide-react"
 
 export const NewsletterSignup: React.FC = () => {
   const [email, setEmail] = useState("")
@@ -16,7 +17,6 @@ export const NewsletterSignup: React.FC = () => {
     }
 
     setStatus("loading")
-
     try {
       const response = await fetch("/api/newsletter/subscribe", {
         method: "POST",
@@ -27,9 +27,9 @@ export const NewsletterSignup: React.FC = () => {
       const data = await response.json().catch(() => null)
 
       if (response.ok && data?.success) {
-        setStatus("success")
-        setMessage(data.message || "Je bent aangemeld voor updates over AI-automatisering")
-        setEmail("")
+        // Redirect to dedicated thank you page for better UX and conversion tracking
+        window.location.href = "/newsletter/bedankt"
+        return
       } else {
         setStatus("error")
         setMessage(data?.error || "Er ging iets mis bij het aanmelden. Probeer het later opnieuw.")
@@ -58,6 +58,7 @@ export const NewsletterSignup: React.FC = () => {
             </p>
             <p className="mt-2 text-xs text-slate-500">Geen spam. Uitschrijven kan altijd. Alleen relevante content.</p>
           </div>
+
           {/* Right: Form */}
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
             <form onSubmit={handleSubmit} className="space-y-3">
@@ -75,14 +76,14 @@ export const NewsletterSignup: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jouw@bedrijf.nl"
-                    disabled={status === "loading" || status === "success"}
+                    disabled={status === "loading"}
                     className="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm text-slate-900 transition-colors placeholder:text-slate-400 focus:border-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-100 disabled:opacity-60"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  disabled={status === "loading" || status === "success"}
+                  disabled={status === "loading"}
                   className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   {status === "loading" ? (
@@ -90,16 +91,12 @@ export const NewsletterSignup: React.FC = () => {
                       <Loader2 className="mr-1.5 h-4 w-4 animate-spin" aria-hidden="true" />
                       <span>Aanmelden...</span>
                     </>
-                  ) : status === "success" ? (
-                    <>
-                      <CheckCircle className="mr-1.5 h-4 w-4" aria-hidden="true" />
-                      <span>Aangemeld</span>
-                    </>
                   ) : (
                     <span>Aanmelden</span>
                   )}
                 </button>
               </div>
+
               {/* Status message */}
               {status === "error" && (
                 <div className="flex items-center gap-2 rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700" role="alert">
@@ -107,12 +104,7 @@ export const NewsletterSignup: React.FC = () => {
                   <span>{message}</span>
                 </div>
               )}
-              {status === "success" && (
-                <div className="flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700" role="status">
-                  <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span>{message}</span>
-                </div>
-              )}
+
               {/* Trust indicators */}
               <p className="text-xs leading-relaxed text-slate-500">
                 Door je aan te melden ga je akkoord met ons{" "}
