@@ -56,6 +56,7 @@ export const ContactForm: React.FC = () => {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement | null)?.value ?? "",
       message: `${(form.elements.namedItem("message") as HTMLTextAreaElement).value}${prefillMessage}`,
       website: (form.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "",
     }

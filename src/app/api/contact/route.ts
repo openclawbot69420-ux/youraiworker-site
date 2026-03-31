@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 import { z } from "zod"
-
 import { rateLimit } from "./rateLimit"
 
 const escapeHtml = (value: string) =>
@@ -17,6 +16,7 @@ const ContactSchema = z
     name: z.string().trim().min(2).max(80),
     email: z.string().trim().email().max(254),
     company: z.string().trim().max(120).optional().or(z.literal("")),
+    phone: z.string().trim().max(30).optional().or(z.literal("")),
     message: z.string().trim().min(10).max(4000),
     // Honeypot: should stay empty
     website: z.string().optional().or(z.literal("")),
@@ -42,12 +42,11 @@ export const POST = async (request: Request) => {
 
     const body = await request.json().catch(() => null)
     const parsed = ContactSchema.safeParse(body)
-
     if (!parsed.success) {
       return NextResponse.json({ error: "Vul alle velden correct in." }, { status: 400 })
     }
 
-    const { name, email, company, message, website } = parsed.data
+    const { name, email, company, phone, message, website } = parsed.data
 
     if (website && website.trim().length > 0) {
       // Silent accept to avoid giving spammers signal
@@ -69,18 +68,23 @@ export const POST = async (request: Request) => {
       },
     })
 
+    const phoneHtml = phone
+      ? `<a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a>`
+      : "-"
+
     await transporter.sendMail({
       from: `"Your AI Worker" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER,
       replyTo: email,
       subject: `Nieuwe aanvraag van ${name}${company ? ` (${company})` : ""}`,
-      text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "-"}\n\nBericht:\n${message}`,
+      text: `Naam: ${name}\nE-mail: ${email}\nBedrijf: ${company || "-"}\nTelefoon: ${phone || "-"}\n\nBericht:\n${message}`,
       html: `
         <h2>Nieuwe aanvraag via youraiworker.nl</h2>
         <table style="border-collapse:collapse;">
           <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Naam</td><td>${escapeHtml(name)}</td></tr>
           <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">E-mail</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
           <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Bedrijf</td><td>${escapeHtml(company || "-")}</td></tr>
+          <tr><td style="padding:4px 12px 4px 0;font-weight:bold;">Telefoon</td><td>${phoneHtml}</td></tr>
         </table>
         <h3>Bericht</h3>
         <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
