@@ -475,7 +475,7 @@ const Footer: React.FC = () => {
               href={`https://www.kvk.nl/zoeken/?q=${CONTACT_KVK}`}
               target="_blank"
               rel="noreferrer"
-              title="KvK-inschrijving verifiëren"
+              referrerPolicy="strict-origin-when-cross-origin" title="KvK-inschrijving verifiëren"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm"
             >
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
@@ -488,7 +488,7 @@ const Footer: React.FC = () => {
               href="https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01"
               target="_blank"
               rel="noreferrer"
-              title="BTW-nummer verifiëren via EU VIES"
+              referrerPolicy="strict-origin-when-cross-origin" title="BTW-nummer verifiëren via EU VIES"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm"
             >
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
@@ -502,7 +502,7 @@ const Footer: React.FC = () => {
               <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
             </span>
             {/* Security Badge - with security.txt reference */}
-            <a href="/.well-known/security.txt" target="_blank" rel="noreferrer" title="Bekijk ons security.txt bestand (RFC 9116)"
+            <a href="/.well-known/security.txt" target="_blank" rel="noreferrer" referrerPolicy="same-origin" title="Bekijk ons security.txt bestand (RFC 9116)"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm">
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <Lock className="h-2.5 w-2.5" aria-hidden="true" />
@@ -529,11 +529,11 @@ const Footer: React.FC = () => {
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="https://openclaw.ai"
+                href="https://docs.openclaw.ai"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="OpenClaw"
-                title="OpenClaw - agent runtime"
+                referrerPolicy="strict-origin-when-cross-origin" title="OpenClaw - agent runtime (opent in nieuw tabblad)"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
               >
                 <span
@@ -559,7 +559,7 @@ const Footer: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
-                  title="Volg ons op LinkedIn"
+                  referrerPolicy="strict-origin-when-cross-origin" title="Volg ons op LinkedIn (opent in nieuw tabblad)"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900"
                 >
                   <Linkedin className="h-4 w-4" aria-hidden="true" />

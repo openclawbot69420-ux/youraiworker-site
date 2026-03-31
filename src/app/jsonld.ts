@@ -98,13 +98,23 @@ export const buildOrganizationJsonLd = (options?: {
   }
 }
 
-export const buildWebSiteJsonLd = (): WithContext<WebSite> => {
+export const buildWebSiteJsonLd = (): Record<string, unknown> => {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Your AI Worker",
     url: "https://youraiworker.nl/",
     inLanguage: "nl-NL",
+    // SearchAction enables Google to show a site search box in search results
+    // https://developers.google.com/search/docs/appearance/structured-data/sitelinks-searchbox
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://youraiworker.nl/guides?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
   }
 }
 
