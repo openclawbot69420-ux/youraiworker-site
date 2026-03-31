@@ -1,4 +1,4 @@
-import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, } from "schema-dts"
+import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, Article, FAQPage, Question, Answer, } from "schema-dts"
 
 export const buildBreadcrumbJsonLd = (
   items: Array<{ name: string; url: string }>
@@ -209,5 +209,42 @@ export const buildServiceJsonLd = (): Record<string, unknown> => {
     },
     serviceType: "AI agent implementation",
     description: "Maatwerk AI-agents die processen automatiseren. Security-first opzet, integraties en begeleiding van intake tot livegang.",
+  }
+}
+
+export const buildArticleJsonLd = (options: {
+  headline: string
+  description: string
+  url: string
+  image?: string
+  datePublished: string
+  dateModified?: string
+  author: { name: string; url: string }
+  publisher: { name: string; url: string; logo: string }
+}): WithContext<Article> => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: options.headline,
+    description: options.description,
+    url: options.url,
+    image: options.image,
+    datePublished: options.datePublished,
+    dateModified: options.dateModified ?? options.datePublished,
+    author: {
+      "@type": "Organization",
+      name: options.author.name,
+      url: options.author.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: options.publisher.name,
+      url: options.publisher.url,
+      logo: {
+        "@type": "ImageObject",
+        url: options.publisher.logo,
+      },
+    },
+    inLanguage: "nl-NL",
   }
 }

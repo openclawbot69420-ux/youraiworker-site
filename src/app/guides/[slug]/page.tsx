@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { Clock, Calendar } from "lucide-react"
 import { ReadingTime } from "../../../components/ReadingTime"
 import { GUIDES } from "../../../lib/catalog"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "../../jsonld"
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString)
@@ -49,14 +50,37 @@ export const generateMetadata = async (props: GuideDetailPageProps): Promise<Met
   }
 }
 
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
 const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
   const { slug } = await props.params
   const guide = GUIDES.find((item) => item.slug === slug)
   if (!guide) {
     notFound()
   }
+
+  const articleJsonLd = buildArticleJsonLd({
+    headline: guide.title,
+    description: guide.shortDescription,
+    url: `https://youraiworker.nl/guides/${slug}`,
+    datePublished: guide.updatedAt ?? "2025-03-01",
+    dateModified: guide.updatedAt ?? "2025-03-01",
+    author: { name: "Your AI Worker", url: "https://youraiworker.nl" },
+    publisher: { name: "Your AI Worker", url: "https://youraiworker.nl", logo: "https://youraiworker.nl/icon-512.png" },
+    image: `https://youraiworker.nl/og-home.png`,
+  })
+
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Home", url: "https://youraiworker.nl/" },
+    { name: "Handleidingen", url: "https://youraiworker.nl/guides" },
+    { name: guide.title, url: `https://youraiworker.nl/guides/${slug}` },
+  ])
+
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Handleiding</p>
@@ -158,7 +182,8 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
           Terug naar handleidingen
         </a>
       </div>
-    </section>
+      </section>
+    </>
   )
 }
 
