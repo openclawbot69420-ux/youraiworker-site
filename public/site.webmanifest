@@ -1,9 +1,11 @@
 {
   "name": "Your AI Worker",
-  "short_name": "Your AI Worker",
+  "short_name": "YAIW",
   "description": "Productierijpe AI-agents voor Nederlandse bedrijven.",
   "start_url": "/",
   "display": "standalone",
+  "scope": "/",
+  "categories": ["business", "productivity", "utilities"],
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
   "icons": [
