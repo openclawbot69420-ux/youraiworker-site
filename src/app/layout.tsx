@@ -107,6 +107,16 @@ const BUILD_DATE_FORMATTED = new Date(BUILD_TIMESTAMP).toLocaleDateString("nl-NL
   month: "long",
   day: "numeric",
 })
+// Full timestamp with time for precise freshness indication (shows timezone awareness)
+const BUILD_DATETIME_FORMATTED = new Date(BUILD_TIMESTAMP).toLocaleString("nl-NL", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  timeZone: "Europe/Amsterdam",
+})
+const BUILD_TIMEZONE = new Date().toLocaleTimeString("nl-NL", { timeZone: "Europe/Amsterdam", timeZoneName: "short" }).split(" ").pop() || "CET"
 const COMPANY_BRAND_FOOTER_LINE = `${COMPANY_BRAND_TAGLINE}.`
 
 const CONTACT_CTA: NavItem = {
@@ -666,8 +676,8 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
               <BuildInfo />
-              <p className="text-[11px] text-slate-400 mt-1">
-                Laatst bijgewerkt: {BUILD_DATE_FORMATTED}
+              <p className="text-[11px] text-slate-400 mt-1" title={`Site build: ${BUILD_TIMESTAMP}`}>
+                Laatst bijgewerkt: {BUILD_DATETIME_FORMATTED} {BUILD_TIMEZONE}
               </p>
           </div>
 
