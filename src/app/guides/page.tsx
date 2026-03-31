@@ -36,6 +36,15 @@ const calculateReadingTime = (guide: (typeof GUIDES)[number]): number => {
   return Math.max(1, Math.ceil(wordCount / 200))
 }
 
+// Check if guide was updated within last 30 days
+const isRecentlyUpdated = (dateString?: string): boolean => {
+  if (!dateString) return false
+  const updated = new Date(dateString)
+  const thirtyDaysAgo = new Date()
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+  return updated >= thirtyDaysAgo
+}
+
 const guides = GUIDES.map((guide) => {
   return {
     slug: guide.slug,
@@ -85,9 +94,17 @@ const GuidesPage: React.FC = () => {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">{guide.description}</p>
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
-                Praktische checklist
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+                  Praktische checklist
+                </span>
+                {isRecentlyUpdated(guide.updatedAt) && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+                    Recent bijgewerkt
+                  </span>
+                )}
+              </div>
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 text-xs text-slate-400" title="Geschatte leestijd">
                   <Clock className="h-3 w-3" aria-hidden="true" />
