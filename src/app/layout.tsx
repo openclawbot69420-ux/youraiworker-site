@@ -360,6 +360,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         <link rel="alternate" type="application/rss+xml" href="/guides/rss.xml" title="Your AI Worker - Guides" />
         <link rel="alternate" type="text/plain" href="/terms.txt" title="Algemene voorwaarden (tekst)" />
         <link rel="alternate" type="text/plain" href="/privacy.txt" title="Privacybeleid (tekst)" />
+        <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Your AI Worker" />
         <meta name="rating" content="general" />
 
         {/*
