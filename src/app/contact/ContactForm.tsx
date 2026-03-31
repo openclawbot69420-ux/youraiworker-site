@@ -196,13 +196,23 @@ export const ContactForm: React.FC = () => {
         <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {status === "sending" ? "Versturen..." : "Verstuur"}
-      </button>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {status === "sending" ? "Versturen..." : "Verstuur"}
+        </button>
+        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-700" aria-hidden="true">
+            <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+            </svg>
+          </span>
+          <span>Reactie binnen 1 werkdag gegarandeerd</span>
+        </div>
+      </div>
     </form>
   )
 }

@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/security", priority: 0.5, freq: "monthly" as const },
     { path: "/privacy", priority: 0.5, freq: "monthly" as const },
     { path: "/terms", priority: 0.5, freq: "monthly" as const },
-    { path: "/configure", priority: 0.4, freq: "monthly" as const },
+    // Note: /configure redirects to /implementatie - not included in sitemap
   ]
 
   // Individual use case pages (high SEO value - specific solutions)
