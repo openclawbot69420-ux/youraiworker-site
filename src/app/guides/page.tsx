@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-import { Calendar } from "lucide-react"
-
+import { Calendar, Clock } from "lucide-react"
 export const metadata: Metadata = {
   title: "Handleidingen | AI-agent guides en best practices | Your AI Worker",
   description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
     description: "Concrete guides voor workflow implementatie, approvals en beveiliging.",
   },
 }
-
 import { GUIDES } from "../../lib/catalog"
 
 const formatDate = (dateString: string) => {
@@ -31,6 +29,13 @@ const formatDate = (dateString: string) => {
   }).format(date)
 }
 
+// Calculate reading time based on guide content (overview + steps + checklist)
+const calculateReadingTime = (guide: (typeof GUIDES)[number]): number => {
+  const content = [guide.overview, ...guide.steps, ...guide.checklist].join(" ")
+  const wordCount = content.split(/\s+/).length
+  return Math.max(1, Math.ceil(wordCount / 200))
+}
+
 const guides = GUIDES.map((guide) => {
   return {
     slug: guide.slug,
@@ -38,8 +43,9 @@ const guides = GUIDES.map((guide) => {
     title: guide.title,
     description: guide.shortDescription,
     updatedAt: guide.updatedAt,
+    readingMinutes: calculateReadingTime(guide),
   }
-}) satisfies Array<{ slug: string; icon: LucideIcon; title: string; description: string; updatedAt?: string }>
+}) satisfies Array<{ slug: string; icon: LucideIcon; title: string; description: string; updatedAt?: string; readingMinutes: number }>
 
 const GuidesPage: React.FC = () => {
   return (
@@ -66,15 +72,11 @@ const GuidesPage: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {guides.map((guide, index) => (
-          <div
-            key={guide.title}
-            className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${
-              index % 3 === 0 ? "motion-delay-1" : index % 3 === 1 ? "motion-delay-2" : "motion-delay-3"
-            }`}
-          >
+          <div key={guide.title} className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${
+            index % 3 === 0 ? "motion-delay-1" : index % 3 === 1 ? "motion-delay-2" : "motion-delay-3"
+          }`}>
             <div className="flex items-center gap-3">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
                 <guide.icon className="h-5 w-5" aria-hidden="true" />
@@ -86,48 +88,43 @@ const GuidesPage: React.FC = () => {
               <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
                 Praktische checklist
               </span>
-              {guide.updatedAt && (
-                <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
-                  <Calendar className="h-3 w-3" aria-hidden="true" />
-                  <time dateTime={guide.updatedAt}>
-                    {formatDate(guide.updatedAt)}
-                  </time>
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center gap-1.5 text-xs text-slate-400" title="Geschatte leestijd">
+                  <Clock className="h-3 w-3" aria-hidden="true" />
+                  <span>{guide.readingMinutes} min</span>
                 </span>
-              )}
+                {guide.updatedAt && (
+                  <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
+                    <Calendar className="h-3 w-3" aria-hidden="true" />
+                    <time dateTime={guide.updatedAt}>
+                      {formatDate(guide.updatedAt)}
+                    </time>
+                  </span>
+                )}
+              </div>
             </div>
-            <a
-              href={`/guides/${guide.slug}`}
-              className="mt-4 inline-block text-sm font-medium text-slate-900 underline"
-            >
+            <a href={`/guides/${guide.slug}`} className="mt-4 inline-block text-sm font-medium text-slate-900 underline">
               Bekijk details
             </a>
           </div>
         ))}
       </div>
-
       <div className="motion-fade-in motion-delay-4 mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
         <h2 className="text-lg font-semibold tracking-tight text-slate-900">Van guide naar implementatie</h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
           De guides beschrijven de minimale basis. In een traject vertalen wij dit naar een concrete workflow, approvals, testset en beheerde go-live in jouw tooling.
         </p>
       </div>
-
       <div className="motion-fade-in motion-delay-4 mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-12 text-white sm:px-12">
         <h2 className="text-2xl font-bold tracking-tight">Klaar om te automatiseren?</h2>
         <p className="mt-3 max-w-2xl text-white/70">
           Vertel welke workflow je als eerste wil aanpakken. Wij helpen met scope, implementatie, approvals en gecontroleerde livegang.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="/pricing"
-            className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors"
-          >
+          <a href="/pricing" className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 transition-colors">
             Bekijk packages
           </a>
-          <a
-            href="/contact"
-            className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors"
-          >
+          <a href="/contact" className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10 transition-colors">
             Plan een intake
           </a>
         </div>
@@ -135,5 +132,4 @@ const GuidesPage: React.FC = () => {
     </section>
   )
 }
-
 export default GuidesPage
