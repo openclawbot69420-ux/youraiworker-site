@@ -1,4 +1,5 @@
 import { Quote, Star } from "lucide-react"
+import { ClientTestimonialsJsonLd } from "./ClientTestimonialsJsonLd"
 
 // Client testimonials - real quotes with context for credibility
 const TESTIMONIALS = [
@@ -28,9 +29,18 @@ const TESTIMONIALS = [
   },
 ] as const
 
+const SITE_NAME = "Your AI Worker"
+const SITE_URL = "https://youraiworker.nl"
+
 export const ClientTestimonials: React.FC = () => {
   return (
-    <section id="klanten" className="border-y border-slate-200/70 bg-gradient-to-b from-slate-50/50 to-white py-16">
+    <>
+      <ClientTestimonialsJsonLd
+        testimonials={[...TESTIMONIALS]}
+        siteName={SITE_NAME}
+        siteUrl={SITE_URL}
+      />
+      <section id="klanten" className="border-y border-slate-200/70 bg-gradient-to-b from-slate-50/50 to-white py-16">
       <div className="mx-auto max-w-6xl px-4">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
@@ -103,5 +113,6 @@ export const ClientTestimonials: React.FC = () => {
         </p>
       </div>
     </section>
+    </>
   )
 }
