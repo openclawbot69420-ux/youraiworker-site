@@ -6,6 +6,8 @@ import { ShareButton } from "../../../components/ShareButton"
 import { GUIDES } from "../../../lib/catalog"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "../../jsonld"
 
+const SITE_URL = "https://youraiworker.nl"
+
 const formatDate = (dateString: string) => {
   const date = new Date(dateString)
   return new Intl.DateTimeFormat("nl-NL", {
@@ -45,9 +47,48 @@ export const generateMetadata = async (props: GuideDetailPageProps): Promise<Met
       description: "Deze handleiding is niet gevonden of is niet langer beschikbaar.",
     }
   }
+
+  const ogImage = `${SITE_URL}/og-home.png`
+  const canonicalUrl = `${SITE_URL}/guides/${slug}`
+  const publishDate = guide.publishedAt
+  const modifyDate = guide.updatedAt ?? guide.publishedAt
+
   return {
     title: guide.title,
     description: guide.shortDescription,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `${guide.title} | Your AI Worker`,
+      description: guide.shortDescription,
+      url: canonicalUrl,
+      type: "article",
+      siteName: "Your AI Worker",
+      locale: "nl_NL",
+      publishedTime: publishDate,
+      modifiedTime: modifyDate,
+      authors: ["https://youraiworker.nl"],
+      section: "Handleidingen",
+      images: [{
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: guide.title,
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${guide.title} | Your AI Worker`,
+      description: guide.shortDescription,
+      images: [ogImage],
+    },
+    other: {
+      "article:published_time": publishDate,
+      "article:modified_time": modifyDate,
+      "article:author": "Your AI Worker",
+      "article:section": "AI-agent implementatie",
+    },
   }
 }
 
@@ -63,18 +104,18 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
   const articleJsonLd = buildArticleJsonLd({
     headline: guide.title,
     description: guide.shortDescription,
-    url: `https://youraiworker.nl/guides/${slug}`,
-    datePublished: guide.updatedAt ?? "2025-03-01",
-    dateModified: guide.updatedAt ?? "2025-03-01",
-    author: { name: "Your AI Worker", url: "https://youraiworker.nl" },
-    publisher: { name: "Your AI Worker", url: "https://youraiworker.nl", logo: "https://youraiworker.nl/icon-512.png" },
-    image: `https://youraiworker.nl/og-home.png`,
+    url: `${SITE_URL}/guides/${slug}`,
+    datePublished: guide.publishedAt,
+    dateModified: guide.updatedAt ?? guide.publishedAt,
+    author: { name: "Your AI Worker", url: SITE_URL },
+    publisher: { name: "Your AI Worker", url: SITE_URL, logo: `${SITE_URL}/icon-512.png` },
+    image: `${SITE_URL}/og-home.png`,
   })
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "Home", url: "https://youraiworker.nl/" },
-    { name: "Handleidingen", url: "https://youraiworker.nl/guides" },
-    { name: guide.title, url: `https://youraiworker.nl/guides/${slug}` },
+    { name: "Home", url: `${SITE_URL}/` },
+    { name: "Handleidingen", url: `${SITE_URL}/guides` },
+    { name: guide.title, url: `${SITE_URL}/guides/${slug}` },
   ])
 
   return (
