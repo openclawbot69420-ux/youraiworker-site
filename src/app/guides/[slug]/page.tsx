@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { Clock, Calendar } from "lucide-react"
 import { ReadingTime } from "../../../components/ReadingTime"
+import { ShareButton } from "../../../components/ShareButton"
 import { GUIDES } from "../../../lib/catalog"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "../../jsonld"
 
@@ -84,7 +85,14 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
       <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Handleiding</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{guide.title}</h1>
+          <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{guide.title}</h1>
+            <ShareButton
+              url={`https://youraiworker.nl/guides/${slug}`}
+              title={`${guide.title} | Your AI Worker`}
+              description={guide.shortDescription}
+            />
+          </div>
           <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500">
             <ReadingTime steps={guide.steps} checklist={guide.checklist} />
             {guide.updatedAt && (
