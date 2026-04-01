@@ -143,14 +143,40 @@ a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
   transition: outline-offset 0.1s ease;
 }
 
+/* Add transform transition to buttons for tactile feedback */
+button, [role="button"], a.bg-slate-900, a.rounded-lg {
+  transition: transform 0.1s ease, outline-offset 0.1s ease;
+}
+
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline-offset: 2px;
+}
+
+/* Tactile feedback for primary buttons - subtle press effect */
+button:active:not(:disabled),
+[role="button"]:active:not(:disabled),
+a.bg-slate-900:active {
+  transform: scale(0.98);
+}
+
+/* Softer press for secondary/outline buttons */
+a.rounded-lg:active,
+button.rounded-lg:active:not(:disabled) {
+  transform: scale(0.985);
 }
 
 /* Reduced motion support for focus transitions */
 @media (prefers-reduced-motion: reduce) {
   a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
     transition: none;
+  }
+  
+  button:active:not(:disabled),
+  [role="button"]:active:not(:disabled),
+  a.bg-slate-900:active,
+  a.rounded-lg:active,
+  button.rounded-lg:active:not(:disabled) {
+    transform: none;
   }
 }
 
