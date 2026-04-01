@@ -1,140 +1,141 @@
 import type { Metadata } from "next"
-import type * as React from "react"
-import { FileX, Home, MessageSquare, ArrowRight, LifeBuoy, Map } from "lucide-react"
-import BackButton from "../components/BackButton"
+import React from "react"
+import { FileQuestion, ArrowLeft, Home, Calendar, Tag } from "lucide-react"
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Pagina niet gevonden | Your AI Worker",
-  description: "De pagina die je zoekt bestaat niet. Ga terug naar home of plan een intake.",
+  description: "Deze pagina bestaat niet. Bekijk onze populaire pagina's of neem contact op.",
   robots: {
     index: false,
     follow: true,
   },
 }
 
-const SUGGESTED_PAGES = [
-  { href: "/", label: "Home", description: "Terug naar de hoofdpagina" },
-  { href: "/pricing", label: "Prijzen", description: "Bekijk tarieven en pakketten" },
-  { href: "/use-cases", label: "Toepassingen", description: "Voorbeelden van AI-agents" },
-  { href: "/contact", label: "Contact", description: "Plan een intakegesprek" },
+const POPULAR_PAGES = [
+  { href: "/pricing", label: "Prijzen en pakketten", description: "Vanaf EUR 1.000" },
+  { href: "/use-cases", label: "Use cases", description: "Toepassingen" },
+  { href: "/implementatie", label: "Implementatie", description: "Hoe het werkt" },
+  { href: "/integrations", label: "Integraties", description: "Koppelingen" },
+  { href: "/faq", label: "FAQ", description: "Veelgestelde vragen" },
+  { href: "/security", label: "Security", description: "Beveiliging" },
 ] as const
 
-export default function NotFoundPage(): React.ReactElement {
+export default function NotFound(): React.ReactNode {
   return (
-    <main className="min-h-[70vh] bg-slate-50/50 py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl px-4">
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
-          <div className="text-center">
-            {/* Icon */}
-            <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
-              <FileX className="h-8 w-8 text-slate-400" aria-hidden="true" />
-            </div>
-            <h1 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Pagina niet gevonden
-            </h1>
-            <p className="mt-3 text-base text-slate-600">
-              De pagina die je zoekt bestaat niet (meer). Misschien is deze verplaatst of is er een
-              fout in de URL.
-            </p>
-            {/* Error code */}
-            <p className="mt-4 text-xs font-medium text-slate-400">Error code: 404</p>
-          </div>
-
-          {/* CTA buttons */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <a
-              href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-            >
-              <Home className="h-4 w-4" aria-hidden="true" />
-              <span>Terug naar home</span>
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all hover:bg-slate-50 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-            >
-              <MessageSquare className="h-4 w-4" aria-hidden="true" />
-              <span>Plan een intake</span>
-            </a>
-          </div>
-
-          {/* Suggested pages */}
-          <div className="mt-12 border-t border-slate-200 pt-10">
-            <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-slate-500">
-              Wellicht bedoelde je een van deze pagina's
-            </h2>
-            <nav aria-label="Voorgestelde pagina's" className="mt-6 grid gap-3 sm:grid-cols-2">
-              {SUGGESTED_PAGES.map(({ href, label, description }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50/50 p-4 transition-all hover:border-slate-300 hover:bg-white hover:shadow-sm"
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700">
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-slate-900">{label}</p>
-                    <p className="text-xs text-slate-500">{description}</p>
-                  </div>
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Sitemap hint */}
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
-            <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
-              <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
-                <Map className="h-5 w-5 text-slate-600" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-900">Alle pagina's op een rij?</p>
-                <p className="mt-1 text-sm text-slate-600">
-                  Bekijk onze{" "}
-                  <a
-                    href="/sitemap.xml"
-                    className="font-medium text-slate-900 underline underline-offset-2 transition-colors hover:text-slate-700"
-                  >
-                    sitemap
-                  </a>{" "}
-                  of scan de voorgestelde pagina's hierboven.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Support hint */}
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-            <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
-              <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white">
-                <LifeBuoy className="h-5 w-5 text-slate-600" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-900">Nog steeds niet gevonden?</p>
-                <p className="mt-1 text-sm text-slate-600">
-                  Mail ons op{" "}
-                  <a
-                    href="mailto:info@youraiworker.nl"
-                    className="font-medium text-slate-900 underline underline-offset-2 transition-colors hover:text-slate-700"
-                    >
-                    info@youraiworker.nl
-                  </a>{" "}
-                  of plan een intake. We helpen je graag verder.
-                </p>
-              </div>
-            </div>
-          </div>
+    <section className="mx-auto max-w-4xl px-4 py-16 sm:py-24" aria-labelledby="not-found-title">
+      <div className="text-center">
+        {/* Icon with subtle animation */}
+        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 sm:h-24 sm:w-24">
+          <FileQuestion className="h-10 w-10 text-slate-400 sm:h-12 sm:w-12" aria-hidden="true" />
         </div>
 
-        {/* Back navigation */}
-        <div className="mt-6 text-center">
-          <BackButton />
+        <h1
+          id="not-found-title"
+          className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+        >
+          Pagina niet gevonden
+        </h1>
+
+        <p className="mx-auto mt-4 max-w-lg text-base text-slate-600">
+          De link die je hebt geopend bestaat niet (meer) op Your AI Worker.
+        </p>
+
+        <p className="mx-auto mt-2 max-w-lg text-sm text-slate-500">
+          Controleer de URL, bekijk onze populaire pagina's of plan direct een intake.
+        </p>
+
+        {/* Quick actions */}
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800 sm:w-auto"
+          >
+            <Home className="h-4 w-4" aria-hidden="true" />
+            Terug naar home
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
+          >
+            <Calendar className="h-4 w-4" aria-hidden="true" />
+            Plan een intake
+          </Link>
+          <Link
+            href="/pricing"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
+          >
+            <Tag className="h-4 w-4" aria-hidden="true" />
+            Bekijk prijzen
+          </Link>
         </div>
       </div>
-    </main>
+
+      {/* Popular pages grid */}
+      <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50/50 p-6 sm:p-8">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
+          Populaire pagina's
+        </h2>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {POPULAR_PAGES.map((page) => (
+            <Link
+              key={page.href}
+              href={page.href}
+              className="group flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3.5 transition-all hover:border-slate-300 hover:shadow-sm"
+            >
+              <div>
+                <p className="font-medium text-slate-900 group-hover:text-slate-700">
+                  {page.label}
+                </p>
+                <p className="mt-0.5 text-xs text-slate-500">{page.description}</p>
+              </div>
+              <ArrowLeft
+                className="h-4 w-4 -rotate-180 text-slate-400 transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Trust indicators */}
+      <div className="mt-8 flex flex-col items-center justify-center gap-2 text-xs text-slate-500 sm:flex-row sm:gap-4">
+        <span className="inline-flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+          KvK: 95290475
+        </span>
+        <span className="hidden text-slate-300 sm:inline">|</span>
+        <span className="inline-flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+          BTW: NL8677.15.849.B01
+        </span>
+        <span className="hidden text-slate-300 sm:inline">|</span>
+        <span>Amsterdam</span>
+      </div>
+
+      {/* Contact hint */}
+        <p className="mt-6 text-center text-sm text-slate-500">
+        Vragen? Mail ons op{" "}
+        <a
+          href="mailto:info@youraiworker.nl"
+          className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
+        >
+          info@youraiworker.nl
+        </a>{" "}
+        of bekijk de{" "}
+        <Link
+          href="/sitemap.xml"
+          className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
+        >
+          sitemap
+        </Link>
+        .
+      </p>
+
+      {/* Error code for tech-savvy users */}
+      <p className="mt-8 text-center text-xs text-slate-400">
+        Error code: <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-slate-600">404</code>
+      </p>
+    </section>
   )
 }

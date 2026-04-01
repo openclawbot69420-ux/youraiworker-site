@@ -296,6 +296,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/integrations", label: "Integraties", title: "Bekijk integraties" },
   { href: "/implementatie", label: "Implementatie", title: "Lees hoe implementatie werkt" },
   { href: "/pricing", label: "Prijzen", title: "Bekijk prijzen" },
+  { href: "/about", label: "Over ons", title: "Lees meer over ons" },
   { href: "/contact", label: "Contact", title: "Neem contact op" },
   { href: "/faq", label: "FAQ", title: "Veelgestelde vragen" },
   { href: "/security", label: "Beveiliging", title: "Lees over beveiliging" },
