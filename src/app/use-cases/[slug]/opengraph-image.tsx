@@ -14,8 +14,99 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const { slug } = await params
   const useCase = USE_CASES.find((item) => item.slug === slug)
 
-  const title = useCase?.title ?? "Toepassing"
-  const description = useCase?.shortDescription ?? "AI-agent implementatie"
+  if (!useCase) {
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)",
+            padding: 60,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div
+                style={{
+                  fontSize: 56,
+                  fontWeight: 700,
+                  letterSpacing: -1,
+                  color: "#ffffff",
+                  lineHeight: 1.1,
+                  maxWidth: 900,
+                }}
+              >
+                AI-agent toepassing
+              </div>
+              <div
+                style={{
+                  fontSize: 26,
+                  fontWeight: 500,
+                  color: "rgba(255, 255, 255, 0.85)",
+                  lineHeight: 1.4,
+                  maxWidth: 900,
+                }}
+              >
+                Productierijpe implementatie voor Nederlandse bedrijven
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginTop: "auto",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  color: "rgba(255, 255, 255, 0.9)",
+                  fontSize: 20,
+                  fontWeight: 600,
+                }}
+              >
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: 12,
+                    background: "rgba(255, 255, 255, 0.1)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    color: "#ffffff",
+                  }}
+                >
+                  Y
+                </div>
+                <span>youraiworker.nl</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      { ...size }
+    )
+  }
+
+  const integrationText = useCase.typicalIntegrations.slice(0, 3).join(", ")
 
   return new ImageResponse(
     (
@@ -75,7 +166,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             </div>
             <div
               style={{
-                fontSize: 52,
+                fontSize: 56,
                 fontWeight: 700,
                 letterSpacing: -1,
                 color: "#ffffff",
@@ -83,7 +174,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                 maxWidth: 900,
               }}
             >
-              {title}
+              {useCase.title}
             </div>
             <div
               style={{
@@ -94,10 +185,10 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                 maxWidth: 900,
               }}
             >
-              {description}
+              {useCase.shortDescription.slice(0, 120)}
+              {useCase.shortDescription.length > 120 ? "..." : ""}
             </div>
           </div>
-
           <div
             style={{
               display: "flex",
@@ -115,7 +206,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             >
               <span
                 style={{
-                  padding: "10px 18px",
+                  padding: "12px 20px",
                   borderRadius: 999,
                   background: "rgba(255, 255, 255, 0.1)",
                   border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -124,7 +215,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   color: "rgba(255, 255, 255, 0.9)",
                 }}
               >
-                youraiworker.nl
+                Integraties: {integrationText}
               </span>
             </div>
             <div
@@ -145,28 +236,13 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   color: "#67e8f9",
                 }}
               >
-                From EUR 1,000
-              </span>
-              <span
-                style={{
-                  padding: "10px 18px",
-                  borderRadius: 999,
-                  background: "rgba(16, 185, 129, 0.15)",
-                  border: "1px solid rgba(16, 185, 129, 0.3)",
-                  fontSize: 18,
-                  fontWeight: 600,
-                  color: "#6ee7b7",
-                }}
-              >
-                No monthly fees
+                youraiworker.nl/use-cases/{slug}
               </span>
             </div>
           </div>
         </div>
       </div>
     ),
-    {
-      ...size,
-    },
+    { ...size }
   )
 }
