@@ -10,6 +10,17 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
+// Professional trust indicator: last reviewed date for security page
+// Update this whenever security practices or content changes
+const LAST_REVIEWED = "2026-04-01"
+const formatReviewDate = (dateStr: string): string => {
+  return new Date(dateStr).toLocaleDateString("nl-NL", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+}
+
 export const metadata: Metadata = {
   title: "Beveiliging | AI-agent security en privacy | Your AI Worker",
   description: "Lees hoe we AI-agents beveiligen met toegangsbeheer, logging en data-bescherming.",
@@ -32,130 +43,107 @@ export const metadata: Metadata = {
 const securityItems = [
   {
     title: "Toegangsbeheer",
-    description:
-      "Least-privilege per integratie. Elke agent krijgt alleen toegang tot wat nodig is voor de specifieke workflow.",
+    description: "Least-privilege per integratie. Elke agent krijgt alleen toegang tot wat nodig is voor de specifieke workflow.",
     icon: Shield,
   },
   {
     title: "Versleutelde verbindingen",
-    description:
-      "Remote access via Tailscale: een identity-based mesh netwerk zonder open poorten op je systemen.",
+    description: "Remote access via Tailscale: een identity-based mesh netwerk zonder open poorten op je systemen.",
     icon: Lock,
   },
   {
     title: "Secrets management",
-    description:
-      "Geen API-keys of wachtwoorden in code. Alles via encrypted secret stores met rotatie-ondersteuning.",
+    description: "Geen API-keys of wachtwoorden in code. Alles via encrypted secret stores met rotatie-ondersteuning.",
     icon: KeyRound,
   },
   {
     title: "Logging & traceability",
-    description:
-      "Elke actie van een agent wordt gelogd. Volledige audit trail voor compliance en troubleshooting.",
+    description: "Elke actie van een agent wordt gelogd. Volledige audit trail voor compliance en troubleshooting.",
     icon: Eye,
   },
   {
     title: "Omgevingsscheiding",
-    description:
-      "Waar nodig scheiden we test- en productieomgevingen om risico's te minimaliseren.",
+    description: "Waar nodig scheiden we test- en productieomgevingen om risico's te minimaliseren.",
     icon: Server,
   },
   {
     title: "Backup setup inbegrepen",
-    description:
-      "Wij configureren automatische backups van configuratie en data als onderdeel van de setup.",
+    description: "Wij configureren automatische backups van configuratie en data als onderdeel van de setup.",
     icon: ShieldCheck,
   },
-] satisfies Array<{
-  title: string
-  description: string
-  icon: LucideIcon
-}>
+] satisfies Array<{ title: string; description: string; icon: LucideIcon }>
 
 const SecurityPage: React.FC = () => {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
-    <main className="mx-auto max-w-6xl px-4 py-20">
-      <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
-        <div className="max-w-3xl">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
-            <Shield className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Beveiliging</h1>
-          <p className="mt-4 text-slate-600">
-            Security is geen add-on. We ontwerpen AI-workflows met controle op toegang, logging en
-            data-bescherming vanaf dag één.
-          </p>
-        </div>
-      </section>
+      <main className="mx-auto max-w-6xl px-4 py-20">
+        <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
+          <div className="max-w-3xl">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
+              <Shield className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Beveiliging</h1>
+            <p className="mt-4 text-slate-600">
+              Security is geen add-on. We ontwerpen AI-workflows met controle op toegang, logging en data-bescherming vanaf dag één.
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 text-xs text-slate-500">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+              Beveiligingsbeleid laatst gecontroleerd: {formatReviewDate(LAST_REVIEWED)}
+            </p>
+          </div>
+        </section>
 
-      <section className="mt-12">
-        <div className="grid gap-4 md:grid-cols-2">
-          {securityItems.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md"
-            >
-              <div className="flex items-start gap-4">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
-                  <item.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <div className="min-w-0">
-                  <h2 className="text-base font-semibold text-slate-900">{item.title}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    {item.description}
-                  </p>
+        <section className="mt-12">
+          <div className="grid gap-4 md:grid-cols-2">
+            {securityItems.map((item) => (
+              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:border-slate-300 hover:shadow-md">
+                <div className="flex items-start gap-4">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0">
+                    <h2 className="text-base font-semibold text-slate-900">{item.title}</h2>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <section className="mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-        <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-          Vragen over security of toegangsbeheer?
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm text-slate-600">
-          We lichten graag toe hoe we permissions, logging en deployment voor jouw use case
-          inrichten voordat er iets live gaat.
-        </p>
-        <a
-          href="/contact"
-          className="mt-6 inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800"
-        >
-          Plan een intake
-        </a>
-      </section>
+        <section className="mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+            Vragen over security of toegangsbeheer?
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm text-slate-600">
+            We lichten graag toe hoe we permissions, logging en deployment voor jouw use case inrichten voordat er iets live gaat.
+          </p>
+          <a href="/contact" className="mt-6 inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-slate-800">
+            Plan een intake
+          </a>
+        </section>
 
-      <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-        <h2 className="text-lg font-semibold tracking-tight text-slate-900">Gerelateerd</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Bekijk hoe beveiliging terugkomt in implementatie, integraties en prijsopbouw.
-        </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          <a
-            href="/implementatie"
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
-          >
-            Implementatie
-          </a>
-          <a
-            href="/integrations"
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
-          >
-            Integraties
-          </a>
-          <a
-            href="/pricing"
-            className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white"
-          >
-            Prijzen
-          </a>
-        </div>
-      </section>
-    </main>
+        <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <h2 className="text-lg font-semibold tracking-tight text-slate-900">Gerelateerd</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Bekijk hoe beveiliging terugkomt in implementatie, integraties en prijsopbouw.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <a href="/implementatie" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white">
+              Implementatie
+            </a>
+            <a href="/integrations" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white">
+              Integraties
+            </a>
+            <a href="/pricing" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300 hover:bg-white">
+              Prijzen
+            </a>
+          </div>
+        </section>
+      </main>
     </>
   )
 }
