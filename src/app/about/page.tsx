@@ -58,12 +58,12 @@ const WHY_DIFFERENT = [
   "Gevestigd in Amsterdam met KvK-inschrijving",
 ] as const
 
-const COMPANY_FACTS = [
+const COMPANY_FACTS: Array<{ label: string; value: string; href?: string }> = [
   { label: "KvK-nummer", value: "95290475", href: "https://www.kvk.nl/zoeken/?q=95290475" },
   { label: "BTW-nummer", value: "NL8677.15.849.B01", href: "https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01" },
   { label: "Locatie", value: "Amsterdam, Nederland" },
   { label: "Reactietijd", value: "Binnen 1 werkdag" },
-] as const
+]
 
 const AboutPage: React.FC = () => {
   return (
@@ -158,4 +158,26 @@ const AboutPage: React.FC = () => {
                     {fact.value}
                   </a>
                 ) : (
-                  <p className="mt-2 text-sm font-semibold text-slate-900">{fact.value}</
+                  <p className="mt-2 text-sm font-semibold text-slate-900">{fact.value}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+  {/* CTA */}
+  <section className="mt-14 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white sm:p-10">
+    <div className="max-w-2xl">
+      <h2 className="text-2xl font-semibold tracking-tight">Klaar om te starten?</h2>
+      <p className="mt-4 text-white/80">Plan een intake van 20 minuten en ontdek wat er mogelijk is voor jouw team.</p>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100">Plan een intake</a>
+        <a href="/pricing" className="inline-flex items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10">Bekijk prijzen</a>
+      </div>
+    </div>
+  </section>
+</main>
+</>
+)
+}
+
+export default AboutPage
