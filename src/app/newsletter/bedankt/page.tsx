@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/newsletter/bedankt",
     images: [
       {
-        url: "/og-home.png",
+        url: "/og-newsletter-bedankt.png",
         width: 1200,
         height: 630,
         alt: "Your AI Worker - Nieuwsbrief aanmelding",
