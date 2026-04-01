@@ -12,6 +12,10 @@ const SECURITY_HEADERS = [
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
   // Small SEO/professionalism boost: ensure consistent, explicit caching for static text files.
   { key: "X-Robots-Tag", value: "index, follow" },
+  // Enable Client Hints for optimized image delivery (DPR, width hints help Next.js Image)
+  { key: "Accept-CH", value: "DPR, Width, Viewport-Width" },
+  // Certificate Transparency monitoring helps detect misissued certificates
+  { key: "Expect-CT", value: "max-age=86400, enforce" },
 ]
 
 const nextConfig: NextConfig = {
