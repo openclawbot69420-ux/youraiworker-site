@@ -2,6 +2,16 @@ import type { Metadata } from "next"
 import { FaqItem } from "./FaqItem"
 import { buildFaqJsonLd } from "./faqJsonLd"
 
+const LAST_UPDATED = new Date("2026-04-02")
+
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("nl-NL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date)
+}
+
 const FAQS: Array<{ question: string; answer: string; id: string }> = [
   {
     id: "wat-is-ai-agent",
@@ -98,19 +108,18 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqJsonLd) }} />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
+            <span className="text-slate-300" aria-hidden="true">|</span>
+            <p className="text-sm text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p>
+          </div>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
             Snelle antwoorden op de meest voorkomende vragen. Staat jouw vraag er niet bij? Plan een intake of mail ons.
           </p>
         </div>
         <div className="mt-10 grid gap-4">
           {FAQS.map((item) => (
-            <FaqItem
-              key={item.id}
-              id={item.id}
-              question={item.question}
-              answer={item.answer}
-            />
+            <FaqItem key={item.id} id={item.id} question={item.question} answer={item.answer} />
           ))}
         </div>
         <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
@@ -119,16 +128,10 @@ export default function FAQPage() {
             Plan een korte intake en krijg een concreet voorstel met scope, planning en prijs.
           </p>
           <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
-            >
+            <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
               Plan intake (20 min)
             </a>
-            <a
-              href="mailto:info@youraiworker.nl"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
-            >
+            <a href="mailto:info@youraiworker.nl" className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100">
               Mail ons
             </a>
           </div>
