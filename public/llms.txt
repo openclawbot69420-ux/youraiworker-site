@@ -58,7 +58,7 @@ Book a 20-minute intake call: https://cal.com/youraiworker
 - security.txt: https://youraiworker.nl/.well-known/security.txt
 
 ## Last Updated
-2026-04-01
+2026-04-02
 
 ## Document Status
 - Content freshness: Active (updated within 24 hours)
