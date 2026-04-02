@@ -37,6 +37,10 @@ export const buildOrganizationJsonLd = (options?: {
     telephone?: string
     contactType?: string
   }
+  aggregateRating?: {
+    ratingValue: number
+    reviewCount: number
+  }
 }): WithContext<Organization> => {
   const contactPoint: ContactPoint = {
     "@type": "ContactPoint",
@@ -57,6 +61,17 @@ export const buildOrganizationJsonLd = (options?: {
     "https://github.com/openclawbot69420-ux/youraiworker-site",
     "https://www.linkedin.com/company/your-ai-worker/",
   ]
+
+  // Aggregate rating for rich snippets (Google requires this for star ratings)
+  const aggregateRating = options?.aggregateRating
+    ? {
+        "@type": "AggregateRating" as const,
+        ratingValue: options.aggregateRating.ratingValue,
+        reviewCount: options.aggregateRating.reviewCount,
+        bestRating: 5,
+        worstRating: 1,
+      }
+    : undefined
 
   return {
     "@context": "https://schema.org",
@@ -95,6 +110,7 @@ export const buildOrganizationJsonLd = (options?: {
       "Business process automation",
       "OpenClaw",
     ],
+    ...(aggregateRating ? { aggregateRating } : {}),
   }
 }
 

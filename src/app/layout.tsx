@@ -343,6 +343,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     },
     email: CONTACT_EMAIL,
     ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 3,
+    },
   })
   const websiteJsonLd = buildWebSiteJsonLd()
   const serviceJsonLd = buildServiceJsonLd()

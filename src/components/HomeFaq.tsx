@@ -36,7 +36,7 @@ const FAQ_ITEMS: ReadonlyArray<FaqItem> = [
   },
 ] as const
 
-const LAST_UPDATED = new Date("2026-04-01")
+const LAST_UPDATED = new Date("2026-04-02")
 
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
