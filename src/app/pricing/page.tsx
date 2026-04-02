@@ -4,6 +4,15 @@ import { Builder } from "./Builder"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 import { buildFaqJsonLd } from "../faq/faqJsonLd"
 
+const LAST_UPDATED = new Date("2026-04-02")
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("nl-NL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date)
+}
+
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
   { name: "Prijzen", url: "https://youraiworker.nl/pricing" },
@@ -104,7 +113,8 @@ const PricingPage = () => {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <div className="max-w-3xl">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            <div className="flex flex-wrap items-center gap-2"> <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Prijzen</p> <span className="text-slate-300" aria-hidden="true">|</span> <p className="text-xs text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p> </div>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Zo houden we pricing voorspelbaar
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -169,7 +179,7 @@ const PricingPage = () => {
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               Wat is inbegrepen en wat niet
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -237,7 +247,7 @@ const PricingPage = () => {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               Veelgestelde vragen over prijzen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
