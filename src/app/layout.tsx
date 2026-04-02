@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink } from "lucide-react"
+import { Linkedin, MapPin, Lock, LifeBuoy, ShieldCheck, Mail, ExternalLink, Globe } from "lucide-react"
 import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import { ScrollProgress } from "../components/ScrollProgress"
@@ -518,6 +518,11 @@ const Footer: React.FC = () => {
               <MapPin className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
               <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
             </span>
+          {/* Dutch Business Badge */}
+          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50" title="Nederlandse onderneming">
+            <Globe className="h-3.5 w-3.5 text-slate-500" aria-hidden="true" />
+            <span className="font-medium text-slate-700">Nederlands bedrijf</span>
+          </span>
             {/* Security Badge - with security.txt reference */}
             <a href="/.well-known/security.txt" target="_blank" rel="noreferrer" referrerPolicy="same-origin" title="Bekijk ons security.txt bestand (RFC 9116)"
               className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm">

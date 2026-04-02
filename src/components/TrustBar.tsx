@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPin, Lock, LifeBuoy } from "lucide-react"
+import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
@@ -40,6 +40,11 @@ export const TrustBar: React.FC = () => {
       <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3">
         <MapPin className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
+      </span>
+      {/* Dutch Business Badge */}
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3" title="Nederlandse onderneming">
+        <Globe className="h-3 w-3 text-slate-500" aria-hidden="true" />
+        <span className="font-medium text-slate-700">Nederlands bedrijf</span>
       </span>
 
       {/* Security Badge */}
