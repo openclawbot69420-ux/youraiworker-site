@@ -51,6 +51,13 @@ export const buildOrganizationJsonLd = (options?: {
     contactType: options?.contactPoint?.contactType ?? "customer service",
     availableLanguage: ["Dutch", "English"],
     url: options?.contactPoint?.url ?? "https://youraiworker.nl/contact",
+    areaServed: "NL",
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
   }
 
   const name = options?.name ?? "Your AI Worker"
