@@ -143,6 +143,17 @@ a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
   transition: outline-offset 0.1s ease;
 }
 
+/* Typography: Balance multi-line headings for professional appearance
+   Improves readability of headlines by preventing awkward single-word lines */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Balance paragraphs that act as lead/hero text for visual polish */
+p.text-lg, p.text-xl, p.lead {
+  text-wrap: balance;
+}
+
 /* Add transform transition to buttons for tactile feedback */
 button, [role="button"], a.bg-slate-900, a.rounded-lg {
   transition: transform 0.1s ease, outline-offset 0.1s ease;
