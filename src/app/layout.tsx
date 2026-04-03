@@ -482,7 +482,7 @@ const Header: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-slate-200/70 bg-slate-50/80">
+    <footer className="border-t border-slate-200/70 bg-slate-50/80 footer-mesh">
       {/* Trust indicators bar - professional badge-style presentation with verification */}
       <div className="border-b border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-5">
@@ -493,7 +493,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               referrerPolicy="strict-origin-when-cross-origin" title="KvK-inschrijving verifiëren"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm"
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm trust-badge-float"
             >
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <ShieldCheck className="h-2.5 w-2.5" aria-hidden="true" />
@@ -506,7 +506,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               referrerPolicy="strict-origin-when-cross-origin" title="BTW-nummer verifiëren via EU VIES"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm"
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm trust-badge-float"
             >
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <ShieldCheck className="h-2.5 w-2.5" aria-hidden="true" />
@@ -525,7 +525,7 @@ const Footer: React.FC = () => {
           </span>
             {/* Security Badge - with security.txt reference */}
             <a href="/.well-known/security.txt" target="_blank" rel="noreferrer" referrerPolicy="same-origin" title="Bekijk ons security.txt bestand (RFC 9116)"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm">
+              className="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-all hover:border-emerald-300 hover:bg-emerald-50/50 hover:shadow-sm trust-badge-float">
               <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <Lock className="h-2.5 w-2.5" aria-hidden="true" />
               </span>
