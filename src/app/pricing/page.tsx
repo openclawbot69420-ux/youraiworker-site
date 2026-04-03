@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 import { Builder } from "./Builder"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 import { buildFaqJsonLd } from "../faq/faqJsonLd"
+import { SharePage } from "../../components/SharePage"
 
-const LAST_UPDATED = new Date("2026-04-02")
+const LAST_UPDATED = new Date("2026-04-03")
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
     day: "numeric",
