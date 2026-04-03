@@ -237,6 +237,8 @@ export const buildArticleJsonLd = (options: {
   dateModified?: string
   author: { name: string; url: string }
   publisher: { name: string; url: string; logo: string }
+  keywords?: string[]
+  articleSection?: string
 }): WithContext<Article> => {
   return {
     "@context": "https://schema.org",
@@ -262,5 +264,7 @@ export const buildArticleJsonLd = (options: {
       },
     },
     inLanguage: "nl-NL",
+    ...(options.keywords ? { keywords: options.keywords.join(", ") } : {}),
+    ...(options.articleSection ? { articleSection: options.articleSection } : {}),
   }
 }

@@ -101,6 +101,19 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
     notFound()
   }
 
+  // Keywords per guide for better SEO structured data
+  const GUIDE_KEYWORDS: Record<string, string[]> = {
+    "eerste-agent": ["AI agent", "opzetten", "implementatie", "workflow automatisering", "productie", "testen"],
+    "security": ["beveiliging", "security", "permissions", "logging", "audit", "AVG", "privacy", "compliance"],
+  }
+
+  // Determine article section based on guide content
+  const getArticleSection = (guideSlug: string): string | undefined => {
+    if (guideSlug === "security") return "Beveiliging"
+    if (guideSlug === "eerste-agent") return "Implementatie"
+    return undefined
+  }
+
   const articleJsonLd = buildArticleJsonLd({
     headline: guide.title,
     description: guide.shortDescription,
@@ -110,6 +123,8 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
     author: { name: "Your AI Worker", url: SITE_URL },
     publisher: { name: "Your AI Worker", url: SITE_URL, logo: `${SITE_URL}/icon-512.png` },
     image: `${SITE_URL}/og-home.png`,
+    keywords: GUIDE_KEYWORDS[slug],
+    articleSection: getArticleSection(slug),
   })
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
