@@ -4,6 +4,8 @@
   "description": "Productierijpe AI-agents voor Nederlandse bedrijven.",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
   "scope": "/",
   "categories": ["business", "productivity", "utilities"],
   "background_color": "#ffffff",
