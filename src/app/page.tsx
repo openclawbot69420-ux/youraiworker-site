@@ -917,7 +917,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Security */}
-      <section id="security" className="border-y border-slate-200/70 bg-white">
+      <section id="security-baseline" className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support</h2>
