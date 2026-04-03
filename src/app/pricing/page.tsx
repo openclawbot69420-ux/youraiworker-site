@@ -5,7 +5,7 @@ import { buildBreadcrumbJsonLd } from "../jsonld"
 import { buildFaqJsonLd } from "../faq/faqJsonLd"
 import { SharePage } from "../../components/SharePage"
 
-const LAST_UPDATED = new Date("2026-04-03")
+const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
     day: "numeric",
