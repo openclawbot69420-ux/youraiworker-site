@@ -5,6 +5,9 @@ type Testimonial = {
   role: string
   industry: string
   rating: number
+  highlight?: string
+  avatarColor?: string
+  initials?: string
 }
 
 export const buildClientTestimonialsJsonLd = (
@@ -59,7 +62,6 @@ export const ClientTestimonialsJsonLd: React.FC<ClientTestimonialsJsonLdProps> =
   if (!testimonials.length) return null
 
   const jsonLd = buildClientTestimonialsJsonLd(testimonials, siteName, siteUrl)
-
   return (
     <script
       type="application/ld+json"
