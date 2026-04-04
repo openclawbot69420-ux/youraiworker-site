@@ -384,7 +384,14 @@ export const Builder = () => {
                   >
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-slate-900">{pkg.title}</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-sm font-semibold text-slate-900">{pkg.title}</p>
+                          {pkg.popular ? (
+                            <span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800">
+                              Populair
+                            </span>
+                          ) : null}
+                        </div>
                         <p className="mt-1 text-xs font-medium text-slate-500">{pkg.fit}</p>
                         <p className="mt-1 text-sm text-slate-600">{pkg.subtitle}</p>
                       </div>
@@ -543,7 +550,14 @@ export const Builder = () => {
           <div className="rounded-3xl border border-slate-900 bg-slate-900 p-6 text-white shadow-lg">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">Jouw startpunt</p>
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="text-sm font-semibold">{activePackage.title}</p>
+              <div className="flex items-center gap-2">
+                <p className="text-sm font-semibold">{activePackage.title}</p>
+                {activePackage.popular ? (
+                  <span className="inline-flex items-center rounded-full bg-amber-400/20 px-2 py-0.5 text-[10px] font-semibold text-amber-300">
+                    Populair
+                  </span>
+                ) : null}
+              </div>
               <p className="mt-1 text-xs text-white/70">
                 {activePackage.includedAgents} agent{activePackage.includedAgents > 1 ? "s" : ""} inbegrepen
               </p>
