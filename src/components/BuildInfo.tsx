@@ -36,7 +36,10 @@ export const BuildInfo: React.FC = () => {
 
   return (
     <span className="text-[11px] text-slate-400" title="Laatste site-update">
-      Laatst bijgewerkt: {buildDate}
+      Laatst bijgewerkt:{" "}
+      <time dateTime={process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString()}>
+        {buildDate}
+      </time>
     </span>
   )
 }

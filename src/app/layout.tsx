@@ -230,6 +230,8 @@ export const metadata: Metadata = {
     "contact:turnaround": CONTACT_TURNAROUND,
     "business:kvk": CONTACT_KVK,
     "business:vat": CONTACT_BTW,
+    // Site freshness indicator for crawlers (ISO 8601 timestamp)
+    "last-modified": BUILD_TIMESTAMP,
   },
   twitter: {
     card: "summary_large_image",

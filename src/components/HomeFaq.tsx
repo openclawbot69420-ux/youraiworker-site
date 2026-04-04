@@ -86,7 +86,12 @@ export const HomeFaq = () => {
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">FAQ</p>
             <span className="text-slate-300" aria-hidden="true">|</span>
-            <p className="text-xs text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p>
+            <p className="text-xs text-slate-400">
+                Bijgewerkt:{" "}
+                <time dateTime={LAST_UPDATED.toISOString()}>
+                  {formatDate(LAST_UPDATED)}
+                </time>
+              </p>
           </div>
           <h2 id="faq-title" className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             Veelgestelde vragen

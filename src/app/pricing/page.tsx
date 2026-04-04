@@ -114,7 +114,12 @@ const PricingPage = () => {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2"> <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Prijzen</p> <span className="text-slate-300" aria-hidden="true">|</span> <p className="text-xs text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p> </div>
+            <div className="flex flex-wrap items-center gap-2"> <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Prijzen</p> <span className="text-slate-300" aria-hidden="true">|</span> <p className="text-xs text-slate-400">
+                  Bijgewerkt:{" "}
+                  <time dateTime={LAST_UPDATED.toISOString()}>
+                    {formatDate(LAST_UPDATED)}
+                  </time>
+                </p> </div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Zo houden we pricing voorspelbaar
               </h2>
