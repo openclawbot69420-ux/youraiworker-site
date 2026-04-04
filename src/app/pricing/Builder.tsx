@@ -626,7 +626,7 @@ export const Builder = () => {
                 </svg>
               </span>
               <div>
-                <p className="text-sm font-semibold text-emerald-100">Satisfaction Guarantee</p>
+                <p className="text-sm font-semibold text-emerald-100">Kwaliteitsgarantie</p>
                 <ul className="mt-1.5 space-y-1 text-xs text-emerald-200/80">
                   <li className="flex items-center gap-1.5">
                     <span className="text-emerald-300">-</span>
