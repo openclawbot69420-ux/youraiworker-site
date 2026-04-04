@@ -686,9 +686,6 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
               <BuildInfo />
-              <p className="text-[11px] text-slate-400 mt-1" title={`Site build: ${BUILD_TIMESTAMP}`}>
-                Laatst bijgewerkt: <time dateTime={BUILD_TIMESTAMP}>{BUILD_DATETIME_FORMATTED}</time> {BUILD_TIMEZONE}
-              </p>
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
