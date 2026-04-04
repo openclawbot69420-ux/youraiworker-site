@@ -743,7 +743,8 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="-mx-6 mt-6 overflow-x-auto px-6 sm:mx-0 sm:px-0">
-            <table className="min-w-[52rem] border-separate border-spacing-0 text-left">
+            <table className="min-w-[52rem] border-separate border-spacing-0 text-left" aria-labelledby="vergelijking-heading">
+              <caption id="vergelijking-heading" className="sr-only">Vergelijking van AI-agent implementatie versus virtuele assistent versus zelf bouwen</caption>
               <thead>
                 <tr>
                   <th className="rounded-tl-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
