@@ -768,19 +768,19 @@ const Footer: React.FC = () => {
       <div className="mx-auto max-w-6xl px-4">
         <p className="text-center text-[11px] text-slate-400">
           Gebouwd met{" "}
-          <a href="https://nextjs.org" target="_blank" rel="noreferrer" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
+          <a href="https://nextjs.org" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
             Next.js
           </a>
           ,{" "}
-          <a href="https://react.dev" target="_blank" rel="noreferrer" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
+          <a href="https://react.dev" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
             React
           </a>
           ,{" "}
-          <a href="https://tailwindcss.com" target="_blank" rel="noreferrer" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
+          <a href="https://tailwindcss.com" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
             Tailwind CSS
           </a>
           {" "}en{" "}
-          <a href="https://docs.openclaw.ai" target="_blank" rel="noreferrer" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
+          <a href="https://docs.openclaw.ai" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
             OpenClaw
           </a>
         </p>
