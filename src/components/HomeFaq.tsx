@@ -115,7 +115,7 @@ export const HomeFaq = () => {
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>
               {/* Copy link button */}
-              <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-200 group-hover-within:opacity-100 focus-within:opacity-100">
+              <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100 focus-within:opacity-100">
                 <button
                   type="button"
                   onClick={(e) => {
