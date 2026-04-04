@@ -1,4 +1,4 @@
-import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, Article, FAQPage, Question, Answer, } from "schema-dts"
+import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, Article, FAQPage, Question, Answer, ItemList, } from "schema-dts"
 
 export const buildBreadcrumbJsonLd = (
   items: Array<{ name: string; url: string }>
@@ -273,5 +273,31 @@ export const buildArticleJsonLd = (options: {
     inLanguage: "nl-NL",
     ...(options.keywords ? { keywords: options.keywords.join(", ") } : {}),
     ...(options.articleSection ? { articleSection: options.articleSection } : {}),
+  }
+}
+
+export const buildCollectionPageJsonLd = (options: {
+  name: string
+  description: string
+  url: string
+  items: Array<{
+    name: string
+    url: string
+    description: string
+  }>
+}): WithContext<ItemList> => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: options.name,
+    description: options.description,
+    url: options.url,
+    itemListElement: options.items.map((item, index): ListItem => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+      description: item.description,
+    })),
   }
 }

@@ -768,20 +768,24 @@ const Footer: React.FC = () => {
       <div className="mx-auto max-w-6xl px-4">
         <p className="text-center text-[11px] text-slate-400">
           Gebouwd met{" "}
-          <a href="https://nextjs.org" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
-            Next.js
+          <a href="https://nextjs.org" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="inline-flex items-center gap-0.5 text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700" title="Next.js (opent in nieuw tabblad)">
+              Next.js
+              <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
           </a>
           ,{" "}
-          <a href="https://react.dev" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
-            React
+          <a href="https://react.dev" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="inline-flex items-center gap-0.5 text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700" title="React (opent in nieuw tabblad)">
+              React
+              <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
           </a>
           ,{" "}
-          <a href="https://tailwindcss.com" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
-            Tailwind CSS
+          <a href="https://tailwindcss.com" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="inline-flex items-center gap-0.5 text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700" title="Tailwind CSS (opent in nieuw tabblad)">
+              Tailwind CSS
+              <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
           </a>
           {" "}en{" "}
-          <a href="https://docs.openclaw.ai" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700">
-            OpenClaw
+          <a href="https://docs.openclaw.ai" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="inline-flex items-center gap-0.5 text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700" title="OpenClaw (opent in nieuw tabblad)">
+              OpenClaw
+              <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
           </a>
         </p>
       </div>

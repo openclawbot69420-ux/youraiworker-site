@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 import { Calendar, Clock } from "lucide-react"
+import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from "../jsonld"
 export const metadata: Metadata = {
   title: "Handleidingen | AI-agent guides en best practices | Your AI Worker",
   description: "Praktische guides voor AI-agents: opzetten, testen, beveiligen en opschalen.",
@@ -56,9 +57,30 @@ const guides = GUIDES.map((guide) => {
   }
 }) satisfies Array<{ slug: string; icon: LucideIcon; title: string; description: string; updatedAt?: string; readingMinutes: number }>
 
+const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+
 const GuidesPage: React.FC = () => {
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Home", url: "https://youraiworker.nl/" },
+    { name: "Handleidingen", url: "https://youraiworker.nl/guides" },
+  ])
+
+  const collectionJsonLd = buildCollectionPageJsonLd({
+    name: "Your AI Worker - Handleidingen",
+    description: "Praktische handleidingen voor AI-agents: van scope en approvals tot testen, security en go-live.",
+    url: "https://youraiworker.nl/guides",
+    items: GUIDES.map((guide) => ({
+      name: guide.title,
+      url: `https://youraiworker.nl/guides/${guide.slug}`,
+      description: guide.shortDescription,
+    })),
+  })
+
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(collectionJsonLd) }} />
+      <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Handleidingen</h1>
@@ -147,6 +169,7 @@ const GuidesPage: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   )
 }
 export default GuidesPage

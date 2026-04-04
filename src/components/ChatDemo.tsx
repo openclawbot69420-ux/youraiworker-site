@@ -68,9 +68,64 @@ const pickAppSkin = (_scenario: DashboardDemoScenario): AppSkin => ({
   agentBubble: "mr-auto bg-white border-slate-200 text-slate-900",
 })
 
+// Width/height for brand icons - prevents layout shift (CLS) and improves paint timing
+const BRAND_ICON_SIZE = { width: 20, height: 20 }
+
 const getChannelIcon = (channel: string) => {
   const key = channel.toLowerCase()
   return Object.entries(CHANNEL_BRANDS).find(([brand]) => key.includes(brand))?.[1] ?? null
+}
+
+// Simple fallback initials when brand icon fails (adblockers, network issues)
+const getFallbackInitials = (channel: string): string => {
+  const key = channel.toLowerCase()
+  const match = Object.keys(CHANNEL_BRANDS).find(b => key.includes(b))
+  return match ? match.slice(0, 2).toUpperCase() : channel.slice(0, 2).toUpperCase()
+}
+
+// Image icon with fallback support for brand SVGs
+interface ImageIconProps {
+  src: string | null
+  size: number
+  fallback: string
+}
+
+const ImageIcon: React.FC<ImageIconProps> = ({ src, size, fallback }) => {
+  const [hasError, setHasError] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  if (!src || hasError) {
+    return (
+      <span
+        className="inline-flex items-center justify-center text-[9px] font-bold text-white/70"
+        style={{ width: size, height: size, lineHeight: `${size}px` }}
+      >
+        {fallback}
+      </span>
+    )
+  }
+
+  return (
+    <>
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        className={`object-contain transition-opacity duration-200 ${loaded ? "opacity-100" : "opacity-0"}`}
+        style={{ width: size, height: size }}
+        onLoad={() => setLoaded(true)}
+        onError={() => setHasError(true)}
+      />
+      {!loaded && (
+        <span
+          className="absolute inline-flex items-center justify-center text-[9px] font-bold text-white/70"
+          style={{ width: size, height: size, lineHeight: `${size}px` }}
+        >
+          {fallback}
+        </span>
+      )}
+    </>
+  )
 }
 
 const createChatLines = (scenario: DashboardDemoScenario): ChatLine[] => {
@@ -263,7 +318,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
             <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:14px_14px]" />
             <div className="relative flex items-center gap-2.5">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white/10 ring-1 ring-white/15">
-                <img src={skin.appIcon} alt="" aria-hidden="true" className="h-4.5 w-4.5" />
+                <ImageIcon src={skin.appIcon} size={18} fallback="WA" />
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-semibold">{demoTitle}</p>
@@ -278,7 +333,7 @@ export const ChatDemo: React.FC<ChatDemoProps> = ({
 
           <div className="flex min-h-0 flex-1 flex-col">
             <div className="flex h-9 shrink-0 items-center gap-2 border-b border-black/5 bg-white/75 px-3 py-2 text-[11px] text-slate-600 backdrop-blur sm:px-4">
-              {channelIcon ? <img src={channelIcon} alt="" aria-hidden="true" className="h-3.5 w-3.5" /> : null}
+              {channelIcon ? <ImageIcon src={channelIcon} size={14} fallback={getFallbackInitials(scenario.channel)} /> : null}
               <span className="truncate font-medium text-slate-700">{scenario.channel}</span>
               <span className="text-slate-400">•</span>
               <span className="truncate">{scenario.status}</span>
