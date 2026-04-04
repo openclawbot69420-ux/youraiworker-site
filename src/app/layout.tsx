@@ -4,6 +4,7 @@ import { MobileNav } from "../components/MobileNav"
 import { BackToTop } from "../components/BackToTop"
 import { ScrollProgress } from "../components/ScrollProgress"
 import { FloatingCta } from "../components/FloatingCta"
+import { DesktopCta } from "../components/DesktopCta"
 import { BuildInfo, CopyButton } from "../components/BuildInfo"
 import { Breadcrumbs } from "../components/Breadcrumbs"
 import { ToastProviderWrapper } from "../components/ToastProviderWrapper"
@@ -415,6 +416,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           <Footer />
           <BackToTop />
           <FloatingCta />
+<DesktopCta />
           <CookieConsent />
         </ToastProviderWrapper>
       </body>
