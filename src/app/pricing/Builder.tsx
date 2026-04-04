@@ -616,6 +616,34 @@ export const Builder = () => {
               toegang en validatie van use cases.
             </p>
           </div>
+
+          {/* Trust guarantee badge - builds credibility at decision point */}
+          <div className="mt-6 rounded-2xl border border-emerald-300/30 bg-emerald-900/30 p-4">
+            <div className="flex items-start gap-3">
+              <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-emerald-100">Satisfaction Guarantee</p>
+                <ul className="mt-1.5 space-y-1 text-xs text-emerald-200/80">
+                  <li className="flex items-center gap-1.5">
+                    <span className="text-emerald-300">-</span>
+                    <span>48 uur warranty na livegang</span>
+                  </li>
+                  <li className="flex items-center gap-1.5">
+                    <span className="text-emerald-300">-</span>
+                    <span>Duidelijke scope vooraf</span>
+                  </li>
+                  <li className="flex items-center gap-1.5">
+                    <span className="text-emerald-300">-</span>
+                    <span>Geen verborgen kosten</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </aside>
       </div>
 
