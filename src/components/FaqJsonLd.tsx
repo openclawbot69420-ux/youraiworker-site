@@ -1,11 +1,11 @@
 type FaqItem = {
   question: string
   answer: string
+  slug?: string
 }
 
 export const FaqJsonLd: React.FC<{ items: FaqItem[] }> = (props) => {
   const { items } = props
-
   if (!items.length) return null
 
   const jsonLd = {
