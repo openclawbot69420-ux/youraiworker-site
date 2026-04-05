@@ -12,7 +12,7 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 
 // Professional trust indicator: last reviewed date for security page
 // Update this whenever security practices or content changes
-const LAST_REVIEWED = "2026-04-01"
+const LAST_REVIEWED = "2026-04-05"
 const formatReviewDate = (dateStr: string): string => {
   return new Date(dateStr).toLocaleDateString("nl-NL", {
     year: "numeric",
