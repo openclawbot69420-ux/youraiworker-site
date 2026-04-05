@@ -688,9 +688,17 @@ const Footer: React.FC = () => {
             <p>© {new Date().getFullYear()} Your AI Worker. Alle rechten voorbehouden.</p>
             <p className="text-[11px] text-slate-400">{CONTACT_ADDRESS_DISPLAY}</p>
             <p className="text-[11px] text-slate-400">{COMPANY_LEGAL_LINE}</p>
+            <div className="flex flex-wrap items-center gap-2">
               <BuildInfo />
               <span className="text-slate-300">|</span>
-              <a href="/humans.txt" className="text-[11px] text-slate-400 underline underline-offset-2 transition-colors hover:text-slate-500" title="Bekijk colofon (tech stack, team, principes)">Colofon</a>
+              <a
+                href="/humans.txt"
+                className="text-[11px] text-slate-400 underline underline-offset-2 transition-colors hover:text-slate-500"
+                title="Bekijk colofon (tech stack, team, principes)"
+              >
+                Colofon
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
