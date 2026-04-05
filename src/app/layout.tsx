@@ -417,7 +417,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           <Footer />
           <BackToTop />
           <FloatingCta />
-<DesktopCta />
+          <DesktopCta />
           <CookieConsent />
         </ToastProviderWrapper>
       </body>
