@@ -346,10 +346,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     },
     email: CONTACT_EMAIL,
     ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
-    aggregateRating: {
-      ratingValue: 5.0,
-      reviewCount: 3,
-    },
+    // Only include AggregateRating when you have verifiable public reviews.
+    // Publishing placeholder ratings can be considered misleading.
+    aggregateRating: undefined,
   })
   const websiteJsonLd = buildWebSiteJsonLd()
   const serviceJsonLd = buildServiceJsonLd()
