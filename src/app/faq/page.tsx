@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { FaqItem } from "./FaqItem"
 import { buildFaqJsonLd } from "./faqJsonLd"
 
-const LAST_UPDATED = new Date("2026-04-04")
+const LAST_UPDATED = new Date("2026-04-05")
 
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
