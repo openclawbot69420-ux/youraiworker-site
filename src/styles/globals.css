@@ -68,6 +68,11 @@ html {
   animation: marqueeScroll 34s linear infinite;
 }
 
+/* Pause marquee on hover for better readability - professional accessibility improvement */
+.marquee-shell:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 .motion-fade-in {
   animation: fadeInUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
