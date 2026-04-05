@@ -387,17 +387,17 @@ const IntegrationBadge: React.FC<IntegrationBadgeProps> = ({
 }
 
 export const metadata: Metadata = {
-  title: "AI-agents voor je organisatie",
+  title: { default: "AI-agents voor je organisatie | Your AI Worker", template: "%s | Your AI Worker" },
   description:
     "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
   alternates: {
-    canonical: "/",
+    canonical: "https://youraiworker.nl/",
   },
   openGraph: {
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
-    url: "/",
+    url: "https://youraiworker.nl/",
     images: ["/og-home.png"],
     siteName: "Your AI Worker",
     locale: "nl_NL",
