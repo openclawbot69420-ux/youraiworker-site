@@ -211,9 +211,14 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
         <aside className="space-y-6">
           <div className="motion-fade-in motion-delay-1 rounded-2xl border border-slate-200 bg-slate-50 p-8">
             <h2 className="text-lg font-semibold">Checklist</h2>
-            <ul className="mt-5 space-y-2 text-sm text-slate-700">
+            <ul className="mt-5 space-y-2.5 text-sm text-slate-700">
               {guide.checklist.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-200 bg-emerald-50 text-emerald-600">
+                    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 13l4 4L19 7"/></svg>
+                  </span>
+                  <span className="leading-relaxed">{item}</span>
+                </li>
               ))}
             </ul>
           </div>
