@@ -418,6 +418,8 @@ export const metadata: Metadata = {
     "contact:response_time": "Reactie binnen 1 werkdag",
     "business:kvk": "95290475",
     "business:vat": "NL8677.15.849.B01",
+    // SEO: last-modified timestamp helps crawlers detect freshness
+    "last-modified": process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString(),
   },
 }
 
