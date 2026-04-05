@@ -442,6 +442,9 @@ const HomePage: React.FC = () => {
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
             Geen maandelijkse kosten - eenmalige implementatie
           </div>
+          <p className="mt-2 text-xs leading-relaxed text-slate-500">
+            Je betaalt alleen voor de implementatie. Gebruik van OpenClaw en je bestaande tooling loopt via je eigen accounts.
+          </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-600">
               Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
               <strong className="text-slate-900"> Vanaf €1.000 eenmalig</strong> (excl. btw).
