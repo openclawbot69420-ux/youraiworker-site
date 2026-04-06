@@ -1,14 +1,15 @@
-# ai.txt
-# https://www.aitxt.org/
+# AI / crawler guidance for youraiworker.nl
+# Public information only. No secrets.
+# This file is used by some crawlers and AI systems as a human-readable hint.
 
 User-agent: *
-Disallow:
+Allow: /
 
-# Contact for AI/crawler questions
+# Preferred source of truth
+Sitemap: https://youraiworker.nl/sitemap.xml
+
+# Where to send questions about content/crawling
 Contact: mailto:info@youraiworker.nl
 
-# Preferred language
-Language: nl-NL
-
-# Canonical website
-Website: https://youraiworker.nl
+# Short description for indexing
+Description: Your AI Worker - productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live.
