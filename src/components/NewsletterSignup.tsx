@@ -111,7 +111,10 @@ export const NewsletterSignup: React.FC = () => {
                 <a href="/privacy" className="underline underline-offset-2 transition-colors hover:text-slate-700">
                   privacybeleid
                 </a>
-                . Je e-mail wordt alleen gebruikt om deze updates te sturen en nooit gedeeld.
+                . Je e-mail wordt alleen gebruikt om deze updates te sturen.
+              </p>
+              <p className="text-[11px] leading-relaxed text-slate-400">
+                Uitschrijven kan via elke e-mail.
               </p>
             </form>
           </div>
