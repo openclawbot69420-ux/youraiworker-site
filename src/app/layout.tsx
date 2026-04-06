@@ -194,6 +194,8 @@ export const metadata: Metadata = {
     "LLM",
     "agentic AI",
     "Nederland",
+    "Amsterdam",
+    "OpenClaw",
     "security",
     "integraties",
   ],
