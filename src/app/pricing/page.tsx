@@ -1,23 +1,23 @@
-import type { Metadata } from "next"
+import type { Metadata } from "next";
 
-import { Builder } from "./Builder"
-import { buildBreadcrumbJsonLd } from "../jsonld"
-import { buildFaqJsonLd } from "../faq/faqJsonLd"
-import { SharePage } from "../../components/SharePage"
+import { Builder } from "./Builder";
+import { buildBreadcrumbJsonLd } from "../jsonld";
+import { buildFaqJsonLd } from "../faq/faqJsonLd";
+import { SharePage } from "../../components/SharePage";
 
-const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
+const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now());
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
     day: "numeric",
     month: "long",
     year: "numeric",
-  }).format(date)
-}
+  }).format(date);
+};
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
   { name: "Prijzen", url: "https://youraiworker.nl/pricing" },
-])
+]);
 
 const PRICING_FAQ_ITEMS = [
   {
@@ -44,7 +44,7 @@ const PRICING_FAQ_ITEMS = [
     question: "Is €1.000 inclusief of exclusief btw?",
     answer: "Exclusief btw. Op de pagina staat steeds (excl. btw).",
   },
-] as const
+] as const;
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -68,36 +68,40 @@ const serviceSchema = {
     price: "1000",
     url: "https://youraiworker.nl/pricing",
   },
-}
+};
 
 const faqSchema = buildFaqJsonLd(
   PRICING_FAQ_ITEMS.map((item) => ({
     question: item.question,
     answer: item.answer,
-  }))
-)
+  })),
+);
 
-const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
+const toJsonLd = (value: object) =>
+  JSON.stringify(value).replace(/</g, "\\u003c");
 
-const PRICING_JSON_LD_ID = "pricing-jsonld"
+const PRICING_JSON_LD_ID = "pricing-jsonld";
 
 export const metadata: Metadata = {
   title: "Prijzen | AI-agent implementatie vanaf EUR 1.000 | Your AI Worker",
-  description: "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
+  description:
+    "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
   alternates: {
     canonical: "https://youraiworker.nl/pricing",
   },
   openGraph: {
     title: "Prijzen voor AI-agents | Your AI Worker",
-    description: "Heldere pakketten, scopegrenzen en intakeflow voor done-for-you AI-agent implementatie.",
+    description:
+      "Heldere pakketten, scopegrenzen en intakeflow voor done-for-you AI-agent implementatie.",
     url: "https://youraiworker.nl/pricing",
   },
   twitter: {
     card: "summary_large_image",
     title: "Prijzen AI-agents | Your AI Worker",
-    description: "Kies pakket en add-ons, zie wat wel/niet inbegrepen is en start intake.",
+    description:
+      "Kies pakket en add-ons, zie wat wel/niet inbegrepen is en start intake.",
   },
-}
+};
 
 const PricingPage = () => {
   return (
@@ -105,7 +109,9 @@ const PricingPage = () => {
       <script
         id={PRICING_JSON_LD_ID}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd([serviceSchema, faqSchema, breadcrumbJsonLd]) }}
+        dangerouslySetInnerHTML={{
+          __html: toJsonLd([serviceSchema, faqSchema, breadcrumbJsonLd]),
+        }}
       />
 
       <Builder />
@@ -114,18 +120,28 @@ const PricingPage = () => {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2"> <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Prijzen</p> <span className="text-slate-300" aria-hidden="true">|</span> <p className="text-xs text-slate-400">
+              <div className="flex flex-wrap items-center gap-2">
+                {" "}
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Prijzen
+                </p>{" "}
+                <span className="text-slate-300" aria-hidden="true">
+                  |
+                </span>{" "}
+                <p className="text-xs text-slate-400">
                   Bijgewerkt:{" "}
                   <time dateTime={LAST_UPDATED.toISOString()}>
                     {formatDate(LAST_UPDATED)}
                   </time>
-                </p> </div>
+                </p>{" "}
+              </div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Zo houden we pricing voorspelbaar
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-                De pagina geeft je een realistisch startpunt. Tijdens intake zetten we dit om naar een
-                concrete scope met duidelijke grenzen zodat uitvoering en oplevering beheersbaar blijven.
+                De pagina geeft je een realistisch startpunt. Tijdens intake
+                zetten we dit om naar een concrete scope met duidelijke grenzen
+                zodat uitvoering en oplevering beheersbaar blijven.
               </p>
             </div>
 
@@ -151,15 +167,21 @@ const PricingPage = () => {
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 bg-white text-xs font-semibold text-slate-900">
                     {index + 1}
                   </span>
-                  <h3 className="mt-3 text-sm font-semibold text-slate-900">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.text}</p>
+                  <h3 className="mt-3 text-sm font-semibold text-slate-900">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {step.text}
+                  </p>
                 </li>
               ))}
             </ol>
           </div>
 
           <div className="rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-6 shadow-sm sm:p-8">
-            <h2 className="text-xl font-semibold tracking-tight text-slate-900">Vertrouwen zonder grote claims</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+              Vertrouwen zonder grote claims
+            </h2>
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-slate-700">
               {[
                 "We verkopen implementatiepakketten, geen onbegrensde maatwerkbelofte.",
@@ -167,7 +189,10 @@ const PricingPage = () => {
                 "Third-party licenties en usagekosten staan los van onze implementatieprijs.",
                 "Je kunt klein beginnen met één workflow en later uitbreiden.",
               ].map((item) => (
-                <li key={item} className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
+                <li
+                  key={item}
+                  className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3"
+                >
                   <span
                     aria-hidden="true"
                     className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-700"
@@ -189,14 +214,16 @@ const PricingPage = () => {
               Wat is inbegrepen en wat niet
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              Dit overzicht voorkomt misverstanden tijdens intake en houdt planning, scope en verwachtingen
-              voorspelbaar.
+              Dit overzicht voorkomt misverstanden tijdens intake en houdt
+              planning, scope en verwachtingen voorspelbaar.
             </p>
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">Inbegrepen</h3>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Inbegrepen
+              </h3>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                 {[
                   "Scope en acceptatiecriteria voor de afgesproken workflow(s)",
@@ -222,7 +249,9 @@ const PricingPage = () => {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6">
-              <h3 className="text-lg font-semibold text-slate-900">Niet inbegrepen</h3>
+              <h3 className="text-lg font-semibold text-slate-900">
+                Niet inbegrepen
+              </h3>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
                 {[
                   "24/7 SLA of incident response buiten standaard support (wel mogelijk op aanvraag)",
@@ -257,8 +286,8 @@ const PricingPage = () => {
               Veelgestelde vragen over prijzen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
-              Praktische antwoorden over scope, vanafprijzen en hoe de intake leidt tot een definitieve
-              offerte.
+              Praktische antwoorden over scope, vanafprijzen en hoe de intake
+              leidt tot een definitieve offerte.
             </p>
           </div>
 
@@ -280,7 +309,9 @@ const PricingPage = () => {
 
                 <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr] motion-reduce:transition-none">
                   <div className="overflow-hidden">
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
               </details>
@@ -288,10 +319,13 @@ const PricingPage = () => {
           </div>
 
           <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <h3 className="text-sm font-semibold text-slate-900">Volgende stap</h3>
+            <h3 className="text-sm font-semibold text-slate-900">
+              Volgende stap
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Selecteer bovenaan je pakket en eventuele add-ons en start daarna de intake. We gebruiken je
-              selectie als startpunt, niet als definitieve bestelling.
+              Selecteer bovenaan je pakket en eventuele add-ons en start daarna
+              de intake. We gebruiken je selectie als startpunt, niet als
+              definitieve bestelling.
             </p>
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
@@ -312,7 +346,7 @@ const PricingPage = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default PricingPage
+export default PricingPage;
