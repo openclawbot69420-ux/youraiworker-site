@@ -12,7 +12,7 @@ Last update: 2026-04-06T13:59:00Z
 Language: Dutch (nl-NL)
 Standards: HTML5, CSS3, TypeScript, React
 Software: Next.js 16.2.0, Tailwind CSS, Node.js
-Build: Static export with Next.js
+Build: Next.js (App Router)
 
 /* TECHNOLOGY */
 Runtime: OpenClaw (https://openclaw.ai)
