@@ -128,7 +128,7 @@ const COMPANY_LEGAL_LINE = `Your AI Worker (KvK ${CONTACT_KVK}, BTW ${CONTACT_BT
 // Build timestamp for "last updated" indicator - shows site is actively maintained
 // Uses environment variable injected at build time (see next.config.ts) for reproducible builds
 const BUILD_TIMESTAMP =
-  process.env.NEXT_PUBLIC_BUILD_DATE || "2025-03-31T12:00:00.000Z";
+  process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString();
 const BUILD_DATE_FORMATTED = new Date(BUILD_TIMESTAMP).toLocaleDateString(
   "nl-NL",
   {
