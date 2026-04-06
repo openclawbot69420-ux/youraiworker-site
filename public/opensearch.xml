@@ -4,7 +4,7 @@
   <Description>Zoek op Your AI Worker naar AI-agents, workflows en implementatie.</Description>
   <Tags>AI agents automation workflow implementatie</Tags>
   <Contact>info@youraiworker.nl</Contact>
-  <Url type="text/html" template="https://youraiworker.nl/?search={searchTerms}"/>
+  <Url type="text/html" template="https://youraiworker.nl/guides?search={searchTerms}"/>
   <Image height="64" width="64" type="image/png">https://youraiworker.nl/icon-192.png</Image>
   <InputEncoding>UTF-8</InputEncoding>
   <OutputEncoding>UTF-8</OutputEncoding>
