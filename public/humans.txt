@@ -23,7 +23,7 @@ Fonts: Inter (Google Fonts)
 
 /* PRINCIPLES */
 Security-first: TLS, least-privilege access, secrets management
-Privacy-by-design: AVG-compliant, data minimalization
+Privacy-by-design: AVG-compliant, data minimalisation
 No trackers: No third-party analytics or advertising scripts
 
 /* CAREERS */
