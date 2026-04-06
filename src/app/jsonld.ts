@@ -1,4 +1,19 @@
-import type { WithContext, Organization, WebSite, ContactPoint, ListItem, BreadcrumbList, Offer, AggregateOffer, Article, FAQPage, Question, Answer, ItemList, } from "schema-dts"
+import type {
+  WithContext,
+  Organization,
+  WebSite,
+  ContactPoint,
+  ListItem,
+  BreadcrumbList,
+  Offer,
+  AggregateOffer,
+  Article,
+  FAQPage,
+  Question,
+  Answer,
+  ItemList,
+} from "schema-dts";
+
 
 export const buildBreadcrumbJsonLd = (
   items: Array<{ name: string; url: string }>
