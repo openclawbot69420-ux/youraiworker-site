@@ -1,44 +1,22 @@
 {
   "name": "Your AI Worker",
   "short_name": "Your AI Worker",
-  "start_url": "/",
+  "description": "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "/icon-192-maskable.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
+      "type": "image/png"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
-  ],
-  "id": "/",
-  "scope": "/",
-  "description": "Productierijpe AI-agents voor Nederlandse bedrijven. Veilig ingericht en binnen dagen live.",
-  "categories": [
-    "business",
-    "productivity",
-    "utilities"
-  ],
-  "shortcuts": [
-    {
-      "name": "Plan intake (20 min)",
-      "short_name": "Plan intake",
-      "description": "Plan een intakegesprek van 20 minuten",
-      "url": "https://cal.com/youraiworker",
-      "icons": [
-        {
-          "src": "/icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
     }
   ]
 }
