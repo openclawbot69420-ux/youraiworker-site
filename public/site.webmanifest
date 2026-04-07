@@ -31,7 +31,7 @@
       "name": "Plan intake (20 min)",
       "short_name": "Plan intake",
       "description": "Plan een intakegesprek van 20 minuten",
-      "url": "/contact",
+      "url": "https://cal.com/youraiworker",
       "icons": [
         {
           "src": "/icon-192.png",
