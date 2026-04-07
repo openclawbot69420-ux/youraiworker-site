@@ -281,8 +281,7 @@ export const metadata: Metadata = {
     images: [DEFAULT_TWITTER_IMAGE],
     // Keep handles undefined until you have the real account.
     // Publishing placeholders can look unprofessional in share previews.
-    site: COMPANY_TWITTER_HANDLE,
-    creator: COMPANY_TWITTER_HANDLE,
+    ...(COMPANY_TWITTER_HANDLE ? { site: COMPANY_TWITTER_HANDLE, creator: COMPANY_TWITTER_HANDLE } : {}),
   },
   // Small polish: show a lightweight site name suffix in browser UI (where supported).
   // Keeps titles consistent across pages.

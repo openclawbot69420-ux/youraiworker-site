@@ -10,9 +10,19 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 
 export const metadata: Metadata = {
   title: "Privacybeleid | AVG-compliant | Your AI Worker",
-  description: "Privacybeleid van Your AI Worker.",
+  description: "Lees hoe we persoonsgegevens verwerken, welke gegevens we verzamelen en hoe je je privacyrechten uitoefent.",
   alternates: {
     canonical: "https://youraiworker.nl/privacy",
+  },
+  openGraph: {
+    title: "Privacybeleid | Your AI Worker",
+    description: "Hoe we persoonsgegevens verwerken en beschermen. AVG/GDPR, bewaartermijnen en je rechten.",
+    url: "https://youraiworker.nl/privacy",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacybeleid | Your AI Worker",
+    description: "AVG/GDPR, bewaartermijnen en je privacyrechten.",
   },
 }
 
