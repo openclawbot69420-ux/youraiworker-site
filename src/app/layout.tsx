@@ -292,7 +292,7 @@ export const metadata: Metadata = {
     // This avoids accidental "tappable" formatting in the footer and keeps typography clean.
     email: true,
     address: false,
-    telephone: false,
+    telephone: true,
   },
   verification: {
     // Add verification tokens here when available.
