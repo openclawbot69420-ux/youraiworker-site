@@ -37,6 +37,7 @@ const ContactPage: React.FC = () => {
         <p className="mt-4 text-slate-600">
           Plan een intake, stel een vraag, of vraag een voorstel aan. Je krijgt binnen 1 werkdag reactie.
         </p>
+
         <div className="mt-10">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-lg font-semibold">Stuur je aanvraag</h2>
@@ -67,6 +68,7 @@ const ContactPage: React.FC = () => {
             </div>
             <ContactForm />
           </div>
+
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
               <h2 className="text-lg font-semibold">Wat gebeurt er daarna?</h2>
@@ -91,13 +93,42 @@ const ContactPage: React.FC = () => {
                 </li>
               </ol>
             </div>
+
             <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white sm:p-8">
               <h2 className="text-lg font-semibold">Checklist voor een snelle intake</h2>
               <ul className="mt-4 space-y-2 text-sm text-white/80">
-                <li>- Voorbeeld van een echte case (e-mail, chat, ticket)</li>
-                <li>- Welke tool is bron van waarheid (CRM, inbox, sheets)</li>
-                <li>- Wie is owner en wie moet goedkeuren</li>
-                <li>- Wat is succes na 14 dagen?</li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Voorbeeld van een echte case (e-mail, chat, ticket)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Welke tool is bron van waarheid (CRM, inbox, sheets)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Wie is owner en wie moet goedkeuren</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Wat is succes na 14 dagen?</span>
+                </li>
               </ul>
               <a
                 href="/pricing"
@@ -108,7 +139,6 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
-
         {/* Trust bar with verified badges */}
         <TrustBar />
       </section>
