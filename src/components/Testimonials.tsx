@@ -1,4 +1,4 @@
-import { Clock, Shield, Zap, Users, Building2, Briefcase, Store, Globe, UserRound } from "lucide-react"
+import { Clock, Shield, Zap, Users, Building2, Briefcase, Store, Globe, UserRound, Lock } from "lucide-react"
 import { TrustIndicatorsJsonLd } from "./TrustIndicatorsJsonLd"
 
 // Trust indicators - concrete operational metrics that speak louder than placeholder testimonials
@@ -23,6 +23,13 @@ const TRUST_METRICS = [
     unit: "uur",
     label: "Warrantyperiode",
     description: "Break-fix garantie na livegang",
+  },
+  {
+    icon: Lock,
+    value: "AVG",
+    unit: "ready",
+    label: "Security baseline",
+    description: "Best practices voor toegang, logging en back-ups",
   },
   {
     icon: Users,
