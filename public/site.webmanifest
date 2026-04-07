@@ -17,5 +17,28 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "id": "/",
+  "scope": "/",
+  "description": "Productierijpe AI-agents voor Nederlandse bedrijven. Veilig ingericht en binnen dagen live.",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "shortcuts": [
+    {
+      "name": "Plan intake (20 min)",
+      "short_name": "Plan intake",
+      "description": "Plan een intakegesprek van 20 minuten",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ]
 }
