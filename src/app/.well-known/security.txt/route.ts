@@ -6,6 +6,7 @@ export const runtime = "nodejs"
 
 export const GET = (_req: NextRequest) => {
   const body = [
+    "Contact: mailto:security@youraiworker.nl",
     "Contact: mailto:info@youraiworker.nl",
     "Expires: 2027-12-31T23:59:59.000Z",
     "Preferred-Languages: nl, en",
