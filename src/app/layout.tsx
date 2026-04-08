@@ -514,6 +514,13 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
         />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
+<noscript>
+  <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 text-center text-sm text-amber-900">
+    <strong>Let op:</strong> Deze website werkt optimaal met JavaScript ingeschakeld.
+    Sommige functies zijn mogelijk beperkt zonder JavaScript.
+    <a href="mailto:info@youraiworker.nl" className="ml-1 underline underline-offset-2 hover:text-amber-950">Mail ons direct</a>.
+  </div>
+</noscript>
         <ToastProviderWrapper>
           <SkipToContent />
           <ScrollProgress />
