@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 const POPULAR_PAGES = [
-  { href: "/pricing", label: "Prijzen en pakketten", description: "Vanaf EUR 1.000" },
+  { href: "/pricing", label: "Prijzen en pakketten", description: "Vanaf €1.000" },
   { href: "/use-cases", label: "Use cases", description: "Toepassingen" },
   { href: "/implementatie", label: "Implementatie", description: "Hoe het werkt" },
   { href: "/integrations", label: "Integraties", description: "Koppelingen" },

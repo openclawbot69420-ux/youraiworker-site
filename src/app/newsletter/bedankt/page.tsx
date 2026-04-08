@@ -42,7 +42,7 @@ const NEXT_STEPS = [
   {
     href: "/pricing",
     label: "Bekijk prijzen",
-    description: "Vanaf EUR 1.000 voor je eerste workflow",
+    description: "Vanaf €1.000 voor je eerste workflow",
     icon: Calendar,
   },
   {

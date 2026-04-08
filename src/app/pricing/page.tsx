@@ -71,7 +71,7 @@ const serviceSchema = {
       url: "https://youraiworker.nl/pricing/opengraph-image",
       width: 1200,
       height: 630,
-      alt: "AI-agent implementatie vanaf EUR 1.000 - Geen maandelijkse kosten",
+      alt: "AI-agent implementatie vanaf €1.000 - Geen maandelijkse kosten",
     }],
   },
 };
@@ -89,7 +89,7 @@ const toJsonLd = (value: object) =>
 const PRICING_JSON_LD_ID = "pricing-jsonld";
 
 export const metadata: Metadata = {
-  title: "Prijzen | AI-agent implementatie vanaf EUR 1.000 | Your AI Worker",
+  title: "Prijzen | AI-agent implementatie vanaf €1.000 | Your AI Worker",
   description:
     "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
   alternates: {
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
       url: "https://youraiworker.nl/pricing/opengraph-image",
       width: 1200,
       height: 630,
-      alt: "AI-agent implementatie vanaf EUR 1.000 - Geen maandelijkse kosten",
+      alt: "AI-agent implementatie vanaf €1.000 - Geen maandelijkse kosten",
     }],
   },
   twitter: {

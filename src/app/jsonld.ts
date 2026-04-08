@@ -172,7 +172,7 @@ export const buildOfferJsonLd = (options?: {
     name: options?.name ?? "AI-agent implementatie",
     description:
       options?.description ??
-      "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Vanaf EUR 1.000 eenmalig.",
+      "Productierijpe AI-agents voor e-mail, chat, planning en CRM. Vanaf €1.000 eenmalig.",
     price: options?.price ?? "1000",
     priceCurrency: options?.priceCurrency ?? "EUR",
     availability: (options?.availability ?? "https://schema.org/InStock") as unknown as Offer["availability"],

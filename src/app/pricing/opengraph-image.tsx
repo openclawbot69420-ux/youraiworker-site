@@ -60,7 +60,7 @@ export default function OpenGraphImage() {
                 lineHeight: 1.1,
               }}
             >
-              vanaf EUR 1.000
+              vanaf €1.000
             </div>
             <div
               style={{

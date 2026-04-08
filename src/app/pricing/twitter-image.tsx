@@ -59,7 +59,7 @@ export default function TwitterImage() {
                 lineHeight: 1.1,
               }}
             >
-              vanaf EUR 1.000
+              vanaf €1.000
             </div>
             <div
               style={{

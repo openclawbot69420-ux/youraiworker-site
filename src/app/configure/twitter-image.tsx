@@ -110,7 +110,7 @@ export default function ConfigureTwitterImage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 <div style={{ opacity: 0.9 }}>youraiworker.nl</div>
-                <div style={{ fontSize: 16, opacity: 0.75 }}>Vanaf EUR 1.000 (excl. btw)</div>
+                <div style={{ fontSize: 16, opacity: 0.75 }}>Vanaf €1.000 (excl. btw)</div>
               </div>
             </div>
 
