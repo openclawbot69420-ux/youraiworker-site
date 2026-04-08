@@ -10,6 +10,19 @@ export const metadata: Metadata = {
     index: false,
     follow: true,
   },
+  openGraph: {
+    title: "Pagina niet gevonden | Your AI Worker",
+    description: "Deze pagina bestaat niet. Bekijk onze populaire pagina's of neem contact op.",
+    images: ["/og-home.png"],
+    type: "website",
+    locale: "nl_NL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pagina niet gevonden | Your AI Worker",
+    description: "Deze pagina bestaat niet. Bekijk onze populaire pagina's of neem contact op.",
+    images: ["/og-home.png"],
+  },
 }
 
 const POPULAR_PAGES = [
@@ -30,17 +43,12 @@ export default function NotFound(): React.ReactNode {
           <FileQuestion className="h-10 w-10 text-slate-400 sm:h-12 sm:w-12" aria-hidden="true" />
         </div>
 
-        <h1
-          id="not-found-title"
-          className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
-        >
+        <h1 id="not-found-title" className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Pagina niet gevonden
         </h1>
-
         <p className="mx-auto mt-4 max-w-lg text-base text-slate-600">
           De link die je hebt geopend bestaat niet (meer) op Your AI Worker.
         </p>
-
         <p className="mx-auto mt-2 max-w-lg text-sm text-slate-500">
           Controleer de URL, bekijk onze populaire pagina's of plan direct een intake.
         </p>
@@ -89,10 +97,7 @@ export default function NotFound(): React.ReactNode {
                 </p>
                 <p className="mt-0.5 text-xs text-slate-500">{page.description}</p>
               </div>
-              <ArrowLeft
-                className="h-4 w-4 -rotate-180 text-slate-400 transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
+              <ArrowLeft className="h-4 w-4 -rotate-180 text-slate-400 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           ))}
         </div>
@@ -114,7 +119,7 @@ export default function NotFound(): React.ReactNode {
       </div>
 
       {/* Contact hint */}
-        <p className="mt-6 text-center text-sm text-slate-500">
+      <p className="mt-6 text-center text-sm text-slate-500">
         Vragen? Mail ons op{" "}
         <a
           href="mailto:info@youraiworker.nl"
