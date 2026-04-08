@@ -9,8 +9,11 @@ import { useEffect, useState } from "react"
  */
 export const ScrollProgress: React.FC = () => {
   const [progress, setProgress] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+
     const updateProgress = () => {
       // Calculate scroll progress as percentage
       const scrollTop = window.scrollY
@@ -42,15 +45,14 @@ export const ScrollProgress: React.FC = () => {
     }
   }, [])
 
-  // Don't render if at top (no progress to show)
-  if (progress === 0) return null
+  if (!mounted) return null
 
   return (
     <div
-      className="fixed left-0 right-0 top-0 z-[60] h-0.5 bg-gradient-to-r from-cyan-500 via-violet-500 to-emerald-500"
+      className="fixed left-0 right-0 top-0 z-[60] h-0.5 bg-gradient-to-r from-cyan-500 via-violet-500 to-emerald-500 transition-[opacity,width] duration-200 ease-out"
       style={{
         width: `${progress}%`,
-        transition: "width 0.1s ease-out",
+        opacity: progress > 0 ? 1 : 0,
       }}
       aria-hidden="true"
       role="progressbar"
