@@ -1,11 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ExternalLink } from "lucide-react"
 
 type NavItem = {
   href: string
   label: string
+  title?: string
+  external?: boolean
+  rel?: string
 }
 
 interface MobileNavProps {
@@ -98,15 +101,20 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
             <nav className="mt-6 flex flex-1 flex-col gap-1 text-sm text-slate-700">
               {items.map((item) => {
                 const isActive = currentPath === item.href
+                const isExternal = item.external
                 return (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="rounded-lg px-3 py-3 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                    className="inline-flex items-center justify-between rounded-lg px-3 py-3 transition-colors hover:bg-slate-100 hover:text-slate-900"
                     {...(isActive ? { "aria-current": "page" } : {})}
+                    {...(isExternal ? { target: "_blank", rel: item.rel ?? "noreferrer" } : {})}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {isExternal ? (
+                      <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+                    ) : null}
                   </a>
                 )
               })}
