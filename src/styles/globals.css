@@ -294,6 +294,49 @@ button.rounded-lg:active:not(:disabled) {
   }
 }
 
+/* View Transitions API support - smooth page navigation for modern browsers */
+/* See: https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API */
+@supports (view-transition-name: page) {
+  @view-transition {
+    navigation: auto;
+  }
+  
+  /* Custom transition for page content */
+  ::view-transition-old(page) {
+    animation: fade-out 200ms ease-out forwards;
+  }
+  
+  ::view-transition-new(page) {
+    animation: fade-in 200ms ease-out forwards;
+  }
+  
+  /* Header stays stable during transition */
+  ::view-transition-old(header),
+  ::view-transition-new(header) {
+    animation: none;
+  }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.995); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(1.005); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Reduced motion support for view transitions */
+@media (prefers-reduced-motion: reduce) {
+  @supports (view-transition-name: page) {
+    ::view-transition-old(page),
+    ::view-transition-new(page) {
+      animation-duration: 0ms;
+    }
+  }
+}
+
 /* Footer mesh gradient animation for professional polish */
 @keyframes footerMesh {
   0% { background-position: 0% 50%; }

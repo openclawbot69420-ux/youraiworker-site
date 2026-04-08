@@ -493,6 +493,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+    <link rel="dns-prefetch" href="https://cal.com" />
+    <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
@@ -517,7 +519,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           <ScrollProgress />
           <Header />
           <Breadcrumbs />
-          <main id="main-content" tabIndex={-1}>
+          <main id="main-content" tabIndex={-1} style={{ viewTransitionName: "page" }}>
             {children}
           </main>
           <Footer />
