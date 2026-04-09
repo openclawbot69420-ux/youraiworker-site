@@ -24,6 +24,7 @@ import {
   buildOrganizationJsonLd,
   buildServiceJsonLd,
   buildWebSiteJsonLd,
+  buildLocalBusinessJsonLd,
 } from "./jsonld";
 
 const SITE_NAME = "Your AI Worker";
@@ -412,6 +413,15 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
   });
   const websiteJsonLd = buildWebSiteJsonLd();
   const serviceJsonLd = buildServiceJsonLd();
+  const localBusinessJsonLd = buildLocalBusinessJsonLd({
+    name: COMPANY_NAME,
+    url: SITE_URL,
+    logo: COMPANY_LOGO_URL,
+    kvk: CONTACT_KVK,
+    vatId: CONTACT_BTW,
+    email: CONTACT_EMAIL,
+    priceRange: "€€",
+  });
 
   return (
     <html lang="nl" dir="ltr">
@@ -514,6 +524,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
 <noscript>

@@ -316,3 +316,103 @@ export const buildCollectionPageJsonLd = (options: {
     })),
   }
 }
+
+// LocalBusiness schema - enhances rich results for professional services
+// Includes priceRange for pre-qualifying leads and richer business listings
+export const buildLocalBusinessJsonLd = (options?: {
+  name?: string
+  url?: string
+  logo?: string
+  kvk?: string
+  vatId?: string
+  email?: string
+  telephone?: string
+  priceRange?: string
+}): Record<string, unknown> => {
+  const name = options?.name ?? "Your AI Worker"
+  const url = options?.url ?? "https://youraiworker.nl/"
+  const logo = options?.logo ?? "https://youraiworker.nl/icon-512.png"
+  const priceRange = options?.priceRange ?? "€€" // €€ = moderate pricing (€1000-€2500 range)
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name,
+    url,
+    logo,
+    image: logo,
+    description: "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live.",
+    priceRange, // Helps Google show price expectations in search results
+    areaServed: {
+      "@type": "Country",
+      name: "Nederland",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NL",
+      addressLocality: "Amsterdam",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 52.3676,
+      longitude: 4.9041,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: options?.email ?? "info@youraiworker.nl",
+      contactType: "sales",
+      availableLanguage: ["Dutch", "English"],
+      areaServed: "NL",
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/your-ai-worker/",
+    ],
+    knowsAbout: [
+      "AI agents",
+      "Workflow automation",
+      "Business process automation",
+      "OpenClaw",
+      "AI implementation",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI-agent implementatiepakketten",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Starter pakket",
+            description: "1 workflow in 3-7 werkdagen",
+          },
+          price: "1000",
+          priceCurrency: "EUR",
+          priceValidUntil: "2026-12-31",
+          url: "https://youraiworker.nl/pricing",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Groei pakket",
+            description: "Tot 5 workflows",
+          },
+          price: "2500",
+          priceCurrency: "EUR",
+          priceValidUntil: "2026-12-31",
+          url: "https://youraiworker.nl/pricing",
+        },
+      ],
+    },
+    ...(options?.kvk ? { identifier: options.kvk } : {}),
+    ...(options?.vatId ? { vatID: options.vatId } : {}),
+  }
+}
