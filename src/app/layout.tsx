@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Linkedin,
   MapPin,
@@ -173,6 +173,18 @@ const CONTACT_SECONDARY_CTA: NavItem = {
   external: true,
 };
 
+// Separate viewport export per Next.js 15+ best practices
+// Removes build warnings and ensures proper mobile rendering
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0f172a" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: {
     default: `${SITE_NAME} - ${DEFAULT_TITLE}`,
@@ -315,17 +327,6 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   manifest: "/site.webmanifest",
-  // Theme color for mobile browser address bar (slate-900 matches brand identity)
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0f172a" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
-  // Additional viewport settings for mobile
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    viewportFit: "cover",
-  },
   category: "technology",
   robots: {
     index: true,
