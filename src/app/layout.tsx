@@ -18,6 +18,7 @@ import { BuildInfo, CopyButton } from "../components/BuildInfo";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { ToastProviderWrapper } from "../components/ToastProviderWrapper";
 import { CookieConsent } from "../components/CookieConsent";
+import { KeyboardShortcuts } from "../components/KeyboardShortcuts";
 import "../styles/globals.css";
 import {
   buildOrganizationJsonLd,
@@ -535,6 +536,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           <FloatingCta />
           <DesktopCta />
           <CookieConsent />
+<KeyboardShortcuts />
         </ToastProviderWrapper>
       </body>
     </html>
