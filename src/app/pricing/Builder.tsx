@@ -584,9 +584,12 @@ export const Builder = () => {
               <div className="flex items-end justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold">Totaal vanaf</p>
-                  <p className="text-xs text-white/70">excl. third-party licenties/usage en extra maatwerk</p>
+                  <p className="text-xs text-white/70">excl. btw (21%). Alle offertes tonen excl. en incl. btw.</p>
                 </div>
-                <p className="text-2xl font-bold tracking-tight">vanaf {currency(totalFrom)}</p>
+                <div className="text-right">
+              <p className="text-2xl font-bold tracking-tight">vanaf {currency(totalFrom)}</p>
+              <p className="text-xs text-white/60">excl. btw</p>
+            </div>
               </div>
             </div>
 
