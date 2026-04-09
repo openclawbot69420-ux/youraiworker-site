@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { SharePage } from "../../../components/SharePage"
 import { USE_CASES } from "../../../lib/catalog"
 
 interface UseCaseDetailPageProps {
@@ -55,7 +56,10 @@ const UseCaseDetailPage: React.FC<UseCaseDetailPageProps> = async (props) => {
       <div className="-mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Toepassing</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{useCase.title}</h1>
+          <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{useCase.title}</h1>
+            <SharePage title="Deel toepassing" />
+          </div>
           <p className="mt-4 text-slate-600">{useCase.longDescription}</p>
         </div>
       </div>
