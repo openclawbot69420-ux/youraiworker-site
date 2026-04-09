@@ -14,6 +14,13 @@ html {
   scroll-padding-top: 88px;
 }
 
+/* Scroll margin for sections ensures anchor links don't hide content behind sticky header
+ * Works in combination with html scroll-padding-top for cross-browser compatibility
+ * 88px = header height (~72px) + comfortable breathing room */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
