@@ -414,3 +414,23 @@ button.rounded-lg:active:not(:disabled) {
     animation: none;
   }
 }
+
+/* Content visibility optimization for below-the-fold sections
+   Improves initial page load by deferring rendering of off-screen content.
+   Applied to sections after the hero to prioritize above-the-fold content.
+   Note: contain-intrinsic-size provides estimated dimensions to prevent layout shift.
+*/
+@media screen and (min-width: 1024px) {
+  /* Apply to sections below the fold on desktop for better performance */
+  section:nth-of-type(n+4) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+}
+
+/* Ensure reduced-motion users don't get jarring content-visibility changes */
+@media (prefers-reduced-motion: reduce) {
+  section:nth-of-type(n+4) {
+    content-visibility: visible;
+  }
+}
