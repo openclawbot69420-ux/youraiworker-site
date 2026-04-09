@@ -1,4 +1,29 @@
-/* TEAM */
+#!/usr/bin/env node
+/**
+ * Generates humans.txt with dynamic build timestamp
+ * Run before build to ensure humans.txt reflects actual build time
+ */
+
+import { writeFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const now = new Date();
+const buildDate = now.toISOString();
+const formattedDate = now.toLocaleDateString('nl-NL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const formattedTime = now.toLocaleTimeString('nl-NL', {
+  hour: '2-digit',
+  minute: '2-digit',
+});
+
+const content = `/* TEAM */
 Company: Your AI Worker
 Founders: Mees, Tieko
 Location: Amsterdam, Nederland
@@ -9,8 +34,8 @@ KvK: 95290475
 BTW: NL8677.15.849.B01
 
 /* SITE */
-Last update: 9 april 2026 18:21 CET
-Build timestamp: 2026-04-09T18:21:08.285Z
+Last update: ${formattedDate} ${formattedTime} CET
+Build timestamp: ${buildDate}
 Language: Dutch (nl-NL)
 Standards: HTML5, CSS3, TypeScript, React
 Software: Next.js 16.2.0, Tailwind CSS, Node.js
@@ -41,3 +66,10 @@ Open source community: React, Next.js, Tailwind CSS contributors
 /* SECURITY */
 Responsible disclosure: security@youraiworker.nl
 Policy: https://youraiworker.nl/.well-known/security.txt
+`;
+
+const publicDir = join(__dirname, '..', 'public');
+const outputPath = join(publicDir, 'humans.txt');
+
+writeFileSync(outputPath, content, 'utf-8');
+console.log(`Generated humans.txt with build date: ${formattedDate} ${formattedTime}`);
