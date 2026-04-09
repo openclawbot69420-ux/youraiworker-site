@@ -126,7 +126,12 @@ const PricingPage = () => {
         }}
       />
 
-      <Builder />
+      <div className="mx-auto max-w-6xl px-4 pt-4">
+      <div className="flex justify-end">
+        <SharePage title="Deel prijzen" />
+      </div>
+    </div>
+    <Builder />
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">

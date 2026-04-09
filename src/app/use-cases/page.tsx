@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react"
 
 import { USE_CASES } from "../../lib/catalog"
 import { buildBreadcrumbJsonLd } from "../jsonld"
+import { SharePage } from "../../components/SharePage"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
