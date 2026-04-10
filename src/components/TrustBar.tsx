@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe } from "lucide-react"
+import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
@@ -66,6 +66,13 @@ export const TrustBar: React.FC = () => {
         <LifeBuoy className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">{CONTACT_RESPONSE_SLA}</span>
       </span>
+      {/* LinkedIn Follow Badge */}
+      <a href="https://www.linkedin.com/company/your-ai-worker/" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" title="Volg Your AI Worker op LinkedIn" className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-all hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-sm sm:px-3">
+        <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-blue-100 text-blue-700">
+          <Linkedin className="h-2 w-2" aria-hidden="true" />
+        </span>
+        <span className="font-medium text-slate-700 group-hover:text-blue-800">Volg ons</span>
+      </a>
     </div>
   )
 }
