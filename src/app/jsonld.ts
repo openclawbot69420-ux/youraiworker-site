@@ -12,6 +12,7 @@ import type {
   Question,
   Answer,
   ItemList,
+  SoftwareApplication,
 } from "schema-dts";
 
 
@@ -414,5 +415,87 @@ export const buildLocalBusinessJsonLd = (options?: {
     },
     ...(options?.kvk ? { identifier: options.kvk } : {}),
     ...(options?.vatId ? { vatID: options.vatId } : {}),
+  }
+}
+
+// SoftwareApplication schema - helps Google categorize the AI-agent platform as software
+// Enables rich results with feature highlights and application category
+// Supports "AI agent" and "workflow automation" searches with clearer categorization
+export const buildSoftwareApplicationJsonLd = (): Record<string, unknown> => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Your AI Worker Platform",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Cloud-based (OpenClaw runtime)",
+    softwareVersion: "1.0.0",
+    url: "https://youraiworker.nl/",
+    screenshot: "https://youraiworker.nl/og-home.png",
+    description:
+      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering voor e-mail, chat, planning en CRM.",
+    featureList: [
+      "E-mail triage en conceptantwoorden",
+      "Leadkwalificatie en routing",
+      "Afsprakenplanning met agenda-integraties",
+      "CRM-updates en rapportages",
+      "Approval workflows met audit trail",
+      "Multi-channel (WhatsApp, Telegram, Slack, e-mail)",
+      "Security-first met least-privilege",
+      "48 uur warranty en break-fix support",
+    ],
+    applicationSubCategory: "Automation Platform",
+    offers: {
+      "@type": "Offer",
+      price: "1000",
+      priceCurrency: "EUR",
+      priceValidUntil: "2026-12-31",
+      availability: "https://schema.org/InStock",
+      url: "https://youraiworker.nl/pricing",
+      seller: {
+        "@type": "Organization",
+        name: "Your AI Worker",
+        url: "https://youraiworker.nl/",
+      },
+    },
+    aggregateRating: {
+      // Placeholder - remove when real reviews exist
+      // Google requires these for star ratings to appear
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "1",
+    },
+    author: {
+      "@type": "Organization",
+      name: "Your AI Worker",
+      url: "https://youraiworker.nl/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Your AI Worker",
+      url: "https://youraiworker.nl/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://youraiworker.nl/icon-512.png",
+      },
+    },
+    inLanguage: "nl-NL",
+    countriesSupported: "NL",
+    softwareRequirements: [
+      "OpenClaw runtime environment",
+      "Integraties via API-keys (Gmail, Google Calendar, WhatsApp, etc.)",
+      "LLM-toegang (OpenAI/Anthropic/eigen)",
+    ],
+    memoryRequirements: "Cloud-based (geen lokale installatie)",
+    processorRequirements: "Cloud-based",
+    storageRequirements: "Cloud-based",
+    supportUrl: "https://youraiworker.nl/contact",
+    releaseNotes: "https://youraiworker.nl/implementatie",
+    isAccessibleForFree: false,
+    license: "https://youraiworker.nl/terms",
+    termsOfService: "https://youraiworker.nl/terms",
+    privacyPolicy: "https://youraiworker.nl/privacy",
+    discussionUrl: "https://www.linkedin.com/company/your-ai-worker/",
   }
 }

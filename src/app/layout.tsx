@@ -25,6 +25,7 @@ import {
   buildServiceJsonLd,
   buildWebSiteJsonLd,
   buildLocalBusinessJsonLd,
+  buildSoftwareApplicationJsonLd,
 } from "./jsonld";
 
 const SITE_NAME = "Your AI Worker";
@@ -422,6 +423,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
     email: CONTACT_EMAIL,
     priceRange: "€€",
   });
+  const softwareApplicationJsonLd = buildSoftwareApplicationJsonLd();
 
   return (
     <html lang="nl" dir="ltr">
@@ -525,6 +527,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }} />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased font-sans">
 <noscript>
