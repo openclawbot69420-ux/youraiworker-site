@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin } from "lucide-react"
+import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
@@ -41,8 +41,12 @@ export const TrustBar: React.FC = () => {
         <MapPin className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">Gevestigd in {CONTACT_CITY}</span>
       </span>
+
       {/* Dutch Business Badge */}
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3" title="Nederlandse onderneming">
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3"
+        title="Nederlandse onderneming"
+      >
         <Globe className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">Nederlands bedrijf</span>
       </span>
@@ -66,13 +70,42 @@ export const TrustBar: React.FC = () => {
         <LifeBuoy className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">{CONTACT_RESPONSE_SLA}</span>
       </span>
+
       {/* LinkedIn Follow Badge */}
-      <a href="https://www.linkedin.com/company/your-ai-worker/" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" title="Volg Your AI Worker op LinkedIn" className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-all hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-sm sm:px-3">
+      <a
+        href="https://www.linkedin.com/company/your-ai-worker/"
+        target="_blank"
+        rel="noreferrer"
+        referrerPolicy="strict-origin-when-cross-origin"
+        title="Volg Your AI Worker op LinkedIn"
+        className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-all hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-sm sm:px-3"
+      >
         <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-blue-100 text-blue-700">
           <Linkedin className="h-2 w-2" aria-hidden="true" />
         </span>
         <span className="font-medium text-slate-700 group-hover:text-blue-800">Volg ons</span>
       </a>
+
+      {/* AVG/GDPR Compliance Badge - NEW */}
+      <a
+        href="/privacy"
+        title="AVG/GDPR compliant privacybeleid"
+        className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-all hover:border-violet-300 hover:bg-violet-50/50 hover:shadow-sm sm:px-3"
+      >
+        <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-violet-100 text-violet-700">
+          <FileCheck className="h-2 w-2" aria-hidden="true" />
+        </span>
+        <span className="font-medium text-slate-700 group-hover:text-violet-800">AVG compliant</span>
+      </a>
+
+      {/* EU Data Residency Badge - NEW */}
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3"
+        title="Data blijft in de EU (Nederland)"
+      >
+        <Server className="h-3 w-3 text-slate-500" aria-hidden="true" />
+        <span className="font-medium text-slate-700">EU data</span>
+      </span>
     </div>
   )
 }
