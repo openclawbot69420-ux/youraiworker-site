@@ -20,11 +20,18 @@ export const metadata: Metadata = {
     title: "Contact voor AI-agent intake | Your AI Worker",
     description: "Bespreek je workflow, scope en planning. Binnen 1 werkdag een eerste reactie.",
     url: "https://youraiworker.nl/contact",
+    images: [{
+      url: "https://youraiworker.nl/contact/opengraph-image",
+      width: 1200,
+      height: 630,
+      alt: "Plan een AI-agent intake - 20 minuten gesprek, reactie binnen 1 werkdag",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Plan AI-agent intake | Your AI Worker",
     description: "Vraag een intake of voorstel aan voor AI-automatisering. Binnen 1 werkdag reactie, heldere scope.",
+    images: ["https://youraiworker.nl/contact/opengraph-image"],
   },
 }
 
