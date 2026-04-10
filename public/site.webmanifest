@@ -11,6 +11,22 @@
   "background_color": "#ffffff",
   "theme_color": "#0f172a",
   "categories": ["business", "productivity", "utilities"],
+  "handle_links": "preferred",
+  "edge_side_panel": {},
+  "iarc_rating_id": " suitable for all ages",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/contact?prefill=%s"
+    },
+    {
+      "protocol": "web+aiworker",
+      "url": "/?referrer=%s"
+    }
+  ],
   "icons": [
     {
       "src": "/icon-192.png",
