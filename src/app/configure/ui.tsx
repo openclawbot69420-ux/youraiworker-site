@@ -35,7 +35,7 @@ const PACKAGES: PackageDefinition[] = [
     title: "Starter",
     priceEuro: 1000,
     includedAgents: 1,
-    description: "1 workflow - binnen dagen live.",
+    description: "1 workflow - live in 3-10 werkdagen.",
   },
   {
     key: "groei",

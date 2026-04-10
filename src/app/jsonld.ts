@@ -342,7 +342,7 @@ export const buildLocalBusinessJsonLd = (options?: {
     url,
     logo,
     image: logo,
-    description: "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live.",
+    description: "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen 3-10 werkdagen live.",
     priceRange, // Helps Google show price expectations in search results
     areaServed: {
       "@type": "Country",

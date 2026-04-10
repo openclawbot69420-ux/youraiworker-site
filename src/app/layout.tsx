@@ -32,7 +32,7 @@ const SITE_NAME = "Your AI Worker";
 const SITE_URL = "https://youraiworker.nl";
 const DEFAULT_TITLE = "Productierijpe AI-agents voor Nederlandse bedrijven";
 const DEFAULT_DESCRIPTION =
-  "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen dagen live. Plan een intakegesprek (20 min) en ontvang binnen 1 werkdag een concreet voorstel. Gevestigd in Amsterdam, actief in heel Nederland. KvK 95290475. Prijzen vanaf €1.000.";
+  "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen 3-10 werkdagen live. Plan een intakegesprek (20 min) en ontvang binnen 1 werkdag een concreet voorstel. Gevestigd in Amsterdam, actief in heel Nederland. KvK 95290475. Prijzen vanaf €1.000.";
 
 const DEFAULT_OG_IMAGE = "/og-home.png";
 const DEFAULT_TWITTER_IMAGE = "/og-home.png";
@@ -68,7 +68,7 @@ const COMPANY_CONTACT_URL = `${SITE_URL}/contact`;
 const SECURITY_CONTACT_EMAIL = "security@youraiworker.nl";
 
 const COMPANY_SLOGAN =
-  "Maatwerk AI-agents. Veilig, schaalbaar en binnen dagen live.";
+  "Maatwerk AI-agents. Veilig, schaalbaar en binnen 3-10 werkdagen live.";
 
 // Helps credibility + local SEO (basic): a clear physical service area label.
 const COMPANY_SERVICE_AREA = "Nederland";

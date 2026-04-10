@@ -64,7 +64,7 @@ export default function TwitterImage() {
                 maxWidth: 900,
               }}
             >
-              Maatwerk automatisering, veilig ingericht en binnen dagen live
+              Maatwerk automatisering, veilig ingericht en binnen 3-10 werkdagen live
             </div>
           </div>
 
