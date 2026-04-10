@@ -450,7 +450,7 @@ const HomePage: React.FC = () => {
           </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-600">
               Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
-              <strong className="text-slate-900"> Vanaf €1.000 eenmalig</strong> (excl. btw).
+              <strong className="text-slate-900">Vanaf €1.000 eenmalig</strong> (excl. btw).
               
               <span className="text-slate-600"> Prijs hangt af van scope en integraties.</span>
             </p>
@@ -766,13 +766,13 @@ const HomePage: React.FC = () => {
                     Onderdeel
                   </th>
                   <th className="border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
-                    AI-agent setup (wij)
+                    Via Your AI Worker
                   </th>
                   <th className="border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
-                    Virtuele assistent (VA)
+                    Virtuele assistent
                   </th>
                   <th className="rounded-tr-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-900">
-                    Zelf bouwen (DIY)
+                    Zelf bouwen
                   </th>
                 </tr>
               </thead>
