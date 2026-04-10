@@ -92,11 +92,16 @@ export const BuildInfo: React.FC = () => {
   if (!buildDate) return null
 
   return (
-    <span className="text-[11px] text-slate-400" title={`Laatste site-update: ${buildDate}`}>
-      Laatst bijgewerkt:{" "}
-      <time dateTime={process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString()}>
-        {relativeTime}
-      </time>
+    <span className="inline-flex items-center gap-1.5 text-[11px] text-slate-400" title={`Laatste site-update: ${buildDate}`}>
+      <span className="relative inline-flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" aria-hidden="true" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+      </span>
+      <span>Actief beheerd - bijgewerkt{" "}
+        <time dateTime={process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString()}>
+          {relativeTime}
+        </time>
+      </span>
     </span>
   )
 }
