@@ -244,6 +244,20 @@ export const ContactForm: React.FC = () => {
           className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
         />
       </div>
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-slate-700">
+          Telefoon <span className="text-slate-400 font-normal">(optioneel)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autoComplete="tel"
+          placeholder="+31 6 12 34 56 78"
+          className="mt-1 block w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-colors"
+        />
+        <p className="mt-1 text-xs text-slate-500">Optioneel - alleen als je liever wordt gebeld</p>
+      </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-slate-700">
