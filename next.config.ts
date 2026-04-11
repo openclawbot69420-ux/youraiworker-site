@@ -35,11 +35,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: "/configure",
-        destination: "/implementatie",
-        permanent: true,
-      },
+      // Note: /configure now has its own page (see src/app/configure/page.tsx)
+      // Keep path typo fixes below
       {
         source: "/implementation",
         destination: "/implementatie",
