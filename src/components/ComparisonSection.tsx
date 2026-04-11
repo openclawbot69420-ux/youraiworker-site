@@ -149,7 +149,7 @@ export const ComparisonSection: React.FC = () => {
             <Check className="h-4 w-4 text-emerald-700" aria-hidden="true" />
           </div>
           <div>
-            <p className="font-medium text-emerald-900">De kaus voor efficiëntie</p>
+            <p className="font-medium text-emerald-900">De keuze voor efficiëntie</p>
             <p className="mt-1 text-sm text-emerald-800"> Waar bij andere opties de scope vaak uitloopt en prijzen stijgen, beginnen wij met een duidelijk afgebakende workflow vanaf €1.000. Specialistisch in AI-agents, zonder de overhead van een agency. </p>
           </div>
         </div>
