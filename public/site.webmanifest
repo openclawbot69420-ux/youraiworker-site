@@ -76,8 +76,8 @@
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Use Cases",
-      "short_name": "Use Cases",
+      "name": "Toepassingen",
+      "short_name": "Toepassingen",
       "description": "Bekijk toepassingen en voorbeelden",
       "url": "/use-cases?utm_source=pwa_shortcut",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
@@ -90,7 +90,7 @@
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "FAQ",
+      "name": "Veelgestelde vragen",
       "short_name": "FAQ",
       "description": "Veelgestelde vragen",
       "url": "/faq?utm_source=pwa_shortcut",
