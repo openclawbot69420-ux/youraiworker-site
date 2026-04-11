@@ -118,7 +118,7 @@ export const buildOrganizationJsonLd = (options?: {
       addressCountry: options?.address?.addressCountry ?? "NL",
       addressLocality: options?.address?.addressLocality ?? "Amsterdam",
     },
-    foundingDate: "2025",
+    foundingDate: "2026",
     foundingLocation: {
       "@type": "Place",
       name: "Amsterdam, Netherlands",
