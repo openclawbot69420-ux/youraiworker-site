@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 import { FaqItem } from "./FaqItem"
 import { buildFaqJsonLd } from "./faqJsonLd"
+import { EmailLink } from "../../components/EmailLink"
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
-
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
     day: "numeric",
@@ -51,7 +51,7 @@ const FAQS: Array<{ question: string; answer: string; id: string }> = [
   {
     id: "data-toegang",
     question: "Wie heeft er toegang tot mijn data?",
-    answer: "Alleen jij en de geconfigureerde agent hebben toegang, via versleutelde verbindingen met least-privilege permissies. We gebruiken Tailscale voor beveiligde remote access en slaan geen data langer op dan nodig voor de workflow.",
+    answer: "Alleen jij en de geconfigureerde agent hebben toegang, via versleutelde verbindingen met least-privilege permissies. We gebruiken Tailscale voor beveiligde remote access en slaan geen data langer op dan nodig is voor de workflow.",
   },
   {
     id: "bestaande-tools",
@@ -131,9 +131,9 @@ export default function FAQPage() {
             <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
               Plan intake (20 min)
             </a>
-            <a href="mailto:info@youraiworker.nl" className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100">
+            <EmailLink variant="button" showIcon={false}>
               Mail ons
-            </a>
+            </EmailLink>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ import { Breadcrumbs } from "../components/Breadcrumbs";
 import { ToastProviderWrapper } from "../components/ToastProviderWrapper";
 import { CookieConsent } from "../components/CookieConsent";
 import { KeyboardShortcuts } from "../components/KeyboardShortcuts";
+import { EmailLink, EMAIL_ADDRESS } from "../components/EmailLink";
 import "../styles/globals.css";
 import {
   buildOrganizationJsonLd,
