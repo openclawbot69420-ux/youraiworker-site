@@ -443,6 +443,10 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
            and description are handled by the Next.js metadata object above.
            Do not duplicate them here to avoid rendering issues. */}
         <meta name="generator" content="Next.js 16.2.0" />
+      {/* Performance: Prefetch key pages for instant navigation */}
+      <link rel="prefetch" href="/pricing" />
+      <link rel="prefetch" href="/contact" />
+      <link rel="prefetch" href="/use-cases" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="author" href="/humans.txt" />
