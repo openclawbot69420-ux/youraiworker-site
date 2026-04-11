@@ -17,6 +17,7 @@ import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
 import { NewsletterSignup } from "../components/NewsletterSignup"
+import { buildBreadcrumbJsonLd } from "./jsonld"
 
 // HowTo structured data for the 3-step process (enables Google rich results)
 const HOWTO_STEPS = [
@@ -284,6 +285,11 @@ const DELIVERABLE_CARDS = [
 
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
+// Breadcrumb structured data for homepage (helps Google understand site hierarchy)
+const homeBreadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", url: "https://youraiworker.nl/" },
+])
+
 type StarterAgentCardProps = {
   title: string
   description: string
@@ -426,6 +432,7 @@ export const metadata: Metadata = {
 const HomePage: React.FC = () => {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(homeBreadcrumbJsonLd) }} />
       <HowToJsonLd
         name="AI-agent implementatie in 3 stappen"
         description="Van intake tot livegang: kies een workflow, wij bouwen en testen, daarna live met support."
