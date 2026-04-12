@@ -417,6 +417,15 @@ export const metadata: Metadata = {
       "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
     images: ["/og-home.png"],
   },
+ // A lightweight trust indicator for search snippets.
+ // This is safe (factual) and can increase click-through rate.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+    ],
+  },
   other: {
     // Light credibility / contact hints for previews and some crawlers.
     "contact:email": "info@youraiworker.nl",
