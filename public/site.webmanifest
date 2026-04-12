@@ -12,8 +12,6 @@
   "theme_color": "#0f172a",
   "categories": ["business", "productivity", "utilities"],
   "handle_links": "preferred",
-  "edge_side_panel": {},
-  "iarc_rating_id": "",
   "launch_handler": {
     "client_mode": ["navigate-existing", "auto"]
   },
