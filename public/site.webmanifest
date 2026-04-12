@@ -17,10 +17,6 @@
   },
   "protocol_handlers": [
     {
-      "protocol": "mailto",
-      "url": "/contact?prefill=%s"
-    },
-    {
       "protocol": "web+aiworker",
       "url": "/?referrer=%s"
     }
