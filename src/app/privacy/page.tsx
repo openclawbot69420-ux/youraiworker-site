@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { buildBreadcrumbJsonLd } from "../jsonld"
+import { PrintButton } from "../../components/PrintButton"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
@@ -34,7 +35,10 @@ const PrivacyPage: React.FC = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
       <main className="mx-auto max-w-4xl px-4 py-20">
         <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacybeleid</h1>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacybeleid</h1>
+            <PrintButton label="Print privacybeleid" />
+          </div>
           <p className="mt-3 text-xs text-slate-500">Laatst bijgewerkt: {LAST_UPDATED}</p>
           <p className="mt-4 text-slate-600">
             Wij respecteren je privacy en verwerken persoonsgegevens alleen wanneer dat nodig is om contact op te nemen of een aanvraag te behandelen.
