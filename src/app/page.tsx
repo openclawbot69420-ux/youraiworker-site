@@ -17,6 +17,7 @@ import { HomeFaq } from "../components/HomeFaq"
 import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
 import { NewsletterSignup } from "../components/NewsletterSignup"
+import { WarrantyTrust } from "../components/WarrantyTrust"
 import { buildBreadcrumbJsonLd } from "./jsonld"
 
 // HowTo structured data for the 3-step process (enables Google rich results)
