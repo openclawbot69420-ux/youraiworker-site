@@ -9,8 +9,8 @@ KvK: 95290475
 BTW: NL8677.15.849.B01
 
 /* SITE */
-Last update: 12 april 2026 13:24 CET
-Build timestamp: 2026-04-12T13:24:34.407Z
+Last update: 12 april 2026 14:25 CET
+Build timestamp: 2026-04-12T14:25:50.130Z
 Language: Dutch (nl-NL)
 Standards: HTML5, CSS3, TypeScript, React
 Software: Next.js 16.2.0, Tailwind CSS, Node.js

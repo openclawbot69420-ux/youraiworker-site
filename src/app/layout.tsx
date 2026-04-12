@@ -705,7 +705,7 @@ const Footer: React.FC = () => {
             {/* Warranty Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1.5 transition-colors hover:border-emerald-300 hover:bg-emerald-50">
               <BadgeCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" />
-              <span className="font-medium text-emerald-800"> 48 uur warranty </span>
+              <span className="font-medium text-emerald-800">48 uur garantie</span>
             </span>
             {/* Response Time Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
