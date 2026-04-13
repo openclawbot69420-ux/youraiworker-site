@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server, Wallet } from "lucide-react"
+import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server, Wallet, Calendar } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL867715849B01"
@@ -78,6 +78,11 @@ export const TrustBar: React.FC = () => {
       <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3">
         <LifeBuoy className="h-3 w-3 text-slate-500" aria-hidden="true" />
         <span className="font-medium text-slate-700">{CONTACT_RESPONSE_SLA}</span>
+      </span>
+      {/* Founded Badge - transparency on business age */}
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3" title="Opgericht in 2026">
+        <Calendar className="h-3 w-3 text-slate-500" aria-hidden="true" />
+        <span className="font-medium text-slate-700">Est. 2026</span>
       </span>
 
       {/* LinkedIn Follow Badge */}
