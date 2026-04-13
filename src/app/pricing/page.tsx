@@ -320,7 +320,7 @@ const PricingPage = () => {
                     aria-hidden="true"
                     className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-transform duration-300 group-open:rotate-180 motion-reduce:transition-none motion-reduce:transform-none"
                   >
-                    ˅
+                    &#x2193;
                   </span>
                 </summary>
 
