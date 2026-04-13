@@ -527,6 +527,23 @@ const HomePage: React.FC = () => {
             <span>48 uur warranty - niet live? Dan betaal je niet.</span>
           </div>
           </div>
+          {/* Quick Trust Stats Bar - immediate credibility signals */}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {[
+              { value: "3-10", label: "werkdagen tot live" },
+              { value: "48u", label: "warranty garantie" },
+              { value: "<1", label: "werkdag reactietijd" },
+              { value: "KvK", label: "95290475 - Amsterdam" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-600 shadow-sm"
+              >
+                <span className="font-semibold text-slate-900">{stat.value}</span>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-7">
               <h2 className="text-lg font-semibold">Hoe het werkt</h2>
