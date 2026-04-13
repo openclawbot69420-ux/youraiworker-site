@@ -9,8 +9,11 @@ KvK: 95290475
 BTW: NL8677.15.849.B01
 
 /* SITE */
-Last update: 13 april 2026 03:59 CET
-Build timestamp: 2026-04-13T03:59:23.512Z
+Last update: 13 april 2026 06:09 CET
+Build timestamp: 2026-04-13T06:09:05.899Z
+Git commit: cc1d350
+Git branch: main
+Git date: 2026-04-13 05:04:23 +0000
 Language: Dutch (nl-NL)
 Standards: HTML5, CSS3, TypeScript, React
 Software: Next.js 16.2.0, Tailwind CSS, Node.js
@@ -27,6 +30,7 @@ Fonts: Inter (Google Fonts)
 Security-first: TLS, least-privilege access, secrets management
 Privacy-by-design: AVG-compliant, data minimalisation
 No trackers: No third-party analytics or advertising scripts
+Transparency: Build and version info publicly visible
 
 /* CAREERS */
 Status: Open to exceptional talent
