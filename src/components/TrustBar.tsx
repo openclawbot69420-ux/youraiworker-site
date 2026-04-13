@@ -1,4 +1,4 @@
-import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server } from "lucide-react"
+import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server, Wallet } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
 const CONTACT_BTW = "NL8677.15.849.B01"
@@ -51,6 +51,15 @@ export const TrustBar: React.FC = () => {
         <span className="font-medium text-slate-700">Nederlands bedrijf</span>
       </span>
 
+      {/* No Monthly Fees Badge - Key Differentiator */}
+      <span
+        className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/80 px-2.5 py-1.5 transition-colors hover:border-emerald-300 hover:bg-emerald-50 sm:px-3"
+        title="Eenmalige setup, geen abonnement"
+      >
+        <Wallet className="h-3 w-3 text-emerald-600" aria-hidden="true" />
+        <span className="font-medium text-emerald-800">Geen maandelijkse kosten</span>
+      </span>
+
       {/* Security Badge */}
       <a
         href="/.well-known/security.txt"
@@ -86,7 +95,7 @@ export const TrustBar: React.FC = () => {
         <span className="font-medium text-slate-700 group-hover:text-blue-800">Volg ons</span>
       </a>
 
-      {/* AVG/GDPR Compliance Badge - NEW */}
+      {/* AVG/GDPR Compliance Badge */}
       <a
         href="/privacy"
         title="AVG/GDPR compliant privacybeleid"
@@ -98,7 +107,7 @@ export const TrustBar: React.FC = () => {
         <span className="font-medium text-slate-700 group-hover:text-violet-800">AVG compliant</span>
       </a>
 
-      {/* EU Data Residency Badge - NEW */}
+      {/* EU Data Residency Badge */}
       <span
         className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50/80 px-2.5 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50 sm:px-3"
         title="Data blijft in de EU (Nederland)"
