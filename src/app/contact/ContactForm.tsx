@@ -69,8 +69,9 @@ export const ContactForm: React.FC = () => {
       })
 
       if (res.ok) {
-        setStatus("success")
-        form.reset()
+        // Redirect to thank-you page for professional conversion tracking
+        window.location.href = "/contact/bedankt"
+        return
       } else {
         setStatus("error")
       }
