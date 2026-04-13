@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { AlertTriangle, Home, RefreshCw, MessageSquare, LifeBuoy, Bug } from "lucide-react"
+import { AlertTriangle, Home, RefreshCw, LifeBuoy, Bug } from "lucide-react"
 
 interface ErrorProps {
   error: Error & { digest?: string }
