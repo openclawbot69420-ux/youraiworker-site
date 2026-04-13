@@ -433,7 +433,7 @@ export const metadata: Metadata = {
     "contact:hours": "Ma-vr 09:00-17:00 (Amsterdam)",
     "contact:response_time": "Reactie binnen 1 werkdag",
     "business:kvk": "95290475",
-    "business:vat": "NL8677.15.849.B01",
+    "business:vat": "NL867715849B01",
     // SEO: last-modified timestamp helps crawlers detect freshness
     "last-modified": process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString(),
   },
@@ -485,7 +485,7 @@ const HomePage: React.FC = () => {
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
                 <dt className="text-slate-500">BTW</dt>
-                <dd className="text-slate-900">NL8677.15.849.B01</dd>
+                <dd className="text-slate-900">NL867715849B01</dd>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5">
                 <dt className="text-slate-500">Locatie</dt>

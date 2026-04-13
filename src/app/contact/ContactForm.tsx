@@ -160,7 +160,7 @@ export const ContactForm: React.FC = () => {
           <span className="text-slate-300">|</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            BTW: NL8677.15.849.B01
+            BTW: NL867715849B01
           </span>
           <span className="text-slate-300">|</span>
           <span>Amsterdam</span>

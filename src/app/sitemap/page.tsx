@@ -188,7 +188,7 @@ const SitemapPage: React.FC = () => {
             KvK: 95290475
           </span>
           <span className="text-slate-300">|</span>
-          <span>BTW: NL8677.15.849.B01</span>
+          <span>BTW: NL867715849B01</span>
           <span className="text-slate-300">|</span>
           <span className="inline-flex items-center gap-1.5">
             <HelpCircle className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
