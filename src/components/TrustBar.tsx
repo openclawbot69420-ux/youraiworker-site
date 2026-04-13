@@ -1,7 +1,7 @@
 import { ShieldCheck, MapPin, Lock, LifeBuoy, Globe, Linkedin, FileCheck, Server, Wallet, Calendar } from "lucide-react"
 
 const CONTACT_KVK = "95290475"
-const CONTACT_BTW = "NL867715849B01"
+const CONTACT_BTW = "NL8677.15.849.B01"
 const CONTACT_CITY = "Amsterdam"
 const CONTACT_RESPONSE_SLA = "Reactie binnen 1 werkdag"
 

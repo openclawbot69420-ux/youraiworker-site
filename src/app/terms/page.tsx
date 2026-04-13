@@ -131,7 +131,7 @@ const TermsPage: React.FC = () => {
                   <span className="font-semibold text-slate-800">KvK:</span> 95290475
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-800">BTW:</span> NL867715849B01
+                  <span className="font-semibold text-slate-800">BTW:</span> NL8677.15.849.B01
                 </li>
               </ul>
             </div>

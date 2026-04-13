@@ -112,7 +112,7 @@ export default function NotFound(): React.ReactNode {
         <span className="hidden text-slate-300 sm:inline">|</span>
         <span className="inline-flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-          BTW: NL867715849B01
+          BTW: NL8677.15.849.B01
         </span>
         <span className="hidden text-slate-300 sm:inline">|</span>
         <span>Amsterdam</span>

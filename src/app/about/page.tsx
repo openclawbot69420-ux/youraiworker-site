@@ -60,7 +60,7 @@ const WHY_DIFFERENT = [
 
 const COMPANY_FACTS: Array<{ label: string; value: string; href?: string }> = [
   { label: "KvK-nummer", value: "95290475", href: "https://www.kvk.nl/zoeken/?q=95290475" },
-  { label: "BTW-nummer", value: "NL867715849B01", href: "https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01" },
+  { label: "BTW-nummer", value: "NL8677.15.849.B01", href: "https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01" },
   { label: "Locatie", value: "Amsterdam, Nederland" },
   { label: "Reactietijd", value: "Binnen 1 werkdag" },
 ]

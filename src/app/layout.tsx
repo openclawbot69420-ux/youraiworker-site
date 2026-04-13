@@ -93,7 +93,7 @@ const CONTACT_PHONE: string | undefined = undefined;
 // CONTACT_PHONE stays undefined to avoid exposing phone numbers on the public site.
 // CONTACT_PHONE_DISPLAY is used only for microcopy explaining phone support (no number shown).
 const CONTACT_KVK = "95290475";
-const CONTACT_BTW = "NL867715849B01";
+const CONTACT_BTW = "NL8677.15.849.B01";
 
 // Quick trust indicator for first-time visitors.
 // Keep it short and factual.
