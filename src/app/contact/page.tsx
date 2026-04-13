@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { TrustBar } from "../../components/TrustBar"
 import { AvailabilityStatus } from "../../components/AvailabilityStatus"
+import { CopyButton } from "../../components/CopyButton"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -84,8 +85,9 @@ const ContactPage: React.FC = () => {
       <h2 className="text-lg font-semibold text-slate-900">Zakelijke gegevens</h2>
       <p className="mt-1 text-sm text-slate-600">Your AI Worker, gevestigd in Amsterdam</p>
     </div>
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap items-center gap-2">
       <a href="mailto:info@youraiworker.nl" className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100">info@youraiworker.nl</a>
+                <CopyButton text="info@youraiworker.nl" label="Kopieer" />
       <a href="https://www.kvk.nl/zoeken/?q=95290475" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-100">KvK: 95290475</a>
       <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700">BTW: NL867715849B01</span>
     </div>
