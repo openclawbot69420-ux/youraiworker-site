@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-import { Calendar, Clock } from "lucide-react"
+import { Calendar, Clock, Rss } from "lucide-react"
 import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from "../jsonld"
 export const metadata: Metadata = {
   title: "Handleidingen | AI-agent guides en best practices | Your AI Worker",
@@ -82,11 +82,21 @@ const GuidesPage: React.FC = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(collectionJsonLd) }} />
       <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Handleidingen</h1>
-          <p className="mt-4 text-slate-600">
-            Praktische handleidingen voor AI-agents: van scope en approvals tot testen, security en go-live. Geen hype, wel concrete stappen die we ook in managed implementaties gebruiken.
-          </p>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-2xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Handleidingen</h1>
+            <p className="mt-4 text-slate-600">
+              Praktische handleidingen voor AI-agents: van scope en approvals tot testen, security en go-live. Geen hype, wel concrete stappen die we ook in managed implementaties gebruiken.
+            </p>
+          </div>
+          <a
+            href="/guides/rss.xml"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50"
+            title="Abonneer op updates via RSS"
+          >
+            <Rss className="h-4 w-4 text-orange-500" aria-hidden="true" />
+            <span>RSS</span>
+          </a>
         </div>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-4">
