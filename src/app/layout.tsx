@@ -34,7 +34,7 @@ const SITE_NAME = "Your AI Worker";
 const SITE_URL = "https://youraiworker.nl";
 const DEFAULT_TITLE = "Productierijpe AI-agents voor Nederlandse bedrijven";
 const DEFAULT_DESCRIPTION =
-  "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en binnen 3-10 werkdagen live. Plan een intakegesprek (20 min) en ontvang binnen 1 werkdag een concreet voorstel. Gevestigd in Amsterdam, actief in heel Nederland. KvK 95290475. Prijzen vanaf €1.000.";
+  "Productierijpe AI-agents voor e-mail, chat en planning. Live in 3-10 werkdagen. Veilig, schaalbaar en zonder maandelijkse kosten. Plan een intake.";
 
 const DEFAULT_OG_IMAGE = "/og-home.png";
 const DEFAULT_TWITTER_IMAGE = "/og-home.png";

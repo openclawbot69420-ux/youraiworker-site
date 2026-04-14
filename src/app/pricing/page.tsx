@@ -91,7 +91,7 @@ const PRICING_JSON_LD_ID = "pricing-jsonld";
 export const metadata: Metadata = {
   title: "Prijzen | AI-agent implementatie vanaf €1.000 | Your AI Worker",
   description:
-    "Duidelijke pakketten en vanafprijzen voor done-for-you AI-agent implementatie met intake als volgende stap.",
+    "Heldere pakketten voor AI-agent implementatie. Vanaf €1.000, geen maandelijkse kosten. Plan een intake.",
   alternates: {
     canonical: "https://youraiworker.nl/pricing",
   },
