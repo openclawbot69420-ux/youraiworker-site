@@ -77,10 +77,10 @@ export const metadata: Metadata = {
     url: "https://youraiworker.nl/faq",
     images: [
       {
-        url: "/og-home.png",
+        url: "https://youraiworker.nl/faq/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Your AI Worker FAQ",
+        alt: "Your AI Worker FAQ - Veelgestelde vragen over AI-agents",
       },
     ],
   },
@@ -90,10 +90,10 @@ export const metadata: Metadata = {
     description: "Veelgestelde vragen over AI-agents, implementatie, security en doorlooptijd. Krijg snel duidelijkheid voordat je een intake plant.",
     images: [
       {
-        url: "/og-home.png",
+        url: "https://youraiworker.nl/faq/twitter-image",
         width: 1200,
-        height: 630,
-        alt: "Your AI Worker FAQ",
+        height: 600,
+        alt: "Your AI Worker FAQ - Veelgestelde vragen over AI-agents",
       },
     ],
   },

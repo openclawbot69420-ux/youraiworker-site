@@ -9,7 +9,7 @@ export const size = {
 
 export const contentType = "image/png"
 
-export default function FAQOpenGraphImage() {
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -19,7 +19,7 @@ export default function FAQOpenGraphImage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0f172a 0%, #1e40af 60%, #3b82f6 100%)",
+          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
           padding: 80,
         }}
       >
@@ -35,45 +35,52 @@ export default function FAQOpenGraphImage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             <div
               style={{
-                fontSize: 58,
+                fontSize: 26,
+                fontWeight: 600,
+                letterSpacing: 2,
+                color: "rgba(255, 255, 255, 0.7)",
+                textTransform: "uppercase",
+              }}
+            >
+              FAQ
+            </div>
+            <div
+              style={{
+                fontSize: 56,
                 fontWeight: 700,
                 letterSpacing: -1,
                 color: "#ffffff",
-                lineHeight: 1.05,
+                lineHeight: 1.1,
+                maxWidth: 980,
               }}
             >
               Veelgestelde vragen
             </div>
             <div
               style={{
-                fontSize: 34,
-                fontWeight: 600,
-                color: "rgba(255, 255, 255, 0.92)",
-                lineHeight: 1.2,
-                maxWidth: 980,
+                fontSize: 52,
+                fontWeight: 700,
+                letterSpacing: -1,
+                color: "#34d399",
+                lineHeight: 1.1,
               }}
             >
-              Antwoorden over AI-agents, implementatie en security
+              Over AI-agents
             </div>
             <div
               style={{
-                fontSize: 22,
+                fontSize: 28,
                 fontWeight: 500,
-                color: "rgba(255, 255, 255, 0.82)",
-                lineHeight: 1.35,
+                color: "rgba(255, 255, 255, 0.85)",
+                lineHeight: 1.3,
                 maxWidth: 900,
               }}
             >
-              Van intake tot live: wat je moet weten voor je start
+              Implementatie, security, doorlooptijd en integraties
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
+
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div
               style={{
                 display: "flex",
@@ -101,21 +108,21 @@ export default function FAQOpenGraphImage() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 <div style={{ opacity: 0.9 }}>youraiworker.nl</div>
-                <div style={{ fontSize: 16, opacity: 0.75 }}>KvK 95290475</div>
+                <div style={{ fontSize: 16, opacity: 0.75 }}>Productierijpe AI-agents</div>
               </div>
             </div>
             <div
               style={{
-                padding: "12px 18px",
+                padding: "12px 24px",
                 borderRadius: 999,
-                background: "rgba(15, 23, 42, 0.5)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                color: "rgba(255, 255, 255, 0.85)",
+                background: "rgba(52, 211, 153, 0.2)",
+                border: "1px solid rgba(52, 211, 153, 0.4)",
+                color: "#34d399",
                 fontSize: 18,
                 fontWeight: 600,
               }}
             >
-              Plan een intake (20 min)
+              Antwoord niet gevonden? Plan een intake -
             </div>
           </div>
         </div>

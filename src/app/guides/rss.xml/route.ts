@@ -66,9 +66,12 @@ export async function GET(): Promise<Response> {
     <generator>Next.js</generator>
     <docs>https://www.rssboard.org/rss-specification</docs>
     <image>
-      <url>${SITE_URL}/icon-512.png</url>
-      <title>${SITE_NAME} - Handleidingen</title>
-      <link>${SITE_URL}/guides</link>
+<image>
+<url>${SITE_URL}/icon-512.png</url>
+<title>${SITE_NAME} - Handleidingen</title>
+<link>${SITE_URL}/guides</link>
+</image>
+${items}
     </image>
     ${items}
   </channel>
