@@ -19,11 +19,18 @@ export const metadata: Metadata = {
     title: "Over Your AI Worker | AI-agent implementatie",
     description: "Nederlands bedrijf gespecialiseerd in productierijpe AI-agents. Van intake tot livegang met duidelijke scope en support.",
     url: "https://youraiworker.nl/about",
+    images: [{
+      url: "https://youraiworker.nl/about/opengraph-image",
+      width: 1200,
+      height: 630,
+      alt: "Over Your AI Worker - AI-agent implementatie voor Nederlandse bedrijven",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Over Your AI Worker | Nederlandse AI-agent implementatie",
     description: "Wij bouwen productierijpe AI-agents voor Nederlandse bedrijven. Geen maandelijkse kosten, wel heldere scope en support.",
+    images: ["https://youraiworker.nl/about/twitter-image"],
   },
 }
 

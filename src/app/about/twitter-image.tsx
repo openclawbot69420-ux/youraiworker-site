@@ -1,106 +1,133 @@
-import { ImageResponse } from "next/og"
+import { ImageResponse } from "next/og";
 
-export const runtime = "edge"
+export const runtime = "edge";
+
+export const alt = "Over Your AI Worker - AI-agent implementatie voor Nederlandse bedrijven";
 
 export const size = {
   width: 1200,
-  height: 600,
-}
+  height: 630,
+};
 
-export const contentType = "image/png"
+export const contentType = "image/png";
 
-export default function AboutTwitterImage() {
+export default async function Image(): Promise<ImageResponse> {
   return new ImageResponse(
     (
       <div
         style={{
-          width: "100%",
           height: "100%",
+          width: "100%",
           display: "flex",
-          alignItems: "center",
+          flexDirection: "column",
+          alignItems: "flex-start",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
-          padding: 70,
+          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+          padding: "64px",
         }}
       >
+        {/* Logo / Icon */}
         <div
           style={{
-            width: "100%",
-            height: "100%",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "32px",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            <div
-              style={{
-                fontSize: 54,
-                fontWeight: 700,
-                letterSpacing: -1,
-                color: "#ffffff",
-                lineHeight: 1.05,
-              }}
-            >
-              Over Your AI Worker
-            </div>
-            <div
-              style={{
-                fontSize: 30,
-                fontWeight: 600,
-                color: "rgba(255, 255, 255, 0.92)",
-                lineHeight: 1.2,
-                maxWidth: 960,
-              }}
-            >
-              Productierijpe AI-agents voor Nederlandse bedrijven
-            </div>
-            <div
-              style={{
-                fontSize: 20,
-                fontWeight: 500,
-                color: "rgba(255, 255, 255, 0.82)",
-                lineHeight: 1.35,
-                maxWidth: 880,
-              }}
-            >
-              Gevestigd in Amsterdam - Van intake tot livegang
-            </div>
-          </div>
-
           <div
             style={{
+              width: "56px",
+              height: "56px",
+              borderRadius: "16px",
+              background: "linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%)",
               display: "flex",
               alignItems: "center",
-              gap: 12,
-              color: "rgba(255, 255, 255, 0.9)",
-              fontSize: 18,
-              fontWeight: 600,
+              justifyContent: "center",
+              marginRight: "16px",
             }}
           >
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 12,
-                background: "rgba(255, 255, 255, 0.18)",
-                border: "1px solid rgba(255, 255, 255, 0.26)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 24,
-              }}
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="white"
             >
-              Y
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              <div style={{ opacity: 0.9 }}>youraiworker.nl</div>
-              <div style={{ fontSize: 14, opacity: 0.75 }}>KvK 95290475</div>
-            </div>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
           </div>
+          <span
+            style={{
+              fontSize: "24px",
+              fontWeight: "600",
+              color: "#94a3b8",
+            }}
+          >
+            Your AI Worker
+          </span>
+        </div>
+
+        {/* Main heading */}
+        <h1
+          style={{
+            fontSize: "60px",
+            fontWeight: "700",
+            color: "#ffffff",
+            lineHeight: "1.1",
+            maxWidth: "900px",
+            marginBottom: "24px",
+          }}
+        >
+          Over ons
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            fontSize: "28px",
+            fontWeight: "400",
+            color: "#cbd5e1",
+            lineHeight: "1.4",
+            maxWidth: "800px",
+          }}
+        >
+          AI-agent implementatie voor Nederlandse bedrijven
+        </p>
+
+        {/* Bottom trust badge */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginTop: "48px",
+            padding: "12px 20px",
+            borderRadius: "9999px",
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+        >
+          <div
+            style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              background: "#10b981",
+              marginRight: "12px",
+            }}
+          />
+          <span
+            style={{
+              fontSize: "18px",
+              fontWeight: "500",
+              color: "#e2e8f0",
+            }}
+          >
+            Gevestigd in Amsterdam - KvK 95290475
+          </span>
         </div>
       </div>
     ),
-    { ...size }
-  )
+    {
+      ...size,
+    }
+  );
 }
