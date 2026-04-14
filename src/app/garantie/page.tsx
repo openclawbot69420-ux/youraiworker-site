@@ -19,7 +19,18 @@ export const metadata: Metadata = {
     title: "48-uurs Garantie op AI-agent implementatie | Your AI Worker",
     description: "Warranty cover, claimproces en wat je mag verwachten van je implementatie.",
     url: "https://youraiworker.nl/garantie",
-    images: ["/og-home.png"],
+    images: [{
+      url: "https://youraiworker.nl/garantie/opengraph-image",
+      width: 1200,
+      height: 630,
+      alt: "48-uurs Garantie op AI-agent implementatie - Transparante voorwaarden",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "48-uurs Garantie op AI-agent implementatie | Your AI Worker",
+    description: "Transparante warranty voor je AI-agent implementatie.",
+    images: ["https://youraiworker.nl/garantie/opengraph-image"],
   },
 }
 
