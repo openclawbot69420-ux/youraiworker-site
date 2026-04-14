@@ -457,15 +457,8 @@ export const buildSoftwareApplicationJsonLd = (): Record<string, unknown> => {
         url: "https://youraiworker.nl/",
       },
     },
-    aggregateRating: {
-      // Placeholder - remove when real reviews exist
-      // Google requires these for star ratings to appear
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      bestRating: "5",
-      worstRating: "1",
-      ratingCount: "1",
-    },
+    // Note: aggregateRating removed - only add when verifiable reviews exist
+    // (Google penalizes placeholder/misleading rating structured data)
     author: {
       "@type": "Organization",
       name: "Your AI Worker",
