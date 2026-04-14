@@ -63,18 +63,18 @@ export const Header: React.FC = () => {
         {/* Mobile navigation with current path for active state */}
         <MobileNav items={NAV_ITEMS} cta={HEADER_CTA} currentPath={pathname} />
 
-        {/* Desktop navigation with active states */}
-        <nav className="hidden items-center gap-6 text-sm text-slate-700 md:flex">
+        {/* Desktop navigation with active states - improved visual clarity */}
+        <nav className="hidden items-center gap-1 text-sm text-slate-700 md:flex">
           {NAV_ITEMS.map((item) => {
             const isActive = isActivePath(pathname, item.href)
             return (
               <a
                 key={item.href}
                 className={[
-                  "inline-flex items-center gap-1 transition-colors relative",
+                  "inline-flex items-center gap-1 px-2 py-1.5 rounded-md transition-all duration-200 relative",
                   isActive
-                    ? "text-slate-900 font-medium"
-                    : "text-slate-700 hover:text-slate-900",
+                    ? "text-slate-900 font-medium bg-slate-100/70"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50/50",
                 ].join(" ")}
                 href={item.href}
                 title={item.title}
@@ -84,15 +84,12 @@ export const Header: React.FC = () => {
               >
                 <span>{item.label}</span>
                 {item.external ? (
-                  <ExternalLink
-                    className="h-3.5 w-3.5 text-slate-400"
-                    aria-hidden="true"
-                  />
+                  <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
                 ) : null}
-                {/* Active indicator dot */}
+                {/* Active indicator dot - subtle but visible */}
                 {isActive && !item.external && (
                   <span
-                    className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-cyan-500"
+                    className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-cyan-500"
                     aria-hidden="true"
                   />
                 )}
@@ -100,7 +97,7 @@ export const Header: React.FC = () => {
             )
           })}
           <a
-            className="rounded-lg bg-slate-900 px-4 py-2 text-white transition-colors hover:bg-slate-800"
+            className="ml-3 rounded-lg bg-slate-900 px-4 py-2 text-white transition-colors hover:bg-slate-800"
             href={CONTACT_CALENDAR_URL}
             title={HEADER_CTA.title}
             target="_blank"
