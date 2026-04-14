@@ -35,21 +35,19 @@ export async function GET(): Promise<Response> {
     ].join("")
 
     return `
-    <item>
-      <title>${escapeXml(guide.title)}</title>
-      <link>${url}</link>
-      <guid isPermaLink="true">${url}</guid>
-      <pubDate>${pubDate.toUTCString()}</pubDate>
-      <lastBuildDate>${updatedDate.toUTCString()}</lastBuildDate>
-      <description>${escapeXml(guide.shortDescription)}</description>
-      <content:encoded><![CDATA[${content}]]></content:encoded>
-    </item>`
+      <item>
+        <title>${escapeXml(guide.title)}</title>
+        <link>${url}</link>
+        <guid isPermaLink="true">${url}</guid>
+        <pubDate>${pubDate.toUTCString()}</pubDate>
+        <lastBuildDate>${updatedDate.toUTCString()}</lastBuildDate>
+        <description>${escapeXml(guide.shortDescription)}</description>
+        <content:encoded><![CDATA[${content}]]></content:encoded>
+      </item>`
   }).join("")
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${SITE_NAME} - Handleidingen</title>
     <link>${SITE_URL}/guides</link>
@@ -65,14 +63,9 @@ export async function GET(): Promise<Response> {
     <category>Automation</category>
     <generator>Next.js</generator>
     <docs>https://www.rssboard.org/rss-specification</docs>
-    <image>
-<image>
-<url>${SITE_URL}/icon-512.png</url>
-<title>${SITE_NAME} - Handleidingen</title>
-<link>${SITE_URL}/guides</link>
-</image>
-${items}
-    </image>
+    <url>${SITE_URL}/icon-512.png</url>
+    <title>${SITE_NAME} - Handleidingen</title>
+    <link>${SITE_URL}/guides</link>
     ${items}
   </channel>
 </rss>`
