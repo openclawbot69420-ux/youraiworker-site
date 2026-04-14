@@ -440,4 +440,27 @@ export const GUIDES: Guide[] = [
     publishedAt: "2025-03-20",
     updatedAt: "2025-03-27",
   },
+  {
+    slug: "testen-en-go-live",
+    title: "Testen en go-live checklist",
+    icon: CheckCheck,
+    shortDescription: "Van development naar productie: testen, valideren en gecontroleerd live gaan.",
+    overview: "Een goede go-live vereist meer dan 'werkt op mijn machine'. Je wil realistische testcases draaien, edge cases identificeren, een rollback-plan hebben en een beheersde uitrol volgen zodat je team vertrouwen heeft.",
+    steps: [
+      "Maak een testset met echte cases, uitzonderingen en edge cases (minimaal 10 scenario's)",
+      "Definieer acceptatiecriteria: wanneer is een output goed genoeg?",
+      "Draai happy path tests, error scenario's en load checks",
+      "Documenteer expected behavior en escaleer paden voor elke situatie",
+      "Plan een gefaseerde uitrol: 1 gebruiker, dan team, dan brede uitrol",
+    ],
+    checklist: [
+      "Testcases voor happy path, errors en edge cases",
+      "Acceptatiecriteria per output type",
+      "Rollback plan en fallback procedure",
+      "Monitoring en alert setup",
+      "Gebruikerstraining en documentatie",
+    ],
+    publishedAt: "2025-04-13",
+    updatedAt: "2025-04-13",
+  },
 ]
