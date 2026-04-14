@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react"
 import { useEffect, useMemo, useState } from "react"
+import { Link2, Check } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 import type { AddOnKey, ConfigPayload } from "../contact/configSummary"

@@ -100,18 +100,28 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
 
             <nav className="mt-6 flex flex-1 flex-col gap-1 text-sm text-slate-700">
               {items.map((item) => {
-                const isActive = currentPath === item.href
+                const isActive = currentPath && (currentPath === item.href || currentPath.startsWith(`${item.href}/`))
                 const isExternal = item.external
                 return (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="inline-flex items-center justify-between rounded-lg px-3 py-3 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                    className={[
+                      "inline-flex items-center justify-between rounded-lg px-3 py-3 transition-colors",
+                      isActive
+                        ? "bg-slate-100 text-slate-900 font-medium"
+                        : "hover:bg-slate-100 hover:text-slate-900",
+                    ].join(" ")}
                     {...(isActive ? { "aria-current": "page" } : {})}
                     {...(isExternal ? { target: "_blank", rel: item.rel ?? "noreferrer" } : {})}
                   >
-                    <span>{item.label}</span>
+                    <span className="flex items-center gap-2">
+                      {isActive && !isExternal && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" aria-hidden="true" />
+                      )}
+                      {item.label}
+                    </span>
                     {isExternal ? (
                       <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
                     ) : null}
@@ -119,7 +129,6 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
                 )
               })}
             </nav>
-
             <a
               href={cta.href}
               onClick={() => setIsOpen(false)}
