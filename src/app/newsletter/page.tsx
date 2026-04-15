@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Bi-wekelijkse updates over AI-agents voor je bedrijf. Geen spam, alleen relevante content.",
     url: "https://youraiworker.nl/newsletter",
     images: [{
-      url: "/og-home.png",
+      url: "https://youraiworker.nl/newsletter/opengraph-image",
       width: 1200,
       height: 630,
       alt: "Your AI Worker Nieuwsbrief - Praktische AI-agent updates",
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nieuwsbrief | Your AI Worker",
     description: "Praktische updates over AI-agents en workflow automatisering.",
+    images: ["https://youraiworker.nl/newsletter/twitter-image"],
   },
 }
 

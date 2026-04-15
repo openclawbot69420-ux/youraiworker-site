@@ -20,12 +20,18 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/contact/bedankt`,
     images: [
       {
-        url: "/og-home.png",
+        url: `${SITE_URL}/contact/bedankt/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Your AI Worker - Aanvraag ontvangen",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aanvraag ontvangen | Your AI Worker",
+    description: "Je aanvraag is ontvangen. We nemen binnen 1 werkdag contact met je op.",
+    images: [`${SITE_URL}/contact/bedankt/twitter-image`],
   },
 }
 
