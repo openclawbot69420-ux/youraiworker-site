@@ -34,7 +34,7 @@ const FAQ_ITEMS: ReadonlyArray<FaqItem> = [
   {
     slug: "support-na-oplevering",
     question: "Hoe ziet support eruit na oplevering?",
-    answer: "Standaard: 48 uur warranty (bugs en regressies) en 2 weken break-fix tijdens business hours. Daarna kun je kiezen voor support op aanvraag.",
+    answer: "Standaard: 48-uurs garantie (bugs en regressies) en 2 weken break-fix tijdens business hours. Daarna kun je kiezen voor support op aanvraag.",
   },
   {
     slug: "toegang-systemen",

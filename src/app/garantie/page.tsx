@@ -10,14 +10,14 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
 const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c")
 
 export const metadata: Metadata = {
-  title: "48-uurs Garantie | Wat dekt onze warranty | Your AI Worker",
-  description: "Transparante garantie op AI-agent implementaties. Wat wel en niet gedekt is, hoe claimen werkt en ons commitment aan kwaliteit.",
+  title: "48-uurs Garantie | Wat dekt onze garantie | Your AI Worker",
+  description: "Transparante garantievoorwaarden voor AI-agent implementaties. Wat wel en niet gedekt is, hoe je een claim indient en onze toewijding aan kwaliteit.",
   alternates: {
     canonical: "https://youraiworker.nl/garantie",
   },
   openGraph: {
     title: "48-uurs Garantie op AI-agent implementatie | Your AI Worker",
-    description: "Warranty cover, claimproces en wat je mag verwachten van je implementatie.",
+    description: "Garantievoorwaarden,, claimproces en wat je mag verwachten van je implementatie.",
     url: "https://youraiworker.nl/garantie",
     images: [{
       url: "https://youraiworker.nl/garantie/opengraph-image",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "48-uurs Garantie op AI-agent implementatie | Your AI Worker",
-    description: "Transparante warranty voor je AI-agent implementatie.",
+    description: "Transparante garantie voor voor je AI-agent implementatie.",
     images: ["https://youraiworker.nl/garantie/opengraph-image"],
   },
 }
@@ -73,7 +73,7 @@ const WARRANTY_PROCESS = [
   {
     step: "2",
     title: "We beoordelen snel",
-    desc: "Binnen 1 werkdag reactie: warranty claim of buiten scope (met duidelijke uitleg).",
+    desc: "Binnen 1 werkdag reactie: garantie-claim of buiten scope (met duidelijke uitleg).",
   },
   {
     step: "3",

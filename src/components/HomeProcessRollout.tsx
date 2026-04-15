@@ -123,7 +123,7 @@ const DETAILED_STEPS = [
   ["3", "Build & integrate", "3-5 dagen", "Implementatie + koppelingen + logging."],
   ["4", "Review & UAT", "1-2 dagen", "Testen met echte cases, edge cases."],
   ["5", "Go-live", "1 dag", "Gecontroleerde uitrol + korte training."],
-  ["6", "Stabilisatie", "2 weken", "48 uur warranty + 2 weken break-fix."],
+  ["6", "Stabilisatie", "2 weken", "48-uurs garantie + 2 weken break-fix."],
 ] as const
 
 const toneClassMap: Record<NonNullable<MockLine["tone"]>, string> = {

@@ -115,7 +115,7 @@ export default function ImplementatieOpenGraphImage() {
                 fontWeight: 600,
               }}
             >
-              48 uur warranty
+              48-uurs garantie
             </div>
           </div>
         </div>

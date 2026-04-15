@@ -49,7 +49,7 @@ export default function OpenGraphImage() {
                 maxWidth: 980,
               }}
             >
-              48-uurs warranty
+              48-uurs garantie
             </div>
             <div
               style={{

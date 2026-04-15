@@ -48,7 +48,7 @@ export default function TwitterImage() {
                 lineHeight: 1.1,
               }}
             >
-              48-uurs warranty
+              48-uurs garantie
             </div>
             <div
               style={{

@@ -36,7 +36,7 @@ const COMPARISON_DATA = [
     diy: "100% zelf",
     freelancer: "Op basis van beschikbaarheid",
     agency: "Contractueel, duur",
-    youraiworker: "48 uur warranty + 2 weken support",
+    youraiworker: "48-uurs garantie + 2 weken support",
     highlight: false,
   },
   {

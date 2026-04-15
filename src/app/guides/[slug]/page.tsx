@@ -5,6 +5,7 @@ import { ReadingTime } from "../../../components/ReadingTime"
 import { ShareButton } from "../../../components/ShareButton"
 import { GUIDES } from "../../../lib/catalog"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "../../jsonld"
+import { formatTimeAgo } from "../../../lib/formatTimeAgo"
 
 const SITE_URL = "https://youraiworker.nl"
 
@@ -152,10 +153,10 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
           <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500">
             <ReadingTime steps={guide.steps} checklist={guide.checklist} />
             {guide.updatedAt && (
-              <span className="inline-flex items-center gap-1.5">
+              <span className="inline-flex items-center gap-1.5" title={guide.updatedAt ? formatDate(guide.updatedAt) : undefined}>
                 <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                 <time dateTime={guide.updatedAt}>
-                  Bijgewerkt: {formatDate(guide.updatedAt)}
+                  Bijgewerkt: {formatTimeAgo(guide.updatedAt)}
                 </time>
               </span>
             )}

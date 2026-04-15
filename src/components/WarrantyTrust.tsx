@@ -12,10 +12,10 @@ export const WarrantyTrust: React.FC = () => {
               </svg>
             </span>
             <div>
-              <h2 className="text-xl font-semibold text-emerald-950 sm:text-2xl">48 uur warranty</h2>
+              <h2 className="text-xl font-semibold text-emerald-950 sm:text-2xl">48-uurs garantie</h2>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-emerald-900/80">
                 Geen live agent, geen betaling. Als we geen werkende oplevering kunnen demonstreren binnen scope,
-                betaal je niets. Na oplevering geldt 48 uur warranty op bugs en regressies.
+                betaal je niets. Na oplevering geldt 48-uurs garantie op bugs en regressies.
               </p>
             </div>
           </div>

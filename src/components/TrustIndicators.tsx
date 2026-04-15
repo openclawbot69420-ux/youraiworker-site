@@ -16,7 +16,7 @@ const TRUST_ITEMS: TrustIndicatorItem[] = [
   },
   {
     icon: <Clock className="h-4 w-4" aria-hidden="true" />,
-    title: "48-uurs warranty",
+    title: "48-uurs garantie",
     description: "Gratis bugfixes binnen 48 uur na livegang",
   },
   {
@@ -76,7 +76,7 @@ export function TrustIndicatorsCompact() {
           <ul className="mt-1.5 space-y-1 text-xs text-emerald-700">
             <li className="flex items-center gap-1.5">
               <span className="text-emerald-500">-</span>
-              <span>48 uur warranty na livegang</span>
+              <span>48-uurs garantie na livegang</span>
             </li>
             <li className="flex items-center gap-1.5">
               <span className="text-emerald-500">-</span>

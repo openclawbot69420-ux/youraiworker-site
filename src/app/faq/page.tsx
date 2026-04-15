@@ -46,7 +46,7 @@ const FAQS: Array<{ question: string; answer: string; id: string }> = [
   {
     id: "fouten-afhandeling",
     question: "Wat als de agent een fout maakt?",
-    answer: "Elke workflow heeft expliciete foutafhandeling: onduidelijke requests worden teruggezet voor review, kritieke acties vereisen approval, en uitzonderingen worden gelogd met notificatie. De 48-uurs warranty dekt bugs en regressies binnen scope.",
+    answer: "Elke workflow heeft expliciete foutafhandeling: onduidelijke requests worden teruggezet voor review, kritieke acties vereisen approval, en uitzonderingen worden gelogd met notificatie. De garantie dekt bugs en regressies binnen scope.",
   },
   {
     id: "data-toegang",

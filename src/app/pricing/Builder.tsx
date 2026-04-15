@@ -634,7 +634,7 @@ export const Builder = () => {
                 <ul className="mt-1.5 space-y-1 text-xs text-emerald-200/80">
                   <li className="flex items-center gap-1.5">
                     <span className="text-emerald-300">-</span>
-                    <span>48 uur warranty na livegang</span>
+                    <span>48-uurs garantie na livegang</span>
                   </li>
                   <li className="flex items-center gap-1.5">
                     <span className="text-emerald-300">-</span>

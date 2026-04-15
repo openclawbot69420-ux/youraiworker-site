@@ -441,7 +441,7 @@ export const buildSoftwareApplicationJsonLd = (): Record<string, unknown> => {
       "Approval workflows met audit trail",
       "Multi-channel (WhatsApp, Telegram, Slack, e-mail)",
       "Security-first met least-privilege",
-      "48 uur warranty en break-fix support",
+      "48-uurs garantie en break-fix support",
     ],
     applicationSubCategory: "Automation Platform",
     offers: {

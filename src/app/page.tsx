@@ -18,6 +18,7 @@ import { HOMEPAGE_SCENARIOS } from "../components/demoScenarios"
 import { HowToJsonLd } from "../components/HowToJsonLd"
 import { NewsletterSignup } from "../components/NewsletterSignup"
 import { WarrantyTrust } from "../components/WarrantyTrust"
+import { AvailabilityStatus } from "../components/AvailabilityStatus"
 import { buildBreadcrumbJsonLd } from "./jsonld"
 
 // HowTo structured data for the 3-step process (enables Google rich results)
@@ -35,7 +36,7 @@ const HOWTO_STEPS = [
   {
     name: "Live en support",
     url: "https://youraiworker.nl/contact",
-    description: "48 uur warranty plus 2 weken break-fix support tijdens business hours.",
+    description: "48-uurs garantie plus 2 weken break-fix support tijdens business hours.",
   },
 ]
 
@@ -524,14 +525,14 @@ const HomePage: React.FC = () => {
                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
               />
             </svg>
-            <span>48 uur warranty - niet live? Dan betaal je niet.</span>
+            <span>48-uurs garantie - niet live? Dan betaal je niet.</span>
           </div>
           </div>
           {/* Quick Trust Stats Bar - immediate credibility signals */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
             {[
               { value: "3-10", label: "werkdagen tot live", title: "Meeste workflows live binnen 3-10 werkdagen na akkoord scope" },
-              { value: "48u", label: "warranty garantie", title: "48 uur garantie - niet tevreden? Dan betaal je niet" },
+              { value: "48u", label: "garantie", title: "48-uurs garantie - niet tevreden? Dan betaal je niet" },
               { value: "<1", label: "werkdag reactietijd", title: "Reactie binnen 1 werkdag (ma-vr)" },
               { value: "KvK", label: "95290475 - Amsterdam", title: "KvK geregistreerd in Amsterdam" },
             ].map((stat) => (
@@ -566,7 +567,7 @@ const HomePage: React.FC = () => {
                   },
                   {
                     title: "3. Live en support",
-                    desc: "48 uur warranty plus 2 weken break-fix (business hours)",
+                    desc: "48-uurs garantie plus 2 weken break-fix (business hours)",
                     meta: "Reactie binnen 1 werkdag",
                   },
                 ].map(({ title, desc, meta }) => (
@@ -1031,7 +1032,7 @@ const HomePage: React.FC = () => {
               </div>
               <div className="mt-5 space-y-2.5">
                 {[
-                  ["48 uur warranty", "bugs en regressies binnen scope"],
+                  ["48-uurs garantie", "bugs en regressies binnen scope"],
                   ["2 weken break-fix", "tijdens business hours"],
                 ].map(([title, desc]) => (
                   <div key={title} className="rounded-xl border border-slate-200 bg-white px-4 py-3">

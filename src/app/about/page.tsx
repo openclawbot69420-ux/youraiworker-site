@@ -60,7 +60,7 @@ const COMPANY_VALUES = [
 const WHY_DIFFERENT = [
   "Eenmalige setup fee, geen verplichte maandelijkse kosten",
   "Duidelijke scope vooraf, geen vage uitkomstbeloftes",
-  "48 uur warranty en 2 weken break-fix support standaard",
+  "48-uurs garantie en 2 weken break-fix support standaard",
   "Nederlandse klantenservice die je kent en snapt",
   "Gevestigd in Amsterdam met KvK-inschrijving",
 ] as const
