@@ -789,6 +789,13 @@ const Footer: React.FC = () => {
             </p>
             <div className="mt-4 flex flex-col gap-3">
               <a
+                  className="transition-colors hover:text-slate-900"
+                  href="/about"
+                  title="Lees meer over ons"
+                >
+                  Over ons
+                </a>
+                <a
                 className="transition-colors hover:text-slate-900"
                 href="/security"
                 title="Lees over beveiliging"
