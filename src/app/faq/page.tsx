@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { FaqItem } from "./FaqItem"
 import { buildFaqJsonLd } from "./faqJsonLd"
 import { EmailLink } from "../../components/EmailLink"
+import { PageFeedback } from "../../components/PageFeedback"
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
 const formatDate = (date: Date): string => {
@@ -122,7 +123,11 @@ export default function FAQPage() {
             <FaqItem key={item.id} id={item.id} question={item.question} answer={item.answer} />
           ))}
         </div>
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+      <div className="mt-12">
+        <PageFeedback pageName="faq" />
+      </div>
+
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm font-semibold text-slate-900">Klaar voor de volgende stap?</p>
           <p className="mt-2 text-sm text-slate-600">
             Plan een korte intake en krijg een concreet voorstel met scope, planning en prijs.
