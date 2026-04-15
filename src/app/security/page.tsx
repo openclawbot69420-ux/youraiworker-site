@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 import { Eye, KeyRound, Lock, Server, Shield, ShieldCheck } from "lucide-react"
 import { buildBreadcrumbJsonLd } from "../jsonld"
+import { PrintButton } from "../../components/PrintButton"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
@@ -13,6 +14,7 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 // Professional trust indicator: last reviewed date for security page
 // Update this whenever security practices or content changes
 const LAST_REVIEWED = "2026-04-05"
+
 const formatReviewDate = (dateStr: string): string => {
   return new Date(dateStr).toLocaleDateString("nl-NL", {
     year: "numeric",
@@ -79,18 +81,21 @@ const SecurityPage: React.FC = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
       <main className="mx-auto max-w-6xl px-4 py-20">
         <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm sm:p-10">
-          <div className="max-w-3xl">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
-              <Shield className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Beveiliging</h1>
-            <p className="mt-4 text-slate-600">
-              Security is geen add-on. We ontwerpen AI-workflows met controle op toegang, logging en data-bescherming vanaf dag één.
-            </p>
-            <p className="mt-4 inline-flex items-center gap-2 text-xs text-slate-500">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
-              Beveiligingsbeleid laatst gecontroleerd: {formatReviewDate(LAST_REVIEWED)}
-            </p>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="max-w-3xl">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-sm">
+                <Shield className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Beveiliging</h1>
+              <p className="mt-4 text-slate-600">
+                Security is geen add-on. We ontwerpen AI-workflows met controle op toegang, logging en data-bescherming vanaf dag één.
+              </p>
+              <p className="mt-4 inline-flex items-center gap-2 text-xs text-slate-500">
+                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+                Beveiligingsbeleid laatst gecontroleerd: {formatReviewDate(LAST_REVIEWED)}
+              </p>
+            </div>
+            <PrintButton label="Print beveiligingsbeleid" />
           </div>
         </section>
 
