@@ -98,7 +98,7 @@ const AboutPage: React.FC = () => {
 
         {/* Company values */}
         <section className="mt-14">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Hoe we werken</h2>
+          <h2 className="text-balance text-2xl font-semibold tracking-tight text-slate-900">Hoe we werken</h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
             Onze aanpak is ontstaan uit wat we zagen misgaan bij AI-implementaties: 
             te grootte scope, te weinig eigenaarschap, geen logging. Dat doen we anders.
@@ -125,7 +125,7 @@ const AboutPage: React.FC = () => {
 
         {/* Why different */}
         <section className="mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-          <h2 className="text-xl font-semibold tracking-tight text-slate-900">Waarom kiezen voor Your AI Worker?</h2>
+          <h2 className="text-balance text-xl font-semibold tracking-tight text-slate-900">Waarom kiezen voor Your AI Worker?</h2>
           <p className="mt-3 max-w-2xl text-sm text-slate-600">
             We zijn niet het enige bedrijf dat met AI werkt. Dit maakt ons anders voor organisaties 
             die serieus zijn over automatisering.
@@ -147,7 +147,7 @@ const AboutPage: React.FC = () => {
 
         {/* Company facts */}
         <section className="mt-14">
-          <h2 className="text-xl font-semibold tracking-tight text-slate-900">Bedrijfsgegevens</h2>
+          <h2 className="text-balance text-xl font-semibold tracking-tight text-slate-900">Bedrijfsgegevens</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {COMPANY_FACTS.map((fact) => (
               <div
@@ -174,7 +174,7 @@ const AboutPage: React.FC = () => {
   {/* CTA */}
   <section className="mt-14 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white sm:p-10">
     <div className="max-w-2xl">
-      <h2 className="text-2xl font-semibold tracking-tight">Klaar om te starten?</h2>
+      <h2 className="text-balance text-2xl font-semibold tracking-tight">Klaar om te starten?</h2>
       <p className="mt-4 text-white/80">Plan een intake van 20 minuten en ontdek wat er mogelijk is voor jouw team.</p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100">Plan een intake</a>

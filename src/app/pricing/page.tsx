@@ -152,7 +152,7 @@ const PricingPage = () => {
                   </time>
                 </p>{" "}
               </div>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+              <h2 className="text-balance mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
                 Zo houden we pricing voorspelbaar
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -227,7 +227,7 @@ const PricingPage = () => {
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="text-balance mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               Wat is inbegrepen en wat niet
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -299,7 +299,7 @@ const PricingPage = () => {
       <section className="mx-auto max-w-6xl px-4 pb-20">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <div className="max-w-3xl">
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="text-balance mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
               Veelgestelde vragen over prijzen
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">

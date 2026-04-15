@@ -88,7 +88,7 @@ const GuidesPage: React.FC = () => {
         <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-2xl">
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h1 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
                 Handleidingen
               </h1>
               <p className="mt-4 text-slate-600">

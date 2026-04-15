@@ -884,7 +884,7 @@ const HomePage: React.FC = () => {
       <section id="wat-je-krijgt" className="mx-auto max-w-6xl px-4 py-16">
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5 sm:p-8">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
               Wat je krijgt (end-to-end implementatie)
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -915,7 +915,7 @@ const HomePage: React.FC = () => {
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
                 Starter-agents (kies er één om te beginnen)
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-600">
@@ -972,7 +972,7 @@ const HomePage: React.FC = () => {
 
       {/* Process */}
       <section id="proces" className="mx-auto max-w-6xl px-4 py-14 sm:py-16">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Hoe we opleveren</h2>
+        <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">Hoe we opleveren</h2>
         <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
           Je start met 1 afgebakende workflow. Binnen 3-7 werkdagen live, met controlepunten en meetbare outputs.
         </p>
@@ -983,7 +983,7 @@ const HomePage: React.FC = () => {
       <section id="security-baseline" className="border-y border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Security en support</h2>
+            <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">Security en support</h2>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
               Veilige defaults, duidelijke support en heldere requirements zodat je snel live kunt
               zonder controle te verliezen.
