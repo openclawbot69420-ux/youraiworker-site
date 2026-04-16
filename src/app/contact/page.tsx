@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { TrustBar } from "../../components/TrustBar"
-import { AvailabilityStatus } from "../../components/AvailabilityStatus"
+import { BusinessHoursCard } from "../../components/BusinessHoursCard"
 import { CopyButton } from "../../components/CopyButton"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 
