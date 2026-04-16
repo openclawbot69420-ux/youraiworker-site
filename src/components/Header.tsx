@@ -30,13 +30,14 @@ const NAV_ITEMS: NavItem[] = [
   },
 ]
 
-const HEADER_CTA: NavItem = {
-  href: "/contact",
-  label: "Plan een intake (20 min)",
-  title: "Plan een intakegesprek van 20 minuten",
-}
-
 const CONTACT_CALENDAR_URL = "https://cal.com/youraiworker"
+
+const HEADER_CTA: NavItem = {
+  href: CONTACT_CALENDAR_URL,
+  label: "Plan een intake (20 min)",
+  title: "Plan een intakegesprek van 20 minuten (opent Cal.com in nieuw tabblad)",
+  external: true,
+}
 
 // Helper to check if a nav item is active
 // Matches exact path or subpaths (e.g., /guides matches /guides/slug)
