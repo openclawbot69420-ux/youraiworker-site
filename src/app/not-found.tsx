@@ -129,7 +129,7 @@ export default function NotFound(): React.ReactNode {
         </a>{" "}
         of bekijk de{" "}
         <Link
-          href="/sitemap.xml"
+          href="/sitemap"
           className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
         >
           sitemap
