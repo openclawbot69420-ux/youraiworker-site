@@ -9,11 +9,11 @@ KvK: 95290475
 BTW: NL8677.15.849.B01
 
 /* SITE */
-Last update: 16 april 2026 00:32 CET
-Build timestamp: 2026-04-16T00:32:35.223Z
-Git commit: cc0b383
+Last update: 16 april 2026 06:16 CET
+Build timestamp: 2026-04-16T06:16:56.858Z
+Git commit: fb6c496
 Git branch: main
-Git date: 2026-04-15 23:30:35 +0000
+Git date: 2026-04-16 02:49:34 +0000
 Language: Dutch (nl-NL)
 Standards: HTML5, CSS3, TypeScript, React
 Software: Next.js 16.2.0, Tailwind CSS, Node.js
