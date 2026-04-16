@@ -467,10 +467,10 @@ const HomePage: React.FC = () => {
             Transparant: AI-API kosten lopen via je eigen accounts (bijvoorbeeld OpenAI/Anthropic).
           </p>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-600">
-              Wij ontwerpen en implementeren AI-agents voor e-mail, chat, planning en CRM-processen.
+              Productierijpe AI-agents die repetitief werk uit handen nemen. Live in dagen, niet maanden.
               <strong className="text-slate-900">Vanaf €1.000 eenmalig</strong> (excl. btw).
               
-              <span className="text-slate-600"> Prijs hangt af van scope en integraties.</span>
+              <span className="text-slate-600"> Geen maandelijkse kosten, contractvrij.</span>
             </p>
             <p className="mt-3 max-w-xl text-sm text-slate-500">
               Meestal live binnen 3-10 werkdagen. Je krijgt een heldere scope, oplevering en handover.
