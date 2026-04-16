@@ -1,6 +1,6 @@
 Contact: mailto:security@youraiworker.nl
 Contact: mailto:info@youraiworker.nl
 Preferred-Languages: nl, en
-Expires: 2027-03-31T23:59:59.000Z
+Expires: 2028-12-31T23:59:59.000Z
 Policy: https://youraiworker.nl/security
 Acknowledgments: https://youraiworker.nl/security
