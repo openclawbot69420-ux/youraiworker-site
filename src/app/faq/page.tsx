@@ -3,8 +3,10 @@ import { FaqItem } from "./FaqItem"
 import { buildFaqJsonLd } from "./faqJsonLd"
 import { EmailLink } from "../../components/EmailLink"
 import { PageFeedback } from "../../components/PageFeedback"
+import { SharePage } from "../../components/SharePage"
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
+
 const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat("nl-NL", {
     day: "numeric",
@@ -109,10 +111,13 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqJsonLd) }} />
       <div className="mx-auto max-w-6xl px-4 py-16">
         <div className="max-w-3xl">
-          <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
-            <span className="text-slate-300" aria-hidden="true">|</span>
-            <p className="text-sm text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">FAQ</h1>
+              <span className="text-slate-300" aria-hidden="true">|</span>
+              <p className="text-sm text-slate-400">Bijgewerkt: {formatDate(LAST_UPDATED)}</p>
+            </div>
+            <SharePage title="Deel FAQ" />
           </div>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
             Snelle antwoorden op de meest voorkomende vragen. Staat jouw vraag er niet bij? Plan een intake of mail ons.
@@ -123,10 +128,9 @@ export default function FAQPage() {
             <FaqItem key={item.id} id={item.id} question={item.question} answer={item.answer} />
           ))}
         </div>
-      <div className="mt-12">
-        <PageFeedback pageName="faq" />
-      </div>
-
+        <div className="mt-12">
+          <PageFeedback pageName="faq" />
+        </div>
         <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm font-semibold text-slate-900">Klaar voor de volgende stap?</p>
           <p className="mt-2 text-sm text-slate-600">
