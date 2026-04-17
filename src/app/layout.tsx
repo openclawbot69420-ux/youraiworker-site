@@ -9,6 +9,9 @@ import {
   Mail,
   ExternalLink,
   Globe,
+  Sparkles,
+  Calendar,
+  ArrowUpRight,
 } from "lucide-react";
 import { Header } from "../components/Header";
 import { BusinessHoursStatus } from "../components/BusinessHoursStatus";
@@ -594,6 +597,63 @@ const SkipToContent: React.FC = () => {
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-slate-200/70 bg-slate-50/80 footer-mesh">
+      {/* Footer CTA - strong positioning for conversion at page bottom */}
+      <div className="border-b border-slate-200/70 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+          <div className="flex flex-col items-center justify-between gap-5 sm:flex-row sm:gap-8">
+            <div className="text-center sm:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/80">
+                <Sparkles className="h-3.5 w-3.5 text-cyan-300" aria-hidden="true" />
+                <span>Start vandaag nog</span>
+              </div>
+              <h3 className="mt-3 text-xl font-semibold text-white sm:text-2xl">
+                Klaar om een proces te automatiseren?
+              </h3>
+              <p className="mt-2 max-w-md text-sm text-white/70">
+                Plan een intake van 20 minuten. Je krijgt binnen 1 werkdag een concreet voorstel -
+                <span className="text-emerald-300"> geen verplichtingen.</span>
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={CONTACT_CALENDAR_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition-all hover:bg-slate-100 hover:shadow-lg hover:shadow-white/10"
+                title="Plan een intakegesprek van 20 minuten"
+              >
+                <Calendar className="h-4 w-4" aria-hidden="true" />
+                Plan een intake (20 min)
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+              </a>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                {CONTACT_EMAIL_DISPLAY}
+              </a>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-[11px] text-white/40 sm:justify-start">
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="h-3 w-3" aria-hidden="true" />
+              48-uurs garantie
+            </span>
+            <span className="hidden sm:inline" aria-hidden="true">|</span>
+            <span className="inline-flex items-center gap-1.5">
+              <LifeBuoy className="h-3 w-3" aria-hidden="true" />
+              Reactie binnen 1 werkdag
+            </span>
+            <span className="hidden sm:inline" aria-hidden="true">|</span>
+            <span className="inline-flex items-center gap-1.5">
+              <Lock className="h-3 w-3" aria-hidden="true" />
+              Security-first opzet
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Trust indicators bar - professional badge-style presentation with verification */}
       <div className="border-b border-slate-200/70 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-5">
