@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Mail, CheckCircle, FileText, Zap, Shield, ArrowRight, Calendar } from "lucide-react"
 import { NewsletterSignup } from "../../components/NewsletterSignup"
+import { TrustBar } from "../../components/TrustBar"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -91,8 +92,13 @@ export default function NewsletterPage(): React.ReactElement {
       </section>
 
       {/* Embedded signup form */}
-      <section className="mx-auto max-w-6xl px-4 pb-8">
+      <section className="mx-auto max-w-6xl px-4 pb-4">
         <NewsletterSignup />
+      </section>
+
+      {/* Trust indicators below signup - builds credibility at the decision point */}
+      <section className="mx-auto max-w-6xl px-4 pb-8" aria-label="Vertrouwensindicatoren">
+        <TrustBar />
       </section>
 
       {/* What you get */}
