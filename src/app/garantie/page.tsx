@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "48-uurs Garantie op AI-agent implementatie | Your AI Worker",
-    description: "Garantievoorwaarden,, claimproces en wat je mag verwachten van je implementatie.",
+    description: "Garantievoorwaarden, claimproces en wat je mag verwachten van je implementatie.",
     url: "https://youraiworker.nl/garantie",
     images: [{
       url: "https://youraiworker.nl/garantie/opengraph-image",

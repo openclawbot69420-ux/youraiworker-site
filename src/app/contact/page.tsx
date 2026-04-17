@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { TrustBar } from "../../components/TrustBar"
+import { TrustPillars } from "../../components/TrustPillars"
 import { BusinessHoursCard } from "../../components/BusinessHoursCard"
 import { CopyButton } from "../../components/CopyButton"
 import { buildBreadcrumbJsonLd } from "../jsonld"
@@ -22,7 +23,12 @@ export const metadata: Metadata = {
     title: "Contact voor AI-agent intake | Your AI Worker",
     description: "Bespreek je workflow, scope en planning. Binnen 1 werkdag een eerste reactie.",
     url: "https://youraiworker.nl/contact",
-    images: [{ url: "https://youraiworker.nl/contact/opengraph-image", width: 1200, height: 630, alt: "Plan een AI-agent intake - 20 minuten gesprek, reactie binnen 1 werkdag", }],
+    images: [{
+      url: "https://youraiworker.nl/contact/opengraph-image",
+      width: 1200,
+      height: 630,
+      alt: "Plan een AI-agent intake - 20 minuten gesprek, reactie binnen 1 werkdag",
+    }],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,7 +54,6 @@ const ContactPage: React.FC = () => {
             <p className="mt-2 text-sm text-slate-600">
               Vertel kort wat je wil automatiseren. Hoe concreter, hoe sneller we kunnen scopen.
             </p>
-
             <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
               <p className="font-medium text-slate-900">Liever direct plannen?</p>
               <p className="mt-1 text-slate-600">
@@ -71,46 +76,34 @@ const ContactPage: React.FC = () => {
                 </a>
               </div>
             </div>
-
             <ContactForm />
           </div>
 
-          {/* Trust card - business credentials for credibility */}
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-lg font-semibold text-slate-900">Zakelijke gegevens</h2>
-                <p className="mt-1 text-sm text-slate-600">Your AI Worker, gevestigd in Amsterdam</p>
-              </div>
-              <div className="flex flex-wrap items-center gap-2">
-                <a
-                  href="mailto:info@youraiworker.nl"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
-                >
-                  info@youraiworker.nl
-                </a>
+      {/* Trust pillars - key credibility signals */}
+      <div className="mt-8">
+        <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">
+          Waarom teams voor ons kiezen
+        </h2>
+        <TrustPillars />
+      </div>
+
+{/* Trust card - business credentials for credibility */}
+<div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h2 className="text-lg font-semibold text-slate-900">Zakelijke gegevens</h2>
+      <p className="mt-1 text-sm text-slate-600">Your AI Worker, gevestigd in Amsterdam</p>
+    </div>
+    <div className="flex flex-wrap items-center gap-2">
+      <a href="mailto:info@youraiworker.nl" className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100">info@youraiworker.nl</a>
                 <CopyButton text="info@youraiworker.nl" label="Kopieer" />
-                <a
-                  href="https://www.kvk.nl/zoeken/?q=95290475"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-100"
-                >
-                  KvK: 95290475
-                </a>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700">
-                  BTW: NL8677.15.849.B01
-                </span>
-              </div>
-            </div>
-          </div>
+      <a href="https://www.kvk.nl/zoeken/?q=95290475" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-100">KvK: 95290475</a>
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700">BTW: NL8677.15.849.B01</span>
+    </div>
+  </div>
+</div>
 
-          {/* Business hours card - shows live availability status */}
-          <div className="mt-8">
-            <BusinessHoursCard />
-          </div>
-
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
               <h2 className="text-lg font-semibold">Wat gebeurt er daarna?</h2>
               <ol className="mt-4 space-y-3 text-sm text-slate-700">
@@ -141,4 +134,50 @@ const ContactPage: React.FC = () => {
                 <li className="flex items-start gap-2">
                   <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
                     <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Voorbeeld van een echte case (e-mail, chat, ticket)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Welke tool is bron van waarheid (CRM, inbox, sheets)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Wie is owner en wie moet goedkeuren</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>Wat is succes na 14 dagen?</span>
+                </li>
+              </ul>
+              <a
+                href="/pricing"
+                className="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
+              >
+                Bekijk prijzen
+              </a>
+            </div>
+          </div>
+        </div>
+        {/* Trust bar with verified badges */}
+        <TrustBar />
+      </section>
+    </>
+  )
+}
+
+export default ContactPage
