@@ -105,7 +105,7 @@ export const HomeFaq = () => {
             <details
               key={item.slug}
               id={`faq-${item.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-slate-50/40 p-5 transition-all duration-200 hover:border-slate-300 hover:bg-white hover:shadow-sm"
+              className="group cursor-pointer rounded-2xl border border-slate-200 bg-slate-50/40 p-5 transition-all duration-200 hover:border-slate-300 hover:bg-white hover:shadow-sm"
             >
               <summary className="cursor-pointer list-none">
                 <div className="flex items-start justify-between gap-4">

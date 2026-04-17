@@ -322,7 +322,7 @@ const PricingPage = () => {
             {PRICING_FAQ_ITEMS.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 transition-colors duration-200 open:bg-white motion-reduce:transition-none"
+                className="group cursor-pointer rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 transition-colors duration-200 open:bg-white motion-reduce:transition-none"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
                   <span className="min-w-0">{item.question}</span>
