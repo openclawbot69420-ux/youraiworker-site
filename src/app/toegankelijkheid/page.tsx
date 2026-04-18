@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     title: "Toegankelijkheidsverklaring | Your AI Worker",
     description: "We streven naar een inclusieve website die voor iedereen goed bruikbaar is.",
     url: "https://youraiworker.nl/toegankelijkheid",
-    images: [{ url: "https://youraiworker.nl/og-home.png", width: 1200, height: 630, alt: "Toegankelijkheidsverklaring Your AI Worker" }],
+    images: [{ url: "https://youraiworker.nl/toegankelijkheid/opengraph-image", width: 1200, height: 630, alt: "Toegankelijkheid WCAG 2.1 AA | Your AI Worker" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Toegankelijkheid | Your AI Worker",
     description: "Inclusief digitaal. Onze toegankelijkheidsverklaring.",
-    images: ["https://youraiworker.nl/og-home.png"],
+    images: ["https://youraiworker.nl/toegankelijkheid/twitter-image"],
   },
 }
 
