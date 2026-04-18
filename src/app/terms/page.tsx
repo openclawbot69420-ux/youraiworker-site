@@ -32,7 +32,7 @@ const TermsPage: React.FC = () => {
                 Algemene voorwaarden
               </h1>
             </div>
-            <PrintButton label="Print voorwaarden" />
+            <PrintButton />
           </div>
           <p className="mt-4 text-base leading-7 text-slate-600">
             Hieronder vind je een korte, praktische samenvatting van hoe Your AI Worker werkt.

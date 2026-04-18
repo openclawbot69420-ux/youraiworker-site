@@ -95,7 +95,7 @@ const SecurityPage: React.FC = () => {
                 Beveiligingsbeleid laatst gecontroleerd: {formatReviewDate(LAST_REVIEWED)}
               </p>
             </div>
-            <PrintButton label="Print beveiligingsbeleid" />
+            <PrintButton />
           </div>
         </section>
 

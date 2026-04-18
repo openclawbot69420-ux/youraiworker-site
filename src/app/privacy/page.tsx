@@ -37,7 +37,7 @@ const PrivacyPage: React.FC = () => {
         <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Privacybeleid</h1>
-            <PrintButton label="Print privacybeleid" />
+            <PrintButton />
           </div>
           <p className="mt-3 text-xs text-slate-500">Laatst bijgewerkt: {LAST_UPDATED}</p>
           <p className="mt-4 text-slate-600">
