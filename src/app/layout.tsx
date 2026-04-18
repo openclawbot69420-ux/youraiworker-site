@@ -984,11 +984,31 @@ const Footer: React.FC = () => {
                 </a>
               ) : null}
               <span className="inline-flex items-center justify-end gap-2 text-[11px] text-slate-300">
-                {CONTACT_KVK_LABEL}: {CONTACT_KVK}
+                {CONTACT_KVK_LABEL}:{" "}
+                <a
+                  href={`https://www.kvk.nl/zoeken/?q=${CONTACT_KVK}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="KvK-inschrijving verifiëren"
+                  className="underline underline-offset-2 transition-colors hover:text-slate-500"
+                >
+                  {CONTACT_KVK}
+                </a>
                 <CopyButton text={CONTACT_KVK} label="KvK" />
               </span>
               <span className="inline-flex items-center justify-end gap-2 text-[11px] text-slate-300">
-                {CONTACT_BTW_LABEL}: {CONTACT_BTW}
+                {CONTACT_BTW_LABEL}:{" "}
+                <a
+                  href="https://ec.europa.eu/taxation_customs/vies/#/vat-validation?countryCode=NL&vatNumber=867715849B01"
+                  target="_blank"
+                  rel="noreferrer"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="BTW-nummer verifiëren via EU VIES"
+                  className="underline underline-offset-2 transition-colors hover:text-slate-500"
+                >
+                  {CONTACT_BTW}
+                </a>
                 <CopyButton text={CONTACT_BTW} label="BTW" />
               </span>
               <span className="text-[11px] text-slate-300">
