@@ -865,10 +865,7 @@ const Footer: React.FC = () => {
               <a
                 className="transition-colors hover:text-slate-900"
                 href="/privacy"
-                title="Lees het privacybeleid"
-              >
-                Privacy
-              </a>
+                title="Lees het privacybeleid"> Privacy </a> <a className="transition-colors hover:text-slate-900" href="/toegankelijkheid" title="Toegankelijkheidsverklaring"> Toegankelijkheid </a>
               <a
                 className="transition-colors hover:text-slate-900"
                 href="/faq"
@@ -966,10 +963,7 @@ const Footer: React.FC = () => {
               <a
                 className="underline underline-offset-2 transition-colors hover:text-slate-500"
                 href="/privacy"
-                title="Lees het privacybeleid"
-              >
-                Privacy
-              </a>
+                title="Lees het privacybeleid"> Privacy </a> <a className="transition-colors hover:text-slate-900" href="/toegankelijkheid" title="Toegankelijkheidsverklaring"> Toegankelijkheid </a>
             </p>
 
             <div className="flex flex-col gap-1 text-left sm:text-right">
