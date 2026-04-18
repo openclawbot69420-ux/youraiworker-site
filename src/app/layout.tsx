@@ -38,7 +38,7 @@ const SITE_NAME = "Your AI Worker";
 const SITE_URL = "https://youraiworker.nl";
 const DEFAULT_TITLE = "Productierijpe AI-agents voor Nederlandse bedrijven";
 const DEFAULT_DESCRIPTION =
-  "Productierijpe AI-agents voor e-mail, chat en planning. Live in 3-10 werkdagen. Veilig, schaalbaar en zonder maandelijkse kosten. Plan een intake.";
+  "Productierijpe AI-agents die repetitief werk uit handen nemen. Live in 3-10 werkdagen, eenmalig vanaf €1.000. 48-uurs garantie, geen maandelijkse kosten.";
 
 const DEFAULT_OG_IMAGE = "/og-home.png";
 const DEFAULT_TWITTER_IMAGE = "/og-home.png";

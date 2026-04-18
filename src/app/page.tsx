@@ -397,14 +397,14 @@ const IntegrationBadge: React.FC<IntegrationBadgeProps> = ({
 export const metadata: Metadata = {
   title: { default: "AI-agents voor je organisatie | Your AI Worker", template: "%s | Your AI Worker" },
   description:
-    "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
+    "Productierijpe AI-agents die repetitief werk uit handen nemen. Live in 3-10 werkdagen. Eenmalig vanaf €1.000, geen maandelijkse kosten. 48-uurs garantie.",
   alternates: {
     canonical: "https://youraiworker.nl/",
   },
   openGraph: {
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
+      "Productierijpe AI-agents die repetitief werk uit handen nemen. Live in 3-10 werkdagen. Eenmalig vanaf €1.000, geen maandelijkse kosten. 48-uurs garantie.",
     url: "https://youraiworker.nl/",
     images: ["/og-home.png"],
     siteName: "Your AI Worker",
@@ -415,7 +415,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Your AI Worker - Productierijpe AI-agents voor je organisatie",
     description:
-      "Productierijpe AI-agents voor Nederlandse bedrijven. Maatwerk automatisering, veilig ingericht en snel live. Vanaf €1.000 eenmalig, geen maandelijkse kosten.",
+      "Productierijpe AI-agents die repetitief werk uit handen nemen. Live in 3-10 werkdagen. Eenmalig vanaf €1.000, geen maandelijkse kosten. 48-uurs garantie.",
     images: ["/og-home.png"],
   },
  // A lightweight trust indicator for search snippets.
