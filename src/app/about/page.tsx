@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { Check, MapPin, Shield, Users, Target, Clock, Sparkles } from "lucide-react"
+import { Check, MapPin, Shield, Users, Target, Clock, Sparkles, Share2 } from "lucide-react"
+import { SharePage } from "../../components/SharePage"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([

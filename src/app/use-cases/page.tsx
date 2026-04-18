@@ -1,9 +1,18 @@
 import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
-
+import { Calendar } from "lucide-react"
 import { USE_CASES } from "../../lib/catalog"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 import { SharePage } from "../../components/SharePage"
+
+const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
+const formatDate = (date: Date): string => {
+  return new Intl.DateTimeFormat("nl-NL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date)
+}
 
 const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Home", url: "https://youraiworker.nl/" },
@@ -14,8 +23,7 @@ const toJsonLd = (value: object) => JSON.stringify(value).replace(/</g, "\\u003c
 
 export const metadata: Metadata = {
   title: "Toepassingen | AI-agent workflows voor e-mail, leads en support | Your AI Worker",
-  description:
-    "Concrete toepassingen voor AI-agents in e-mail, support, leadkwalificatie en interne workflows.",
+  description: "Concrete toepassingen voor AI-agents in e-mail, support, leadkwalificatie en interne workflows.",
   alternates: {
     canonical: "https://youraiworker.nl/use-cases",
   },
@@ -48,89 +56,100 @@ const useCases = USE_CASES.map((useCase) => {
 const UseCasesPage: React.FC = () => {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
-      <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="motion-fade-in mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Toepassingen</h1>
-          <p className="mt-4 text-slate-600">
-            Voorbeelden van workflows die we in OpenClaw implementeren - met duidelijke outputs, approvals en
-            beheerde livegang.
-          </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }}
+      />
+      <div className="mx-auto max-w-6xl px-4 pt-4">
+        <div className="flex items-center justify-end gap-3">
+          <span className="hidden items-center gap-1.5 text-xs text-slate-500 sm:inline-flex">
+            <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Bijgewerkt: <time dateTime={LAST_UPDATED.toISOString()}>{formatDate(LAST_UPDATED)}</time></span>
+          </span>
+          <SharePage title="Deel toepassingen" />
         </div>
       </div>
-
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {useCases.map((useCase, index) => (
-          <div
-            key={useCase.title}
-            className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${index % 3 === 0 ? "motion-delay-1" : index % 3 === 1 ? "motion-delay-2" : "motion-delay-3"}`}
-          >
-            <div className="flex items-start gap-3">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
-                <useCase.icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h2 className="min-w-0 text-sm font-semibold leading-snug text-slate-900">{useCase.title}</h2>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">{useCase.description}</p>
-            <a
-              href={`/use-cases/${useCase.slug}`}
-              className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <div className="motion-fade-in mb-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm subtle-mesh sm:-mx-4 sm:p-10">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Toepassingen</p>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">AI-agent workflows voor jouw team</h1>
+            <p className="mt-4 text-slate-600">
+              Voorbeelden van workflows die we in OpenClaw implementeren - met duidelijke outputs, approvals en beheerde livegang.
+            </p>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {useCases.map((useCase, index) => (
+            <div
+              key={useCase.title}
+              className={`hover-lift motion-fade-in rounded-2xl border border-slate-200 bg-white p-6 hover:border-slate-300 hover:shadow-md ${
+                index % 3 === 0 ? "motion-delay-1" : index % 3 === 1 ? "motion-delay-2" : "motion-delay-3"
+              }`}
             >
-              Bekijk details
+              <div className="flex items-start gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700">
+                  <useCase.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h2 className="min-w-0 text-sm font-semibold leading-snug text-slate-900">{useCase.title}</h2>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{useCase.description}</p>
+              <a
+                href={`/use-cases/${useCase.slug}`}
+                className="mt-5 inline-block text-sm font-medium text-slate-900 underline"
+              >
+                Bekijk details
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-white sm:px-12">
+          <h2 className="text-2xl font-bold tracking-tight">Klaar om te automatiseren?</h2>
+          <p className="mt-3 max-w-2xl text-white/70">
+            Kies een package en vertel ons wat je wil automatiseren. Wij regelen de rest.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/pricing"
+              className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
+            >
+              Bekijk packages
+            </a>
+            <a
+              href="/contact"
+              className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-white/10"
+            >
+              Plan een intake
             </a>
           </div>
-        ))}
-      </div>
-
-      <div className="mt-16 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-12 text-white sm:px-12">
-        <h2 className="text-2xl font-bold tracking-tight">Klaar om te automatiseren?</h2>
-        <p className="mt-3 max-w-2xl text-white/70">
-          Kies een package en vertel ons wat je wil automatiseren. Wij regelen de rest.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="/pricing"
-            className="rounded-lg bg-white px-6 py-3 text-center text-sm font-medium text-slate-900 transition-colors hover:bg-slate-100"
-          >
-            Bekijk packages
-          </a>
-          <a
-            href="/contact"
-            className="rounded-lg border border-white/30 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-white/10"
-          >
-            Plan een intake
-          </a>
         </div>
-      </div>
-
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-        <h2 className="text-lg font-semibold tracking-tight text-slate-900">Ga verder</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Verken de bijbehorende integraties, implementatie-aanpak en prijsopbouw.
-        </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          <a
-            href="/integrations"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
-          >
-            Integraties
-          </a>
-          <a
-            href="/implementatie"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
-          >
-            Implementatie
-          </a>
-          <a
-            href="/pricing"
-            className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
-          >
-            Prijzen
-          </a>
-        </div>
+        <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <h2 className="text-lg font-semibold tracking-tight text-slate-900">Ga verder</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Verken de bijbehorende integraties, implementatie-aanpak en prijsopbouw.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <a
+              href="/integrations"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            >
+              Integraties
+            </a>
+            <a
+              href="/implementatie"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            >
+              Implementatie
+            </a>
+            <a
+              href="/pricing"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-slate-300"
+            >
+              Prijzen
+            </a>
+          </div>
+        </section>
       </section>
-    </section>
     </>
   )
 }
