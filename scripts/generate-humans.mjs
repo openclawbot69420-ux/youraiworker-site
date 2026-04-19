@@ -13,8 +13,16 @@ const __dirname = dirname(__filename);
 
 const now = new Date();
 const buildDate = now.toISOString();
-const formattedDate = now.toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric', });
-const formattedTime = now.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit', });
+const formattedDate = now.toLocaleDateString('nl-NL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const formattedTime = now.toLocaleTimeString('nl-NL', {
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Amsterdam',
+});
 
 // Get git commit info for transparency (fall back gracefully if not in git repo)
 let gitCommit = 'unknown';
@@ -39,7 +47,7 @@ KvK: 95290475
 BTW: NL8677.15.849.B01
 
 /* SITE */
-Last update: ${formattedDate} ${formattedTime} CET
+Last update: ${formattedDate} ${formattedTime} Europe/Amsterdam
 Build timestamp: ${buildDate}
 Git commit: ${gitCommit}
 Git branch: ${gitBranch}
