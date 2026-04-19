@@ -537,10 +537,10 @@ const HomePage: React.FC = () => {
           {/* Quick Trust Stats Bar - immediate credibility signals */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
             {[
-              { value: "3-10", label: "werkdagen tot live", title: "Meeste workflows live binnen 3-10 werkdagen na akkoord scope" },
-              { value: "48u", label: "garantie", title: "48-uurs garantie - niet tevreden? Dan betaal je niet" },
-              { value: "<1", label: "werkdag reactietijd", title: "Reactie binnen 1 werkdag (ma-vr)" },
-              { value: "KvK", label: "95290475 - Amsterdam", title: "KvK geregistreerd in Amsterdam" },
+              { value: "3-10", label: "werkdagen tot live", title: "Meeste workflows live binnen 3-10 werkdagen na akkoord scope", href: "/implementatie" },
+              { value: "48u", label: "garantie", title: "48-uurs garantie - niet tevreden? Dan betaal je niet", href: "/garantie" },
+              { value: "<1", label: "werkdag reactietijd", title: "Reactie binnen 1 werkdag (ma-vr)", href: "/contact" },
+              { value: "KvK", label: "95290475 - Amsterdam", title: "KvK geregistreerd in Amsterdam", href: "/about" },
             ].map((stat) => (
               <div
                 key={stat.label}

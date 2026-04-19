@@ -918,6 +918,14 @@ const Footer: React.FC = () => {
               >
                 Colofon
               </a>
+              <span className="text-slate-300">|</span>
+              <a
+                href="/sitemap.xml"
+                className="text-[11px] text-slate-400 underline underline-offset-2 transition-colors hover:text-slate-500"
+                title="Bekijk sitemap voor zoekmachines"
+              >
+                Sitemap
+              </a>
             </div>
           </div>
 
