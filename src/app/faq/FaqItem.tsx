@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import { Link2, Check } from "lucide-react"
 
 interface FaqItemProps {
@@ -11,6 +11,26 @@ interface FaqItemProps {
 
 export function FaqItem({ id, question, answer }: FaqItemProps) {
   const [copied, setCopied] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const detailsRef = useRef<HTMLDetailsElement>(null)
+
+  // Sync the open state with the details element
+  const handleToggle = useCallback(() => {
+    if (detailsRef.current) {
+      setIsOpen(detailsRef.current.open)
+    }
+  }, [])
+
+  // Check if URL has hash matching this FAQ on mount
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === `#${id}`) {
+      const el = document.getElementById(id) as HTMLDetailsElement | null
+      if (el) {
+        el.open = true
+        setIsOpen(true)
+      }
+    }
+  }, [id])
 
   const copyLink = useCallback(async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -27,12 +47,21 @@ export function FaqItem({ id, question, answer }: FaqItemProps) {
     const el = document.getElementById(id) as HTMLDetailsElement | null
     if (el) {
       el.open = true
+      setIsOpen(true)
     }
   }, [id])
 
   return (
-    <details id={id} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm scroll-mt-24">
-      <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+    <details
+      id={id}
+      ref={detailsRef}
+      onToggle={handleToggle}
+      className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm scroll-mt-24"
+    >
+      <summary
+        className="cursor-pointer list-none text-base font-semibold text-slate-900"
+        aria-expanded={isOpen}
+      >
         <span className="flex items-start justify-between gap-4">
           <span className="flex items-center gap-3">
             {question}
