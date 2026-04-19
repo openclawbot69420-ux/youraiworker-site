@@ -730,7 +730,19 @@ const Footer: React.FC = () => {
               </span>
             </a>
             {/* Warranty Badge */}
-            <a href="/garantie" title="Lees onze garantievoorwaarden" className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1.5 transition-colors hover:border-emerald-300 hover:bg-emerald-50"> <BadgeCheck className="h-3.5 w-3.5 text-emerald-600" aria-hidden="true" /> <span className="font-medium text-emerald-800">48-uurs garantie</span> </a>
+            <a
+              href="/garantie"
+              title="Lees onze garantievoorwaarden"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50/80 px-3 py-1.5 transition-colors hover:border-emerald-300 hover:bg-emerald-50"
+            >
+              <BadgeCheck
+                className="h-3.5 w-3.5 text-emerald-600"
+                aria-hidden="true"
+              />
+              <span className="font-medium text-emerald-800">
+                48-uurs garantie
+              </span>
+            </a>
             {/* Response Time Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1.5 transition-colors hover:border-slate-300 hover:bg-slate-50">
               <LifeBuoy
@@ -865,7 +877,17 @@ const Footer: React.FC = () => {
               <a
                 className="transition-colors hover:text-slate-900"
                 href="/privacy"
-                title="Lees het privacybeleid"> Privacy </a> <a className="transition-colors hover:text-slate-900" href="/toegankelijkheid" title="Toegankelijkheidsverklaring"> Toegankelijkheid </a>
+                title="Lees het privacybeleid"
+              >
+                Privacy
+              </a>
+              <a
+                className="transition-colors hover:text-slate-900"
+                href="/toegankelijkheid"
+                title="Toegankelijkheidsverklaring"
+              >
+                Toegankelijkheid
+              </a>
               <a
                 className="transition-colors hover:text-slate-900"
                 href="/faq"
@@ -974,7 +996,18 @@ const Footer: React.FC = () => {
               <a
                 className="underline underline-offset-2 transition-colors hover:text-slate-500"
                 href="/privacy"
-                title="Lees het privacybeleid"> Privacy </a> <a className="transition-colors hover:text-slate-900" href="/toegankelijkheid" title="Toegankelijkheidsverklaring"> Toegankelijkheid </a>
+                title="Lees het privacybeleid"
+              >
+                Privacy
+              </a>
+              <span className="text-slate-300">|</span>
+              <a
+                className="underline underline-offset-2 transition-colors hover:text-slate-500"
+                href="/toegankelijkheid"
+                title="Toegankelijkheidsverklaring"
+              >
+                Toegankelijkheid
+              </a>
             </p>
 
             <div className="flex flex-col gap-1 text-left sm:text-right">
