@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server"
-import { GUIDES } from "../../lib/catalog"
+import { NextResponse } from "next/server";
+import { GUIDES } from "../../lib/catalog";
 
-const SITE_URL = "https://youraiworker.nl"
-const SITE_NAME = "Your AI Worker"
-const SITE_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijven"
+const SITE_URL = "https://youraiworker.nl";
+const SITE_NAME = "Your AI Worker";
+const SITE_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijven";
 
 /**
  * Generate RSS feed for the entire site
@@ -11,28 +11,29 @@ const SITE_TAGLINE = "Productierijpe AI-agents voor Nederlandse bedrijven"
  * Complements the guides-specific feed at /guides/rss.xml
  */
 export async function GET(): Promise<NextResponse> {
-  const now = new Date()
-  const pubDate = now.toUTCString()
+  const now = new Date();
+  const pubDate = now.toUTCString();
   const buildDate = now.toLocaleDateString("nl-NL", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  })
+  });
 
   // Generate items from guides
   const guideItems = GUIDES.map((guide) => {
-    const pubDate = new Date(guide.publishedAt)
-    const updatedDate = guide.updatedAt ? new Date(guide.updatedAt) : pubDate
+    const pubDate = new Date(guide.publishedAt);
+    const updatedDate = guide.updatedAt ? new Date(guide.updatedAt) : pubDate;
+
     return {
       title: guide.title,
       link: `${SITE_URL}/guides/${guide.slug}`,
       guid: `${SITE_URL}/guides/${guide.slug}`,
       pubDate: pubDate.toUTCString(),
-      description: guide.description,
+      description: guide.shortDescription,
       category: "Handleiding",
       updated: updatedDate.toUTCString(),
-    }
-  }).sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
+    };
+  }).sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
   // Static content updates
   const staticItems = [
@@ -41,6 +42,7 @@ export async function GET(): Promise<NextResponse> {
       link: `${SITE_URL}/`,
       guid: `${SITE_URL}/#homepage-${now.getFullYear()}-${now.getMonth()}`,
       pubDate: now.toUTCString(),
+      updated: now.toUTCString(),
       description: `${SITE_TAGLINE}. Live in 3-10 werkdagen, eenmalig vanaf €1.000, geen maandelijkse kosten.`,
       category: "Product",
     },
@@ -49,12 +51,14 @@ export async function GET(): Promise<NextResponse> {
       link: `${SITE_URL}/pricing`,
       guid: `${SITE_URL}/pricing#${now.getFullYear()}-${now.getMonth()}`,
       pubDate: now.toUTCString(),
-      description: "Heldere pakketten voor AI-agent implementatie. Vanaf €1.000, geen maandelijkse kosten.",
+      updated: now.toUTCString(),
+      description:
+        "Heldere pakketten voor AI-agent implementatie. Vanaf €1.000, geen maandelijkse kosten.",
       category: "Pricing",
     },
-  ]
+  ];
 
-  const allItems = [...staticItems, ...guideItems]
+  const allItems = [...staticItems, ...guideItems];
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -102,14 +106,15 @@ ${allItems
   )
   .join("\n")}
   </channel>
-</rss>`
+</rss>`;
 
   return new NextResponse(rss, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=7200",
+      "X-Robots-Tag": "noindex",
     },
-  })
+  });
 }
 
 function escapeXml(str: string): string {
@@ -117,6 +122,6 @@ function escapeXml(str: string): string {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
