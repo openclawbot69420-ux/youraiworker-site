@@ -6,7 +6,7 @@ Disallow: /.git/
 Sitemap: https://youraiworker.nl/sitemap.xml
 
 # Main domain pointer for crawler canonicalization
-Host: youraiworker.nl
+Host: https://youraiworker.nl
 
 # Key text resources discovery
 # These plain-text resources improve crawler efficiency and transparency
