@@ -19,6 +19,7 @@ import { HowToJsonLd } from "../components/HowToJsonLd"
 import { NewsletterSignup } from "../components/NewsletterSignup"
 import { WarrantyTrust } from "../components/WarrantyTrust"
 import { AvailabilityStatus } from "../components/AvailabilityStatus"
+import { SharePage } from "../components/SharePage"
 import { buildBreadcrumbJsonLd } from "./jsonld"
 
 // HowTo structured data for the 3-step process (enables Google rich results)
@@ -449,6 +450,11 @@ const HomePage: React.FC = () => {
         description="Van intake tot livegang: kies een workflow, wij bouwen en testen, daarna live met support."
         steps={HOWTO_STEPS}
       />
+      <div className="mx-auto max-w-6xl px-4 pt-4">
+        <div className="flex justify-end">
+          <SharePage title="Deel website" />
+        </div>
+      </div>
       {/* Hero */}
       <section id="top" className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
