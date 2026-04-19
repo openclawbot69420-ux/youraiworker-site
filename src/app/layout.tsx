@@ -954,6 +954,9 @@ const Footer: React.FC = () => {
             <p className="text-[11px] text-slate-400">
               {CONTACT_HOURS} - {CONTACT_RESPONSE_TIME}
             </p>
+          <div className="mt-1">
+            <BusinessHoursStatus />
+          </div>
 
             <p className="inline-flex items-center gap-1.5 text-[11px] text-slate-400">
               <ShieldCheck
