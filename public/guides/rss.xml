@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Your AI Worker - Handleidingen</title>
+    <link>https://youraiworker.nl/guides</link>
+    <description>Praktische handleidingen voor AI-agents: van scope en approvals tot testen, security en go-live. Geen hype, wel concrete stappen die we ook in managed implementaties gebruiken.</description>
+    <language>nl-NL</language>
+    <lastBuildDate>Sun, 19 Apr 2026 01:26:00 +0200</lastBuildDate>
+    <atom:link href="https://youraiworker.nl/guides/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://youraiworker.nl/icon-512.png</url>
+      <title>Your AI Worker - Handleidingen</title>
+      <link>https://youraiworker.nl/guides</link>
+    </image>
+    <item>
+      <title>Je eerste AI agent opzetten</title>
+      <link>https://youraiworker.nl/guides/eerste-agent</link>
+      <guid isPermaLink="true">https://youraiworker.nl/guides/eerste-agent</guid>
+      <pubDate>Sat, 15 Mar 2025 00:00:00 +0100</pubDate>
+      <description>Van use case naar productie: scope, testset, approvals en gecontroleerde go-live.</description>
+      <content:encoded><![CDATA[<p>Een goede eerste agent automatiseert 1 terugkerende workflow van begin tot eind, met duidelijke grenzen. Je definieert wat de agent zelfstandig mag doen, waar menselijke goedkeuring nodig is en hoe succes gemeten wordt.</p>
+<h3>Stappen</h3>
+<ol>
+<li>Kies 1 workflow met duidelijke trigger, input en output (bijv. inbox triage of afspraakplanning)</li>
+<li>Beschrijf wat de agent zelfstandig doet en welke acties eerst goedkeuring vereisen</li>
+<li>Definieer acceptatiecriteria, uitzonderingen en fallback naar mens</li>
+<li>Koppel alleen de minimaal benodigde tools en rechten</li>
+<li>Test met echte cases, log resultaten en ga live via pilot of beperkte uitrol</li>
+</ol>
+<p><a href="https://youraiworker.nl/guides/eerste-agent">Lees de volledige handleiding →</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Beveiligingschecklist</title>
+      <link>https://youraiworker.nl/guides/security</link>
+      <guid isPermaLink="true">https://youraiworker.nl/guides/security</guid>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0100</pubDate>
+      <description>Permissions, approvals, logging en secrets voor veilige productie-uitrol.</description>
+      <content:encoded><![CDATA[<p>Security is geen extra stap achteraf. Voor elke agentworkflow wil je vooraf vastleggen wie toegang heeft, welke acties zelfstandig mogen lopen, hoe secrets worden beheerd en wat er wordt gelogd.</p>
+<h3>Stappen</h3>
+<ol>
+<li>Bepaal least-privilege rechten per integratie en account</li>
+<li>Leg vast welke acties menselijke goedkeuring vereisen (bijv. verzenden, muteren, verwijderen)</li>
+<li>Beheer secrets buiten code en beperk toegang tot productie-credentials</li>
+<li>Log agentacties, goedkeuringen en fouten voor audit en troubleshooting</li>
+<li>Beperk scope, dataretentie en zichtbaarheid per rol of team</li>
+</ol>
+<p><a href="https://youraiworker.nl/guides/security">Lees de volledige handleiding →</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Testen en go-live checklist</title>
+      <link>https://youraiworker.nl/guides/testen-en-go-live</link>
+      <guid isPermaLink="true">https://youraiworker.nl/guides/testen-en-go-live</guid>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 +0200</pubDate>
+      <description>Van development naar productie: testen, valideren en gecontroleerd live gaan.</description>
+      <content:encoded><![CDATA[<p>Een goede go-live vereist meer dan 'werkt op mijn machine'. Je wil realistische testcases draaien, edge cases identificeren, een rollback-plan hebben en een beheersde uitrol volgen zodat je team vertrouwen heeft.</p>
+<h3>Stappen</h3>
+<ol>
+<li>Maak een testset met echte cases, uitzonderingen en edge cases (minimaal 10 scenario's)</li>
+<li>Definieer acceptatiecriteria: wanneer is een output goed genoeg?</li>
+<li>Draai happy path tests, error scenario's en load checks</li>
+<li>Documenteer expected behavior en escaleer paden voor elke situatie</li>
+<li>Plan een gefaseerde uitrol: 1 gebruiker, dan team, dan brede uitrol</li>
+</ol>
+<p><a href="https://youraiworker.nl/guides/testen-en-go-live">Lees de volledige handleiding →</a></p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
