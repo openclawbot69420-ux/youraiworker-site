@@ -21,7 +21,7 @@ const TRUST_METRICS = [
     icon: Shield,
     value: "48",
     unit: "uur",
-    label: "Warrantyperiode",
+    label: "Garantieperiode",
     description: "Break-fix garantie na livegang",
   },
   {
