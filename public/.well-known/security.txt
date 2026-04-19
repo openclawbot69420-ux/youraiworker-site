@@ -4,3 +4,4 @@ Preferred-Languages: nl, en
 Expires: 2028-12-31T23:59:59.000Z
 Policy: https://youraiworker.nl/security
 Acknowledgments: https://youraiworker.nl/security
+Canonical: https://youraiworker.nl/.well-known/security.txt

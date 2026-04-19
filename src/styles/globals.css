@@ -194,7 +194,7 @@ button.rounded-lg:active:not(:disabled) {
   a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]) {
     transition: none;
   }
-  
+
   button:active:not(:disabled),
   [role="button"]:active:not(:disabled),
   a.bg-slate-900:active,
@@ -307,20 +307,25 @@ button.rounded-lg:active:not(:disabled) {
   @view-transition {
     navigation: auto;
   }
-  
+
   /* Custom transition for page content */
   ::view-transition-old(page) {
     animation: fade-out 200ms ease-out forwards;
   }
-  
+
   ::view-transition-new(page) {
     animation: fade-in 200ms ease-out forwards;
   }
-  
-  /* Header stays stable during transition */
-  ::view-transition-old(header),
-  ::view-transition-new(header) {
+
+  /* Header stays stable during transition - creates app-like feel */
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) {
     animation: none;
+  }
+
+  /* Ensure header is always captured as a single element */
+  ::view-transition-group(site-header) {
+    animation-duration: 0ms;
   }
 }
 

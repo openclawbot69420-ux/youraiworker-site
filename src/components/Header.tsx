@@ -51,7 +51,7 @@ const isActivePath = (pathname: string, href: string): boolean => {
 export const Header: React.FC = () => {
   const pathname = usePathname()
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl" style={{ viewTransitionName: "site-header" }}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <a
           href="/"
