@@ -4,6 +4,7 @@ import { Builder } from "./Builder";
 import { buildBreadcrumbJsonLd } from "../jsonld";
 import { buildFaqJsonLd } from "../faq/faqJsonLd";
 import { SharePage } from "../../components/SharePage";
+import { PrintButton } from "../../components/PrintButton";
 import { TrustPillars } from "../../components/TrustPillars";
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now());
@@ -128,7 +129,8 @@ const PricingPage = () => {
       />
 
       <div className="mx-auto max-w-6xl px-4 pt-4">
-      <div className="flex justify-end">
+      <div className="flex justify-end gap-2">
+        <PrintButton />
         <SharePage title="Deel prijzen" />
       </div>
     </div>
