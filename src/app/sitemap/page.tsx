@@ -84,7 +84,7 @@ const SECTIONS: Section[] = [
 const QUICK_LINKS = [
   { href: "/contact", label: "Contact", icon: Mail },
   { href: "mailto:info@youraiworker.nl", label: "info@youraiworker.nl", icon: Mail },
-  { href: "#", label: "Amsterdam, Nederland", icon: MapPin },
+  { href: "/about", label: "Amsterdam, Nederland", icon: MapPin },
 ];
 
 const SitemapPage: React.FC = () => {

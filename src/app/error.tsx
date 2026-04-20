@@ -38,10 +38,10 @@ export default function ErrorPage({ error, reset }: ErrorProps) {
               <AlertTriangle className="h-8 w-8 text-amber-600" aria-hidden="true" />
             </div>
             <h1 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Er ging iets mis
+              Temporaire onderbreking
             </h1>
             <p className="mt-3 text-base text-slate-600">
-              We ondervonden een probleem bij het laden van deze pagina. Dit is een tijdelijk technisch issue - probeer het opnieuw.
+              Er ging iets mis bij het laden van deze pagina. Geen zorgen - dit ligt aan ons, niet aan jou. Je gegevens zijn veilig. Probeer de pagina te verversen.
             </p>
             {/* Error reference for support */}
             {error.digest && (
