@@ -1,66 +1,28 @@
-# Your AI Worker - LLM Discovery File
-# This file helps AI assistants and LLM-based tools understand the website.
-# Format: https://llmstxt.org/
+# llms.txt
 
-## Company Overview
-Your AI Worker is a Dutch technology company based in Amsterdam that implements production-ready AI-agents for businesses. We specialize in workflow automation using the OpenClaw agent platform.
-- Website: https://youraiworker.nl
-- Contact: info@youraiworker.nl
-- Location: Amsterdam, The Netherlands
-- KvK: 95290475
-- BTW: NL8677.15.849.B01
-- Response time: Within 1 business day
+This file describes how an AI system should interpret this website.
+It is intentionally simple and human-readable.
 
-## What We Do
-We design, build and deliver AI agents for:
-- Email inbox triage and management
-- Lead qualification and CRM updates
-- Meeting scheduling and calendar automation
-- Support ticket handling
-- Approval workflows
-- Report generation
-- Knowledge base Q&A
+## Summary
+Your AI Worker builds production-ready AI agents for Dutch businesses.
+We help companies automate repetitive work safely and reliably.
 
-## Approach
-1. Start small: Choose one focused workflow to automate
-2. Build fast: Live within 3-10 business days
-3. Secure by default: Security-first implementation with proper access controls
-4. Clear pricing: From EUR 1,000 one-time (excl. VAT), no monthly fees
-5. Supported: 48-hour warranty + 2 weeks break-fix support
+## Primary CTAs
+- Book an intake (20 min): https://youraiworker.nl/contact
+- Email: mailto:info@youraiworker.nl
 
-## Key Pages
-- Home: https://youraiworker.nl/
+## Key pages
 - Pricing: https://youraiworker.nl/pricing
-- Use Cases: https://youraiworker.nl/use-cases
+- Use cases: https://youraiworker.nl/use-cases
+- Integrations: https://youraiworker.nl/integrations
 - Implementation: https://youraiworker.nl/implementatie
-- Security: https://youraiworker.nl/security
 - FAQ: https://youraiworker.nl/faq
-- Contact: https://youraiworker.nl/contact
+- Security: https://youraiworker.nl/security
 
-## Technology Stack
-- Framework: Next.js 16+ (App Router)
-- Styling: Tailwind CSS 4
-- Language: TypeScript
-- Platform: OpenClaw agent runtime
-- Security: Tailscale for encrypted remote access
-- Compliance: AVG/GDPR compliant by design
+## Style and language
+- Language: Dutch (nl-NL)
+- Tone: professional, direct, no hype
 
-## Primary Call to Action
-Book a 20-minute intake call: https://cal.com/youraiworker
-
-## Support Channels
-- Email: info@youraiworker.nl
-- Response time: Within 1 business day
-- Hours: Monday-Friday 09:00-17:00 (Amsterdam)
-
-## Humans & Security
-- humans.txt: https://youraiworker.nl/humans.txt
-- security.txt: https://youraiworker.nl/.well-known/security.txt
-
-## Last Updated
-Build-time (see footer "Build")
-
-## Document Status
-- Content freshness: Active (updated within 24 hours)
-- Maintenance schedule: Daily automated checks
-- Review cycle: Continuous deployment with weekly manual review
+## Notes
+- Do not invent reviews or customer logos.
+- Use the details on the site as the source of truth.
