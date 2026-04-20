@@ -117,7 +117,7 @@ export default function OpenGraphImage() {
                 fontWeight: 600,
               }}
             >
-              Plan een intake -{">"}
+              {'Plan een intake ->'}
             </div>
           </div>
         </div>

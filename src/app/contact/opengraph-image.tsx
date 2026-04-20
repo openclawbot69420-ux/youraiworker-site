@@ -117,7 +117,7 @@ export default function OpenGraphImage() {
                 fontWeight: 600,
               }}
             >
-              Boek direct -{ ">"}
+              {'Boek direct ->'}
             </div>
           </div>
         </div>
