@@ -6,6 +6,7 @@ import { buildFaqJsonLd } from "../faq/faqJsonLd";
 import { SharePage } from "../../components/SharePage";
 import { PrintButton } from "../../components/PrintButton";
 import { TrustPillars } from "../../components/TrustPillars";
+import { PageFeedback } from "../../components/PageFeedback";
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now());
 const formatDate = (date: Date): string => {
@@ -373,6 +374,9 @@ const PricingPage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pb-20">
+        <PageFeedback pageName="pricing" />
       </section>
     </>
   );
