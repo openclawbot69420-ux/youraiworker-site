@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
-import React from "react"
-import { FileQuestion, ArrowLeft, Home, Calendar, Tag } from "lucide-react"
+import { FileQuestion, ArrowLeft, Home, Calendar, Tag, Mail } from "lucide-react"
 import Link from "next/link"
+import { BackButton } from "../components/BackButton"
 
 export const metadata: Metadata = {
   title: "Pagina niet gevonden | Your AI Worker",
@@ -42,7 +42,6 @@ export default function NotFound(): React.ReactNode {
         <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 sm:h-24 sm:w-24">
           <FileQuestion className="h-10 w-10 text-slate-400 sm:h-12 sm:w-12" aria-hidden="true" />
         </div>
-
         <h1 id="not-found-title" className="mt-6 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
           Pagina niet gevonden
         </h1>
@@ -52,29 +51,22 @@ export default function NotFound(): React.ReactNode {
         <p className="mx-auto mt-2 max-w-lg text-sm text-slate-500">
           Controleer de URL, bekijk onze populaire pagina's of plan direct een intake.
         </p>
-
-        {/* Quick actions */}
+        {/* Quick actions - now includes Back button for better UX */}
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <BackButton />
           <Link
             href="/"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-800 sm:w-auto"
           >
             <Home className="h-4 w-4" aria-hidden="true" />
-            Terug naar home
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
-          >
-            <Calendar className="h-4 w-4" aria-hidden="true" />
-            Plan een intake
+            Home
           </Link>
           <Link
             href="/pricing"
             className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
           >
             <Tag className="h-4 w-4" aria-hidden="true" />
-            Bekijk prijzen
+            Prijzen
           </Link>
         </div>
       </div>
@@ -118,24 +110,35 @@ export default function NotFound(): React.ReactNode {
         <span>Amsterdam</span>
       </div>
 
-      {/* Contact hint */}
-      <p className="mt-6 text-center text-sm text-slate-500">
-        Vragen? Mail ons op{" "}
-        <a
-          href="mailto:info@youraiworker.nl"
-          className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
-        >
-          info@youraiworker.nl
-        </a>{" "}
-        of bekijk de{" "}
-        <Link
-          href="/sitemap"
-          className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
-        >
-          sitemap
-        </Link>
-        .
-      </p>
+      {/* Improved contact hint with broken link report */}
+      <div className="mt-6 text-center">
+        <p className="text-sm text-slate-500">
+          Vragen?{" "}
+          <a
+            href="mailto:info@youraiworker.nl"
+            className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
+          >
+            Mail ons
+          </a>{" "}
+          of bekijk de{" "}
+          <Link
+            href="/sitemap"
+            className="font-medium text-slate-700 underline underline-offset-2 hover:text-slate-900"
+          >
+            sitemap
+          </Link>
+        </p>
+        {/* Broken link report option */}
+        <p className="mt-3 text-xs text-slate-400">
+          <a
+            href="mailto:info@youraiworker.nl?subject=404%20-%20Pagina%20niet%20gevonden&body=Ik%20kwam%20bovenstaande%20pagina%20tegen%20via%20deze%20URL:%20"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-slate-500"
+          >
+            <Mail className="h-3 w-3" aria-hidden="true" />
+            Meld een kapotte link
+          </a>
+        </p>
+      </div>
 
       {/* Error code for tech-savvy users */}
       <p className="mt-8 text-center text-xs text-slate-400">

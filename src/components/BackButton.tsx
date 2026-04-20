@@ -1,19 +1,37 @@
 "use client"
 
-import { useCallback } from "react"
+import { ArrowLeft } from "lucide-react"
+import { useEffect, useState } from "react"
 
-export default function BackButton(): React.ReactElement {
-  const goBack = useCallback(() => {
-    window.history.back()
+export function BackButton(): React.ReactNode {
+  const [canGoBack, setCanGoBack] = useState(false)
+
+  useEffect(() => {
+    // Check if there's history to go back to
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      setCanGoBack(true)
+    }
   }, [])
+
+  const handleGoBack = () => {
+    if (typeof window !== "undefined") {
+      window.history.back()
+    }
+  }
+
+  // Only render if we can go back
+  if (!canGoBack) {
+    return null
+  }
 
   return (
     <button
-      onClick={goBack}
+      onClick={handleGoBack}
+      className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 sm:w-auto"
       type="button"
-      className="text-sm text-slate-500 transition-colors hover:text-slate-700"
     >
-      Ga terug naar de vorige pagina
+      <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+      Ga terug
     </button>
   )
 }
