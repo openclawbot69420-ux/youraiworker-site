@@ -46,6 +46,11 @@ const FAQ_ITEMS: ReadonlyArray<FaqItem> = [
     question: "Hoe zit het met privacy en data?",
     answer: "We gebruiken een minimale set aan rechten, loggen acties waar nodig en richten approvals in voor kritieke stappen. In de intake stemmen we af welke data de agent mag zien, wat er opgeslagen wordt, en welke retention past bij je proces.",
   },
+  {
+    slug: "wat-hebben-jullie-nodig",
+    question: "Wat hebben wij nodig van jullie kant?",
+    answer: "Een aanspreekpunt voor goedkeuringen tijdens de build, toegang tot de systemen die gekoppeld moeten worden (least privilege) en realistische testcases. Je hoeft geen technisch persoon te leveren - wij draaien de implementatie.",
+  },
 ] as const
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
