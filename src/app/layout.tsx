@@ -294,6 +294,11 @@ export const metadata: Metadata = {
     "business:vat": CONTACT_BTW,
     // Site freshness indicator for crawlers (ISO 8601 timestamp)
     "last-modified": BUILD_TIMESTAMP,
+
+    // PWA-related meta tags (helps some crawlers and browsers pick up PWA intent).
+    // We already ship a web manifest - this makes it more discoverable.
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
   },
   twitter: {
     card: "summary_large_image",
