@@ -14,8 +14,8 @@ Canonical: https://youraiworker.nl/.well-known/security.txt
 # Policy page with security practices
 Policy: https://youraiworker.nl/security
 
-# PGP key for encrypted communication (if needed)
-Encryption: https://youraiworker.nl/.well-known/pgp-key.txt
+# PGP key for encrypted communication (optional)
+# Note: only include this when you have a real PGP key published.
 
 # Acknowledgments page (security researchers, etc.)
 Acknowledgments: https://youraiworker.nl/security
@@ -27,4 +27,4 @@ Preferred-Languages: nl, en
 Expires: 2027-12-31T23:59:59.000Z
 
 # Hiring status for security-related roles
-Hiring: https://youraiworker.nl/.well-known/ai.txt
+# Add a real hiring URL when you are actively recruiting.
