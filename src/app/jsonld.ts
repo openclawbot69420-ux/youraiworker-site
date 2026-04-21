@@ -13,6 +13,8 @@ import type {
   Answer,
   ItemList,
   SoftwareApplication,
+  HowTo,
+  HowToStep,
 } from "schema-dts";
 
 
@@ -490,4 +492,51 @@ export const buildSoftwareApplicationJsonLd = (): Record<string, unknown> => {
     privacyPolicy: "https://youraiworker.nl/privacy",
     discussionUrl: "https://www.linkedin.com/company/your-ai-worker/",
   }
+}
+
+// HowTo schema - enables rich results with step-by-step instructions in Google
+// Perfect for guides/tutorials that have clear sequential steps
+// https://developers.google.com/search/docs/appearance/structured-data/how-to
+export const buildHowToJsonLd = (options: {
+  name: string
+  description: string
+  url: string
+  image?: string
+  totalTime?: string
+  steps: string[]
+  estimatedCost?: { currency: string; value: string }
+  supply?: string[]
+  tool?: string[]
+}): Record<string, unknown> => {
+  const howToSteps: HowToStep[] = options.steps.map((step, index): HowToStep => ({
+    "@type": "HowToStep",
+    position: index + 1,
+    name: `Stap ${index + 1}`,
+    text: step,
+    url: `${options.url}#step-${index + 1}`,
+  }))
+
+  const result: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: options.name,
+    description: options.description,
+    url: options.url,
+    step: howToSteps,
+    ...(options.image ? { image: options.image } : {}),
+    ...(options.totalTime ? { totalTime: options.totalTime } : {}),
+    ...(options.estimatedCost
+      ? {
+          estimatedCost: {
+            "@type": "MonetaryAmount",
+            currency: options.estimatedCost.currency,
+            value: options.estimatedCost.value,
+          },
+        }
+      : {}),
+    ...(options.supply ? { supply: options.supply.map((s) => ({ "@type": "HowToSupply", name: s })) } : {}),
+    ...(options.tool ? { tool: options.tool.map((t) => ({ "@type": "HowToTool", name: t })) } : {}),
+  }
+
+  return result
 }

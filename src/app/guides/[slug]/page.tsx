@@ -5,7 +5,7 @@ import { ReadingTime } from "../../../components/ReadingTime"
 import { ShareButton } from "../../../components/ShareButton"
 import { PrintButton } from "../../../components/PrintButton"
 import { GUIDES } from "../../../lib/catalog"
-import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "../../jsonld"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildHowToJsonLd } from "../../jsonld"
 import { formatTimeAgo } from "../../../lib/formatTimeAgo"
 
 const SITE_URL = "https://youraiworker.nl"
@@ -139,6 +139,8 @@ const GuideDetailPage: React.FC<GuideDetailPageProps> = async (props) => {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbJsonLd) }} />
+      {/* HowTo schema enables step-by-step rich results in Google */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(buildHowToJsonLd({ name: guide.title, description: guide.shortDescription, url: `${SITE_URL}/guides/${slug}`, totalTime: `PT${Math.max(1, Math.ceil([guide.overview, ...guide.steps, ...guide.checklist].join(" ").split(/\s+/).length / 200))}M`, steps: guide.steps, })) }} />
       <section className="mx-auto max-w-6xl px-4 py-20">
       <div className="motion-fade-in -mx-4 mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm subtle-mesh sm:p-10">
         <div className="max-w-3xl">
