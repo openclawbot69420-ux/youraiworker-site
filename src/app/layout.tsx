@@ -1114,6 +1114,11 @@ const Footer: React.FC = () => {
               OpenClaw
               <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
             </a>
+            <span className="mx-1 text-slate-300">|</span>
+            <a href="https://github.com/openclawbot69420-ux/youraiworker-site" target="_blank" rel="noreferrer" referrerPolicy="strict-origin-when-cross-origin" className="inline-flex items-center gap-0.5 text-slate-500 underline underline-offset-2 transition-colors hover:text-slate-700" title="Bekijk broncode op GitHub (opent in nieuw tabblad)">
+            Bekijk bron
+            <ExternalLink className="h-2.5 w-2.5" aria-hidden="true" />
+            </a>
           </p>
         </div>
       </div>
