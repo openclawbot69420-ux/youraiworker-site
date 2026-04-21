@@ -616,7 +616,7 @@ const Footer: React.FC = () => {
               </h3>
               <p className="mt-2 max-w-md text-sm text-white/70">
                 Plan een intake van 20 minuten. Je krijgt binnen 1 werkdag een concreet voorstel -
-                <span className="text-emerald-300"> geen verplichtingen.</span>
+                geen verplichtingen.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
