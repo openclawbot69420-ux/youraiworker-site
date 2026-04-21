@@ -310,9 +310,9 @@ export const metadata: Metadata = {
   formatDetection: {
     // Prevent iOS/Safari from auto-linking phone numbers and addresses.
     // This avoids accidental "tappable" formatting in the footer and keeps typography clean.
-    email: true,
+    email: false,
     address: false,
-    telephone: true,
+    telephone: false,
   },
   verification: {
     // Add verification tokens here when available.
