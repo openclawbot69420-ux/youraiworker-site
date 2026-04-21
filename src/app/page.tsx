@@ -831,7 +831,7 @@ const HomePage: React.FC = () => {
               </thead>
               <tbody>
                 {COMPARISON_ROWS.map((row, index) => (
-                  <tr key={row.label} className="align-top">
+                  <tr key={row.label} className="align-top transition-colors hover:bg-slate-100/50">
                     <th
                       scope="row"
                       className={[
@@ -841,9 +841,9 @@ const HomePage: React.FC = () => {
                     >
                       {row.label}
                     </th>
-                    {[row.ours, row.va, row.diy].map((value) => (
+                    {[row.ours, row.va, row.diy].map((value, cellIndex) => (
                       <td
-                        key={`${row.label}-${value}`}
+                        key={`${row.label}-${cellIndex}`}
                         className={[
                           "border border-slate-200 px-4 py-3 text-sm leading-relaxed text-slate-700",
                           index % 2 === 0 ? "bg-white" : "bg-slate-50/50",
