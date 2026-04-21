@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Menu, X, ExternalLink } from "lucide-react"
+import { Menu, X, ExternalLink, Linkedin } from "lucide-react"
 
 type NavItem = {
   href: string
@@ -17,19 +17,19 @@ interface MobileNavProps {
   currentPath?: string
 }
 
+const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/your-ai-worker/"
+
 export const MobileNav: React.FC<MobileNavProps> = (props) => {
   const { items, cta, currentPath } = props
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     if (!isOpen) return
-
     const handler = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsOpen(false)
       }
     }
-
     document.addEventListener("keydown", handler)
     return () => {
       document.removeEventListener("keydown", handler)
@@ -41,7 +41,6 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
       document.body.classList.remove("overflow-hidden")
       return
     }
-
     document.body.classList.add("overflow-hidden")
     return () => {
       document.body.classList.remove("overflow-hidden")
@@ -109,9 +108,7 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
                     onClick={() => setIsOpen(false)}
                     className={[
                       "inline-flex items-center justify-between rounded-lg px-3 py-3 transition-colors",
-                      isActive
-                        ? "bg-slate-100 text-slate-900 font-medium"
-                        : "hover:bg-slate-100 hover:text-slate-900",
+                      isActive ? "bg-slate-100 text-slate-900 font-medium" : "hover:bg-slate-100 hover:text-slate-900",
                     ].join(" ")}
                     {...(isActive ? { "aria-current": "page" } : {})}
                     {...(isExternal ? { target: "_blank", rel: item.rel ?? "noreferrer" } : {})}
@@ -129,10 +126,25 @@ export const MobileNav: React.FC<MobileNavProps> = (props) => {
                 )
               })}
             </nav>
+
+            {/* LinkedIn social link for mobile */}
+            <a
+              href={COMPANY_LINKEDIN_URL}
+              onClick={() => setIsOpen(false)}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900"
+              title="Volg ons op LinkedIn (opent in nieuw tabblad)"
+            >
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
+              <span>LinkedIn</span>
+              <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
+            </a>
+
             <a
               href={cta.href}
               onClick={() => setIsOpen(false)}
-              className="mt-4 rounded-lg bg-slate-900 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-slate-800"
+              className="mt-3 rounded-lg bg-slate-900 px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-slate-800"
             >
               {cta.label}
             </a>
