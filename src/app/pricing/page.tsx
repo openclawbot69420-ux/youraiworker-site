@@ -5,6 +5,7 @@ import { buildBreadcrumbJsonLd } from "../jsonld";
 import { buildFaqJsonLd } from "../faq/faqJsonLd";
 import { SharePage } from "../../components/SharePage";
 import { PrintButton } from "../../components/PrintButton";
+import { CopyPricingSummaryButton } from "../../components/CopyPricingSummaryButton";
 import { TrustPillars } from "../../components/TrustPillars";
 import { PageFeedback } from "../../components/PageFeedback";
 
@@ -131,6 +132,7 @@ const PricingPage = () => {
 
       <div className="mx-auto max-w-6xl px-4 pt-4">
       <div className="flex justify-end gap-2">
+        <CopyPricingSummaryButton />
         <PrintButton />
         <SharePage title="Deel prijzen" />
       </div>

@@ -4,6 +4,8 @@ import { Calendar } from "lucide-react"
 import { USE_CASES } from "../../lib/catalog"
 import { buildBreadcrumbJsonLd } from "../jsonld"
 import { SharePage } from "../../components/SharePage"
+import { PrintButton } from "../../components/PrintButton"
+import { PageFeedback } from "../../components/PageFeedback"
 
 const LAST_UPDATED = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || Date.now())
 const formatDate = (date: Date): string => {
@@ -66,7 +68,8 @@ const UseCasesPage: React.FC = () => {
             <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Bijgewerkt: <time dateTime={LAST_UPDATED.toISOString()}>{formatDate(LAST_UPDATED)}</time></span>
           </span>
-          <SharePage title="Deel toepassingen" />
+          <PrintButton />
+        <SharePage title="Deel toepassingen" />
         </div>
       </div>
       <section className="mx-auto max-w-6xl px-4 py-20">
