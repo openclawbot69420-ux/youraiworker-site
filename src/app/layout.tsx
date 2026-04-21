@@ -455,10 +455,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = (props) => {
            Do not duplicate them here to avoid rendering issues. */}
         <meta name="generator" content="Next.js 16.2.0" />
 
-        {/* Performance: Prefetch key pages for instant navigation */}
-        <link rel="prefetch" href="/pricing" />
-        <link rel="prefetch" href="/contact" />
-        <link rel="prefetch" href="/use-cases" />
+        {/* Performance: Next.js handles route prefetching automatically. */}
 
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
